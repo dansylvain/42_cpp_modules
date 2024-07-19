@@ -7,10 +7,13 @@ HumanB::~HumanB() {};
 // member functions
 void HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with " << this->weapon->getType() << std::endl;
+	if (this->weapon)
+		std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	else
+		std::cout << this->name << " has no weapon to attack with" << std::endl;
 }
 
-void HumanB::setWeapon(Weapon weapon)
+void HumanB::setWeapon(Weapon& weapon)
 {
 	this->weapon = &weapon;
 }
