@@ -5,7 +5,11 @@
 int main( int argc, char **argv )
 {
 	std::string line;
+	std::string srcFile;
+	std::string destFile;
 
+	srcFile = argv[1];
+	destFile = srcFile + ".replace";
 	// arg number check
 	if (argc != 4)
 	{
@@ -15,6 +19,7 @@ int main( int argc, char **argv )
 
 	// test1
 	std::cout << argv[1] << std::endl;
+	std::cout << destFile << std::endl;
 
 
 	// open input file stream + check
@@ -25,9 +30,17 @@ int main( int argc, char **argv )
 		return (2);
 	}
 
+	// open output file stream + check
+	std::ofstream outputFile(destFile.c_str());
+	if (!outputFile)
+	{
+		std::cout << "could not create output file" << std::endl;
+		return (3);
+	}
+
 	while (std::getline(inputFile, line))
 	{
-		std::cout << line << std::endl;
+		outputFile << line << std::endl;
 	}
 
 	// close input file stream
