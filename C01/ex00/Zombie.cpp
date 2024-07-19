@@ -24,6 +24,11 @@ void	randomChump( std::string name )
 	tyrone_zombie.announce();
 
 }
+
+Zombie::~Zombie()
+{
+	std::cout << this->name << " was destroyed" << std::endl;
+}
 /**========================================================================
  *                           MAIN
  * Tyrone
@@ -36,5 +41,6 @@ int main(void)
 	zombie.announce();
 	bar_zombie->announce();
 	randomChump("Tyrone");
+	delete(bar_zombie);
 	return (0);
 }
