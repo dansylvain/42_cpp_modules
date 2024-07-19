@@ -1,9 +1,9 @@
-NAME = hi
+NAME = be_violent
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 RM = rm -rf
 
-SRC =	main.cpp \
+SRC =	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 		
 OBJS = $(SRC:.cpp=.o)
 
