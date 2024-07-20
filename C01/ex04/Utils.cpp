@@ -6,7 +6,7 @@
 /*   By: dansylvain <dansylvain@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 10:57:09 by dansylvain        #+#    #+#             */
-/*   Updated: 2024/07/20 11:08:45 by dansylvain       ###   ########.fr       */
+/*   Updated: 2024/07/20 11:10:19 by dansylvain       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  *========================================================================**/
 std::string Utils::errMssg = "Error: wrong number of arguments";
 std::string Utils::errMssg2 = "could not create output file";
+
 /**========================================================================
  *                           ARGNUMBERWRONG
  *========================================================================**/
@@ -28,9 +29,9 @@ int	Utils::ArgNumberWrong(int argc)
 }
 
 /**========================================================================
- *                           OPENSTREAMS
+ *                           openStreamsFails
  *========================================================================**/
-int	Utils::openStreams(std::ifstream& inputFile, std::ofstream& outputFile,
+int	Utils::openStreamsFails(std::ifstream& inputFile, std::ofstream& outputFile,
 	char *argv[])
 {
 	std::string srcFile;
