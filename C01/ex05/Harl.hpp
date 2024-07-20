@@ -15,4 +15,13 @@ class Harl {
 		Harl();
 		~Harl();
 		void complain( std::string level );
+		
+	typedef void (Harl::*HarlMemberFunction)();
 };
+
+struct FunctionMap
+{
+    const char* name;
+    Harl::HarlMemberFunction function;
+};
+
