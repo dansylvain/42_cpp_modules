@@ -7,14 +7,13 @@ int		Utils::ArgNumberWrong(int argc)
 	return (0);
 }
 
-void	Utils::initVars(std::string& destFile, std::string& s1, std::string& s2, char *argv[])
+void	Utils::initVars(std::string& destFile, char *argv[])
 {
 	std::string srcFile;
 
 	srcFile = argv[1];
 	destFile = srcFile + ".replace";
-	s1 = argv[2];
-	s2 = argv[3];
+
 }
 
 int	Utils::openStreams(std::ifstream& inputFile, std::ofstream& outputFile, char *srcFile, std::string& destFile)
@@ -54,7 +53,12 @@ int	Utils::openStreams(std::ifstream& inputFile, std::ofstream& outputFile, char
 
 
 
-std::string Utils::replaceAllOccurrences(const std::string& str, const std::string& s1, const std::string& s2) {
+std::string Utils::replaceAllOccurrences(const std::string& str, char *argv[]) {
+	std::string s1;
+	std::string s2;
+
+	s1 = argv[2];
+	s2 = argv[3];
 	if (s1.empty()) {
 		return str;
 	}

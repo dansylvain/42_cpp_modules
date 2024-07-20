@@ -3,9 +3,9 @@
 
 class Utils {
 	public:
-		static	std::string replaceAllOccurrences(const std::string& str, const std::string& s1, const std::string& s2);
+		static	std::string replaceAllOccurrences(const std::string& str, char *argv[]);
 		static	int ArgNumberWrong(int argc);
-		static	void initVars(std::string& destFile, std::string& s1, std::string& s2, char *argv[]);
+		static	void initVars(std::string& destFile, char *argv[]);
 		static	int openStreams(std::ifstream& inputFile, std::ofstream& outputFile, char *srcFile, std::string& destFile);
 
 };
