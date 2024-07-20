@@ -10,30 +10,14 @@ int main( int argc, char **argv )
 	std::string s2;
 	std::ifstream inputFile;
 	std::ofstream outputFile;
-	// arg number check
+
 	if(Utils::ArgNumberWrong(argc))
 		return (1);
-	
-	//initialize variables
 	Utils::initVars(destFile, s1, s2, argv);
-
-
-	// open input file stream + check
-	inputFile.open(argv[1]);
-	if (!inputFile)
-	{
-		std::cout << "Error: file not found" << std::endl;
+	if (Utils::openStreams(inputFile, outputFile, argv[1], destFile))
 		return (2);
-	}
-
-	// open output file stream + check
-	outputFile.open(destFile.c_str());
-	if (!outputFile)
-	{
-		std::cout << "could not create output file" << std::endl;
-		return (3);
-	}
 	
+	// replace s1 with s2
 	std::string newline;
 	while (std::getline(inputFile, line))
 	{
@@ -44,7 +28,6 @@ int main( int argc, char **argv )
 	}
 
 
-	// replace s1 with s2
 
 	// close input file stream
 	inputFile.close();

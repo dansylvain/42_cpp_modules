@@ -17,6 +17,26 @@ void	Utils::initVars(std::string& destFile, std::string& s1, std::string& s2, ch
 	s2 = argv[3];
 }
 
+int	Utils::openStreams(std::ifstream& inputFile, std::ofstream& outputFile, char *srcFile, std::string& destFile)
+{
+	// open input file stream + check
+	
+	inputFile.open(srcFile);
+	if (!inputFile)
+	{
+		std::cout << "Error: file not found" << std::endl;
+		return (2);
+	}
+
+	// open output file stream + check
+	outputFile.open(destFile.c_str());
+	if (!outputFile)
+	{
+		std::cout << "could not create output file" << std::endl;
+		return (3);
+	}
+	return (0);
+}
 
 
 
