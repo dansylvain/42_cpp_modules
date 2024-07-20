@@ -1,7 +1,12 @@
 #include "Harl.hpp"
 
+/**========================================================================
+ *                           TODO!!!
+ * !Don't forget to uncomment -Wall -Werror-Wextra in the Makefile!!!
+ *========================================================================**/
 int main(void)
 {
-	std::cout << "Hello, World!" << std::endl;
+	Harl harl;
+	std::cout << harl._debugMssg << std::endl;
 	return 0;
 }
