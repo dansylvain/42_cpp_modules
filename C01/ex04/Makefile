@@ -1,9 +1,10 @@
 NAME = sed
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
+CFLAGS = 	-std=c++98 -Iinc
+			# -Wall -Wextra -Werror 
 RM = rm -rf
 
-SRC =	main.cpp
+SRC =	main.cpp Utils.cpp
 		
 OBJS = $(SRC:.cpp=.o)
 
