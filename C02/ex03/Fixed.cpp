@@ -49,7 +49,7 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
  *========================================================================**/
-Fixed &Fixed::operator=(const Fixed &src){
+Fixed &Fixed::operator=(const Fixed &src) {
 	if (this != &src)
 		this->_value = src.getRawBits();
 	return *this;}
