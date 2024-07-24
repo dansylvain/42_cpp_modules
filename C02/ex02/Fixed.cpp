@@ -49,7 +49,6 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
  *========================================================================**/
-
 Fixed &Fixed::operator=(const Fixed &fixed){
 	if (this != &fixed)
 		this->_value = fixed.getRawBits();
@@ -122,13 +121,10 @@ Fixed Fixed::operator--(int) {
 	--_value;
 	return temp;}
 
-
-
 /**========================================================================
  *                         OVERLOAD OF << OPERATOR
  * onverts fixed point number to float and forward it to output stream.
  *========================================================================**/
-
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
 	out << fixed.toFloat();
 	return out;}
