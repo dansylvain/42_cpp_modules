@@ -1,10 +1,10 @@
-TARGET = letUsSpeak
+TARGET = bsp
 
 CXX = g++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp bsp.cpp Fixed.cpp Point.cpp 
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
