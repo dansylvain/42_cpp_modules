@@ -31,7 +31,7 @@ public:
     static const Fixed &max(const Fixed &a, const Fixed &b);
 
 	// Assignment operator
-	Fixed &operator=(const Fixed &fixed);
+	Fixed &operator=(const Fixed &src);
 	
 	// Comparison operators
 	bool operator>(const Fixed &other) const;
