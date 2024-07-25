@@ -2,8 +2,8 @@
 
 class Point {
 	private:
-		Fixed const x;
-		Fixed const y;
+		const Fixed _x;
+		const Fixed _y;
 	public:
 		// Constructors & destructors
 		Point();
