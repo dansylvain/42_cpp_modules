@@ -5,8 +5,7 @@
  *========================================================================**/
 Fixed::Fixed() : _value(0) {}
 
-Fixed::Fixed(const Fixed &fixed) : _value(fixed._value) {
-	*this = fixed;}
+Fixed::Fixed(const Fixed &fixed) : _value(fixed._value) {}
 
 Fixed::Fixed(const int integer) {
 	_value = integer << _fractionalBits;}

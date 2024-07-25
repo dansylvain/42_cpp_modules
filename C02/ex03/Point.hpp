@@ -8,7 +8,7 @@ class Point {
 		// Constructors & destructors
 		Point();
 		Point(const float x, const float y);
-		Point(Fixed const point);
+		Point(const Point& src);
 		Point& operator=(const Point& src);
 		~Point();
 };
