@@ -13,9 +13,9 @@ private:
 public:
 	// Constructors and destructor
 	Fixed();
-	Fixed(const Fixed &fixed);
 	Fixed(const int integer);
 	Fixed(const float floatingPoint);
+	Fixed(const Fixed &fixed);
 	~Fixed();
 
 	// Access and utility methods
