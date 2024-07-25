@@ -9,6 +9,10 @@ class Point {
 		Point();
 		Point(const float x, const float y);
 		Point(const Point& src);
-		Point& operator=(const Point& src);
 		~Point();
+		
+		// assignment operator
+		Point& operator=(const Point& src);
+
+		// others...
 };
