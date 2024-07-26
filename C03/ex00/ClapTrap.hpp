@@ -9,9 +9,9 @@ class ClapTrap {
 	public:
 		// Constructors and destructor
 		ClapTrap();
-		ClapTrap(const std::string name);
-		~ClapTrap();
+		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap &other);
+		~ClapTrap();
 
 		// assignment operator
 		ClapTrap &operator=(const ClapTrap &src);
