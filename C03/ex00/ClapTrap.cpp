@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(const std::string& name) : Name(name),
 										AttackDamage(0) {
 	addClapTrap(this);
 	std::cout << "ClapTrap " << name << " created." << std::endl;
-										}
+}
 
 ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name), 
 											HitPoints(other.HitPoints), 
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name),
 											AttackDamage(other.AttackDamage) {
 	addClapTrap(this);
 	std::cout << "ClapTrap " << Name << " created." << std::endl;
-											}
+}
 
 ClapTrap::~ClapTrap() {
 	count--;
@@ -69,16 +69,19 @@ int	ClapTrap::getAttackDamage(void) const {
  *                           METHODS
  *========================================================================**/
 void ClapTrap::attack(const std::string& target) {
-	
-	(void)target;
+	if (this->EnergyPoints > 0)
+		findByName(target)->takeDamage(this->AttackDamage);
+	EnergyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	(void)amount;
+	this->EnergyPoints -= amount;
+	if (this->EnergyPoints < 0)
+		EnergyPoints = 0;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	(void)amount;
+	this->EnergyPoints += amount;
 }
 
 void ClapTrap::addClapTrap(ClapTrap* clapTrap) {
