@@ -2,13 +2,9 @@
 #include "Fixed.hpp"
 #include <cstdio>
 
-/**========================================================================
- *                             BSP
- *  produit vectoriel 2D
- *  (Bx−Ax)⋅(Py−Ay)−(By−Ay)⋅(Px−Ax)
- *  
- *  
- *========================================================================**/
+bool haveSameSign(int x, int y);
+int	cross_product_2d(int x[], int y[], int z[]);
+void	initializeArray(int array[], Point const p);
 
 int	cross_product_2d(int x[], int y[], int z[]){
 	return ((y[0]-x[0])*(z[1]-x[1])-(y[1]-x[1])*(z[0]-x[0]));
@@ -28,8 +24,15 @@ bool haveSameSign(int x, int y)
 	return (false);
 }
 
+/**========================================================================
+ *                           BSP
+ * comparing the cross product of AB and C with the CP of P with all sides,
+ * we make sure that P is on the same side and hence, within the triangle
+ *========================================================================**/
 bool bsp( Point const a, Point const b, Point const c, Point const point){
+	
 	int A[2], B[2], C[2], P[2];
+	
 	initializeArray(A, a);
 	initializeArray(B, b);
 	initializeArray(C, c);
@@ -43,9 +46,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point){
 	bool sameSign1 = haveSameSign(cp1, cp2);
 	bool sameSign2 = haveSameSign(cp1, cp3);
 	bool sameSign3 = haveSameSign(cp1, cp4);
-
-	std::cout << "Cross Products: " << cp1 << ", " << cp2 << ", " << cp3 << ", " << cp4 << std::endl;
-	std::cout << "Same Signs: " << sameSign1 << ", " << sameSign2 << ", " << sameSign3 << std::endl;
 
 	return (sameSign1 && sameSign2 && sameSign3);
 }
