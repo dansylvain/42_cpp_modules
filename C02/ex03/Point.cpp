@@ -22,3 +22,14 @@ Point& Point::operator=(const Point& src) {
 	}
 	return (*this);
 }
+
+/**========================================================================
+ *                           ACCESS AND UTILITY METHODS
+ *========================================================================**/
+const Fixed& Point::get_x(void) const {
+	return (this->_x);
+}
+
+const Fixed& Point::get_y(void) const {
+	return (this->_y);
+}

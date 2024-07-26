@@ -1,3 +1,6 @@
+#ifndef POINT_HPP
+#define POINT_HPP
+
 #include "Fixed.hpp"
 
 class Point {
@@ -14,5 +17,11 @@ class Point {
 		// assignment operator
 		Point& operator=(const Point& src);
 
+		// access and utility methods
+		const Fixed& get_x(void) const;
+		const Fixed& get_y(void) const;
+
 		// others...
 };
+
+#endif
