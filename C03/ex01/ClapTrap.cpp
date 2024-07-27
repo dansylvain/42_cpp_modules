@@ -1,7 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap* ClapTrap::allClapTraps[ClapTrap::MAX_CLAPTRAPS] = { NULL };
-int ClapTrap::count = 0;
+/**========================================================================
+ *                           STATIC VARS INITIALISATION
+ *========================================================================**/
+ClapTrap* 	ClapTrap::allClapTraps[ClapTrap::MAX_CLAPTRAPS] = { NULL };
+int 		ClapTrap::count = 0;
+
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
@@ -28,7 +32,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name),
 
 ClapTrap::~ClapTrap() {
 	count--;
-	std::cout << "ClapTrap " << this->Name << " destroyed." << std::endl;
+	std::cout << "ClapTrap " << Name << " destroyed." << std::endl;
 }
 
 
@@ -146,4 +150,12 @@ ClapTrap* ClapTrap::findByName(const std::string& name) {
 		}
 	}
 	return NULL;
+}
+
+/**========================================================================
+ *                           UTILS METHODS
+ *========================================================================**/
+void	ClapTrap::DisplayName(std::string wtf)
+{
+	std::cout << "***ScavTrap " << this->getName() << wtf << std::endl;
 }
