@@ -13,9 +13,9 @@ ClapTrap::ClapTrap() : HitPoints(0), EnergyPoints(0), AttackDamage(0) {
 ClapTrap::ClapTrap(const std::string& name) : Name(name), 
 										HitPoints(10), 
 										EnergyPoints(10), 
-										AttackDamage(0) {
+										AttackDamage(5) {
 	addClapTrap(this);
-	std::cout << "ClapTrap " << name << " created." << std::endl;
+	std::cout << name << " created." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name), 
@@ -23,12 +23,12 @@ ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name),
 											EnergyPoints(other.EnergyPoints), 
 											AttackDamage(other.AttackDamage) {
 	addClapTrap(this);
-	std::cout << "ClapTrap " << Name << " created." << std::endl;
+	std::cout << Name << " created." << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
 	count--;
-	std::cout << "ClapTrap " << this->Name << " destroyed." << std::endl;
+	std::cout << this->Name << " destroyed." << std::endl;
 }
 
 
@@ -66,24 +66,39 @@ int	ClapTrap::getAttackDamage(void) const {
 }
 
 /**========================================================================
- *                           METHODS
+ *                           ACTION METHODS
  *========================================================================**/
 void ClapTrap::attack(const std::string& target) {
-	if (this->EnergyPoints > 0)
-		findByName(target)->takeDamage(this->AttackDamage);
+	if (this->EnergyPoints > 0 && this->AttackDamage)
+	{
+		ClapTrap *tmp = findByName(target);
+		if (tmp != NULL)
+		{
+			std::cout << (*this).getName() << " attacks " << target << " and looses 1 EnergyPoint" << std::endl;
+			(*tmp).takeDamage(this->AttackDamage);
+		}
+		else
+			std::cout  << target 
+			<< " does not exist..." << std::endl;
+	}
 	EnergyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	this->EnergyPoints -= amount;
-	if (this->EnergyPoints < 0)
-		EnergyPoints = 0;
+	std::cout << (*this).getName() << " takes damage and looses " << amount << " HitPoints." << std::endl;
+	this->HitPoints -= amount;
+	if (this->HitPoints < 0)
+		HitPoints = 0;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	this->EnergyPoints += amount;
+	std::cout << (*this).getName() << " is repaired and recovers " << amount << " HitPoints." << std::endl;
+	this->HitPoints += amount;
 }
 
+/**========================================================================
+ *                           CLAPTRAP MANAGEMENT METHODS
+ *========================================================================**/
 void ClapTrap::addClapTrap(ClapTrap* clapTrap) {
 	if (count < MAX_CLAPTRAPS) {
 		allClapTraps[count++] = clapTrap;

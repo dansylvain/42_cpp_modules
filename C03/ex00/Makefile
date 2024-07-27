@@ -1,4 +1,4 @@
-TARGET = claptrap
+TARGET = open
 
 CXX = g++
 
