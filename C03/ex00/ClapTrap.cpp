@@ -13,7 +13,7 @@ ClapTrap::ClapTrap() : HitPoints(0), EnergyPoints(0), AttackDamage(0) {
 ClapTrap::ClapTrap(const std::string& name) : Name(name), 
 										HitPoints(10), 
 										EnergyPoints(10), 
-										AttackDamage(5) {
+										AttackDamage(6) {
 	addClapTrap(this);
 	std::cout << name << " created." << std::endl;
 }
@@ -69,31 +69,63 @@ int	ClapTrap::getAttackDamage(void) const {
  *                           ACTION METHODS
  *========================================================================**/
 void ClapTrap::attack(const std::string& target) {
-	if (this->EnergyPoints > 0 && this->AttackDamage)
+	if (this->HitPoints == 0)
 	{
-		ClapTrap *tmp = findByName(target);
-		if (tmp != NULL)
-		{
-			std::cout << (*this).getName() << " attacks " << target << " and looses 1 EnergyPoint" << std::endl;
-			(*tmp).takeDamage(this->AttackDamage);
-		}
-		else
-			std::cout  << target 
-			<< " does not exist..." << std::endl;
+		std::cout << this->Name << " is dead and can't do anything." << std::endl;
+		return ;
 	}
+	ClapTrap *tmp = findByName(target);
+	if (tmp != NULL && tmp->getHitPoints() == 0)
+	{
+		std::cout << this->Name << " attacks " << target << ", but it is already dead." << std::endl;
+		return ;
+	}
+	if (this->getEnergyPoints() == 0)
+	{
+		std::cout << this->getName() << " has no energy left and can't attack." << std::endl;
+		return ;
+	}	
+	if (tmp != NULL)
+	{
+		std::cout << this->getName() << " attacks " << target << " and looses 1 EnergyPoint" << std::endl;
+		(*tmp).takeDamage(this->AttackDamage);
+	}
+	else
+		std::cout  << target 
+		<< " does not exist..." << std::endl;
 	EnergyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	std::cout << (*this).getName() << " takes damage and looses " << amount << " HitPoints." << std::endl;
+	if (this->HitPoints == 0)
+	{
+		std::cout << this->Name << " is dead and can't do anything." << std::endl;
+		return ;
+	}
 	this->HitPoints -= amount;
-	if (this->HitPoints < 0)
+	if (this->HitPoints <= 0)
+	{
+		std::cout << this->getName() << " looses " << amount + this->getHitPoints() << " HitPoints, and dies." << std::endl;
 		HitPoints = 0;
+		return ;
+	}
+	std::cout << this->getName() << " takes damage and looses " << amount << " HitPoints." << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << (*this).getName() << " is repaired and recovers " << amount << " HitPoints." << std::endl;
-	this->HitPoints += amount;
+	if (this->HitPoints == 0)
+	{
+		std::cout << this->Name << " is dead and can't do anything." << std::endl;
+		return ;
+	}
+	if ((*this).getEnergyPoints() > 0)
+	{
+		std::cout << this->getName() << " is repaired and recovers " << amount << " HitPoints." << std::endl;
+		this->HitPoints += amount;
+		this->EnergyPoints--;
+	}
+	else
+		std::cout << this->getName() << " has no energy left and can't be repaired." << std::endl;
 }
 
 /**========================================================================

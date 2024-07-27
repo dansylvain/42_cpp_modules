@@ -13,28 +13,31 @@ void	displayClapTraps()
 
 int main(void)
 {
-	ClapTrap bobby("Bobby");
-	ClapTrap lucy("Lucy");
-	ClapTrap fahrid("Fahrid");
-	ClapTrap clarence("Clarence");
-	ClapTrap karim("Karim");
+	ClapTrap Clapster("Clapster");
+	ClapTrap ZappyClap("ZappyClap");
+	ClapTrap ClapMaster("ClapMaster");
+	ClapTrap ClapTronix("ClapTronix");
+	ClapTrap GigaClap("GigaClap");
+	
 	std::cout << std::endl;
-	std::cout << "ClapTraps before attacks: \n";
+	std::cout << "ClapTraps display before attacks: " << std::endl;
 	displayClapTraps();
 	std::cout << std::endl;
 	
+	std::cout << "test: attack" << std::endl;
+	Clapster.attack("NonExistingClapTrap");
+	Clapster.attack("");
+	Clapster.attack("ClapTronix");
+	Clapster.attack("ClapTronix");
+	Clapster.attack("ClapTronix");
+	ClapTronix.attack("Clapster");
+	
 
-	fahrid.attack("Clarence");
-	fahrid.attack("Clarence");
-	fahrid.attack("Clarence");
-	fahrid.attack("Clarence");
-	fahrid.attack("Clarence");
-	fahrid.attack("Clarence");
-	karim.beRepaired(42);
-
+	
 	std::cout << std::endl;	
-	std::cout << "ClapTraps after attacks." <<std::endl;
+	std::cout << "ClapTraps display after attacks:" <<std::endl;
 	displayClapTraps();
+	std::cout << std::endl;	
 
 	return (0);
 }
