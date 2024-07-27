@@ -17,11 +17,11 @@ void	displayClapTraps()
 int main(void)
 {
 	std::cout << "****** Create Clapsters ******" << std::endl;
-	ClapTrap Clapster("Clapster");
-	ClapTrap ZappyClap("ZappyClap");
-	ClapTrap ClapMaster("ClapMaster");
-	ClapTrap ClapTronix("ClapTronix");
-	ClapTrap GigaClap("GigaClap");
+	ScavTrap Clapster("Clapster");
+	ScavTrap ZappyClap("ZappyClap");
+	ScavTrap ClapMaster("ClapMaster");
+	ScavTrap ClapTronix("ClapTronix");
+	ScavTrap GigaClap("GigaClap");
 	
 	
 	displayClapTraps();
@@ -32,16 +32,20 @@ int main(void)
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
+	Clapster.attack("ClapTronix");
+	Clapster.attack("ClapTronix");
+	Clapster.attack("ClapTronix");
 	ClapTronix.attack("Clapster");
 	std::cout << std::endl;
 	ZappyClap.attack("GigaClap");
 	
 	std::cout << "***** test: takeDamage *******" << std::endl;
-	ClapMaster.takeDamage(3);
-	ClapMaster.takeDamage(3);
-	ClapMaster.takeDamage(3);
-	ClapMaster.takeDamage(3);
-	ClapMaster.takeDamage(3);
+	ClapMaster.takeDamage(22);
+	ClapMaster.takeDamage(22);
+	ClapMaster.takeDamage(22);
+	ClapMaster.takeDamage(22);
+	ClapMaster.takeDamage(22);
+	ClapMaster.takeDamage(22);
 	std::cout << std::endl;
 	
 	std::cout << "***** test: beRepaired *******" << std::endl;

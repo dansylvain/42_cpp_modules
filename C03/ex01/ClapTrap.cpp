@@ -15,7 +15,7 @@ ClapTrap::ClapTrap(const std::string& name) : Name(name),
 										EnergyPoints(50), 
 										AttackDamage(20) {
 	addClapTrap(this);
-	std::cout << name << " created." << std::endl;
+	std::cout << "ClapTrap " << name << " created." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name), 
@@ -23,12 +23,12 @@ ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name),
 											EnergyPoints(other.EnergyPoints), 
 											AttackDamage(other.AttackDamage) {
 	addClapTrap(this);
-	std::cout << Name << " created." << std::endl;
+	std::cout << "ClapTrap " << Name << " created." << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
 	count--;
-	std::cout << this->Name << " destroyed." << std::endl;
+	std::cout << "ClapTrap " << this->Name << " destroyed." << std::endl;
 }
 
 
