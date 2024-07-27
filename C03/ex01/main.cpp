@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 void	displayClapTraps()
 {
@@ -57,6 +58,11 @@ int main(void)
 
 	
 	displayClapTraps();
+
+
+	ScavTrap loulou("Loulou");
+	loulou.guardGate();
+
 
 	std::cout << "****** Detroy Clapsters ******" << std::endl;
 	return (0);

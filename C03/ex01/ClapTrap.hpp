@@ -1,3 +1,6 @@
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
+
 #include <iostream>
 
 class ClapTrap {
@@ -10,9 +13,9 @@ class ClapTrap {
 		static void addClapTrap(ClapTrap* clapTrap);
 		static ClapTrap* findByName(const std::string& name);
 	public:
-		static const int	MAX_CLAPTRAPS = 10; // Taille maximale du tableau
-		static ClapTrap*	allClapTraps[MAX_CLAPTRAPS]; // Tableau statique pour les instances
-		static int 			count; // Compteur pour suivre le nombre d'instances
+		static const int	MAX_CLAPTRAPS = 10;
+		static ClapTrap*	allClapTraps[MAX_CLAPTRAPS];
+		static int 			count;
 		// Constructors and destructor
 		ClapTrap();
 		ClapTrap(const std::string& name);
@@ -33,3 +36,5 @@ class ClapTrap {
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
+
+#endif
