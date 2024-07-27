@@ -4,15 +4,15 @@
 #include <iostream>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string			Name;
 		int					HitPoints;
 		int					EnergyPoints;
 		int					AttackDamage;
 
+	public:
 		static void addClapTrap(ClapTrap* clapTrap);
 		static ClapTrap* findByName(const std::string& name);
-	public:
 		static const int	MAX_CLAPTRAPS = 10;
 		static ClapTrap*	allClapTraps[MAX_CLAPTRAPS];
 		static int 			count;

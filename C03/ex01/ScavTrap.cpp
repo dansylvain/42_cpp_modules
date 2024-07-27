@@ -1,5 +1,9 @@
 #include "ScavTrap.hpp"
 
+void ScavTrap::attack(const std::string& target) {
+	std::cout << "***ScrapTrap***";
+	ClapTrap::attack(target);
+}
 
 
 void ScavTrap::guardGate() {

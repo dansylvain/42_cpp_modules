@@ -18,7 +18,7 @@ int main(void)
 {
 	std::cout << "****** Create Clapsters ******" << std::endl;
 	ScavTrap Clapster("Clapster");
-	ScavTrap ZappyClap("ZappyClap");
+	ClapTrap ZappyClap("ZappyClap");
 	ScavTrap ClapMaster("ClapMaster");
 	ScavTrap ClapTronix("ClapTronix");
 	ScavTrap GigaClap("GigaClap");
@@ -29,6 +29,7 @@ int main(void)
 	std::cout << "******* test: attack *********" << std::endl;
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
+	ZappyClap.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
