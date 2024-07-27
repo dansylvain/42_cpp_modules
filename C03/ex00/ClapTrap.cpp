@@ -71,7 +71,7 @@ int	ClapTrap::getAttackDamage(void) const {
 void ClapTrap::attack(const std::string& target) {
 	if (this->HitPoints == 0)
 	{
-		std::cout << this->Name << " is dead and can't do anything." << std::endl;
+		std::cout << this->Name << " is dead and can't attack." << std::endl;
 		return ;
 	}
 	ClapTrap *tmp = findByName(target);
@@ -99,7 +99,7 @@ void ClapTrap::attack(const std::string& target) {
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (this->HitPoints == 0)
 	{
-		std::cout << this->Name << " is dead and can't do anything." << std::endl;
+		std::cout << this->Name << " is already dead." << std::endl;
 		return ;
 	}
 	this->HitPoints -= amount;
@@ -120,7 +120,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	}
 	if ((*this).getEnergyPoints() > 0)
 	{
-		std::cout << this->getName() << " is repaired and recovers " << amount << " HitPoints." << std::endl;
+		std::cout << this->getName() << " repaires itself, recovers " << amount << " HitPoints, and looses 1 EnergyPoint." << std::endl;
 		this->HitPoints += amount;
 		this->EnergyPoints--;
 	}
