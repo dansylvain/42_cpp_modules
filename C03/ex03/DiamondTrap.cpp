@@ -1,22 +1,23 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ScavTrap() {
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 	print("### DiamondTrap created.");
 	initialize();
 };
 
-DiamondTrap::DiamondTrap(const std::string& name) {
-	_Name = name;
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
+	Name = name;
 	initialize();
-	print("### DiamondTrap ", _Name,  " created. ###");
+	print("### DiamondTrap ", Name,  " created. ###");
 };
-DiamondTrap::DiamondTrap(const DiamondTrap &other) : ScavTrap(other), FragTrap(other) {
+
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other) {
 	initialize();
-	print("### DiamondTrap ", _Name,  " created. ###");
+	print("### DiamondTrap ", Name,  " created. ###");
 };
 
 DiamondTrap::~DiamondTrap() {
-	print("### DiamondTrap ", _Name,  " destroyed. ###");
+	print("### DiamondTrap ", Name,  " destroyed. ###");
 };
 
 // assignment operator
@@ -40,8 +41,9 @@ void whoAmI() {
 
 
 void DiamondTrap::initialize() {
-	_HitPoints = 42;
-	_EnergyPoints = 42;
-	_AttackDamage = 42;
+	ClapTrap::Name += "_clap_name";
+	HitPoints = FragTrap::HitPoints;
+	EnergyPoints = ScavTrap::EnergyPoints;
+	AttackDamage = FragTrap::AttackDamage;
 	ScavTrap::DisplayName(" created.");
 }

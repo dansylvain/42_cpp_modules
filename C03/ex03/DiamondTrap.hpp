@@ -7,10 +7,10 @@
 
 class DiamondTrap : public ScavTrap, public FragTrap {
 	private:
-		std::string			_Name;
-		int					_HitPoints;
-		int					_EnergyPoints;
-		int					_AttackDamage;
+		std::string			Name;
+		int					HitPoints;
+		int					EnergyPoints;
+		int					AttackDamage;
 	public:
 		// Constructors and destructor
 		DiamondTrap();

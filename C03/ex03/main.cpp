@@ -8,7 +8,7 @@ void	displayClapTraps()
 	print("");
 	print("*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***");
 	for (int i = 0; i < ClapTrap::count; i++)
-		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
+		std::cout << i << " - " << ClapTrap::allClapTraps[i]->getName() << ", "
 		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
 		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
 		<< ClapTrap::allClapTraps[i]->getAttackDamage()
