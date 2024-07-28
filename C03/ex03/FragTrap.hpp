@@ -21,7 +21,7 @@ class FragTrap : public ClapTrap {
 
 		// utils methods
 		void	DisplayName(std::string str) const;
-		void	initialize(std::string str);
+		void	initialize(void);
 };
 
 #endif

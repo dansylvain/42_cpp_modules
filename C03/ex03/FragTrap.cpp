@@ -4,13 +4,13 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 FragTrap::FragTrap() : ClapTrap() {
-	initialize(" created***");}
+	initialize();}
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-	initialize(" created***");}
+	initialize();}
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
-	initialize(" created***");}
+	initialize();}
 
 FragTrap::~FragTrap() {
 	DisplayName(" destroyed***");};
@@ -41,9 +41,9 @@ void	FragTrap::DisplayName(std::string str) const {
 	print("***FragTrap ", this->getName(), str);
 }
 
-void FragTrap::initialize(std::string str) {
+void FragTrap::initialize(void) {
 	HitPoints = 100;
 	EnergyPoints = 100;
 	AttackDamage = 30;
-	DisplayName(str);
+	DisplayName(" created***");
 }

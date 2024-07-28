@@ -5,7 +5,7 @@
 #include "ScavTrap.hpp"	
 #include "FragTrap.hpp"
 
-class DiamondTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 	private:
 		std::string			_Name;
 		int					_HitPoints;
@@ -23,6 +23,7 @@ class DiamondTrap {
 
 		// other methods
 		void whoAmI();
+		void initialize(void);
 };
 
 #endif
