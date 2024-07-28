@@ -42,8 +42,8 @@ void	ScavTrap::DisplayName(std::string str) const {
 }
 void ScavTrap::initialize(std::string str)
 {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(str);
+	ScavTrap::HitPoints = 90;
+	ScavTrap::EnergyPoints = 50;
+	ScavTrap::AttackDamage = 20;
+	ScavTrap::DisplayName(str);
 }

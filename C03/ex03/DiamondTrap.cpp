@@ -6,7 +6,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 };
 
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
-	initialize();
+	DiamondTrap::initialize();
 	print("### DiamondTrap ", Name,  " created. ###");
 };
 
@@ -43,6 +43,7 @@ void DiamondTrap::initialize() {
 	EnergyPoints = ScavTrap::EnergyPoints;
 	HitPoints = FragTrap::HitPoints;
 	AttackDamage = FragTrap::AttackDamage;
+	std::cout << Name << ", " << EnergyPoints << ", " << HitPoints << ", " << AttackDamage << std::endl;
 }
 
 void	DiamondTrap::DisplayName(std::string str) const {

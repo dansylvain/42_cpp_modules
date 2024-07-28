@@ -42,8 +42,8 @@ void	FragTrap::DisplayName(std::string str) const {
 }
 
 void FragTrap::initialize(void) {
-	EnergyPoints = 100;
-	HitPoints = 150;
-	AttackDamage = 30;
+	FragTrap::EnergyPoints = 100;
+	FragTrap::HitPoints = 150;
+	FragTrap::AttackDamage = 30;
 	DisplayName(" created @@@");
 }
