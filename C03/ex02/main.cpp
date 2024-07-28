@@ -1,5 +1,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 void	displayClapTraps()
 {
@@ -17,6 +18,7 @@ void	displayClapTraps()
 int main(void)
 {
 	print("****** Create Clapsters ******");
+	FragTrap FraggyBoy("FraggyBoy");
 	ScavTrap Clapster("Clapster");
 	ScavTrap ZappyClap("ZappyClap");
 	ScavTrap ClapMaster("ClapMaster");

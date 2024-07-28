@@ -28,11 +28,16 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
 /**========================================================================
  *                           ACTION METHODS
  *========================================================================**/
-void ScavTrap::attack(const std::string& target) {
-	std::cout << "***ScrapTrap*** ";
+void	ScavTrap::attack(const std::string& target) {
+	std::cout << "***ScavTrap*** ";
 	ClapTrap::attack(target);
 }
 
-void ScavTrap::guardGate() {
-	print("***ScrapTrap*** ", this->getName(), " Enter Gate Keeper Mode");
+void	ScavTrap::guardGate() {
+	print("***ScavTrap*** ", this->getName(), " Enter Gate Keeper Mode");
 };
+
+void	ScavTrap::DisplayName(std::string str)
+{
+	print("***ScavTrap ", this->getName(), str);
+}

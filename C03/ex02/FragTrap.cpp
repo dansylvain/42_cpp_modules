@@ -28,11 +28,16 @@ FragTrap& FragTrap::operator=(const FragTrap& src) {
 /**========================================================================
  *                           ACTION METHODS
  *========================================================================**/
-void FragTrap::attack(const std::string& target) {
-	std::cout << "***ScrapTrap*** ";
+void	FragTrap::attack(const std::string& target) {
+	std::cout << "***FragTrap*** ";
 	ClapTrap::attack(target);
 }
 
-void FragTrap::guardGate() {
-	print("***ScrapTrap*** ", this->getName(), " Enter Gate Keeper Mode");
+void	FragTrap::guardGate() {
+	print("***FragTrap*** ", this->getName(), " Enter Gate Keeper Mode");
 };
+
+void	FragTrap::DisplayName(std::string str)
+{
+	print("***FragTrap ", this->getName(), str);
+}

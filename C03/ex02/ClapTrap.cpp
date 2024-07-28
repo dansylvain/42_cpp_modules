@@ -158,8 +158,5 @@ ClapTrap* ClapTrap::findByName(const std::string& name) {
 /**========================================================================
  *                           UTILS METHODS
  *========================================================================**/
-void	ClapTrap::DisplayName(std::string str)
-{
-	print("***ScavTrap ", this->getName(), str);
-}
+
 
