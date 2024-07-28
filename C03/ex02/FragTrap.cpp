@@ -33,17 +33,15 @@ void	FragTrap::attack(const std::string& target) {
 	ClapTrap::attack(target);
 }
 
-void	FragTrap::highFivesGuys() {
+void	FragTrap::highFivesGuys() const {
 	print("***FragTrap*** ", this->getName(), " sends a high five, guys.");
-};
+}
 
-void	FragTrap::DisplayName(std::string str)
-{
+void	FragTrap::DisplayName(std::string str) const {
 	print("***FragTrap ", this->getName(), str);
 }
 
-void FragTrap::initialize(std::string str)
-{
+void FragTrap::initialize(std::string str) {
 	HitPoints = 100;
 	EnergyPoints = 100;
 	AttackDamage = 30;

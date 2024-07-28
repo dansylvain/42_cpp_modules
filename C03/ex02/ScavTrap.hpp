@@ -15,10 +15,12 @@ class ScavTrap : public ClapTrap {
 		// assignment operator
 	    ScavTrap& operator=(const ScavTrap& src);
 
-		// other methods
+		// action methods
 		void	attack(const std::string& target);
-		void	guardGate();
-		void	DisplayName(std::string str);
+		void	guardGate() const;
+
+		// utils methods
+		void	DisplayName(std::string str) const;
 		void	initialize(std::string str);
 };
 

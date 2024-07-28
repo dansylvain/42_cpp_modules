@@ -15,10 +15,12 @@ class FragTrap : public ClapTrap {
 		// assignment operator
 	    FragTrap& operator=(const FragTrap& src);
 
-		// other methods
+		// action methods
 		void	attack(const std::string& target);
-		void	highFivesGuys(void);
-		void	DisplayName(std::string str);
+		void	highFivesGuys(void) const;
+
+		// utils methods
+		void	DisplayName(std::string str) const;
 		void	initialize(std::string str);
 };
 
