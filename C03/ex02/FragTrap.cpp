@@ -4,22 +4,13 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 FragTrap::FragTrap() : ClapTrap() {
-	HitPoints = 100;
-	EnergyPoints = 100;
-	AttackDamage = 30;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-	HitPoints = 100;
-	EnergyPoints = 100;
-	AttackDamage = 30;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
-	HitPoints = 100;
-	EnergyPoints = 100;
-	AttackDamage = 30;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 FragTrap::~FragTrap() {
 	DisplayName(" destroyed***");};
@@ -49,4 +40,12 @@ void	FragTrap::highFivesGuys() {
 void	FragTrap::DisplayName(std::string str)
 {
 	print("***FragTrap ", this->getName(), str);
+}
+
+void FragTrap::initialize(std::string str)
+{
+	HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
+	DisplayName(str);
 }

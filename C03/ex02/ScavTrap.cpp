@@ -4,26 +4,17 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 ScavTrap::ScavTrap() : ClapTrap() {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 ScavTrap::~ScavTrap() {
 	DisplayName(" destroyed***");};
-
+	
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
  *========================================================================**/
@@ -38,7 +29,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
  *                           ACTION METHODS
  *========================================================================**/
 void	ScavTrap::attack(const std::string& target) {
-	std::cout << "***ScavTrap*** ";
+	std::cout << "***ScavTrap*** "; //* not using print coz no endl
 	ClapTrap::attack(target);
 }
 
@@ -49,4 +40,11 @@ void	ScavTrap::guardGate() {
 void	ScavTrap::DisplayName(std::string str)
 {
 	print("***ScavTrap ", this->getName(), str);
+}
+void ScavTrap::initialize(std::string str)
+{
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
+	DisplayName(str);
 }

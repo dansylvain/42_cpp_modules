@@ -19,6 +19,7 @@ class FragTrap : public ClapTrap {
 		void	attack(const std::string& target);
 		void	highFivesGuys(void);
 		void	DisplayName(std::string str);
+		void	initialize(std::string str);
 };
 
 #endif
