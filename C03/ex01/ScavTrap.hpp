@@ -6,6 +6,7 @@
 
 class ScavTrap : public ClapTrap {
 	public:
+		// Constructors and destructor
 		ScavTrap();
 		ScavTrap(const std::string& name);
 		ScavTrap(const ScavTrap &other);
@@ -13,6 +14,8 @@ class ScavTrap : public ClapTrap {
 
 		// assignment operator
 	    ScavTrap& operator=(const ScavTrap& src);
+
+		// other methods
 		void attack(const std::string& target);
 		void guardGate();
 };

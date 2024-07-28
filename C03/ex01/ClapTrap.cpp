@@ -11,7 +11,7 @@ int 		ClapTrap::count = 0;
  *========================================================================**/
 ClapTrap::ClapTrap() : HitPoints(0), EnergyPoints(0), AttackDamage(0) {
 	addClapTrap(this);
-	std::cout << "ClapTrap created." << std::endl;
+	print("ClapTrap created.");
 }
 
 ClapTrap::ClapTrap(const std::string& name) : Name(name), 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap(const std::string& name) : Name(name),
 										EnergyPoints(50), 
 										AttackDamage(20) {
 	addClapTrap(this);
-	std::cout << "ClapTrap " << name << " created." << std::endl;
+	print("ClapTrap ", name, " created.");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name), 
@@ -27,12 +27,12 @@ ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name),
 											EnergyPoints(other.EnergyPoints), 
 											AttackDamage(other.AttackDamage) {
 	addClapTrap(this);
-	std::cout << "ClapTrap " << Name << " created." << std::endl;
+	print("ClapTrap ", Name, " created.");
 }
 
 ClapTrap::~ClapTrap() {
 	count--;
-	std::cout << "ClapTrap " << Name << " destroyed." << std::endl;
+	print("ClapTrap ", Name, " destroyed.");
 }
 
 
@@ -75,61 +75,64 @@ int	ClapTrap::getAttackDamage(void) const {
 void ClapTrap::attack(const std::string& target) {
 	if (this->HitPoints == 0)
 	{
-		std::cout << this->Name << " is dead and can't attack." << std::endl;
+		print(this->Name, " is dead and can't attack.");
 		return ;
 	}
 	ClapTrap *tmp = findByName(target);
 	if (tmp != NULL && tmp->getHitPoints() == 0)
 	{
-		std::cout << this->Name << " attacks " << target << ", but it is already dead." << std::endl;
+		print(this->Name, " attacks ", target, ", but it is already dead.");
 		return ;
 	}
 	if (this->getEnergyPoints() == 0)
 	{
-		std::cout << this->getName() << " has no energy left and can't attack." << std::endl;
+		print(this->getName(), " has no energy left and can't attack.");
 		return ;
 	}	
 	if (tmp != NULL)
 	{
-		std::cout << this->getName() << " attacks " << target << " and looses 1 EnergyPoint" << std::endl;
+		print(this->getName(), " attacks ", target, 
+		" and looses 1 EnergyPoint");
 		(*tmp).takeDamage(this->AttackDamage);
 	}
 	else
-		std::cout  << target 
-		<< " does not exist..." << std::endl;
+		print(target, " does not exist...");
 	EnergyPoints -= 1;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (this->HitPoints == 0)
 	{
-		std::cout << this->Name << " is already dead." << std::endl;
+		print(this->Name, " is already dead.");
 		return ;
 	}
 	this->HitPoints -= amount;
 	if (this->HitPoints <= 0)
 	{
-		std::cout << this->getName() << " looses " << amount + this->getHitPoints() << " HitPoints, and dies." << std::endl;
+		print(this->getName(), " looses ", 
+		amount + this->getHitPoints(), " HitPoints, and dies.");
 		HitPoints = 0;
 		return ;
 	}
-	std::cout << this->getName() << " takes damage and looses " << amount << " HitPoints." << std::endl;
+	print(this->getName(), " takes damage and looses ",
+	 amount, " HitPoints.");
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->HitPoints == 0)
 	{
-		std::cout << this->Name << " is dead and can't do anything." << std::endl;
+		print(this->Name, " is dead and can't do anything.");
 		return ;
 	}
 	if ((*this).getEnergyPoints() > 0)
 	{
-		std::cout << this->getName() << " repaires itself, recovers " << amount << " HitPoints, and looses 1 EnergyPoint." << std::endl;
+		print(this->getName(), " repaires itself, recovers ",
+		 amount, " HitPoints, and looses 1 EnergyPoint.");
 		this->HitPoints += amount;
 		this->EnergyPoints--;
 	}
 	else
-		std::cout << this->getName() << " has no energy left and can't be repaired." << std::endl;
+		print(this->getName(), " has no energy left and can't be repaired.");
 }
 
 /**========================================================================
@@ -139,7 +142,7 @@ void ClapTrap::addClapTrap(ClapTrap* clapTrap) {
 	if (count < MAX_CLAPTRAPS) {
 		allClapTraps[count++] = clapTrap;
 	} else {
-		std::cerr << "Error: Maximum number of ClapTraps reached!" << std::endl;
+		print("Error: Maximum number of ClapTraps reached!");
 	}
 }
 
@@ -155,7 +158,8 @@ ClapTrap* ClapTrap::findByName(const std::string& name) {
 /**========================================================================
  *                           UTILS METHODS
  *========================================================================**/
-void	ClapTrap::DisplayName(std::string wtf)
+void	ClapTrap::DisplayName(std::string str)
 {
-	std::cout << "***ScavTrap " << this->getName() << wtf << std::endl;
+	print("***ScavTrap ", this->getName(), str);
 }
+

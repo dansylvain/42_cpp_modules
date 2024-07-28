@@ -1,32 +1,18 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-void	displayClapTraps()
-{
-	std::cout << std::endl;	
-	std::cout << "*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***" << std::endl;
-	for (int i = 0; i < ClapTrap::count; i++)
-		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
-		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
-		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
-		<< ClapTrap::allClapTraps[i]->getAttackDamage()
-		<< std::endl;
-	std::cout << std::endl;	
-}
-
 int main(void)
 {
-	std::cout << "****** Create Clapsters ******" << std::endl;
+	print("****** Create ClapTraps and ScavTraps ******");
 	ScavTrap Clapster("Clapster");
 	ClapTrap ZappyClap("ZappyClap");
 	ScavTrap ClapMaster("ClapMaster");
 	ScavTrap ClapTronix("ClapTronix");
 	ScavTrap GigaClap("GigaClap");
 	
-	
 	displayClapTraps();
 	
-	std::cout << "******* test: attack *********" << std::endl;
+	print("******* test: attack *********");
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
 	ZappyClap.attack("ClapTronix");
@@ -37,38 +23,59 @@ int main(void)
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
 	ClapTronix.attack("Clapster");
-	std::cout << std::endl;
 	ZappyClap.attack("GigaClap");
+	print("");
 	
-	std::cout << "***** test: takeDamage *******" << std::endl;
+	print("***** test: takeDamage *******");
 	ClapMaster.takeDamage(22);
 	ClapMaster.takeDamage(22);
 	ClapMaster.takeDamage(22);
 	ClapMaster.takeDamage(22);
 	ClapMaster.takeDamage(22);
 	ClapMaster.takeDamage(22);
-	std::cout << std::endl;
+	print("");	
 	
-	std::cout << "***** test: beRepaired *******" << std::endl;
+	print("***** test: beRepaired *******");
 	ClapMaster.beRepaired(10);
 	GigaClap.beRepaired(2);
 	Clapster.beRepaired(2);
 	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	std::cout << std::endl;
-
-	
-	displayClapTraps();
-
-
 	ScavTrap loulou("Loulou");
 	loulou.guardGate();
+	print("");
 
-
-	std::cout << "****** Detroy Clapsters ******" << std::endl;
+	displayClapTraps();
+	
+	print("****** Detroy Clapsters ******");
+	
 	return (0);
+}
+
+void	displayClapTraps()
+{
+	std::cout << std::endl;
+	print("*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***");
+	for (int i = 0; i < ClapTrap::count; i++)
+		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
+		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
+		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
+		<< ClapTrap::allClapTraps[i]->getAttackDamage()
+		<< std::endl;
+	std::cout << std::endl;	
+}
+
+void	print(std::string a) {
+	std::cout << a << std::endl;
+}
+void	print(std::string a, std::string b) {
+	std::cout << a << b << std::endl;
+}
+void	print(std::string a, std::string b, std::string c) {
+	std::cout << a << b << c << std::endl;
+}
+void	print(std::string a, std::string b, std::string c, std::string d) {
+	std::cout << a << b << c << d << std::endl;
+}
+void	print(std::string a, std::string b, int c, std::string d) {
+	std::cout << a << b << c << d << std::endl;
 }
