@@ -25,6 +25,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		void	whoAmI();
 		void	initialize(void);
 		void	attack(const std::string& target);
+		void	DisplayName(std::string str) const;
 };
 
 #endif
