@@ -4,12 +4,21 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 ScavTrap::ScavTrap() : ClapTrap() {
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
 	DisplayName(" created***");};
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
 	DisplayName(" created***");};
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
 	DisplayName(" created***");};
 
 ScavTrap::~ScavTrap() {

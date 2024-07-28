@@ -15,9 +15,9 @@ ClapTrap::ClapTrap() : HitPoints(0), EnergyPoints(0), AttackDamage(0) {
 }
 
 ClapTrap::ClapTrap(const std::string& name) : Name(name), 
-										HitPoints(100), 
-										EnergyPoints(50), 
-										AttackDamage(20) {
+										HitPoints(10), 
+										EnergyPoints(10), 
+										AttackDamage(0) {
 	addClapTrap(this);
 	print("ClapTrap ", name, " created.");
 }
