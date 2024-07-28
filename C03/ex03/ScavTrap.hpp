@@ -20,6 +20,12 @@ class ScavTrap : virtual public ClapTrap {
 		// assignment operator
 	    ScavTrap& operator=(const ScavTrap& src);
 
+		// getters and setters
+		std::string		STgetName(void)			const;
+		int				STgetHitPoints(void)		const;
+		int				STgetEnergyPoints(void)	const;
+		int				STgetAttackDamage(void)	const;
+
 		// action methods
 		void	attack(const std::string& target);
 		void	guardGate() const;

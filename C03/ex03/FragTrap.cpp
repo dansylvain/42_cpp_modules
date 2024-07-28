@@ -47,3 +47,22 @@ void FragTrap::initialize(void) {
 	FragTrap::AttackDamage = 30;
 	DisplayName(" created @@@");
 }
+
+/**========================================================================
+ *                           ACCESSORS AND SETTERS
+ *========================================================================**/
+std::string FragTrap::FTgetName(void) const {
+	return (Name);
+}
+
+int	FragTrap::FTgetHitPoints(void) const {
+	return (HitPoints);
+}
+
+int	FragTrap::FTgetEnergyPoints(void) const {
+	return (EnergyPoints);
+}
+
+int	FragTrap::FTgetAttackDamage(void) const {
+	return (AttackDamage);
+}

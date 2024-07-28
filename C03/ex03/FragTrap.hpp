@@ -20,6 +20,12 @@ class FragTrap : virtual 	public ClapTrap {
 		// assignment operator
 	    FragTrap& operator=(const FragTrap& src);
 
+		// getters and setters
+		std::string		FTgetName(void)			const;
+		int				FTgetHitPoints(void)		const;
+		int				FTgetEnergyPoints(void)	const;
+		int				FTgetAttackDamage(void)	const;
+
 		// action methods
 		void	attack(const std::string& target);
 		void	highFivesGuys(void) const;

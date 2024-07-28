@@ -47,3 +47,22 @@ void ScavTrap::initialize(std::string str)
 	ScavTrap::AttackDamage = 20;
 	ScavTrap::DisplayName(str);
 }
+
+/**========================================================================
+ *                           ACCESSORS AND SETTERS
+ *========================================================================**/
+std::string ScavTrap::STgetName(void) const {
+	return (Name);
+}
+
+int	ScavTrap::STgetHitPoints(void) const {
+	return (HitPoints);
+}
+
+int	ScavTrap::STgetEnergyPoints(void) const {
+	return (EnergyPoints);
+}
+
+int	ScavTrap::STgetAttackDamage(void) const {
+	return (AttackDamage);
+}
