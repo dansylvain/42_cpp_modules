@@ -18,11 +18,12 @@ void	displayClapTraps()
 int main(void)
 {
 	print("****** Create ClapTraps ******");
+	ClapTrap ClappyClappo("ClappyClappo");
 	ScavTrap Clapster("Clapster");
-	ScavTrap ZappyClap("ZappyClap");
-	ScavTrap ClapMaster("ClapMaster");
-	ScavTrap ClapTronix("ClapTronix");
-	ScavTrap GigaClap("GigaClap");
+	ClapTrap ZappyClap("ZappyClap");
+	ScavTrap ScavMaster("ScavMaster");
+	ScavTrap ScavTronix("ScavTronix");
+	ScavTrap GigaScav("GigaScav");
 	
 	
 	displayClapTraps();
@@ -30,28 +31,28 @@ int main(void)
 	print("******* test: attack *********");
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	ClapTronix.attack("Clapster");
+	Clapster.attack("ScavTronix");
+	Clapster.attack("ScavTronix");
+	Clapster.attack("ScavTronix");
+	Clapster.attack("ScavTronix");
+	Clapster.attack("ScavTronix");
+	Clapster.attack("ScavTronix");
+	ScavTronix.attack("Clapster");
 	print("");
-	ZappyClap.attack("GigaClap");
+	ZappyClap.attack("GigaScav");
 	
 	print("***** test: takeDamage *******");
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
 	print("");
 
 	print("***** test: beRepaired *******");
-	ClapMaster.beRepaired(10);
-	GigaClap.beRepaired(2);
+	ScavMaster.beRepaired(10);
+	GigaScav.beRepaired(2);
 	Clapster.beRepaired(2);
 	Clapster.beRepaired(2);
 	Clapster.beRepaired(2);

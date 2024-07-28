@@ -34,7 +34,7 @@ void	FragTrap::attack(const std::string& target) {
 }
 
 void	FragTrap::highFivesGuys() const {
-	print("***FragTrap*** ", this->getName(), " sends a high five, guys.");
+	print(this->getName(), " sends a high five, guys.");
 }
 
 void	FragTrap::DisplayName(std::string str) const {
