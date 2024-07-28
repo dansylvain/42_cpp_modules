@@ -92,7 +92,7 @@ void ClapTrap::attack(const std::string& target) {
 	if (tmp != NULL)
 	{
 		print(this->getName(), " attacks ", target, 
-		" and looses 1 EnergyPoint");
+		" and looses 1 EnergyPoint.");
 		(*tmp).takeDamage(this->AttackDamage);
 	}
 	else

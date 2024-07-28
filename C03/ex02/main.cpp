@@ -11,7 +11,7 @@ void	displayClapTraps()
 		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
 		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
 		<< ClapTrap::allClapTraps[i]->getAttackDamage()
-		<< std::endl;
+		<< "." << std::endl;
 	print("");	
 }
 
@@ -24,7 +24,8 @@ int main(void)
 	ScavTrap ScavMaster("ScavMaster");
 	ScavTrap ScavTronix("ScavTronix");
 	ScavTrap GigaScav("GigaScav");
-	
+	ScavTrap ScavBuddy("ScavBuddy");
+	FragTrap FraggyBoy("FraggyBoy");
 	
 	displayClapTraps();
 	
@@ -51,21 +52,21 @@ int main(void)
 	print("");
 
 	print("***** test: beRepaired *******");
-	ScavMaster.beRepaired(10);
-	GigaScav.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
+	ClappyClappo.beRepaired(1);
 	print("");
 
 	print("****** special Traps tests ******");
-	ScavTrap loulou("Loulou");
-	FragTrap FraggyBoy("FraggyBoy");
-	loulou.guardGate();
+	ScavBuddy.guardGate();
 	FraggyBoy.highFivesGuys();
 	print("");
 	
