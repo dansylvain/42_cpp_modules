@@ -8,7 +8,7 @@ DiamondTrap::DiamondTrap() {
 DiamondTrap::DiamondTrap(const std::string& name) {
 	_Name = name;
 	initialize();
-	print("### DiamondTrap", _Name,  "created. ###");
+	print("### DiamondTrap ", _Name,  " created. ###");
 };
 DiamondTrap::DiamondTrap(const DiamondTrap &other) : ScavTrap(other), FragTrap(other) {
 	initialize();
