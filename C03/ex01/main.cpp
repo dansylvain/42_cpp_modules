@@ -4,49 +4,52 @@
 int main(void)
 {
 	print("****** Create ClapTraps and ScavTraps ******");
-	ScavTrap Clapster("Clapster");
+	ScavTrap Scavster("Scavster");
 	ClapTrap ZappyClap("ZappyClap");
-	ScavTrap ClapMaster("ClapMaster");
-	ScavTrap ClapTronix("ClapTronix");
-	ScavTrap GigaClap("GigaClap");
+	ScavTrap ScavMaster("ScavMaster");
+	ScavTrap ScavTronix("ScavTronix");
+	ScavTrap GigaScav("GigaScav");
 	
 	displayClapTraps();
 	
 	print("******* test: attack *********");
-	Clapster.attack("NonExistingClapTrap");
-	Clapster.attack("");
-	ZappyClap.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	Clapster.attack("ClapTronix");
-	ClapTronix.attack("Clapster");
-	ZappyClap.attack("GigaClap");
+	Scavster.attack("NonExistingClapTrap");
+	Scavster.attack("");
+	ZappyClap.attack("ScavTronix");
+	Scavster.attack("ScavTronix");
+	Scavster.attack("ScavTronix");
+	Scavster.attack("ScavTronix");
+	Scavster.attack("ScavTronix");
+	Scavster.attack("ScavTronix");
+	Scavster.attack("ScavTronix");
+	ScavTronix.attack("Scavster");
+	ZappyClap.attack("GigaScav");
 	print("");
 	
 	print("***** test: takeDamage *******");
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
-	ClapMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
+	ScavMaster.takeDamage(22);
 	print("");	
 	
 	print("***** test: beRepaired *******");
-	ClapMaster.beRepaired(10);
-	GigaClap.beRepaired(2);
-	Clapster.beRepaired(2);
-	Clapster.beRepaired(2);
-	ScavTrap loulou("Loulou");
-	loulou.guardGate();
+	ScavMaster.beRepaired(10);
+	GigaScav.beRepaired(2);
+	Scavster.beRepaired(2);
+	Scavster.beRepaired(2);
+	print("");
+
+	print("****** special Traps tests ******");
+	ScavTrap Scavilax("Scavilax");
+	Scavilax.guardGate();
 	print("");
 
 	displayClapTraps();
 	
-	print("****** Detroy Clapsters ******");
+	print("****** Detroy ClapTraps ******");
 	
 	return (0);
 }
