@@ -5,7 +5,7 @@
  *========================================================================**/
 FragTrap::FragTrap() : ClapTrap() {
 	initialize();}
-
+ 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
 	initialize();}
 

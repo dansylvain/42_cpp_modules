@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() {
+DiamondTrap::DiamondTrap() : ScavTrap() {
 	print("### DiamondTrap created.");
 	initialize();
 };
