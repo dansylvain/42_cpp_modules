@@ -17,7 +17,7 @@ void	displayClapTraps()
 
 int main(void)
 {
-	print("****** Create Clapsters ******");
+	print("****** Create ClapTraps ******");
 	ScavTrap Clapster("Clapster");
 	ScavTrap ZappyClap("ZappyClap");
 	ScavTrap ClapMaster("ClapMaster");
@@ -73,7 +73,7 @@ int main(void)
 
 
 
-	print("****** Detroy Clapsters ******");
+	print("****** Detroy Claptraps ******");
 	return (0);
 }
 

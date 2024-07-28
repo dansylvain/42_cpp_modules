@@ -15,7 +15,7 @@ void	displayClapTraps()
 
 int main(void)
 {
-	std::cout << "****** Create Clapsters ******" << std::endl;
+	std::cout << "****** Create ClapTraps ******" << std::endl;
 	ClapTrap Clapster("Clapster");
 	ClapTrap ZappyClap("ZappyClap");
 	ClapTrap ClapMaster("ClapMaster");
@@ -58,6 +58,6 @@ int main(void)
 	
 	displayClapTraps();
 
-	std::cout << "****** Detroy Clapsters ******" << std::endl;
+	std::cout << "****** Detroy ClapTraps ******" << std::endl;
 	return (0);
 }
