@@ -1,6 +1,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void	displayClapTraps()
 {
@@ -18,14 +19,15 @@ void	displayClapTraps()
 int main(void)
 {
 	print("****** Create ClapTraps ******");
-	ClapTrap ClappyClappo("ClappyClappo");
-	ScavTrap Clapster("Clapster");
-	ClapTrap ZappyClap("ZappyClap");
-	ScavTrap ScavMaster("ScavMaster");
-	ScavTrap ScavTronix("ScavTronix");
-	ScavTrap GigaScav("GigaScav");
-	ScavTrap ScavBuddy("ScavBuddy");
-	FragTrap FraggyBoy("FraggyBoy");
+	ClapTrap	ClappyClappo("ClappyClappo");
+	ScavTrap	Clapster("Clapster");
+	ClapTrap	ZappyClap("ZappyClap");
+	ScavTrap	ScavMaster("ScavMaster");
+	ScavTrap	ScavTronix("ScavTronix");
+	ScavTrap	GigaScav("GigaScav");
+	ScavTrap	ScavBuddy("ScavBuddy");
+	FragTrap	FraggyBoy("FraggyBoy");
+	DiamondTrap	PreciousTrap("PreciousTrap");
 	
 	displayClapTraps();
 	
