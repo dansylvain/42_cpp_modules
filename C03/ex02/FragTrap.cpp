@@ -4,12 +4,21 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 FragTrap::FragTrap() : ClapTrap() {
+	HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
 	DisplayName(" created***");};
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
+	HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
 	DisplayName(" created***");};
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
+	HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
 	DisplayName(" created***");};
 
 FragTrap::~FragTrap() {
@@ -33,8 +42,8 @@ void	FragTrap::attack(const std::string& target) {
 	ClapTrap::attack(target);
 }
 
-void	FragTrap::guardGate() {
-	print("***FragTrap*** ", this->getName(), " Enter Gate Keeper Mode");
+void	FragTrap::highFivesGuys() {
+	print("***FragTrap*** ", this->getName(), " sends a high five, guys.");
 };
 
 void	FragTrap::DisplayName(std::string str)

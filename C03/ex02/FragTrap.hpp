@@ -17,7 +17,7 @@ class FragTrap : public ClapTrap {
 
 		// other methods
 		void	attack(const std::string& target);
-		void	guardGate();
+		void	highFivesGuys(void);
 		void	DisplayName(std::string str);
 };
 

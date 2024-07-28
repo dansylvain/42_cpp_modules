@@ -18,7 +18,6 @@ void	displayClapTraps()
 int main(void)
 {
 	print("****** Create Clapsters ******");
-	FragTrap FraggyBoy("FraggyBoy");
 	ScavTrap Clapster("Clapster");
 	ScavTrap ZappyClap("ZappyClap");
 	ScavTrap ClapMaster("ClapMaster");
@@ -61,12 +60,18 @@ int main(void)
 	Clapster.beRepaired(2);
 	Clapster.beRepaired(2);
 	print("");
+
+	print("****** special Traps tests ******");
+	ScavTrap loulou("Loulou");
+	FragTrap FraggyBoy("FraggyBoy");
+	loulou.guardGate();
+	FraggyBoy.highFivesGuys();
+	print("");
 	
 	displayClapTraps();
 
 
-	ScavTrap loulou("Loulou");
-	loulou.guardGate();
+
 
 	print("****** Detroy Clapsters ******");
 	return (0);
