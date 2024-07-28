@@ -28,11 +28,13 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src) {
 	return *this;
 };
 
-
-
+void	DiamondTrap::attack(const std::string& target) {
+	std::cout << "***DiamondTrap*** ";
+	ClapTrap::attack(target);
+}
 
 // other methods
-void whoAmI() {
+void DiamondTrap::whoAmI() {
 
 };
 
