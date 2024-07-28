@@ -4,22 +4,13 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 ScavTrap::ScavTrap() : ClapTrap() {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(" created***");};
+	initialize(" created***");}
 
 ScavTrap::~ScavTrap() {
 	DisplayName(" destroyed***");};
@@ -45,3 +36,15 @@ void ScavTrap::attack(const std::string& target) {
 void ScavTrap::guardGate() {
 	print("***ScrapTrap*** ", this->getName(), " Enter Gate Keeper Mode");
 };
+
+void	ScavTrap::DisplayName(std::string str)
+{
+	print("***ScavTrap ", this->getName(), str);
+}
+void ScavTrap::initialize(std::string str)
+{
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
+	DisplayName(str);
+}
