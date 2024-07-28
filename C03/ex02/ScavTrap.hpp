@@ -6,13 +6,17 @@
 
 class ScavTrap : public ClapTrap {
 	public:
-		ScavTrap() : ClapTrap() { std::cout << "ScavTrap " << this->getName() << " created" << std::endl;};
-		ScavTrap(const std::string& name) : ClapTrap(name) { std::cout << "ScavTrap " << this->getName() << " created" << std::endl;};
-		ScavTrap(const ScavTrap &other) : ClapTrap(other) { std::cout << "ScavTrap " << this->getName() << " created" << std::endl;};
-		~ScavTrap() { std::cout << "ScavTrap " << this->getName() << " destroyed" << std::endl;};
+		// Constructors and destructor
+		ScavTrap();
+		ScavTrap(const std::string& name);
+		ScavTrap(const ScavTrap &other);
+		~ScavTrap();
 
 		// assignment operator
 	    ScavTrap& operator=(const ScavTrap& src);
+
+		// other methods
+		void attack(const std::string& target);
 		void guardGate();
 };
 
