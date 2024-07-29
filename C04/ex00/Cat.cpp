@@ -2,7 +2,7 @@
 
 
 Cat::Cat() : Animal() {
-
+	type = "Cat";
 }
 
 Cat::Cat(const Cat &other) : Animal() {
@@ -19,5 +19,5 @@ Cat::~Cat() {
 }
 
 void	Cat::makeSound() const{
-
+	print("Cat says hi");
 }

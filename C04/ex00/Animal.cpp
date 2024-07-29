@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 
 
-Animal::Animal() {
+Animal::Animal() : type("Animal") {
 
 }
 
@@ -24,4 +24,9 @@ void	Animal::makeSound() const {
 
 const std::string	&Animal::getType() const {
 	return (type);
+}
+
+void	Animal::print(std::string str)
+{
+	std::cout << str << std::endl;
 }

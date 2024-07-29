@@ -16,6 +16,8 @@ class Animal {
 		// other member unctions
 		virtual void	makeSound() const;
 		const std::string&	getType() const;
+
+		static void	print(std::string str);
 };
 
 #endif

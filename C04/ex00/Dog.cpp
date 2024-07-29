@@ -2,7 +2,7 @@
 
 
 Dog::Dog() : Animal() {
-
+	type = "Dog";
 }
 
 Dog::Dog(const Dog &other) : Animal() {
@@ -19,5 +19,5 @@ Dog::~Dog() {
 }
 
 void	Dog::makeSound() const {
-
+	print("Dog says hi");
 }

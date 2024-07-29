@@ -2,7 +2,7 @@
 
 
 WrongCat::WrongCat() : Animal() {
-
+	type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat &other) : Animal() {
@@ -19,5 +19,5 @@ WrongCat::~WrongCat() {
 }
 
 void	WrongCat::makeSound() const{
-
+	print("WrongCat says hi");
 }
