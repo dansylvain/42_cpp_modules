@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-
+#include "DiamondTrap.hpp"
 void	displayClapTraps()
 {
 	print("");
@@ -26,6 +26,7 @@ int main(void)
 	ScavTrap GigaScav("GigaScav");
 	ScavTrap ScavBuddy("ScavBuddy");
 	FragTrap FraggyBoy("FraggyBoy");
+	DiamondTrap PearlTrap("PearlTrap");
 	
 	displayClapTraps();
 	
