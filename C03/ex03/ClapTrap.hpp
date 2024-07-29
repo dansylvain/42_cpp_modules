@@ -48,7 +48,7 @@ class ClapTrap {
 		static void 		addClapTrap(ClapTrap* clapTrap);
 		static void			displayClapTraps();
 		static ClapTrap* 	findByName(const std::string& name);
-		static const int	MAX_CLAPTRAPS = 10;
+		static const int	MAX_CLAPTRAPS = 50;
 		static ClapTrap*	allClapTraps[MAX_CLAPTRAPS];
 		static int 			count;
 

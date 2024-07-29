@@ -13,7 +13,10 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name), Name(name),
 	initialize(" created ***");
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other), Name(other.Name), 
+										HitPoints(other.HitPoints), 
+										EnergyPoints(other.EnergyPoints), 
+										AttackDamage(other.AttackDamage) {
 	initialize(" created ***");} 
 
 ScavTrap::~ScavTrap() {
@@ -46,7 +49,7 @@ void	ScavTrap::DisplayName(std::string str) const {
 }
 void ScavTrap::initialize(std::string str)
 {
-	print("*** ", Name, str);
+	print("*** ScavTrap ", Name, str);
 }
 
 /**========================================================================

@@ -13,7 +13,10 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name), Name(name),
 	initialize(" created ###");
 }
 
-FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other), Name(other.Name), 
+										HitPoints(other.HitPoints), 
+										EnergyPoints(other.EnergyPoints), 
+										AttackDamage(other.AttackDamage)  {
 	initialize(" created ###");}
 
 FragTrap::~FragTrap() {
@@ -46,7 +49,7 @@ void	FragTrap::DisplayName(std::string str) const {
 }
 
 void FragTrap::initialize(std::string str) {
-	print("### ", Name, str);
+	print("### FragTrap ", Name, str);
 }
 
 /**========================================================================

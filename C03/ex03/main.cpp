@@ -18,79 +18,89 @@ int main(void)
 	
 	ClapTrap::displayClapTraps();
 	
-	print("******* test: attack *********");
-	ClappyClappo.attack("ZappyClap");
-	Clapster.attack("NonExistingClapTrap");
-	Clapster.attack("");
-	Clapster.attack("ScavTronix");
-	Clapster.attack("ScavTronix");
-	Clapster.attack("ScavTronix");
-	Clapster.attack("ScavTronix");
-	Clapster.attack("ScavTronix");
-	Clapster.attack("ScavTronix");
-	ScavTronix.attack("Clapster");
-	print("");
+
+
+	// print("******* test: attack *********");
+	// ClappyClappo.attack("ZappyClap");
+	// Clapster.attack("NonExistingClapTrap");
+	// Clapster.attack("");
+	// Clapster.attack("ScavTronix");
+	// Clapster.attack("ScavTronix");
+	// Clapster.attack("ScavTronix");
+	// Clapster.attack("ScavTronix");
+	// Clapster.attack("ScavTronix");
+	// Clapster.attack("ScavTronix");
+	// ScavTronix.attack("Clapster");
+	// print("");
+
+	// print("****** Copy constructor test ******");
+	// ClapTrap ClapCopy(ClappyClappo);
+	// ScavTrap CopyTrap(ScavTronix);
+	// FragTrap FragCopy(FraggyBoy);
+	// DiamondTrap DiamondCopy(PearlTrap);
+
+	// ClapTrap::displayClapTraps();
 	
-	print("***** test: takeDamage *******");
-	ScavMaster.takeDamage(22);
-	ScavMaster.takeDamage(22);
-	ScavMaster.takeDamage(22);
-	ScavMaster.takeDamage(22);
-	ScavMaster.takeDamage(22);
-	ScavMaster.takeDamage(22);
-	print("");
+	// print("***** test: takeDamage *******");
+	// ScavMaster.takeDamage(22);
+	// ScavMaster.takeDamage(22);
+	// ScavMaster.takeDamage(22);
+	// ScavMaster.takeDamage(22);
+	// ScavMaster.takeDamage(22);
+	// ScavMaster.takeDamage(22);
+	// print("");
 
 
-	print("***** test: beRepaired *******");
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	ClappyClappo.beRepaired(1);
-	print("");
+	// print("***** test: beRepaired *******");
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// ClappyClappo.beRepaired(1);
+	// print("");
 
-	print("****** special Traps tests ******");
-	ScavBuddy.guardGate();
-	FraggyBoy.highFivesGuys();
-	PearlTrap.whoAmI();
-	print("");
+	// print("****** special Traps tests ******");
+	// ScavBuddy.guardGate();
+	// FraggyBoy.highFivesGuys();
+	// PearlTrap.whoAmI();
+	// print("");
 	
-	print("****** Diamond values access test ******");
-	print("ClapTrap values of " + PearlTrap.getName());
-	print(PearlTrap.ClapTrap::getName());
-	print(PearlTrap.ClapTrap::getHitPoints());
-	print(PearlTrap.ClapTrap::getEnergyPoints());
-	print(PearlTrap.ClapTrap::getAttackDamage());
+	// print("****** Diamond values access test ******");
+	// print("ClapTrap values of " + PearlTrap.getName());
+	// print(PearlTrap.ClapTrap::getName());
+	// print(PearlTrap.ClapTrap::getHitPoints());
+	// print(PearlTrap.ClapTrap::getEnergyPoints());
+	// print(PearlTrap.ClapTrap::getAttackDamage());
 
-	print("");
-	print("ScavTrap values of " + PearlTrap.getName());
-	print(PearlTrap.ScavTrap::getName());
-	print(PearlTrap.ScavTrap::getHitPoints());
-	print(PearlTrap.ScavTrap::getEnergyPoints());
-	print(PearlTrap.ScavTrap::getAttackDamage());
+	// print("");
+	// print("ScavTrap values of " + PearlTrap.getName());
+	// print(PearlTrap.ScavTrap::getName());
+	// print(PearlTrap.ScavTrap::getHitPoints());
+	// print(PearlTrap.ScavTrap::getEnergyPoints());
+	// print(PearlTrap.ScavTrap::getAttackDamage());
 
-	print("");
-	print("FragTrap values of " + PearlTrap.getName());
-	print(PearlTrap.FragTrap::getName());
-	print(PearlTrap.FragTrap::getHitPoints());
-	print(PearlTrap.FragTrap::getEnergyPoints());
-	print(PearlTrap.FragTrap::getAttackDamage());
+	// print("");
+	// print("FragTrap values of " + PearlTrap.getName());
+	// print(PearlTrap.FragTrap::getName());
+	// print(PearlTrap.FragTrap::getHitPoints());
+	// print(PearlTrap.FragTrap::getEnergyPoints());
+	// print(PearlTrap.FragTrap::getAttackDamage());
 
-	print("");
-	print("DiamondTrap values of " + PearlTrap.getName());
-	print(PearlTrap.getName());
-	print(PearlTrap.getHitPoints());
-	print(PearlTrap.getEnergyPoints());
-	print(PearlTrap.getAttackDamage());
-	print("");
+	// print("");
+	// print("DiamondTrap values of " + PearlTrap.getName());
+	// print(PearlTrap.getName());
+	// print(PearlTrap.getHitPoints());
+	// print(PearlTrap.getEnergyPoints());
+	// print(PearlTrap.getAttackDamage());
+	// print("");
 
-	ClapTrap::displayClapTraps();
+	// ClapTrap::displayClapTraps();
 
 
 

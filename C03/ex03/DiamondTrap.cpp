@@ -2,7 +2,6 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 	print("&&& DiamondTrap created. &&&");
-
 }
 
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), 
@@ -14,7 +13,11 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"
 	print("&&& DiamondTrap ", Name, " created. &&&");
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other)  : ClapTrap(other), ScavTrap(other), FragTrap() {
+DiamondTrap::DiamondTrap(const DiamondTrap &other)  : ClapTrap(other), ScavTrap(other), FragTrap(), 
+										Name(other.Name), 
+										HitPoints(other.HitPoints), 
+										EnergyPoints(other.EnergyPoints), 
+										AttackDamage(other.AttackDamage)  {
 	print("&&& DiamondTrap ", other.Name, " created. &&&");
 
 }
