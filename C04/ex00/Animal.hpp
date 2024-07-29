@@ -7,11 +7,15 @@ class Animal {
 	protected:
 		std::string type;
 	public:
-		void	makeSound();
+		// constructors and destructors
 		Animal();
 		Animal(const Animal &other);
 		Animal& operator=(const Animal& src);
-		~Animal(); 
+		virtual ~Animal(); 
+
+		// other member unctions
+		virtual void	makeSound() const;
+		const std::string&	getType() const;
 };
 
 #endif

@@ -18,6 +18,6 @@ Cat::~Cat() {
 
 }
 
-void	Cat::makeSound() {
+void	Cat::makeSound() const{
 
 }

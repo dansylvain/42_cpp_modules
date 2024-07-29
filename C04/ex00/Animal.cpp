@@ -18,6 +18,10 @@ Animal::~Animal() {
 
 }
 
-void	Animal::makeSound() {
+void	Animal::makeSound() const {
 
+}
+
+const std::string	&Animal::getType() const {
+	return (type);
 }

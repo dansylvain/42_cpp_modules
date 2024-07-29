@@ -5,7 +5,7 @@
 
 class WrongCat : public Animal {
 	public:
-		void	makeSound();
+		void	makeSound() const;
 	public:
 		WrongCat();
 		WrongCat(const WrongCat &other);

@@ -18,6 +18,6 @@ WrongCat::~WrongCat() {
 
 }
 
-void	WrongCat::makeSound() {
+void	WrongCat::makeSound() const{
 
 }

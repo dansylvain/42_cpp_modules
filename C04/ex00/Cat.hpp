@@ -5,7 +5,7 @@
 
 class Cat : public Animal {
 	public:
-		void	makeSound();
+		void	makeSound() const;
 	public:
 		Cat();
 		Cat(const Cat &other);

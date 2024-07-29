@@ -18,6 +18,6 @@ Dog::~Dog() {
 
 }
 
-void	Dog::makeSound() {
+void	Dog::makeSound() const {
 
 }

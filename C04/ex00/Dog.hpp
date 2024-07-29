@@ -5,11 +5,12 @@
 
 class Dog : public Animal {
 	public:
-		void	makeSound();
 		Dog();
 		Dog(const Dog &other);
 		Dog& operator=(const Dog& src);
 		~Dog(); 
+		void	makeSound() const;
+		using Animal::getType;
 };
 
 #endif
