@@ -185,7 +185,9 @@ ClapTrap* ClapTrap::findByName(const std::string& name) {
 void	ClapTrap::displayClapTraps()
 {
 	print("");
+	print("**************************************************************");
 	print("*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***");
+	print("**************************************************************");
 	for (int i = 0; i < ClapTrap::count; i++)
 		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
 		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
