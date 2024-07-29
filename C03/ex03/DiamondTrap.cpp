@@ -4,7 +4,12 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 
 }
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name), ScavTrap(name), 
+										FragTrap(name),
+										Name(name), 
+										HitPoints(FragTrap::getHitPoints()), 
+										EnergyPoints(ScavTrap::getEnergyPoints()), 
+										AttackDamage(FragTrap::getAttackDamage())   {
 (void)name;
 }
 
