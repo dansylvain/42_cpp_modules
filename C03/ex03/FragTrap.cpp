@@ -6,8 +6,10 @@
 FragTrap::FragTrap() : ClapTrap() {
 	initialize(" created***");}
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-	initialize(" created***");}
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name), Name(name), 
+										HitPoints(100), 
+										EnergyPoints(100), 
+										AttackDamage(30)  {}
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
 	initialize(" created***");}
@@ -46,4 +48,23 @@ void FragTrap::initialize(std::string str) {
 	EnergyPoints = 100;
 	AttackDamage = 30;
 	DisplayName(str);
+}
+
+/**========================================================================
+ *                           ACCESSORS AND SETTERS
+ *========================================================================**/
+// const std::string &FragTrap::getName(void) const {
+// 	return (Name);
+// }
+
+const int	&FragTrap::getHitPoints(void) const {
+	return (HitPoints);
+}
+
+// const int	&FragTrap::getEnergyPoints(void) const {
+// 	return (EnergyPoints);
+// }
+
+const int	&FragTrap::getAttackDamage(void) const {
+	return (AttackDamage);
 }

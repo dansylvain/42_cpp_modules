@@ -6,8 +6,10 @@
 ScavTrap::ScavTrap() : ClapTrap() {
 	initialize(" created***");}
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-	initialize(" created***");}
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name), Name(name), 
+										HitPoints(100), 
+										EnergyPoints(50), 
+										AttackDamage(20)  {}
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
 	initialize(" created***");}
@@ -47,3 +49,23 @@ void ScavTrap::initialize(std::string str)
 	AttackDamage = 20;
 	DisplayName(str);
 }
+
+/**========================================================================
+ *                           ACCESSORS AND SETTERS
+ *========================================================================**/
+// const std::string &ScavTrap::getName(void) const {
+// 	return (Name);
+// }
+
+// const int	&ScavTrap::getHitPoints(void) const {
+// 	return (HitPoints);
+// }
+
+const int	&ScavTrap::getEnergyPoints(void) const {
+	return (EnergyPoints);
+}
+
+// const int	&ScavTrap::getAttackDamage(void) const {
+// 	return (AttackDamage);
+// }
+

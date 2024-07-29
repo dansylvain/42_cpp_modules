@@ -23,6 +23,11 @@ class DiamondTrap : virtual public ClapTrap, virtual public ScavTrap, virtual pu
 		// utils methods
 		void	DisplayName(std::string str) const;
 		void	initialize(std::string str);
+
+		// using	ClapTrap::getName;
+		using	FragTrap::getHitPoints;
+		using	ScavTrap::getEnergyPoints;
+		using	FragTrap::getAttackDamage;
 };
 
 #endif

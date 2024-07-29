@@ -29,10 +29,10 @@ class ClapTrap {
 		ClapTrap &operator=(const ClapTrap &src);
 		
 		// getters and setters
-		std::string		getName(void)			const;
-		int				getHitPoints(void)		const;
-		int				getEnergyPoints(void)	const;
-		int				getAttackDamage(void)	const;
+		virtual const std::string		&getName(void)			const;
+		virtual const int				&getHitPoints(void)		const;
+		virtual const int				&getEnergyPoints(void)	const;
+		virtual const int				&getAttackDamage(void)	const;
 
 		// other methods
 		void	attack(const std::string& target);

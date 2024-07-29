@@ -53,19 +53,19 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src) {
 /**========================================================================
  *                           ACCESSORS AND SETTERS
  *========================================================================**/
-std::string ClapTrap::getName(void) const {
+const std::string &ClapTrap::getName(void) const {
 	return (Name);
 }
 
-int	ClapTrap::getHitPoints(void) const {
+const int	&ClapTrap::getHitPoints(void) const {
 	return (HitPoints);
 }
 
-int	ClapTrap::getEnergyPoints(void) const {
+const int	&ClapTrap::getEnergyPoints(void) const {
 	return (EnergyPoints);
 }
 
-int	ClapTrap::getAttackDamage(void) const {
+const int	&ClapTrap::getAttackDamage(void) const {
 	return (AttackDamage);
 }
 
