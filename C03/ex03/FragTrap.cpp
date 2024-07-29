@@ -4,16 +4,16 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 FragTrap::FragTrap() : ClapTrap() {
-	initialize();}
- 
+	initialize(" created***");}
+
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
-	initialize();}
+	initialize(" created***");}
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
-	initialize();}
+	initialize(" created***");}
 
 FragTrap::~FragTrap() {
-	DisplayName(" destroyed @@@");};
+	DisplayName(" destroyed***");};
 
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
@@ -29,7 +29,7 @@ FragTrap& FragTrap::operator=(const FragTrap& src) {
  *                           ACTION METHODS
  *========================================================================**/
 void	FragTrap::attack(const std::string& target) {
-	std::cout << "@@@ FragTrap @@@ ";
+	std::cout << "***FragTrap*** ";
 	ClapTrap::attack(target);
 }
 
@@ -38,31 +38,12 @@ void	FragTrap::highFivesGuys() const {
 }
 
 void	FragTrap::DisplayName(std::string str) const {
-	print("@@@ FragTrap ", this->getName(), str);
+	print("***FragTrap ", this->getName(), str);
 }
 
-void FragTrap::initialize(void) {
-	FragTrap::EnergyPoints = 100;
-	FragTrap::HitPoints = 150;
-	FragTrap::AttackDamage = 30;
-	DisplayName(" created @@@");
-}
-
-/**========================================================================
- *                           ACCESSORS AND SETTERS
- *========================================================================**/
-// std::string FragTrap::getName(void) const {
-// 	return (Name);
-// }
-
-int	FragTrap::getHitPoints(void) const {
-	return (HitPoints);
-}
-
-// int	FragTrap::getEnergyPoints(void) const {
-// 	return (EnergyPoints);
-// }
-
-int	FragTrap::getAttackDamage(void) const {
-	return (AttackDamage);
+void FragTrap::initialize(std::string str) {
+	HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
+	DisplayName(str);
 }

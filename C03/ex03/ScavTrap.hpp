@@ -4,12 +4,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap {
-	protected:
-		std::string			Name;
-		int					HitPoints;
-		int					EnergyPoints;
-		int					AttackDamage;
+class ScavTrap : public ClapTrap {
 	public:
 		// Constructors and destructor
 		ScavTrap();
@@ -19,12 +14,6 @@ class ScavTrap : virtual public ClapTrap {
 
 		// assignment operator
 	    ScavTrap& operator=(const ScavTrap& src);
-
-		// getters and setters
-		// std::string		getName(void)			const;
-		// int				getHitPoints(void)		const;
-		int				getEnergyPoints(void)	const;
-		// int				getAttackDamage(void)	const;
 
 		// action methods
 		void	attack(const std::string& target);
