@@ -73,13 +73,22 @@ const int	&ClapTrap::getAttackDamage(void) const {
  *                           ACTION METHODS
  *========================================================================**/
 void ClapTrap::attack(const std::string& target) {
+	// std::cout << "AttackDamage VALUE: " << AttackDamage << std::endl;
+	attack(target, AttackDamage);
+}
+
+void ClapTrap::attack(const std::string& target, int AD) {
 	if (this->HitPoints == 0)
 	{
 		print(this->Name, " is dead and can't attack.");
 		return ;
 	}
-	ClapTrap *tmp = findByName(target);
-	if (tmp != NULL && tmp->getHitPoints() == 0)
+	int num;
+	if (findByName(target))
+		num = (*findByName(target)).getHitPoints();
+
+	// std::cout <<"LOOOOK HHHHEEEEEEERRRRRRRREEEEEEEEEEE :"<< num <<std::endl;
+	if (findByName(target) != NULL && findByName(target)->getHitPoints() == 0)
 	{
 		print(this->Name, " attacks ", target, ", but it is already dead.");
 		return ;
@@ -89,19 +98,39 @@ void ClapTrap::attack(const std::string& target) {
 		print(this->getName(), " has no energy left and can't attack.");
 		return ;
 	}	
-	if (tmp != NULL)
+	if (findByName(target) != NULL)
 	{
 		print(this->getName(), " attacks ", target, 
 		" and looses 1 EnergyPoint.");
-		(*tmp).takeDamage(this->AttackDamage);
+		(*findByName(target)).takeDamage(AD, num);
 	}
 	else
 		print(target, " does not exist...");
 	EnergyPoints -= 1;
 }
 
+
 void ClapTrap::takeDamage(unsigned int amount) {
-	if (this->HitPoints == 0)
+	
+	if (this->getHitPoints() == 0)
+	{
+		print(this->Name, " is already dead.");
+		return ;
+	}
+	this->HitPoints -= amount;
+	if (this->getHitPoints() <= 0)
+	{
+		print(this->getName(), " dies.");
+		HitPoints = 0;
+		return ;
+	}
+	print(this->getName(), " takes damage and looses ",
+	 amount, " HitPoints.");
+}
+
+void ClapTrap::takeDamage(unsigned int amount, int HP) {
+	std::cout << "******************************************HP LEFT:" << this->getHitPoints()<< std::endl;
+	if (HP == 0)
 	{
 		print(this->Name, " is already dead.");
 		return ;
@@ -109,8 +138,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 	this->HitPoints -= amount;
 	if (this->HitPoints <= 0)
 	{
-		print(this->getName(), " looses ", 
-		amount + this->getHitPoints(), " HitPoints, and dies.");
+		print(this->getName(), " dies.");
 		HitPoints = 0;
 		return ;
 	}
@@ -149,6 +177,7 @@ void ClapTrap::addClapTrap(ClapTrap* clapTrap) {
 ClapTrap* ClapTrap::findByName(const std::string& name) {
 	for (int i = 0; i < count; ++i) {
 		if (allClapTraps[i]->getName() == name) {
+			// std::cout << "TRAP FOUND: "+ allClapTraps[i]->Name + "HP: " << allClapTraps[i]->getHitPoints() << std::endl;
 			return allClapTraps[i];
 		}
 	}

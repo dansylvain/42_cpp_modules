@@ -34,7 +34,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
  *========================================================================**/
 void	ScavTrap::attack(const std::string& target) {
 	std::cout << "***ScavTrap*** "; //* not using print coz no endl
-	ClapTrap::attack(target);
+	ClapTrap::attack(target, AttackDamage);
 }
 
 void	ScavTrap::guardGate() const {

@@ -19,6 +19,7 @@ int main(void)
 	ClapTrap::displayClapTraps();
 	
 	print("******* test: attack *********");
+	ClappyClappo.attack("ZappyClap");
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
 	Clapster.attack("ScavTronix");

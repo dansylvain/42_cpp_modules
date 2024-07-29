@@ -37,7 +37,9 @@ class ClapTrap {
 
 		// other methods
 		void	attack(const std::string& target);
+		void	attack(const std::string& target, int AD);
 		void	takeDamage(unsigned int amount);
+		void	takeDamage(unsigned int amount, int HP);
 		void	beRepaired(unsigned int amount);
 
 		// static utility methods
