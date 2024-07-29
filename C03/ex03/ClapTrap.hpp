@@ -9,6 +9,7 @@ void	print(std::string a, std::string b);
 void	print(std::string a, std::string b, std::string c);
 void	print(std::string a, std::string b, std::string c, std::string d);
 void	print(std::string a, std::string b, int c, std::string d);
+void	print(int n);
 void	displayClapTraps();
 
 class ClapTrap {

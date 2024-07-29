@@ -59,6 +59,35 @@ int main(void)
 	FraggyBoy.highFivesGuys();
 	print("");
 	
+	print("****** Diamond values access test ******");
+	print("ClapTrap values of " + PearlTrap.getName());
+	print(PearlTrap.ClapTrap::getName());
+	print(PearlTrap.ClapTrap::getHitPoints());
+	print(PearlTrap.ClapTrap::getEnergyPoints());
+	print(PearlTrap.ClapTrap::getAttackDamage());
+
+	print("");
+	print("ScavTrap values of " + PearlTrap.getName());
+	print(PearlTrap.ScavTrap::getName());
+	print(PearlTrap.ScavTrap::getHitPoints());
+	print(PearlTrap.ScavTrap::getEnergyPoints());
+	print(PearlTrap.ScavTrap::getAttackDamage());
+
+	print("");
+	print("FragTrap values of " + PearlTrap.getName());
+	print(PearlTrap.FragTrap::getName());
+	print(PearlTrap.FragTrap::getHitPoints());
+	print(PearlTrap.FragTrap::getEnergyPoints());
+	print(PearlTrap.FragTrap::getAttackDamage());
+
+	print("");
+	print("DiamondTrap values of " + PearlTrap.getName());
+	print(PearlTrap.getName());
+	print(PearlTrap.getHitPoints());
+	print(PearlTrap.getEnergyPoints());
+	print(PearlTrap.getAttackDamage());
+	
+
 	ClapTrap::displayClapTraps();
 
 
@@ -82,4 +111,7 @@ void	print(std::string a, std::string b, std::string c, std::string d) {
 }
 void	print(std::string a, std::string b, int c, std::string d) {
 	std::cout << a << b << c << d << std::endl;
+}
+void	print(int n) {
+	std::cout << n << std::endl;
 }
