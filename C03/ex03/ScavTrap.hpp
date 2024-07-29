@@ -33,7 +33,7 @@ class ScavTrap : virtual public ClapTrap {
 		virtual const int				&getHitPoints(void)		const;
 		virtual const int				&getEnergyPoints(void)	const;
 		virtual const int				&getAttackDamage(void)	const;
-		void							setHitPoints(int num);
+		virtual	void							setHitPoints(int num);
 
 		// using							ClapTrap::setHitPoints;
 };

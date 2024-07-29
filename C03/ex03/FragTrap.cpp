@@ -68,7 +68,7 @@ const int	&FragTrap::getAttackDamage(void) const {
 	return (AttackDamage);
 }
 
-// void	FragTrap::setHitPoints(int num) {
-// 	std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->HitPoints <<std::endl;
-// 	this->HitPoints += num;
-// }
+void	FragTrap::setHitPoints(int num) {
+	// std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->HitPoints <<std::endl;
+	this->HitPoints += num;
+}

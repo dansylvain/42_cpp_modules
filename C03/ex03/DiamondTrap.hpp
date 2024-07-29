@@ -39,6 +39,7 @@ class DiamondTrap : virtual public ClapTrap, virtual public ScavTrap, virtual pu
 		virtual const int				&getHitPoints(void)		const;
 		virtual const int				&getEnergyPoints(void)	const;
 		virtual const int				&getAttackDamage(void)	const;
+		void	setHitPoints(int num);
 		using							ClapTrap::setHitPoints;
 };
 

@@ -54,3 +54,8 @@ const int	&DiamondTrap::getEnergyPoints(void) const {
 const int	&DiamondTrap::getAttackDamage(void) const {
 	return (AttackDamage);
 }
+
+void	DiamondTrap::setHitPoints(int num) {
+	// std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->HitPoints <<std::endl;
+	this->HitPoints += num;
+}

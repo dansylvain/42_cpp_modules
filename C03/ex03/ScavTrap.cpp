@@ -69,6 +69,5 @@ const int	&ScavTrap::getAttackDamage(void) const {
 }
 
 void	ScavTrap::setHitPoints(int num) {
-	std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->HitPoints <<std::endl;
 	this->HitPoints += num;
 }
