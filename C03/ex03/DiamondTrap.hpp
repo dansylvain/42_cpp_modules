@@ -1,10 +1,11 @@
 #ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 
-
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
-class DiamondTrap : public ClapTrap {
+class DiamondTrap : virtual public ClapTrap, virtual public ScavTrap, virtual public FragTrap {
 	public:
 		// Constructors and destructor
 		DiamondTrap();
