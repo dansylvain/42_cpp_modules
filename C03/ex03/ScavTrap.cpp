@@ -4,18 +4,20 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 ScavTrap::ScavTrap() : ClapTrap() {
-	initialize(" created***");}
+	initialize(" created ***");}
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name), Name(name), 
 										HitPoints(100), 
 										EnergyPoints(50), 
-										AttackDamage(20)  {}
+										AttackDamage(20)  {
+	initialize(" created ***");
+}
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
-	initialize(" created***");}
+	initialize(" created ***");} 
 
 ScavTrap::~ScavTrap() {
-	DisplayName(" destroyed***");};
+	DisplayName(" destroyed ***");};
 	
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
@@ -44,10 +46,7 @@ void	ScavTrap::DisplayName(std::string str) const {
 }
 void ScavTrap::initialize(std::string str)
 {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
-	DisplayName(str);
+	print("*** ", Name, str);
 }
 
 /**========================================================================

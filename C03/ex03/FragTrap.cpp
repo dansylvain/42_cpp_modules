@@ -4,18 +4,20 @@
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
 FragTrap::FragTrap() : ClapTrap() {
-	initialize(" created***");}
+	initialize(" created ###");}
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name), Name(name), 
 										HitPoints(100), 
 										EnergyPoints(100), 
-										AttackDamage(30)  {}
+										AttackDamage(30)  {
+	initialize(" created ###");
+}
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
-	initialize(" created***");}
+	initialize(" created ###");}
 
 FragTrap::~FragTrap() {
-	DisplayName(" destroyed***");};
+	DisplayName(" destroyed ###");};
 
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
@@ -31,7 +33,7 @@ FragTrap& FragTrap::operator=(const FragTrap& src) {
  *                           ACTION METHODS
  *========================================================================**/
 void	FragTrap::attack(const std::string& target) {
-	std::cout << "***FragTrap*** ";
+	std::cout << "### FragTrap ### ";
 	ClapTrap::attack(target);
 }
 
@@ -40,14 +42,11 @@ void	FragTrap::highFivesGuys() const {
 }
 
 void	FragTrap::DisplayName(std::string str) const {
-	print("***FragTrap ", this->getName(), str);
+	print("### FragTrap ", this->getName(), str);
 }
 
 void FragTrap::initialize(std::string str) {
-	HitPoints = 100;
-	EnergyPoints = 100;
-	AttackDamage = 30;
-	DisplayName(str);
+	print("### ", Name, str);
 }
 
 /**========================================================================

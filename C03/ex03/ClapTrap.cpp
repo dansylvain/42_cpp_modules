@@ -11,7 +11,7 @@ int 		ClapTrap::count = 0;
  *========================================================================**/
 ClapTrap::ClapTrap() : HitPoints(0), EnergyPoints(0), AttackDamage(0) {
 	addClapTrap(this);
-	print("ClapTrap created.");
+	print("--- ClapTrap created. ---");
 }
 
 ClapTrap::ClapTrap(const std::string& name) : Name(name), 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap(const std::string& name) : Name(name),
 										EnergyPoints(10), 
 										AttackDamage(0) {
 	addClapTrap(this);
-	print("ClapTrap ", name, " created.");
+	print("--- ClapTrap ", name, " created. ---");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name), 
@@ -27,12 +27,12 @@ ClapTrap::ClapTrap(const ClapTrap &other) : Name(other.Name),
 											EnergyPoints(other.EnergyPoints), 
 											AttackDamage(other.AttackDamage) {
 	addClapTrap(this);
-	print("ClapTrap ", Name, " created.");
+	print("--- ClapTrap ", Name, " created. ---");
 }
 
 ClapTrap::~ClapTrap() {
 	count--;
-	print("ClapTrap ", Name, " destroyed.");
+	print("--- ClapTrap ", Name, " destroyed. ---");
 }
 
 

@@ -1,6 +1,7 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
+	print("&&& DiamondTrap created. &&&");
 
 }
 
@@ -10,14 +11,16 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"
 										HitPoints(FragTrap::getHitPoints()), 
 										EnergyPoints(ScavTrap::getEnergyPoints()), 
 										AttackDamage(FragTrap::getAttackDamage())   {
-(void)name;
+	print("&&& DiamondTrap ", Name, " created. &&&");
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other)  : ClapTrap(other), ScavTrap(other), FragTrap() {
-	
+	print("&&& DiamondTrap ", other.Name, " created. &&&");
+
 }
 
 DiamondTrap::~DiamondTrap() {
+	print("&&& DiamondTrap ", Name, " destroyed. &&&");
 
 }
 
