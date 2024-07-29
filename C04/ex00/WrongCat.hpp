@@ -9,7 +9,7 @@ class WrongCat : public Animal {
 	public:
 		WrongCat();
 		WrongCat(const WrongCat &other);
-		WrongCat& operator=(const WrongCat& other);
+		WrongCat& operator=(const WrongCat& src);
 		~WrongCat(); 
 };
 

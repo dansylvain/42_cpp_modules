@@ -10,7 +10,7 @@ class Animal {
 		void	makeSound();
 		Animal();
 		Animal(const Animal &other);
-		Animal& operator=(const Animal& other);
+		Animal& operator=(const Animal& src);
 		~Animal(); 
 };
 
