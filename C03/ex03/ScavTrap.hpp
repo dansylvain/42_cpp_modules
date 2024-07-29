@@ -29,10 +29,10 @@ class ScavTrap : virtual public ClapTrap {
 		void	initialize(std::string str);
 
 		// getters and setters
-		// virtual const std::string		&getName(void)			const;
-		// virtual const int				&getHitPoints(void)		const;
+		virtual const std::string		&getName(void)			const;
+		virtual const int				&getHitPoints(void)		const;
 		virtual const int				&getEnergyPoints(void)	const;
-		// virtual const int				&getAttackDamage(void)	const;
+		virtual const int				&getAttackDamage(void)	const;
 };
 
 #endif

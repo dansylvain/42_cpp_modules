@@ -53,19 +53,19 @@ void ScavTrap::initialize(std::string str)
 /**========================================================================
  *                           ACCESSORS AND SETTERS
  *========================================================================**/
-// const std::string &ScavTrap::getName(void) const {
-// 	return (Name);
-// }
+const std::string &ScavTrap::getName(void) const {
+	return (Name);
+}
 
-// const int	&ScavTrap::getHitPoints(void) const {
-// 	return (HitPoints);
-// }
+const int	&ScavTrap::getHitPoints(void) const {
+	return (HitPoints);
+}
 
 const int	&ScavTrap::getEnergyPoints(void) const {
 	return (EnergyPoints);
 }
 
-// const int	&ScavTrap::getAttackDamage(void) const {
-// 	return (AttackDamage);
-// }
+const int	&ScavTrap::getAttackDamage(void) const {
+	return (AttackDamage);
+}
 

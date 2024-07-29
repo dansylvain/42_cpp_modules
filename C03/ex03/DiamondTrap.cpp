@@ -8,7 +8,7 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name), ScavTrap(nam
 (void)name;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other)  : ClapTrap(other), ScavTrap(other), FragTrap(other) {
+DiamondTrap::DiamondTrap(const DiamondTrap &other)  : ClapTrap(other), ScavTrap(other), FragTrap() {
 	
 }
 
@@ -25,4 +25,24 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& src) {
 	FragTrap::operator=(src);
 	return *this;
 return (*this);
+}
+
+
+/**========================================================================
+ *                           ACCESSORS AND SETTERS
+ *========================================================================**/
+const std::string &DiamondTrap::getName(void) const {
+	return (Name);
+}
+
+const int	&DiamondTrap::getHitPoints(void) const {
+	return (HitPoints);
+}
+
+const int	&DiamondTrap::getEnergyPoints(void) const {
+	return (EnergyPoints);
+}
+
+const int	&DiamondTrap::getAttackDamage(void) const {
+	return (AttackDamage);
 }

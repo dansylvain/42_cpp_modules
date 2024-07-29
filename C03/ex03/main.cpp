@@ -2,18 +2,6 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
-void	displayClapTraps()
-{
-	print("");
-	print("*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***");
-	for (int i = 0; i < ClapTrap::count; i++)
-		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
-		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
-		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
-		<< ClapTrap::allClapTraps[i]->getAttackDamage()
-		<< "." << std::endl;
-	print("");	
-}
 
 int main(void)
 {
@@ -28,7 +16,7 @@ int main(void)
 	FragTrap FraggyBoy("FraggyBoy");
 	DiamondTrap PearlTrap("PearlTrap");
 	
-	displayClapTraps();
+	ClapTrap::displayClapTraps();
 	
 	print("******* test: attack *********");
 	Clapster.attack("NonExistingClapTrap");
@@ -71,7 +59,7 @@ int main(void)
 	FraggyBoy.highFivesGuys();
 	print("");
 	
-	displayClapTraps();
+	ClapTrap::displayClapTraps();
 
 
 

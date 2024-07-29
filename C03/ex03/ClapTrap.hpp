@@ -41,6 +41,7 @@ class ClapTrap {
 
 		// static utility methods
 		static void 		addClapTrap(ClapTrap* clapTrap);
+		static void			displayClapTraps();
 		static ClapTrap* 	findByName(const std::string& name);
 		static const int	MAX_CLAPTRAPS = 10;
 		static ClapTrap*	allClapTraps[MAX_CLAPTRAPS];

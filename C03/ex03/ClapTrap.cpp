@@ -155,6 +155,19 @@ ClapTrap* ClapTrap::findByName(const std::string& name) {
 	return NULL;
 }
 
+void	ClapTrap::displayClapTraps()
+{
+	print("");
+	print("*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***");
+	for (int i = 0; i < ClapTrap::count; i++)
+		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
+		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
+		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
+		<< ClapTrap::allClapTraps[i]->getAttackDamage()
+		<< "." << std::endl;
+	print("");	
+}
+
 /**========================================================================
  *                           UTILS METHODS
  *========================================================================**/

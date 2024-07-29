@@ -53,17 +53,17 @@ void FragTrap::initialize(std::string str) {
 /**========================================================================
  *                           ACCESSORS AND SETTERS
  *========================================================================**/
-// const std::string &FragTrap::getName(void) const {
-// 	return (Name);
-// }
+const std::string &FragTrap::getName(void) const {
+	return (Name);
+}
 
 const int	&FragTrap::getHitPoints(void) const {
 	return (HitPoints);
 }
 
-// const int	&FragTrap::getEnergyPoints(void) const {
-// 	return (EnergyPoints);
-// }
+const int	&FragTrap::getEnergyPoints(void) const {
+	return (EnergyPoints);
+}
 
 const int	&FragTrap::getAttackDamage(void) const {
 	return (AttackDamage);
