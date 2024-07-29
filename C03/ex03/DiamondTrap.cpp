@@ -59,3 +59,9 @@ void	DiamondTrap::setHitPoints(int num) {
 	// std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->HitPoints <<std::endl;
 	this->HitPoints += num;
 }
+
+void	DiamondTrap::whoAmI()
+{
+	print("My name: " + this->Name);
+	print("My ClapTrap Class name: " + ClapTrap::Name);
+}

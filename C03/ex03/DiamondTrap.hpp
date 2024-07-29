@@ -22,12 +22,13 @@ class DiamondTrap : virtual public ClapTrap, virtual public ScavTrap, virtual pu
 	    DiamondTrap& operator=(const DiamondTrap& src);
 
 		// action methods
-		void	attack(const std::string& target);
-		void	guardGate() const;
+		// void	attack(const std::string& target);
+		// void	guardGate() const;
+		void	whoAmI();
 
 		// utils methods
-		void	DisplayName(std::string str) const;
-		void	initialize(std::string str);
+		// void	DisplayName(std::string str) const;
+		// void	initialize(std::string str);
 
 		// using	ClapTrap::getName;
 		using	FragTrap::getHitPoints;

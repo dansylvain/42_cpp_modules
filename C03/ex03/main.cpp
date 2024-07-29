@@ -40,6 +40,7 @@ int main(void)
 	ScavMaster.takeDamage(22);
 	print("");
 
+
 	print("***** test: beRepaired *******");
 	ClappyClappo.beRepaired(1);
 	ClappyClappo.beRepaired(1);
@@ -57,6 +58,7 @@ int main(void)
 	print("****** special Traps tests ******");
 	ScavBuddy.guardGate();
 	FraggyBoy.highFivesGuys();
+	PearlTrap.whoAmI();
 	print("");
 	
 	print("****** Diamond values access test ******");
@@ -86,7 +88,7 @@ int main(void)
 	print(PearlTrap.getHitPoints());
 	print(PearlTrap.getEnergyPoints());
 	print(PearlTrap.getAttackDamage());
-	
+	print("");
 
 	ClapTrap::displayClapTraps();
 
