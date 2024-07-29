@@ -71,6 +71,8 @@ const int	&ClapTrap::getAttackDamage(void) const {
 
 void	ClapTrap::setHitPoints(int num) {
 	this->HitPoints += num;
+	if (num == 42)
+		this->HitPoints = 0;
 }
 
 /**========================================================================
@@ -109,17 +111,16 @@ void ClapTrap::attack(const std::string& target, int AD) {
 
 
 void ClapTrap::takeDamage(unsigned int amount) {
-	
-	if (this->getHitPoints() == 0)
+	if (this->getHitPoints() <= 0)
 	{
-		print(this->Name, " is already dead.");
+		print(this->getName() + " is already dead.");
 		return ;
 	}
 	this->setHitPoints(-amount);
 	if (this->getHitPoints() <= 0)
 	{
 		print(this->getName(), " dies.");
-		HitPoints = 0;
+		this->setHitPoints(42);
 		return ;
 	}
 	print(this->getName(), " takes damage and looses ",
@@ -127,7 +128,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount, int HP) {
-	if (HP == 0)
+	if (HP <= 0)
 	{
 		print(this->Name, " is already dead.");
 		return ;
@@ -138,7 +139,6 @@ void ClapTrap::takeDamage(unsigned int amount, int HP) {
 	if (this->getHitPoints() <= 0)
 	{
 		print(this->getName(), " dies.");
-		HitPoints = 0;
 		return ;
 	}
 	print(this->getName(), " takes damage and looses ",
@@ -186,7 +186,7 @@ void	ClapTrap::displayClapTraps()
 {
 	print("");
 	print("**************************************************************");
-	print("*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***");
+	print("*** Display: (Name, HitPoints, EnergyPoints, AttackDamage) ***");
 	print("**************************************************************");
 	for (int i = 0; i < ClapTrap::count; i++)
 		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "

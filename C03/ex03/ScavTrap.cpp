@@ -73,4 +73,6 @@ const int	&ScavTrap::getAttackDamage(void) const {
 
 void	ScavTrap::setHitPoints(int num) {
 	this->HitPoints += num;
+	if (num == 42)
+		this->HitPoints = 0;
 }

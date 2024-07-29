@@ -72,6 +72,7 @@ const int	&FragTrap::getAttackDamage(void) const {
 }
 
 void	FragTrap::setHitPoints(int num) {
-	// std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->HitPoints <<std::endl;
 	this->HitPoints += num;
+	if (num == 42)
+		this->HitPoints = 0;
 }
