@@ -39,6 +39,9 @@ class FragTrap : virtual public ClapTrap {
 		virtual const int				&getHitPoints(void)		const;
 		virtual const int				&getEnergyPoints(void)	const;
 		virtual const int				&getAttackDamage(void)	const;
+		// using							ClapTrap::setHitPoints;
+		// void							setHitPoints(int num) {
+
 };
 
 #endif

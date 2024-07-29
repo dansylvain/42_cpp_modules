@@ -34,6 +34,8 @@ class ClapTrap {
 		virtual const int				&getHitPoints(void)		const;
 		virtual const int				&getEnergyPoints(void)	const;
 		virtual const int				&getAttackDamage(void)	const;
+		virtual void					setHitPoints(int num);
+		
 
 		// other methods
 		void	attack(const std::string& target);

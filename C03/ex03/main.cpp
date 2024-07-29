@@ -22,6 +22,10 @@ int main(void)
 	ClappyClappo.attack("ZappyClap");
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
+
+	print("Scavtronix HP at the beggining: ");
+	std::cout << ScavTronix.getHitPoints() << std::endl;
+
 	Clapster.attack("ScavTronix");
 	Clapster.attack("ScavTronix");
 	Clapster.attack("ScavTronix");

@@ -69,6 +69,11 @@ const int	&ClapTrap::getAttackDamage(void) const {
 	return (AttackDamage);
 }
 
+void	ClapTrap::setHitPoints(int num) {
+	std::cout << "HitPoints INSIDE SETHITPOINTS FUNC" << this->getHitPoints() <<std::endl;
+	this->HitPoints += num;
+}
+
 /**========================================================================
  *                           ACTION METHODS
  *========================================================================**/
@@ -135,8 +140,10 @@ void ClapTrap::takeDamage(unsigned int amount, int HP) {
 		print(this->Name, " is already dead.");
 		return ;
 	}
-	this->HitPoints -= amount;
-	if (this->HitPoints <= 0)
+
+	this->setHitPoints(-amount);
+
+	if (this->getHitPoints() <= 0)
 	{
 		print(this->getName(), " dies.");
 		HitPoints = 0;
