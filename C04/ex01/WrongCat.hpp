@@ -2,8 +2,11 @@
 #define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
+#include "Brain.hpp"
 
 class WrongCat : public WrongAnimal {
+	private:
+		Brain* myBrain;
 	public:
 		WrongCat();
 		WrongCat(const WrongCat &other);

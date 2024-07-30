@@ -1,6 +1,5 @@
 #include "WrongAnimal.hpp"
 
-
 WrongAnimal::WrongAnimal() : type("WrongAnimal") {
 	print("WrongAnimal created");
 }

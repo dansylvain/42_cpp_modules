@@ -3,12 +3,14 @@
 
 Dog::Dog() : Animal() {
 	type = "Dog";
-	print("Dog created");
+	print("Dog created - with a brain");
+	myBrain = new Brain();
 }
 
 Dog::Dog(const Dog &other) : Animal(other) {
-	std::cout << "Dog created" << std::endl;
+	std::cout << "Dog created - with a brain" << std::endl;
 	type = other.getType();
+	myBrain = new Brain();
 }
 
 Dog& Dog::operator=(const Dog& src) {
@@ -19,6 +21,7 @@ Dog& Dog::operator=(const Dog& src) {
 
 Dog::~Dog() {
 	print("Dog destroyed");
+	delete myBrain;
 }
 
 void	Dog::makeSound() const {
