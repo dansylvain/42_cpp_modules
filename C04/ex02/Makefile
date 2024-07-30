@@ -1,4 +1,4 @@
-TARGET = burn
+TARGET = Kandinsky
 
 CXX = g++
 
