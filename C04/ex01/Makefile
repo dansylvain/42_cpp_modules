@@ -1,10 +1,10 @@
-TARGET = burn
+TARGET = polymorphisme
 
 CXX = g++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp Brain.cpp
+SRC = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)

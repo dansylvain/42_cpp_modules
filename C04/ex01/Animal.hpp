@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+void	print(std::string str);
 
 class Animal {
 	protected:
@@ -15,9 +16,8 @@ class Animal {
 
 		// other member unctions
 		virtual void	makeSound() const;
-		const std::string&	getType() const;
+		virtual const	std::string&	getType() const;
 
-		static void	print(std::string str);
 };
 
 #endif

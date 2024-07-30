@@ -9,8 +9,10 @@ class Dog : public Animal {
 		Dog(const Dog &other);
 		Dog& operator=(const Dog& src);
 		~Dog(); 
-		void	makeSound() const;
 		using Animal::getType;
+
+		virtual void	makeSound() const;
+
 };
 
 #endif
