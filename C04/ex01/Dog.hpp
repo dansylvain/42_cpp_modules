@@ -15,7 +15,7 @@ class Dog : public Animal {
 		using Animal::getType;
 
 		virtual void	makeSound() const;
-
+		void	getGlobalKnowledge();
 };
 
 #endif

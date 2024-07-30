@@ -28,3 +28,5 @@ const std::string	&Animal::getType() const {
 	return (type);
 }
 
+void	Animal::getGlobalKnowledge(){};
+
