@@ -36,14 +36,30 @@ int main()
 		print(str + CatPtr->myBrain->getIdea());
 	}
 	print("");
-	print("********** Brain Tests *************");
+	print("**** Copy constructor test *********");
+	const Cat *catPtr = dynamic_cast<Cat*>(animals[8]);
+	print("PussyCat thinks: " + catPtr->myBrain->ideas[7]);
+	print("PussyCat thinks: " + catPtr->myBrain->ideas[15]);
+	print("PussyCat thinks: " + catPtr->myBrain->ideas[42]);
 
+	print("");
+	Cat copyCat(*catPtr);
+	print("");
+
+	print("Pussy thinks:   " + catPtr->myBrain->ideas[7]);
+	print("copyCat thinks: " + copyCat.myBrain->ideas[7]);
+	print("Pussy thinks:   " + catPtr->myBrain->ideas[15]);
+	print("copyCat thinks: " + copyCat.myBrain->ideas[15]);
+	print("Pussy thinks:   " + catPtr->myBrain->ideas[42]);
+	print("copyCat thinks: " + copyCat.myBrain->ideas[42]);
+
+
+	print("");
 	print("***** Assignment Tests *************");
-
 	Dog *dogOne = dynamic_cast<Dog*>(animals[4]);
 	Dog *dogTwo = dynamic_cast<Dog*>(animals[2]);
 	
-	print("before assignation copy");
+	print("before assignment");
 	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);
 	print("dogOne thinks: " + dogOne->myBrain->ideas[12]);
@@ -51,8 +67,11 @@ int main()
 	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
 	print("");
+
 	*dogOne = *dogTwo;
-	print("after assignation copy");
+
+	print("");
+	print("after assignment");
 	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);
 	print("dogOne thinks: " + dogOne->myBrain->ideas[12]);
@@ -60,12 +79,8 @@ int main()
 	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
 	print("");
-
-		
-
 
 	print("******* Animals destruction ********");
-
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
 	return 0;

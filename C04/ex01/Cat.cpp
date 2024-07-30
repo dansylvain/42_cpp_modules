@@ -10,10 +10,9 @@ Cat::Cat() : Animal() {
 }
 
 Cat::Cat(const Cat &other) : Animal(other){
-	myBrain = new Brain();
-	getGlobalKnowledge();
 	type = other.getType();
-	print("Cat created - with a brain");
+	myBrain = new Brain(*other.myBrain);
+	std::cout << "Dog created - with a brain" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& src) {

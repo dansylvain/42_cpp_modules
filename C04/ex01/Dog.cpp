@@ -10,15 +10,15 @@ Dog::Dog() : Animal() {
 }
 
 Dog::Dog(const Dog &src) : Animal(src) {
-	std::cout << "Dog created - with a brain" << std::endl;
 	type = src.getType();
 	myBrain = new Brain(*src.myBrain);
+	std::cout << "Dog created - with a brain" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
 	if (this == &other) return (*this);
-	*myBrain = *other.myBrain;
 	print("Dog copied");
+	*myBrain = *other.myBrain;
 	return (*this);
 }
 
