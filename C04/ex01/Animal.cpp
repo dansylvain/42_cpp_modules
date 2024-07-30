@@ -13,7 +13,7 @@ Animal::Animal(const Animal &other) {
 Animal& Animal::operator=(const Animal& src) {
 	if (this != &src)
 		this->type = src.getType();
-return (*this);
+	return (*this);
 }
 
 Animal::~Animal() {

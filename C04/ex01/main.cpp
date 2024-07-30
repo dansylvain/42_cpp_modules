@@ -36,11 +36,12 @@ int main()
 		print(str + CatPtr->myBrain->getIdea());
 	}
 	print("");
+	print("********** Brain Tests *************");
 
-	print("*********** Copy Tests *************");
+	print("***** Assignment Tests *************");
 
-	const Dog *dogOne = dynamic_cast<const Dog*>(animals[4]);
-	const Dog *dogTwo = dynamic_cast<const Dog*>(animals[2]);
+	Dog *dogOne = dynamic_cast<Dog*>(animals[4]);
+	Dog *dogTwo = dynamic_cast<Dog*>(animals[2]);
 	
 	print("before assignation copy");
 	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
@@ -50,7 +51,7 @@ int main()
 	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
 	print("");
-	dogOne = dogTwo;
+	*dogOne = *dogTwo;
 	print("after assignation copy");
 	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);

@@ -9,19 +9,16 @@ Dog::Dog() : Animal() {
 	getGlobalKnowledge();
 }
 
-Dog::Dog(const Dog &other) : Animal(other) {
+Dog::Dog(const Dog &src) : Animal(src) {
 	std::cout << "Dog created - with a brain" << std::endl;
-	type = other.getType();
-	myBrain = new Brain(other.myBrain);
-	getGlobalKnowledge();
+	type = src.getType();
+	myBrain = new Brain(*src.myBrain);
 }
 
-Dog& Dog::operator=(const Dog& src) {
-	if (this != &src)
-	{
-		Animal::operator=(src);
-		print("Dog copied");
-	}
+Dog& Dog::operator=(const Dog& other) {
+	if (this == &other) return (*this);
+	*myBrain = *other.myBrain;
+	print("Dog copied");
 	return (*this);
 }
 
