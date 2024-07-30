@@ -14,12 +14,17 @@ Brain::Brain(const Brain *other) {
 
 
 Brain& Brain::operator=(const Brain& src) {
-(void)src;
-return (*this);
+	if (this != &src)
+	{
+		for (int i = 0; i < 100; i++)
+			ideas[i] = src.ideas[i];
+		print("brain transplanted");
+	}
+	return (*this);
 }
 
 Brain::~Brain() {
-
+	print("Brain desintegrated");
 }
 
 std::string& Brain::getIdea() {

@@ -1,5 +1,6 @@
 #include "Cat.hpp"
-
+#include <ctime>
+#include <cstdlib>
 
 Cat::Cat() : Animal() {
 	type = "Cat";
@@ -134,5 +135,5 @@ void	Cat::getGlobalKnowledge() {
 		"I am a master at finding hidden treats."
 	};
 		for (int i = 0; i < 100; i++)
-			Cat::myBrain->ideas[i] = GlobalCatKnowledge[i];	
+			Cat::myBrain->ideas[i] = GlobalCatKnowledge[std::rand() % 100];	
 }
