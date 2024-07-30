@@ -1,4 +1,4 @@
-TARGET = polymorphisme
+TARGET = burn
 
 CXX = g++
 
