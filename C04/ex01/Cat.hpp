@@ -14,6 +14,7 @@ class Cat : public Animal {
 		~Cat(); 
 
 		virtual void	makeSound() const;	
+		void	getGlobalKnowledge();
 };
 
 #endif

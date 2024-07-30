@@ -131,8 +131,5 @@ void	Dog::getGlobalKnowledge() {
 		"I am a fan of soft, cozy beds.",
 		"I love to receive lots of affection and praise."};
 		for (int i = 0; i < 100; i++)
-		{
 			Dog::myBrain->ideas[i] = GlobalDogKnowledge[i];
-			i++;
-		}
 }
