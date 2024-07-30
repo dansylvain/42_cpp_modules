@@ -19,27 +19,6 @@ const WrongAnimal* wa = new WrongAnimal();
 const WrongAnimal* wc = new WrongCat();
 print("");
 
-print("*****Copy constructor Test ********");
-const Animal *CopyDog = new Dog(*dynamic_cast<const Dog*>(dog));
-CopyDog->makeSound();
-print(CopyDog->getType());
-print("");
-
-const WrongAnimal *CopyWCat = new WrongCat(*dynamic_cast<const WrongCat*>(wc));
-CopyWCat->makeSound();
-print(CopyWCat->getType());
-print("");
-
-print("*****assign. operator Test ********");
-
-print("Before Transgender Surgery:");
-CopyDog->makeSound();
-CopyDog = cat;
-print("After Transgender Surgery:");
-CopyDog->makeSound();
-print("");
-
-
 print("********Makesound Test ************");
 meta->makeSound();
 cat->makeSound();
@@ -50,22 +29,47 @@ print("");
 
 
 
-
-
-
-
-
+print("*****Copy constructor Test ********");
+Dog CopyDog(*dynamic_cast<const Dog*>(dog));
+CopyDog.makeSound();
+print(CopyDog.getType());
 print("");
 
-
+WrongCat CopyCat(*dynamic_cast<const WrongCat*>(wc));
+CopyCat.makeSound();
+print(CopyCat.getType());
 print("");
 
+/**========================================================================
+ * ? class cannot be assigned at random.
+ * ? only "compatible" classes can be assigned
+ * ? hence, I did it on the stack, not to loose reference
+ *========================================================================**/
+
+print("*****assign. operator Test ********");
+
+const Animal* animalPtr = &CopyDog;
+print("Before Transgender Surgery:");
+animalPtr->makeSound();
+animalPtr = cat;
+print("After Transgender Surgery:");
+animalPtr->makeSound();
+print("");
+
+const WrongAnimal* WanimalPtr = &CopyCat;
+print("Before Transgender Surgery:");
+WanimalPtr->makeSound();
+WanimalPtr = wc;
+print("After Transgender Surgery:");
+WanimalPtr->makeSound();
+print("");
 
 delete meta;
 delete cat;
 delete dog;
 delete wa;
 delete wc;
+
 }
 
 void	print(std::string str)
