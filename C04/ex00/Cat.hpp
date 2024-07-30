@@ -5,8 +5,6 @@
 
 class Cat : public Animal {
 	public:
-		void	makeSound() const;
-	public:
 		Cat();
 		Cat(const Cat &other);
 		Cat& operator=(const Cat& src);

@@ -3,21 +3,19 @@
 
 Cat::Cat() : Animal() {
 	type = "Cat";
+	printCreation();
 }
 
-Cat::Cat(const Cat &other) : Animal() {
-(void)other;
+Cat::Cat(const Cat &other) : Animal(){
+	type = other.getType();
 }
 
 Cat& Cat::operator=(const Cat& src) {
-(void)src;
-return (*this);
+	if (this != &src)
+		Animal::operator=(src);
+	return (*this);
 }
 
 Cat::~Cat() {
 
-}
-
-void	Cat::makeSound() const{
-	print("Cat says hi");
 }

@@ -2,15 +2,16 @@
 
 
 Animal::Animal() : type("Animal") {
-
+	printCreation();
 }
 
 Animal::Animal(const Animal &other) {
-(void)other;
+	type = other.getType();
 }
 
 Animal& Animal::operator=(const Animal& src) {
-(void)src;
+	if (this != &src)
+		this->type = src.getType();
 return (*this);
 }
 
@@ -19,14 +20,14 @@ Animal::~Animal() {
 }
 
 void	Animal::makeSound() const {
-
+	print(getType() + " says hi");
 }
 
 const std::string	&Animal::getType() const {
 	return (type);
 }
 
-void	Animal::print(std::string str)
+void	Animal::printCreation()
 {
-	std::cout << str << std::endl;
+	print(getType() + " created");
 }

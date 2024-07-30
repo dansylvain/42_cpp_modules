@@ -3,21 +3,19 @@
 
 Dog::Dog() : Animal() {
 	type = "Dog";
+	printCreation();
 }
 
 Dog::Dog(const Dog &other) : Animal() {
-(void)other;
+	type = other.getType();
 }
 
 Dog& Dog::operator=(const Dog& src) {
-(void)src;
-return (*this);
+	if (this != &src)
+		Animal::operator=(src);
+	return (*this);
 }
 
 Dog::~Dog() {
 
-}
-
-void	Dog::makeSound() const {
-	print("Dog says hi");
 }

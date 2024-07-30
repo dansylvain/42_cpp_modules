@@ -5,8 +5,6 @@
 
 class WrongCat : public WrongAnimal {
 	public:
-		void	makeSound() const;
-	public:
 		WrongCat();
 		WrongCat(const WrongCat &other);
 		WrongCat& operator=(const WrongCat& src);

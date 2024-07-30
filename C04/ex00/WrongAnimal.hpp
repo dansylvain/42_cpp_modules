@@ -2,6 +2,7 @@
 #define WRONGANIMAL_HPP
 
 #include <iostream>
+void	print(std::string str);
 
 class WrongAnimal {
 	protected:
@@ -11,13 +12,13 @@ class WrongAnimal {
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal &other);
 		WrongAnimal& operator=(const WrongAnimal& src);
-		virtual ~WrongAnimal(); 
+		~WrongAnimal(); 
 
 		// other member unctions
-		virtual void	makeSound() const;
+		void	makeSound() const;
 		const std::string&	getType() const;
+		void	printCreation();
 
-		static void	print(std::string str);
 };
 
 #endif

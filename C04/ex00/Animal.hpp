@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+void	print(std::string str);
 
 class Animal {
 	protected:
@@ -11,13 +12,13 @@ class Animal {
 		Animal();
 		Animal(const Animal &other);
 		Animal& operator=(const Animal& src);
-		virtual ~Animal(); 
+		~Animal(); 
 
 		// other member unctions
-		virtual void	makeSound() const;
+		void	makeSound() const;
 		const std::string&	getType() const;
+		void	printCreation();
 
-		static void	print(std::string str);
 };
 
 #endif
