@@ -1,16 +1,16 @@
-#ifndef WRONG_CAT
-#define WRONG_CAT
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class WrongCat : public Animal {
+class WrongCat : public WrongAnimal {
 	public:
 		void	makeSound() const;
 	public:
 		WrongCat();
 		WrongCat(const WrongCat &other);
 		WrongCat& operator=(const WrongCat& src);
-		~WrongCat(); 
+		~WrongCat(); 	
 };
 
 #endif

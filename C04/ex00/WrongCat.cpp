@@ -1,11 +1,11 @@
 #include "WrongCat.hpp"
 
 
-WrongCat::WrongCat() : Animal() {
+WrongCat::WrongCat() : WrongAnimal() {
 	type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat &other) : Animal() {
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal() {
 (void)other;
 }
 
