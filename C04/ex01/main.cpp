@@ -7,7 +7,7 @@
 
 int main()
 {
-	Animal::print("Welcome to the Jungle");
+Animal::print("Welcome to the Jungle");
 const Animal* meta = new Animal();
 const Animal* j = new Dog();
 const Animal* i = new Cat();
