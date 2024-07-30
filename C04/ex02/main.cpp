@@ -14,6 +14,15 @@ int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(0)));
 
+	// abstract classes cannot be instantiated
+	// create a pure fonction (by adding = 0 at the end)
+	// to make a class abstract
+
+	//? uncomment this line for test
+	// Animal test;
+
+
+
 
 	print("Welcome to the Jungle");
 	print("");

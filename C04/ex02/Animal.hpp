@@ -17,7 +17,7 @@ class Animal {
 		virtual ~Animal(); 
 
 		// other member unctions
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 		virtual const	std::string&	getType() const;
 		virtual void	getGlobalKnowledge();
 
