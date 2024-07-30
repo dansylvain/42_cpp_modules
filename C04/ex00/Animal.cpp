@@ -2,10 +2,11 @@
 
 
 Animal::Animal() : type("Animal") {
-	printCreation();
+	print("Animal created");
 }
 
 Animal::Animal(const Animal &other) {
+	print("Animal created");
 	type = other.getType();
 }
 
@@ -16,7 +17,7 @@ return (*this);
 }
 
 Animal::~Animal() {
-
+	print("Animal destroyed");
 }
 
 void	Animal::makeSound() const {
@@ -27,7 +28,3 @@ const std::string	&Animal::getType() const {
 	return (type);
 }
 
-void	Animal::printCreation()
-{
-	print(getType() + " created");
-}

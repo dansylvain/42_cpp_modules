@@ -12,12 +12,11 @@ class WrongAnimal {
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal &other);
 		WrongAnimal& operator=(const WrongAnimal& src);
-		~WrongAnimal(); 
+		virtual ~WrongAnimal(); 
 
 		// other member unctions
 		void	makeSound() const;
 		const std::string&	getType() const;
-		void	printCreation();
 
 };
 

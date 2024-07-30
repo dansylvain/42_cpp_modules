@@ -12,12 +12,11 @@ class Animal {
 		Animal();
 		Animal(const Animal &other);
 		Animal& operator=(const Animal& src);
-		~Animal(); 
+		virtual ~Animal(); 
 
 		// other member unctions
-		void	makeSound() const;
-		const std::string&	getType() const;
-		void	printCreation();
+		virtual void	makeSound() const;
+		virtual const	std::string&	getType() const;
 
 };
 

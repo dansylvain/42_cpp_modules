@@ -3,10 +3,11 @@
 
 WrongCat::WrongCat() : WrongAnimal() {
 	type = "WrongCat";
-	printCreation();
+	print("WrongCat created");
 }
 
-WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(){
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other){
+	print("WrongAnimal created");
 	type = other.getType();
 }
 
@@ -17,5 +18,9 @@ WrongCat& WrongCat::operator=(const WrongCat& src) {
 }
 
 WrongCat::~WrongCat() {
+	print("WrongCat destroyed");
+}
 
+void	WrongCat::makeSound() const {
+	print(getType() + " says MEOW!");
 }
