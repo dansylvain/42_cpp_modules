@@ -5,12 +5,14 @@ Dog::Dog() : Animal() {
 	type = "Dog";
 	print("Dog created - with a brain");
 	myBrain = new Brain();
+	getGlobalKnowledge();
 }
 
 Dog::Dog(const Dog &other) : Animal(other) {
 	std::cout << "Dog created - with a brain" << std::endl;
 	type = other.getType();
 	myBrain = new Brain();
+	getGlobalKnowledge();
 }
 
 Dog& Dog::operator=(const Dog& src) {

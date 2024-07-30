@@ -1,6 +1,8 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
+#include "Brain.hpp"
+
 #include <iostream>
 void	print(std::string str);
 

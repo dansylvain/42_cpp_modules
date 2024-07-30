@@ -6,12 +6,12 @@
 
 class Cat : public Animal {
 	private:
-		Brain* myBrain;
 	public:
 		Cat();
 		Cat(const Cat &other);
 		Cat& operator=(const Cat& src);
 		~Cat(); 
+		Brain* myBrain;
 
 		virtual void	makeSound() const;	
 		void	getGlobalKnowledge();

@@ -2,7 +2,7 @@
 #define BRAIN_HPP
 
 #include "Animal.hpp"
-
+#include <string>
 class Brain {
 	private:
 
