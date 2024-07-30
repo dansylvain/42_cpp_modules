@@ -11,7 +11,9 @@ class Brain {
 		Brain();
 		Brain(const Brain &other);
 		Brain& operator=(const Brain& src);
-		~Brain(); 
+		~Brain();
+
+		std::string& getIdea();
 };
 
 #endif

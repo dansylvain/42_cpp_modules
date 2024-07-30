@@ -1,5 +1,6 @@
 #include "Brain.hpp"
-
+#include <ctime>
+#include <cstdlib>
 
 Brain::Brain() {
 }
@@ -15,4 +16,8 @@ return (*this);
 
 Brain::~Brain() {
 
+}
+
+std::string& Brain::getIdea() {
+	return ideas[std::rand() % 100];
 }

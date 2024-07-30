@@ -6,6 +6,7 @@
 #include "Brain.hpp"
 #include <ctime>
 #include <cstdlib>
+#include <typeinfo>
 
 void	print(std::string str);
 
@@ -17,27 +18,44 @@ int main()
 	print("Welcome to the Jungle");
 	print("");
 
-	print("******** Creation Tests ************");
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	print("******** Animal Creation ***********");
+	Animal* animals[10];
+	for (int i = 0; i < 5; i++)
+		animals[i] = new Dog();
+	for (int i = 5; i < 10; i++)
+		animals[i] = new Cat();
 	print("");
-
 	print("********** Brain Tests *************");
-	const Dog* dogPtr = dynamic_cast<const Dog*>(dog);
-	print(dog->getType() + " thinks: " + dogPtr->myBrain->ideas[std::rand() % 100]);
-	print(dog->getType() + " thinks: " + dogPtr->myBrain->ideas[std::rand() % 100]);
-	print(dog->getType() + " thinks: " + dogPtr->myBrain->ideas[std::rand() % 100]);
+	for (int i = 0; i < 10; i++)
+	{
+		if (i == 5) print("");
+		std::string str = (animals[i])->getType() + " thinks: ";
+		const Dog *dogPtr = dynamic_cast<const Dog*>(animals[i]);
+		const Cat *CatPtr = dynamic_cast<const Cat*>(animals[i]);
+		dogPtr ? print(str + dogPtr->myBrain->getIdea()) : 
+		print(str + CatPtr->myBrain->getIdea());
+	}
+
+
+
+	// for (int i = 0; i< 5; i++)
+	// print("");
+	// const Cat* catPtr = dynamic_cast<const Cat*>(cat);
+	// for (int i = 0; i< 5; i++)
+	// 	print(str + catPtr->myBrain->getIdea());
 	print("");
-	const Cat* catPtr = dynamic_cast<const Cat*>(cat);
-	print(cat->getType() + " thinks: " + catPtr->myBrain->ideas[std::rand() % 100]);
-	print(cat->getType() + " thinks: " + catPtr->myBrain->ideas[std::rand() % 100]);
-	print(cat->getType() + " thinks: " + catPtr->myBrain->ideas[std::rand() % 100]);
 
-
-	(void)dog;
-	(void)cat;
 	
+		
+
+
+	print("******* Animals destruction ********");
+	// delete dog;
+	// delete cat;
+	for (int i = 0; i < 10; i++)
+		delete animals[i];
 	return 0;
+	(void)animals;
 }
 
 void	print(std::string str)
