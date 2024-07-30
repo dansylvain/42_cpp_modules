@@ -18,7 +18,10 @@ Cat::Cat(const Cat &other) : Animal(other){
 
 Cat& Cat::operator=(const Cat& src) {
 	if (this != &src)
+	{
 		Animal::operator=(src);
+		print("Cat copied");
+	}
 	return (*this);
 }
 

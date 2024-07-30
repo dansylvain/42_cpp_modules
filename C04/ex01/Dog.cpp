@@ -18,7 +18,10 @@ Dog::Dog(const Dog &other) : Animal(other) {
 
 Dog& Dog::operator=(const Dog& src) {
 	if (this != &src)
+	{
 		Animal::operator=(src);
+		print("Dog copied");
+	}
 	return (*this);
 }
 

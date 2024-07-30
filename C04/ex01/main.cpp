@@ -35,23 +35,36 @@ int main()
 		dogPtr ? print(str + dogPtr->myBrain->getIdea()) : 
 		print(str + CatPtr->myBrain->getIdea());
 	}
-
-
-
-	// for (int i = 0; i< 5; i++)
-	// print("");
-	// const Cat* catPtr = dynamic_cast<const Cat*>(cat);
-	// for (int i = 0; i< 5; i++)
-	// 	print(str + catPtr->myBrain->getIdea());
 	print("");
 
+	print("*********** Copy Tests *************");
+
+	const Dog *dogOne = dynamic_cast<const Dog*>(animals[4]);
+	const Dog *dogTwo = dynamic_cast<const Dog*>(animals[2]);
 	
+	print("before assignation copy");
+	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
+	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);
+	print("dogOne thinks: " + dogOne->myBrain->ideas[12]);
+	print("dogTwo thinks: " + dogTwo->myBrain->ideas[12]);
+	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
+	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
+	print("");
+	dogOne = dogTwo;
+	print("after assignation copy");
+	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
+	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);
+	print("dogOne thinks: " + dogOne->myBrain->ideas[12]);
+	print("dogTwo thinks: " + dogTwo->myBrain->ideas[12]);
+	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
+	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
+	print("");
+
 		
 
 
 	print("******* Animals destruction ********");
-	// delete dog;
-	// delete cat;
+
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
 	return 0;
