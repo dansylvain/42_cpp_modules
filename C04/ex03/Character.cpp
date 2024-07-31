@@ -42,6 +42,13 @@ Character& Character::operator=(const Character& other)
 		print("Character copied");
 		ICharacter::operator=(other);
 		name = other.name;
+		for (int i = 0; i < 4; i++)
+		{
+			if (inv[i])
+				inv[i] = NULL;
+			if (other.inv[i])
+				inv[i] = other.inv[i];
+		}
 	}
 	return (*this);
 }

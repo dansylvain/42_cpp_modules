@@ -93,12 +93,26 @@ int main()
 	character2.displayMaterias();
 	print("inv after unequipping everything:");
 	character2.unequip(0);
-	character2.unequip(1);
+	// character2.unequip(1);
 	// character2.unequip(2);
 	character2.unequip(3);
 	character2.displayMaterias();
 
 	print("");
+	print("***Charac Copy contructor tests ********");
+	character1.equip(&cure);
+	character1.equip(&ice2);
+	character1.equip(&iceTest);
+	print("char1 inventory before");
+	character1.displayMaterias();
+	print("char2 inventory before");
+	character2.displayMaterias();
+	character1 = character2;
+	print("char1 inventory after");
+	character1.displayMaterias();
+	print("char2 inventory after");
+	character2.displayMaterias();
+
 	print("");
 	print("");
 	print("****************************************");
