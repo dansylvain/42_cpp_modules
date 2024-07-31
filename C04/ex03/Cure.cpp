@@ -3,18 +3,21 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Cure::Cure() : AMateria(), type("cure")
+Cure::Cure() : AMateria()
 {
+	type = "cure";
 	print("Cure created (default constructor)");
 }
 
-Cure::Cure(std::string const & type) : AMateria(), type(type)
+Cure::Cure(std::string const & type) : AMateria()
 {
+	Cure::type = type;
 	print("Cure created (parameter constructor)");
 }
 
-Cure::Cure(const Cure& other) : AMateria(), type(other.type)
+Cure::Cure(const Cure& other) : AMateria()
 {
+	type = other.type;
 	print("Cure created (copy constructor)");
 }
 
@@ -36,6 +39,13 @@ Cure& Cure::operator=(const Cure& other)
 	return (*this);
 }
 
+/**========================================================================
+ *                           GETTERS AND SETTERS
+ *========================================================================**/
+// std::string const & Cure::getType() const
+// {
+// 	return (type);
+// }
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/

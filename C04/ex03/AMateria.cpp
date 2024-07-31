@@ -5,7 +5,7 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-AMateria::AMateria()
+AMateria::AMateria() : type("turlututu")
 {
 	print("AMateria Created (default constructor)");
 }

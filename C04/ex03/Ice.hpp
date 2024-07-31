@@ -10,8 +10,6 @@ class ICharacter;
 
 class Ice : AMateria
 {
-	protected:
-		std::string type;
 	public:
 		// constructors and destructor
 		Ice();
@@ -23,6 +21,7 @@ class Ice : AMateria
 		Ice& operator=(const Ice& other);
 
 		// geters and seters
+		using AMateria::getType;
 		
 		// action member functions
 		Ice* clone() const;

@@ -8,10 +8,9 @@ void	print(std::string str);
 
 class ICharacter;
 
-class Cure : AMateria
+class Cure : virtual public AMateria
 {
 	protected:
-		std::string type;
 	public:
 		// constructors and destructor
 		Cure();
@@ -23,6 +22,8 @@ class Cure : AMateria
 		Cure& operator=(const Cure& other);
 		
 		// geters and seters
+		// std::string const & getType() const;
+		using AMateria::getType;
 
 		// action member functions
 		Cure* clone() const;
