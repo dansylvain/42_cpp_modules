@@ -2,7 +2,8 @@ TARGET = interface
 
 CXX = g++
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror \
+			-g
 
 SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
 

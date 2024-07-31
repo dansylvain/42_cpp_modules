@@ -16,6 +16,8 @@ int main()
 	// Ice ice();
 	Ice ice("tristesse");
 	Ice ice2;
+	Ice iceTest("Galopin");
+	Cure cureTest("popotin");
 	Character character1;
 	Character character2("Pug");
 	Cure copyCure(cure2);
@@ -56,12 +58,24 @@ int main()
 	print("********** clone test ******************");
 	Ice *ice3 = ice2.clone();
 	print((*ice3).getType());
+	Cure *cure3 = cure2.clone();
+	print((*cure3).getType());
+	
+	print("");
+	print("********** inv tests********************");
+	character2.equip(&ice);
+	character2.equip(&iceTest);
+	character2.equip(&cureTest);
+	character2.equip(&cure2);
+	
+	character2.displayMaterias();
+	
 	print("");
 	print("****************************************");
 	print("");
-	print("****************************************");
-	print("");
-	print("****************************************");
+	print("****** destroy classes *****************");
+	delete ice3;
+	delete cure3;
 
 	return 0;
 }

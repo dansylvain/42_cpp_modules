@@ -8,7 +8,9 @@
 class Character : public ICharacter
 {
 	protected:
-		std::string name;
+		std::string 	name;
+		AMateria* 		inv[4];
+		int				materiaNbr;
 	public:
 		// constructors and destructor
 		Character();
@@ -21,11 +23,17 @@ class Character : public ICharacter
 
 		// geters and seters
 		std::string const & getName() const;
+		int			const & getMateriaNbr() const;
+		void		setMateriaNbr(int num);
 
 		// action member functions
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+
+		//tmp
+		void displayMaterias();
+
 };
 
 #endif

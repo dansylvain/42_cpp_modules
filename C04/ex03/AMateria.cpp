@@ -52,5 +52,5 @@ std::string const & AMateria::getType() const
  *========================================================================**/
 void AMateria::use(ICharacter& target)
 {
-	(void)target; //! this function needs to be redefined in derived classes
+	(void)target;
 }

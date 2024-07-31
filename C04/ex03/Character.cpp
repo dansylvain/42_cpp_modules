@@ -3,17 +3,17 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Character::Character() : ICharacter(), name("Bobby")
+Character::Character() : ICharacter(), name("Bobby"), materiaNbr(0)
 {
 	print("Character created (default constructor)");
 }
 
-Character::Character(std::string const & name) : ICharacter(), name(name)
+Character::Character(std::string const & name) : ICharacter(), name(name), materiaNbr(0)
 {
 	print("Character created (parameter constructor)");
 }
 
-Character::Character(const Character& other) : ICharacter(), name(other.name)
+Character::Character(const Character& other) : ICharacter(), name(other.name), materiaNbr(0)
 {
 	print("Character created (copy constructor)");
 }
@@ -45,11 +45,26 @@ std::string const & Character::getName() const
 	return (name);
 }
 
+int	const & Character::getMateriaNbr() const
+{
+	return (materiaNbr);
+}
+
+void		Character::setMateriaNbr(int num)
+{
+	materiaNbr += num;
+}
+
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
 void Character::equip(AMateria* m)
 {
+	if (getMateriaNbr() < 4)
+	{
+		inv[getMateriaNbr()] = m;
+		setMateriaNbr(1);
+	}
 	(void)m;
 }
 
@@ -62,4 +77,10 @@ void Character::use(int idx, ICharacter& target)
 {
 	(void)idx;
 	(void)target;
+}
+
+void Character::displayMaterias()
+{
+	for (int i = 0; i < getMateriaNbr(); i++)
+		print(inv[i]->getType());
 }
