@@ -1,6 +1,33 @@
 #include "AMateria.hpp"
 
-AMateria(std::string const & type);
-std::string const & getType() const;
-virtual AMateria* clone() const = 0;
-virtual void use(ICharacter& target);
+// constructeur par défaut
+AMateria::AMateria(std::string const & type) {
+	print("AMateria Created");
+	(void)type;
+};
+
+// constructeur par copie
+AMateria::AMateria(const AMateria& other) {
+	// TODO logic to be implemented
+	(void)other;
+	print("AMateria Created");
+}
+// operateur d'assignation
+AMateria& AMateria::operator=(const AMateria& other) {
+	// TODO logic to be implemented
+	(void)other;
+	return (*this);
+}
+
+// destructeur
+AMateria::~AMateria() {}
+
+std::string const & AMateria::getType() const {
+	// TODO logic to be implemented
+	return type;
+};
+
+void AMateria::use(ICharacter& target) {
+	// TODO logic to be implemented
+	(void)target;
+};

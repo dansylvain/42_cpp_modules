@@ -1,7 +1,27 @@
 #include "ICharacter.hpp"
 
-virtual ~ICharacter() {}
-virtual std::string const & getName() const = 0;
-virtual void equip(AMateria* m) = 0;
-virtual void unequip(int idx) = 0;
-virtual void use(int idx, ICharacter& target) = 0;
+// constructeur par défaut
+ICharacter::ICharacter(std::string const & type) {
+	print("ICharacter Created");
+	(void)type;
+};
+
+// constructeur par copie
+ICharacter::ICharacter(const ICharacter& other) {
+	// TODO logic to be implemented
+	print("ICharacter Created");
+	(void)other;
+	
+}
+// operateur d'assignation
+ICharacter& ICharacter::operator=(const ICharacter& other) {
+	// TODO logic to be implemented
+	(void)other;
+	return (*this);
+}
+
+// destructeur
+ICharacter::~ICharacter() {
+	print("ICharacter destroyed");
+}
+
