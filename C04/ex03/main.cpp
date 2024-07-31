@@ -114,6 +114,13 @@ int main()
 	character2.displayMaterias();
 
 	print("");
+	print("******** isfree materia bool test ******");
+	print("before equipping");
+	character2.displayMaterias();
+	character2.equip(&cureTest);
+	character2.equip(&ice);
+	print("after equipping");
+	character2.displayMaterias();
 	print("");
 	print("****************************************");
 	print("");

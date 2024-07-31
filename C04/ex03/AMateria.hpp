@@ -10,7 +10,8 @@ class ICharacter;
 class AMateria
 {
 	protected:
-		std::string type;
+		std::string 	type;
+		bool			free;
 	public:
 		// constructors and destructor
 		AMateria();
@@ -23,7 +24,9 @@ class AMateria
 
 		// geters and seters
 		std::string const & getType() const;
-		
+		bool		const & isFree() const;
+		void		toggleMateriaAvailability();
+
 		// action member functions
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);

@@ -79,9 +79,10 @@ void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i] == NULL)
+		if (inv[i] == NULL && m->isFree())
 		{
 			inv[i] = m;
+			m->toggleMateriaAvailability();
 			break;
 		}
 	}
@@ -91,6 +92,7 @@ void Character::unequip(int idx)
 {
 	if (inv[idx])
 	{
+		inv[idx]->toggleMateriaAvailability();
 		inv[idx] = NULL;
 	}
 }

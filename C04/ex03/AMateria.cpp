@@ -5,17 +5,17 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-AMateria::AMateria() : type("turlututu")
+AMateria::AMateria() : type("turlututu"), free(true)
 {
 	print("AMateria Created (default constructor)");
 }
 
-AMateria::AMateria(std::string const & type) : type(type)
+AMateria::AMateria(std::string const & type) : type(type), free(true)
 {
 	print("AMateria Created (parameter constructor)");
 }
 
-AMateria::AMateria(const AMateria& other) : type(other.type)
+AMateria::AMateria(const AMateria& other) : type(other.type), free(true)
 {
 	print("AMateria Created (copy constructor)");
 }
@@ -45,6 +45,18 @@ AMateria& AMateria::operator=(const AMateria& other)
 std::string const & AMateria::getType() const
 {
 	return (type);
+}
+
+bool	const & AMateria::isFree() const
+{
+	return (free);
+}
+
+void	AMateria::toggleMateriaAvailability()
+{
+	std::cout << "before: " <<free;
+	free ? free = 0 : free = 1;
+	std::cout << ", after: " <<free<<std::endl;
 }
 
 /**========================================================================
