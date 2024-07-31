@@ -30,6 +30,7 @@ Character::Character(const Character& other) : ICharacter(), name(new std::strin
 Character::~Character()
 {
 	delete name;
+	delete[] inv;
 	print("Character destroyed");
 }
 
@@ -115,6 +116,7 @@ void Character::displayMaterias()
 
 void	Character::initInv()
 {
+	inv = new AMateria*[4];
 	for (int i = 0; i < 4; i++)
 		inv[i] = NULL;
 }
