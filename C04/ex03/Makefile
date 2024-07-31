@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror \
 			-g
 
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
