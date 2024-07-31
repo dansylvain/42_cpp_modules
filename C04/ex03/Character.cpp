@@ -1,5 +1,11 @@
 #include "Character.hpp"
-
+/**========================================================================
+ *                             COMMENT BLOCK
+ *  
+ *  ! materialNbr might be useless -to be removed?	
+ *  
+ *  
+ *========================================================================**/
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
@@ -64,12 +70,14 @@ void		Character::setMateriaNbr(int num)
  *========================================================================**/
 void Character::equip(AMateria* m)
 {
-	if (getMateriaNbr() < 4)
+	for (int i = 0; i < 4; i++)
 	{
-		inv[getMateriaNbr()] = m;
-		setMateriaNbr(1);
+		if (inv[i] == NULL)
+		{
+			inv[i] = m;
+			break;
+		}
 	}
-	(void)m;
 }
 
 void Character::unequip(int idx)
@@ -77,7 +85,6 @@ void Character::unequip(int idx)
 	if (inv[idx])
 	{
 		inv[idx] = NULL;
-		setMateriaNbr(-1);
 	}
 }
 

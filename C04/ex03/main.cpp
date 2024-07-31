@@ -87,6 +87,17 @@ int main()
 	character2.unequip(3);
 	print("inv after unequip:");
 	character2.displayMaterias();
+	print("inv after reequipping:");
+	character2.equip(&iceTest);
+	character2.equip(&ice);
+	character2.displayMaterias();
+	print("inv after unequipping everything:");
+	character2.unequip(0);
+	character2.unequip(1);
+	// character2.unequip(2);
+	character2.unequip(3);
+	character2.displayMaterias();
+
 	print("");
 	print("");
 	print("");
