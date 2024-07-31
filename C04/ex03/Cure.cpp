@@ -40,13 +40,6 @@ Cure& Cure::operator=(const Cure& other)
 }
 
 /**========================================================================
- *                           GETTERS AND SETTERS
- *========================================================================**/
-// std::string const & Cure::getType() const
-// {
-// 	return (type);
-// }
-/**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
 Cure* Cure::clone() const
@@ -57,6 +50,6 @@ Cure* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	print("* heals <name>’s wounds *");
+	print("* heals " + target.getName() + "’s wounds *");
 	(void)target;
 }

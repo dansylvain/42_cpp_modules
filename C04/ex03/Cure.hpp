@@ -3,12 +3,13 @@
 
 #include <iostream>
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 void	print(std::string str);
 
 class ICharacter;
 
-class Cure : virtual public AMateria
+class Cure : public AMateria
 {
 	protected:
 	public:

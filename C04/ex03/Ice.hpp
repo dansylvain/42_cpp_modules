@@ -3,12 +3,13 @@
 
 #include <iostream>
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 void	print(std::string str);
 
 class ICharacter;
 
-class Ice : AMateria
+class Ice : public AMateria
 {
 	public:
 		// constructors and destructor

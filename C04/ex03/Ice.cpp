@@ -50,6 +50,5 @@ Ice* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	print("* shoots an ice bolt at <name> *");
-	(void)target;
+	print("* shoots an ice bolt at " + target.getName() + " *");
 }

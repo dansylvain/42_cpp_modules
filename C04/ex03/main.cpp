@@ -49,7 +49,9 @@ int main()
 	print("type before:" + character1.getName());
 	character1 = character2;
 	print("type after:"  + character1.getName());print("");
-	print("****************************************");
+	print("********* Use method tests *************");
+	cure2.use(character1);
+	ice.use(character2);
 	print("");
 	print("****************************************");
 	print("");

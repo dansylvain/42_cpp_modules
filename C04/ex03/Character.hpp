@@ -5,7 +5,7 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Character : ICharacter
+class Character : public ICharacter
 {
 	protected:
 		std::string name;
