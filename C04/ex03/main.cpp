@@ -1,11 +1,17 @@
 #include <iostream>
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
+void	print(std::string str);
 
-int	main(void)
+int main()
 {
 	print("Welcome to the Jungle");
-	return (0);
+	return 0;
 }
+
+void	print(std::string str)
+{
+	std::cout << str << std::endl;
+}
+
+
+
