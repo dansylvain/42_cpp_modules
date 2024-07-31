@@ -34,6 +34,8 @@ Character::~Character()
 
 /**========================================================================
  *                           ASSIGNMENT OPERATOR
+ * since memory is allocated on the stack, 
+ * delete simulated by bool unavailability
  *========================================================================**/
 Character& Character::operator=(const Character& other)
 {
@@ -45,7 +47,10 @@ Character& Character::operator=(const Character& other)
 		for (int i = 0; i < 4; i++)
 		{
 			if (inv[i])
+			{
+				inv[i]->toggleMateriaAvailability();
 				inv[i] = NULL;
+			}
 			if (other.inv[i])
 				inv[i] = other.inv[i];
 		}
