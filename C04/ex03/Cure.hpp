@@ -11,7 +11,6 @@ class ICharacter;
 
 class Cure : public AMateria
 {
-	protected:
 	public:
 		// constructors and destructor
 		Cure();

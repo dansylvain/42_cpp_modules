@@ -9,19 +9,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Character::Character() : ICharacter(), name("Bobby"), materiaNbr(0)
+Character::Character() : ICharacter(), name(new std::string("Bobby")), materiaNbr(0)
 {
 	initInv();
 	print("Character created (default constructor)");
 }
 
-Character::Character(std::string const & name) : ICharacter(), name(name), materiaNbr(0)
+Character::Character(std::string const & name) : ICharacter(), name(new std::string(name)), materiaNbr(0)
 {
 	initInv();
 	print("Character created (parameter constructor)");
 }
 
-Character::Character(const Character& other) : ICharacter(), name(other.name), materiaNbr(0)
+Character::Character(const Character& other) : ICharacter(), name(new std::string(*other.name)), materiaNbr(0)
 {
 	initInv();
 	print("Character created (copy constructor)");
@@ -29,6 +29,7 @@ Character::Character(const Character& other) : ICharacter(), name(other.name), m
 
 Character::~Character()
 {
+	delete name;
 	print("Character destroyed");
 }
 
@@ -43,7 +44,7 @@ Character& Character::operator=(const Character& other)
 	{
 		print("Character copied");
 		ICharacter::operator=(other);
-		name = other.name;
+		*name = *other.name;
 		for (int i = 0; i < 4; i++)
 		{
 			if (inv[i])
@@ -63,7 +64,7 @@ Character& Character::operator=(const Character& other)
  *========================================================================**/
 std::string const & Character::getName() const
 {
-	return (name);
+	return (*name);
 }
 
 int	const & Character::getMateriaNbr() const
