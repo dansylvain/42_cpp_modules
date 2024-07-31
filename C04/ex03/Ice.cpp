@@ -5,19 +5,18 @@
  *========================================================================**/
 Ice::Ice() : AMateria()
 {
-	type = "ice";
+	*type = "ice";
 	print("Ice created (default constructor)");
 }
 
 Ice::Ice(std::string const & type) : AMateria()
 {
-	Ice::type = type;
+	*Ice::type = type;
 	print("Ice created (parameter constructor)");
 }
 
-Ice::Ice(const Ice& other) : AMateria()
+Ice::Ice(const Ice& other) : AMateria(other)
 {
-	Ice::type = other.type;
 	print("Ice created (copy constructor)");
 }
 

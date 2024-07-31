@@ -27,7 +27,7 @@ int main()
 
 	print("");
 	print("*****Initiazation tests ****************");
-	print("type :" + cure.getType());
+	// print("type :" + cure.getType());
 	print("type :" + cure2.getType());
 	print("type :" + ice.getType());
 	print("type :" + ice2.getType());
@@ -93,8 +93,8 @@ int main()
 	character2.displayMaterias();
 	print("inv after unequipping everything:");
 	character2.unequip(0);
-	// character2.unequip(1);
-	// character2.unequip(2);
+	character2.unequip(1);
+	character2.unequip(2);
 	character2.unequip(3);
 	character2.displayMaterias();
 
@@ -127,9 +127,9 @@ int main()
 	print("****************************************");
 	print("");
 	print("****** destroy classes *****************");
+
 	delete ice3;
 	delete cure3;
-
 	return 0;
 }
 

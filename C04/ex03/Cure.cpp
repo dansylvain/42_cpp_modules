@@ -5,19 +5,18 @@
  *========================================================================**/
 Cure::Cure() : AMateria()
 {
-	type = "cure";
+	*type = "cure";
 	print("Cure created (default constructor)");
 }
 
 Cure::Cure(std::string const & type) : AMateria()
 {
-	Cure::type = type;
+	*Cure::type = type;
 	print("Cure created (parameter constructor)");
 }
 
-Cure::Cure(const Cure& other) : AMateria()
+Cure::Cure(const Cure& other) : AMateria(other)
 {
-	type = other.type;
 	print("Cure created (copy constructor)");
 }
 

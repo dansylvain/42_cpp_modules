@@ -5,23 +5,24 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-AMateria::AMateria() : type("turlututu"), free(new bool(true))
+AMateria::AMateria() : type(new std::string("turlututu")), free(new bool(true))
 {
 	print("AMateria Created (default constructor)");
 }
 
-AMateria::AMateria(std::string const & type) : type(type), free(new bool(true))
+AMateria::AMateria(std::string const & type) : type(new std::string(type)), free(new bool(true))
 {
 	print("AMateria Created (parameter constructor)");
 }
 
-AMateria::AMateria(const AMateria& other) : type(other.type), free(new bool(true))
+AMateria::AMateria(const AMateria& other) : type(new std::string(*other.type)), free(new bool(other.free))
 {
 	print("AMateria Created (copy constructor)");
 }
 
 AMateria::~AMateria()
 {
+	delete type;
 	delete free;
 	print("AMateria destroyed");
 }
@@ -35,7 +36,8 @@ AMateria& AMateria::operator=(const AMateria& other)
 	if (this != &other)
 	{
 		print("AMateria copied");
-		type = other.type;
+		*type = *other.type;
+		*free = *other.free;
 	}
 	return (*this);
 }
@@ -45,7 +47,7 @@ AMateria& AMateria::operator=(const AMateria& other)
  *========================================================================**/
 std::string const & AMateria::getType() const
 {
-	return (type);
+	return (*type);
 }
 
 bool	const & AMateria::isFree() const
