@@ -79,7 +79,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (inv[idx])
+	if (inv[idx] && idx < 4 && idx >= 0)
 		inv[idx]->use(target);
 }
 

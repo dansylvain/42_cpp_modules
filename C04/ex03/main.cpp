@@ -73,7 +73,7 @@ int main()
 	character2.equip(&cure2);
 	print("");
 	character2.use(2, character2);
-	character2.use(1, characTest);
+	character2.use(-2, characTest);
 
 	
 	print("");
