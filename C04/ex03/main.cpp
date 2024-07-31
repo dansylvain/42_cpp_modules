@@ -16,8 +16,8 @@ int main()
 	// Ice ice();
 	Ice ice("tristesse");
 	Ice ice2;
-	Ice iceTest("Galopin");
-	Cure cureTest("popotin");
+	Ice iceTest("Fanta");
+	Cure cureTest("CocaCola");
 	Character character1;
 	Character character2("Pug");
 	Cure copyCure(cure2);
@@ -72,10 +72,25 @@ int main()
 	character2.displayMaterias();
 	character2.equip(&cure2);
 	print("");
+	print("********** use func test ***************");
 	character2.use(2, character2);
 	character2.use(-2, characTest);
+	character2.use(16, characTest);
+	character1.use(2, characTest);
+	character2.use(1, characTest);	
+	print("");
 
-	
+	print("****** unequip tests *******************");
+	print("inv before unsetting:");
+	character2.displayMaterias();
+	character2.unequip(1);
+	character2.unequip(3);
+	print("inv after unequip:");
+	character2.displayMaterias();
+	print("");
+	print("");
+	print("");
+	print("****************************************");
 	print("");
 	print("****************************************");
 	print("");

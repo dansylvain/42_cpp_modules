@@ -50,7 +50,7 @@ std::string const & Character::getName() const
 
 int	const & Character::getMateriaNbr() const
 {
-	std::cout << materiaNbr << std::endl;
+	// std::cout << materiaNbr << std::endl;
 	return (materiaNbr);
 }
 
@@ -74,7 +74,11 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	(void)idx;
+	if (inv[idx])
+	{
+		inv[idx] = NULL;
+		setMateriaNbr(-1);
+	}
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -85,8 +89,12 @@ void Character::use(int idx, ICharacter& target)
 
 void Character::displayMaterias()
 {
-	for (int i = 0; i < getMateriaNbr(); i++)
-		print(inv[i]->getType());
+	for (int i = 0; i < 4; i++)
+	{
+		if (inv[i])
+			std::cout << i << ": " << inv[i]->getType() << std::endl;
+	}
+		// print(inv[i]->getType());
 }
 
 /**========================================================================
