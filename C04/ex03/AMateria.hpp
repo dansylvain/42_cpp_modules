@@ -2,7 +2,6 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include <string>
 
 void	print(std::string str);
 
