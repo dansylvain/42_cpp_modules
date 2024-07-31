@@ -11,6 +11,8 @@ class ICharacter;
 
 class Cure : public AMateria
 {
+	private:
+		Cure*	ptr;
 	public:
 		// constructors and destructor
 		Cure();

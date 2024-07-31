@@ -11,6 +11,8 @@ class ICharacter;
 
 class Ice : public AMateria
 {
+		private:
+		Ice*	ptr;
 	public:
 		// constructors and destructor
 		Ice();

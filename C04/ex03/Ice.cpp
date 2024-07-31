@@ -3,19 +3,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria(), ptr(NULL)
 {
 	*type = "ice";
 	print("Ice created (default constructor)");
 }
 
-Ice::Ice(std::string const & type) : AMateria()
+Ice::Ice(std::string const & type) : AMateria(), ptr(NULL)
 {
 	*Ice::type = type;
 	print("Ice created (parameter constructor)");
 }
 
-Ice::Ice(const Ice& other) : AMateria(other)
+Ice::Ice(const Ice& other) : AMateria(other), ptr(NULL)
 {
 	print("Ice created (copy constructor)");
 }
