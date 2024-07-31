@@ -3,7 +3,7 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Character::Character() : ICharacter()
+Character::Character() : ICharacter(), name("Bobby")
 {
 	print("Character created (default constructor)");
 }

@@ -22,8 +22,13 @@ int main()
 	print("");
 
 	print("*****Initiazation tests ****************");
+	print("type :" + cure.getType());
 	print("type :" + cure2.getType());
 	print("type :" + ice.getType());
+	print("type :" + ice2.getType());
+	print("type :" + character1.getName());
+	print("type :" + character2.getName());
+
 	
 	print("****************************************");
 	print("****************************************");
