@@ -54,31 +54,3 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	type == "ice" ? ptr = new Ice() : ptr = new Cure();
 	return (ptr);
 }
-
-/**========================================================================
- *                           GETTERS AND SETTERS
- *========================================================================**/
-// std::string const & MateriaSource::getType() const
-// {
-// 	return (type);
-// }
-
-// bool	const & MateriaSource::isFree() const
-// {
-// 	return (free);
-// }
-
-// void	MateriaSource::toggleMateriaAvailability()
-// {
-// 	std::cout << "before: " <<free;
-// 	free ? free = 0 : free = 1;
-// 	std::cout << ", after: " <<free<<std::endl;
-// }
-
-/**========================================================================
- *                                ACTION METHODS
- *========================================================================**/
-// void MateriaSource::use(ICharacter& target)
-// {
-// 	(void)target;
-// }

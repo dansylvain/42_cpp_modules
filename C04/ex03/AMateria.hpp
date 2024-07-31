@@ -11,7 +11,7 @@ class AMateria
 {
 	protected:
 		std::string 	type;
-		bool			free;
+		bool			*free;
 	public:
 		// constructors and destructor
 		AMateria();
