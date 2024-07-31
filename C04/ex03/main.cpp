@@ -23,6 +23,7 @@ int main()
 	Cure copyCure(cure2);
 	Ice copyIce(ice2);
 	Character copyCharacter(character2);
+	Character characTest("Saligaud");
 
 	print("");
 	print("*****Initiazation tests ****************");
@@ -68,12 +69,11 @@ int main()
 	character2.equip(&cureTest);
 	character2.equip(&cure2);
 	character2.equip(&cure2);
-	character2.equip(&cure2);
 	character2.displayMaterias();
 	character2.equip(&cure2);
-	character2.equip(&cure2);
-	character2.equip(&cure2);
-	character2.equip(&cure2);
+	print("");
+	character2.use(2, character2);
+	character2.use(1, characTest);
 
 	
 	print("");
