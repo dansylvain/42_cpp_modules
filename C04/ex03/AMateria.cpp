@@ -1,6 +1,10 @@
 #include "AMateria.hpp"
 
 // constructeur par défaut
+AMateria::AMateria() {
+	print("AMateria Created");
+}
+
 AMateria::AMateria(std::string const & type) {
 	print("AMateria Created");
 	(void)type;
