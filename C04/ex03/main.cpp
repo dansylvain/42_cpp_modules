@@ -53,7 +53,9 @@ int main()
 	cure2.use(character1);
 	ice.use(character2);
 	print("");
-	print("****************************************");
+	print("********** clone test ******************");
+	Ice *ice3 = ice2.clone();
+	print((*ice3).getType());
 	print("");
 	print("****************************************");
 	print("");
