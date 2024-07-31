@@ -67,8 +67,14 @@ int main()
 	character2.equip(&iceTest);
 	character2.equip(&cureTest);
 	character2.equip(&cure2);
-	
+	character2.equip(&cure2);
+	character2.equip(&cure2);
 	character2.displayMaterias();
+	character2.equip(&cure2);
+	character2.equip(&cure2);
+	character2.equip(&cure2);
+	character2.equip(&cure2);
+
 	
 	print("");
 	print("****************************************");

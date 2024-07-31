@@ -5,16 +5,19 @@
  *========================================================================**/
 Character::Character() : ICharacter(), name("Bobby"), materiaNbr(0)
 {
+	initInv();
 	print("Character created (default constructor)");
 }
 
 Character::Character(std::string const & name) : ICharacter(), name(name), materiaNbr(0)
 {
+	initInv();
 	print("Character created (parameter constructor)");
 }
 
 Character::Character(const Character& other) : ICharacter(), name(other.name), materiaNbr(0)
 {
+	initInv();
 	print("Character created (copy constructor)");
 }
 
@@ -47,6 +50,7 @@ std::string const & Character::getName() const
 
 int	const & Character::getMateriaNbr() const
 {
+	std::cout << materiaNbr << std::endl;
 	return (materiaNbr);
 }
 
@@ -83,4 +87,14 @@ void Character::displayMaterias()
 {
 	for (int i = 0; i < getMateriaNbr(); i++)
 		print(inv[i]->getType());
+}
+
+/**========================================================================
+ *                           UTILS
+ *========================================================================**/
+
+void	Character::initInv()
+{
+	for (int i = 0; i < 4; i++)
+		inv[i] = NULL;
 }
