@@ -22,6 +22,8 @@ class Cure : AMateria
 		// assignment operator
 		Cure& operator=(const Cure& other);
 		
+		// geters and seters
+
 		// action member functions
 		Cure* clone() const;
 		void use(ICharacter& target);

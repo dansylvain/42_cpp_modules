@@ -21,6 +21,8 @@ class Ice : AMateria
 
 		// assignment operator
 		Ice& operator=(const Ice& other);
+
+		// geters and seters
 		
 		// action member functions
 		Ice* clone() const;

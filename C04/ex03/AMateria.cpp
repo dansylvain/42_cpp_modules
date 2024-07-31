@@ -1,5 +1,6 @@
 #include "AMateria.hpp"
 #include <iostream>
+#include "ICharacter.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
@@ -32,13 +33,14 @@ AMateria& AMateria::operator=(const AMateria& other)
 {
 	if (this != &other)
 	{
+		print("AMateria copied");
 		type = other.type;
 	}
 	return (*this);
 }
 
 /**========================================================================
- *                           GETERS AND SETERS
+ *                           GETTERS AND SETTERS
  *========================================================================**/
 std::string const & AMateria::getType() const
 {
@@ -46,7 +48,7 @@ std::string const & AMateria::getType() const
 }
 
 /**========================================================================
- *                       ACTION MEMBER FUNCTIONS
+ *                                ACTION METHODS
  *========================================================================**/
 void AMateria::use(ICharacter& target)
 {
