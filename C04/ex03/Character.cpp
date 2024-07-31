@@ -9,19 +9,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Character::Character() : ICharacter(), name(new std::string("Bobby")), materiaNbr(0)
+Character::Character() : ICharacter(), name(new std::string("Bobby"))
 {
 	initInv();
 	print("Character created (default constructor)");
 }
 
-Character::Character(std::string const & name) : ICharacter(), name(new std::string(name)), materiaNbr(0)
+Character::Character(std::string const & name) : ICharacter(), name(new std::string(name))
 {
 	initInv();
 	print("Character created (parameter constructor)");
 }
 
-Character::Character(const Character& other) : ICharacter(), name(new std::string(*other.name)), materiaNbr(0)
+Character::Character(const Character& other) : ICharacter(), name(new std::string(*other.name))
 {
 	initInv();
 	print("Character created (copy constructor)");
@@ -67,16 +67,6 @@ std::string const & Character::getName() const
 	return (*name);
 }
 
-int	const & Character::getMateriaNbr() const
-{
-	// std::cout << materiaNbr << std::endl;
-	return (materiaNbr);
-}
-
-void		Character::setMateriaNbr(int num)
-{
-	materiaNbr += num;
-}
 
 /**========================================================================
  *                                ACTION METHODS
