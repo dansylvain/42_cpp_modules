@@ -9,4 +9,6 @@
 void	print(std::string str);
 void	printB(const std::string& str);
 
+extern bool TEST;
+
 #endif

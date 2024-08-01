@@ -106,6 +106,7 @@ void Character::use(int idx, ICharacter& target)
 
 void Character::displayMaterias()
 {
+	
 	for (int i = 0; i < 4; i++)
 	{
 		if (inv[i])

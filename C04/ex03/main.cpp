@@ -15,26 +15,26 @@ bool TEST;
 
 int main()
 {
-	TEST = false;
-	std::string c;
-	while (c != "1" && c != "2")
-	{
-		std::cout << "test 1 or 2? ";
-		std::cin >> c; 
-	}
-	switch (c[0])
-	{
-		case '1':
-			test_one();
-			break;
-		case '2' :
-			test_two();
-			break;
-		default :
-			print("Fuck off");
-			break;
-	}
-	// test_two();
+	// TEST = false;
+	// std::string c;
+	// while (c != "1" && c != "2")
+	// {
+	// 	std::cout << "test 1 or 2? ";
+	// 	std::cin >> c; 
+	// }
+	// switch (c[0])
+	// {
+	// 	case '1':
+	// 		test_one();
+	// 		break;
+	// 	case '2' :
+	// 		test_two();
+	// 		break;
+	// 	default :
+	// 		print("Fuck off");
+	// 		break;
+	// }
+	test_one();
 	return 0;
 }
 

@@ -5,19 +5,20 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 #include "Ground.hpp"
-
+#include "main.h"
 void	print(std::string str);
 void	printB(const std::string& str);
 void	test_one();
 
+
 void	test_one()
 {
+	TEST =false;
 	printB("Welcome to the Jungle");
 	print("");
 	printB("********* CREATION TEST ****************");
 	Cure cure;
 	Cure cure2("cureeee");
-	// Ice ice();
 	Ice ice("tristesse");
 	Ice ice2;
 	Ice iceTest("Fanta");
@@ -31,7 +32,7 @@ void	test_one()
 
 	print("");
 	printB("*****Initiazation tests ****************");
-	// print("type :" + cure.getType());
+	print("type :" + cure.getType());
 	print("type :" + cure2.getType());
 	print("type :" + ice.getType());
 	print("type :" + ice2.getType());
@@ -76,7 +77,8 @@ void	test_one()
 	character2.equip(&cureTest);
 	character2.equip(&cure2);
 	character2.equip(&cure2);
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	character2.equip(&cure2);
 	print("");
 	
@@ -90,24 +92,28 @@ void	test_one()
 
 	printB("****** unequip tests *******************");
 	printB("inv before unsetting:");
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	character2.unequip(1);
 	character2.unequip(3);
 	print("");
 	printB("inv after unequip:");
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	print("");
 	printB("inv after reequipping:");
 	character2.equip(&iceTest);
 	character2.equip(&ice);
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	print("");
 	printB("inv after unequipping everything:");
 	character2.unequip(0);
 	character2.unequip(1);
 	character2.unequip(2);
 	character2.unequip(3);
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	// print("");
 
 	printB("***Charac Copy contructor tests ********");
@@ -115,27 +121,33 @@ void	test_one()
 	character1.equip(&ice2);
 	character1.equip(&iceTest);
 	printB("char1 inventory before");
-	character1.displayMaterias();
+	if (TEST)
+		character1.displayMaterias();
 	print("");
 	printB("char2 inventory before");
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	character1 = character2;
 	print("");
 	printB("char1 inventory after");
-	character1.displayMaterias();
+	if (TEST)
+		character1.displayMaterias();
 	print("");
 	printB("char2 inventory after");
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	print("");
 
 	printB("******** isfree materia bool test ******");
 	printB("before equipping");
-	character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	// character2.equip(&cureTest);
 	// character2.equip(&ice);
 	// print("");
 	// printB("after equipping");
-	// character2.displayMaterias();
+	if (TEST)
+		character2.displayMaterias();
 	// print("");
 	// printB("****** cerate MateriaSource ************");
 	MateriaSource *quelle = new MateriaSource;
@@ -151,7 +163,8 @@ void	test_one()
 	quelle->learnMateria(&iceTest);
 	quelle->learnMateria(&ice2);
 	quelle->learnMateria(&cure2);
-	quelle->displayMaterias();
+	if (TEST)
+		quelle->displayMaterias();
 	quelle->learnMateria(&ice);
 	quelle->learnMateria(&ice);
 	quelle->learnMateria(&ice);
@@ -176,11 +189,10 @@ void	test_one()
 	printB("******* Test equip Ground **************");
 	printB("charac inv");
 	printB("equip materias");
-	character1.displayMaterias();
-	character2.displayMaterias();
-	characTest.displayMaterias();
+	if (TEST)
+		character1.displayMaterias();
 	print(cureTest.getType());
-	std::cout << *cureTest.type << *cureTest.free << std::endl;
+	// std::cout << *cureTest.type << *cureTest.free << std::endl;
 	// Cure tmp1;
 	// Cure tmp2;
 	// Ice tmp3;
@@ -203,12 +215,14 @@ void	test_one()
 	// ground->equip(&tmp5);
 
 	printB("display ground materias:");
-	ground->displayMaterias();
+	if (TEST)
+		ground->displayMaterias();
 	print("");
 	printB("******** Test unequip Ground ***********");
 	ground->unequip(4);
 	ground->unequip(2);
-	ground->displayMaterias();
+	if (TEST)
+		ground->displayMaterias();
 	print("");
 	printB("****************************************");
 	print("");
