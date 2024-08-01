@@ -140,6 +140,9 @@ int main()
 	(void)quelle;
 	character2.unequip(0);
 	character2.unequip(1);
+	print("");
+	
+	printB("****** cerate MateriaSource ************");
 	quelle->learnMateria(&iceTest);
 	quelle->learnMateria(&cureTest);
 	quelle->learnMateria(&iceTest);
