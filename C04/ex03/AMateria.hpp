@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+#define ICE "ice"
+#define CURE "cure"
+
 void	print(std::string str);
 void	printB(const std::string& str);
 

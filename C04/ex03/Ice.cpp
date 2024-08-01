@@ -5,7 +5,7 @@
  *========================================================================**/
 Ice::Ice() : AMateria(), ptr(NULL)
 {
-	*type = "ice";
+	*type = ICE;
 	print("Ice created (default constructor)");
 }
 

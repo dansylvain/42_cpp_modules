@@ -47,7 +47,10 @@ AMateria& AMateria::operator=(const AMateria& other)
  *========================================================================**/
 std::string const & AMateria::getType() const
 {
-	return (*type);
+	static std::string empty;
+	if (type)
+		return (*type);
+	return (empty);
 }
 
 bool	const & AMateria::isFree() const

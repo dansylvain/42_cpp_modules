@@ -5,7 +5,7 @@
  *========================================================================**/
 Cure::Cure() : AMateria(), ptr(NULL)
 {
-	*type = "cure";
+	*type = CURE;
 	print("Cure created (default constructor)");
 }
 

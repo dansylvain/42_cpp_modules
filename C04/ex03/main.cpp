@@ -158,8 +158,8 @@ int main()
 	print("");
 	printB("******** create Materias tests *********");
 	printB("Materais creation");
-	AMateria *ice_tmp = quelle->createMateria("ice");
-	AMateria *cure_tmp = quelle->createMateria("cure");
+	AMateria *ice_tmp = quelle->createMateria(ICE);
+	AMateria *cure_tmp = quelle->createMateria(CURE);
 	AMateria *nada_tmp = quelle->createMateria("NADAZERO");
 	printB("Materia display");
 	print(ice_tmp->getType());
