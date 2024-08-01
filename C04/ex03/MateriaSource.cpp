@@ -11,11 +11,6 @@ MateriaSource::MateriaSource()
 	print("MateriaSource Created (default constructor)");
 }
 
-// MateriaSource::MateriaSource(std::string const & type)
-// {
-// 	print("MateriaSource Created (parameter constructor)");
-// }
-
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
 	if (this != &other)

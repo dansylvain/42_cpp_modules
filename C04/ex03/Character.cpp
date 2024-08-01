@@ -38,6 +38,7 @@ Character::~Character()
  *                           ASSIGNMENT OPERATOR
  * since memory is allocated on the stack, 
  * delete simulated by bool unavailability
+ * ! will have to be changed with memo management changes
  *========================================================================**/
 Character& Character::operator=(const Character& other)
 {
