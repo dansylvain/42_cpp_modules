@@ -57,9 +57,9 @@ bool	const & AMateria::isFree() const
 
 void	AMateria::toggleMateriaAvailability()
 {
-	std::cout << "before: " << *free;
+	// std::cout << "before: " << *free;
 	*free ? *free = 0 : *free = 1;
-	std::cout << ", after: " << *free <<std::endl;
+	// std::cout << ", after: " << *free <<std::endl;
 }
 
 /**========================================================================

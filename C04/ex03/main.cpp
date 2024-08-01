@@ -3,14 +3,16 @@
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 void	print(std::string str);
+void	printB(const std::string& str);
 
 int main()
 {
-	print("Welcome to the Jungle");
+	printB("Welcome to the Jungle");
 	print("");
-	print("********* CREATION TEST ****************");
+	printB("********* CREATION TEST ****************");
 	Cure cure;
 	Cure cure2("cureeee");
 	// Ice ice();
@@ -26,7 +28,7 @@ int main()
 	Character characTest("Saligaud");
 
 	print("");
-	print("*****Initiazation tests ****************");
+	printB("*****Initiazation tests ****************");
 	// print("type :" + cure.getType());
 	print("type :" + cure2.getType());
 	print("type :" + ice.getType());
@@ -34,13 +36,13 @@ int main()
 	print("type :" + character1.getName());
 	print("type :" + character2.getName());
 	print("");
-	print("Copy tests:");
+	printB("Copy tests:");
 	print("type :" + copyCure.getType());
 	print("type :" + copyIce.getType());
 	print("type :" + copyCharacter.getName());
-
 	print("");
-	print("*** assignment operator tests **********");
+
+	printB("*** assignment operator tests **********");
 	print("type before:" + cure.getType());
 	cure = cure2;
 	print("type after:"  + cure.getType());
@@ -52,18 +54,21 @@ int main()
 	print("type before:" + character1.getName());
 	character1 = character2;
 	print("type after:"  + character1.getName());print("");
-	print("********* Use method tests *************");
+
+	printB("********* Use method tests *************");
 	cure2.use(character1);
 	ice.use(character2);
 	print("");
-	print("********** clone test ******************");
+
+	printB("********** clone test ******************");
 	Ice *ice3 = ice2.clone();
 	print((*ice3).getType());
+	print("");
 	Cure *cure3 = cure2.clone();
 	print((*cure3).getType());
 	
 	print("");
-	print("********** inv tests********************");
+	printB("********** inv tests********************");
 	character2.equip(&ice);
 	character2.equip(&iceTest);
 	character2.equip(&cureTest);
@@ -72,7 +77,8 @@ int main()
 	character2.displayMaterias();
 	character2.equip(&cure2);
 	print("");
-	print("********** use func test ***************");
+	
+	printB("********** use func test ***************");
 	character2.use(2, character2);
 	character2.use(-2, characTest);
 	character2.use(16, characTest);
@@ -80,56 +86,80 @@ int main()
 	character2.use(1, characTest);	
 	print("");
 
-	print("****** unequip tests *******************");
-	print("inv before unsetting:");
+	printB("****** unequip tests *******************");
+	printB("inv before unsetting:");
 	character2.displayMaterias();
 	character2.unequip(1);
 	character2.unequip(3);
-	print("inv after unequip:");
+	print("");
+	printB("inv after unequip:");
 	character2.displayMaterias();
-	print("inv after reequipping:");
+	print("");
+	printB("inv after reequipping:");
 	character2.equip(&iceTest);
 	character2.equip(&ice);
 	character2.displayMaterias();
-	print("inv after unequipping everything:");
+	print("");
+	printB("inv after unequipping everything:");
 	character2.unequip(0);
 	character2.unequip(1);
 	character2.unequip(2);
 	character2.unequip(3);
 	character2.displayMaterias();
-
 	print("");
-	print("***Charac Copy contructor tests ********");
+
+	printB("***Charac Copy contructor tests ********");
 	character1.equip(&cure);
 	character1.equip(&ice2);
 	character1.equip(&iceTest);
-	print("char1 inventory before");
+	printB("char1 inventory before");
 	character1.displayMaterias();
-	print("char2 inventory before");
+	print("");
+	printB("char2 inventory before");
 	character2.displayMaterias();
 	character1 = character2;
-	print("char1 inventory after");
-	character1.displayMaterias();
-	print("char2 inventory after");
-	character2.displayMaterias();
-
 	print("");
-	print("******** isfree materia bool test ******");
-	print("before equipping");
+	printB("char1 inventory after");
+	character1.displayMaterias();
+	print("");
+	printB("char2 inventory after");
+	character2.displayMaterias();
+	print("");
+
+	printB("******** isfree materia bool test ******");
+	printB("before equipping");
 	character2.displayMaterias();
 	character2.equip(&cureTest);
 	character2.equip(&ice);
-	print("after equipping");
+	print("");
+	printB("after equipping");
 	character2.displayMaterias();
 	print("");
-	print("****************************************");
+	printB("****** cerate MateriaSource ************");
+	MateriaSource *quelle = new MateriaSource;
+	(void)quelle;
+	character2.unequip(0);
+	character2.unequip(1);
+	quelle->learnMateria(&iceTest);
+	quelle->learnMateria(&cureTest);
+	quelle->learnMateria(&iceTest);
+	quelle->learnMateria(&iceTest);
+	quelle->learnMateria(&ice2);
+	quelle->learnMateria(&cure2);
+	quelle->displayMaterias();
+	quelle->learnMateria(&ice);
+	quelle->learnMateria(&ice);
+	quelle->learnMateria(&ice);
+	quelle->learnMateria(&ice);
+
 	print("");
-	print("****************************************");
+	printB("****************************************");
 	print("");
-	print("****** destroy classes *****************");
+	printB("****** destroy classes *****************");
 
 	delete ice3;
 	delete cure3;
+	delete quelle;
 	return 0;
 }
 
@@ -138,5 +168,9 @@ void	print(std::string str)
 	std::cout << str << std::endl;
 }
 
-
+void printB(const std::string& str)
+{
+    // Code d'échappement pour le texte en gras (1) et couleur verte (32)
+    std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
+}
 

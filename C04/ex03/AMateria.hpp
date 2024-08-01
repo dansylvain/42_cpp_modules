@@ -4,6 +4,7 @@
 #include <iostream>
 
 void	print(std::string str);
+void	printB(const std::string& str);
 
 class ICharacter;
 
