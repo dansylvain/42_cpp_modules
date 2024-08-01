@@ -7,8 +7,8 @@
 class Ground
 {
 	private:
-		AMateria** 		inv;
 	public:
+		AMateria** 		inv;
 		Ground();
 		Ground(const Ground& other);
 		virtual ~Ground();

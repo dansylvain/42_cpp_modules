@@ -9,11 +9,29 @@
 void	print(std::string str);
 void	printB(const std::string& str);
 void	test_one();
+void	test_two();
 
 int main()
 {
-	test_one();
-	
+	// std::string c;
+	// while (c != "1" && c != "2")
+	// {
+	// 	std::cout << "test 1 or 2? ";
+	// 	std::cin >> c; 
+	// }
+	// switch (c[0])
+	// {
+	// 	case '1':
+	// 		test_one();
+	// 		break;
+	// 	case '2' :
+	// 		test_two();
+	// 		break;
+	// 	default :
+	// 		print("Fuck off");
+	// 		break;
+	// }
+	test_two();
 	return 0;
 }
 

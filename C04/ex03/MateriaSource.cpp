@@ -34,6 +34,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 	return (*this);
 }
 
+/**========================================================================
+ *                           ACTION METHODS
+ *========================================================================**/
 void MateriaSource::learnMateria(AMateria *m)
 {
 	int i;
@@ -41,12 +44,10 @@ void MateriaSource::learnMateria(AMateria *m)
 	{
 		if (inv[i] == NULL && m->isFree())
 		{
-			inv[i] = m;
-			m->toggleMateriaAvailability();
+			inv[i] = m->clone();
 			break;
 		}
 	}
-	// std::cout << i << std::endl;
 	if (i == 4 && m->isFree())
 		print("MateriaSource full");
 }
@@ -59,6 +60,11 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 		ptr = new Cure();
 	else ptr = NULL;
 	return (ptr);
+}
+
+const std::string&	MateriaSource::getMateriaType(int idx)
+{
+	return (inv[idx]->getType());
 }
 
 /**========================================================================

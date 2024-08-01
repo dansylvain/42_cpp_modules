@@ -41,10 +41,9 @@ void Ground::equip(AMateria* m)
 {
 	for (int i = 0; i < MAXMATERIA; i++)
 	{
-		if (inv[i] == NULL && m->isFree())
+		if (inv[i] == NULL)
 		{
 			inv[i] = m;
-			m->toggleMateriaAvailability();
 			break;
 		}
 	}
@@ -54,7 +53,6 @@ void Ground::unequip(int idx)
 {
 	if (inv[idx])
 	{
-		inv[idx]->toggleMateriaAvailability();
 		inv[idx] = NULL;
 	}
 }
