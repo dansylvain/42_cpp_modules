@@ -128,9 +128,9 @@ void	test_one()
 	character2.displayMaterias();
 	print("");
 
-	// printB("******** isfree materia bool test ******");
-	// printB("before equipping");
-	// character2.displayMaterias();
+	printB("******** isfree materia bool test ******");
+	printB("before equipping");
+	character2.displayMaterias();
 	// character2.equip(&cureTest);
 	// character2.equip(&ice);
 	// print("");
