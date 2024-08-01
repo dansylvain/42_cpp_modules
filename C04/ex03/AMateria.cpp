@@ -1,6 +1,4 @@
 #include "AMateria.hpp"
-#include <iostream>
-#include "ICharacter.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR

@@ -1,8 +1,5 @@
-#include "AMateria.hpp"
-#include <iostream>
 #include "MateriaSource.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/

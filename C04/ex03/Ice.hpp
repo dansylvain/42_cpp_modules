@@ -1,13 +1,7 @@
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include <iostream>
-#include "AMateria.hpp"
 #include "Character.hpp"
-
-void	print(std::string str);
-
-class ICharacter;
 
 class Ice : public AMateria
 {

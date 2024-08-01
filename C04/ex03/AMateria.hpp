@@ -1,13 +1,7 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include <iostream>
-
-#define ICE "ice"
-#define CURE "cure"
-
-void	print(std::string str);
-void	printB(const std::string& str);
+#include "main.h"
 
 class ICharacter;
 

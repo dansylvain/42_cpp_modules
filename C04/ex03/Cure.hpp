@@ -1,13 +1,7 @@
 #ifndef CURE_HPP
 #define CURE_HPP
 
-#include <iostream>
-#include "AMateria.hpp"
 #include "Character.hpp"
-
-void	print(std::string str);
-
-class ICharacter;
 
 class Cure : public AMateria
 {
