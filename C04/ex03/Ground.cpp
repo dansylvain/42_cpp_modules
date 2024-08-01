@@ -34,10 +34,12 @@ Ground& Ground::operator=(const Ground& other)
 	return (*this);
 }
 
-void Ground::learnMateria(AMateria *m)
+/**========================================================================
+ *                           ACTION METHODS
+ *========================================================================**/
+void Ground::equip(AMateria* m)
 {
-	int i;
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < MAXMATERIA; i++)
 	{
 		if (inv[i] == NULL && m->isFree())
 		{
@@ -46,35 +48,29 @@ void Ground::learnMateria(AMateria *m)
 			break;
 		}
 	}
-	// std::cout << i << std::endl;
-	if (i == 4 && m->isFree())
-		print("Ground full");
-}
-AMateria* Ground::createMateria(std::string const & type)
-{
-	AMateria* ptr;
-	if (type == ICE)
-		ptr = new Ice();
-	else if (type == CURE)
-		ptr = new Cure();
-	else ptr = NULL;
-	return (ptr);
 }
 
+void Ground::unequip(int idx)
+{
+	if (inv[idx])
+	{
+		inv[idx]->toggleMateriaAvailability();
+		inv[idx] = NULL;
+	}
+}
 /**========================================================================
  *                           UTILS
  *========================================================================**/
-
 void	Ground::initInv()
 {
-	inv = new AMateria*[4];
-	for (int i = 0; i < 4; i++)
+	inv = new AMateria*[MAXMATERIA];
+	for (int i = 0; i < MAXMATERIA; i++)
 		inv[i] = NULL;
 }
 
 void	Ground::displayMaterias() const
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < MAXMATERIA; i++)
 	{
 		if (inv[i])
 			std::cout << i << ": " << inv[i]->getType() << std::endl;

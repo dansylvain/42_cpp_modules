@@ -8,9 +8,9 @@ class ICharacter;
 class AMateria
 {
 	protected:
+	public:
 		std::string 	*type;
 		bool			*free;
-	public:
 		// constructors and destructor
 		AMateria();
 		AMateria(std::string const & type);

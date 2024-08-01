@@ -4,6 +4,7 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
+#include "Ground.hpp"
 
 void	print(std::string str);
 void	printB(const std::string& str);
@@ -166,23 +167,58 @@ int main()
 	print(cure_tmp->getType());
 	if (nada_tmp)
 		print(nada_tmp->getType());
+	print("");
 
-	// print("");
-	// printB("****************************************");
-	// print("");
-	// printB("****************************************");
-	// print("");
-	// printB("****************************************");
-	// print("");
-	// printB("****************************************");
-	// print("");
-	// printB("****************************************");
-	// print("");
-	// printB("****************************************");
-	// print("");
+	printB("********** Create Ground ***************");
+	Ground* ground = new Ground;
+	print("");
+	printB("******* Test equip Ground **************");
+	printB("charac inv");
+	printB("equip materias");
+	character1.displayMaterias();
+	character2.displayMaterias();
+	characTest.displayMaterias();
+	print(cureTest.getType());
+	std::cout << *cureTest.type << *cureTest.free << std::endl;
+	Cure tmp1;
+	Cure tmp2;
+	Ice tmp3;
+	Cure tmp4;
+	Ice tmp5;
+	printB("equip materias");
+	ground->equip(ice_tmp);
+	ground->equip(cure_tmp);
+	ground->equip(&cure2);
+	ground->equip(cure3);
+	ground->equip(&cure);
+	ground->equip(&cureTest);
+	ground->equip(ice3);
+	ground->equip(&ice);
+	ground->equip(&iceTest);
+	ground->equip(&tmp1);
+	ground->equip(&tmp2);
+	ground->equip(&tmp3);
+	ground->equip(&tmp4);
+	ground->equip(&tmp5);
+
+	printB("display ground materias:");
+	ground->displayMaterias();
+	print("");
+	printB("******** Test unequip Ground ***********");
+	ground->unequip(4);
+	ground->unequip(2);
+	ground->displayMaterias();
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
+	print("");
 	printB("****************************************");
 	print("");
 	printB("****** destroy classes *****************");
+
 
 	delete ice_tmp;
 	delete cure_tmp;
@@ -190,6 +226,7 @@ int main()
 	delete ice3;
 	delete cure3;
 	delete quelle;
+	delete ground;
 	return 0;
 }
 

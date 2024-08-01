@@ -3,7 +3,7 @@
 
 #define ICE "ice"
 #define CURE "cure"
-
+#define MAXMATERIA 100
 #include <iostream>
 
 void	print(std::string str);

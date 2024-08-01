@@ -15,8 +15,8 @@ class Ground
 
 		Ground& operator=(const Ground& other);
 		
-		virtual void learnMateria(AMateria*);
-		virtual AMateria* createMateria(std::string const & type);
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
 		void	initInv();
 		void	displayMaterias() const;
 };
