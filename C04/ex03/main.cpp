@@ -157,23 +157,36 @@ int main()
 
 	print("");
 	printB("******** create Materias tests *********");
-	print("");
-	printB("****************************************");
-	print("");
-	printB("****************************************");
-	print("");
-	printB("****************************************");
-	print("");
-	printB("****************************************");
-	print("");
-	printB("****************************************");
-	print("");
-	printB("****************************************");
-	print("");
+	printB("Materais creation");
+	AMateria *ice_tmp = quelle->createMateria("ice");
+	AMateria *cure_tmp = quelle->createMateria("cure");
+	AMateria *nada_tmp = quelle->createMateria("NADAZERO");
+	printB("Materia display");
+	print(ice_tmp->getType());
+	print(cure_tmp->getType());
+	if (nada_tmp)
+		print(nada_tmp->getType());
+
+	// print("");
+	// printB("****************************************");
+	// print("");
+	// printB("****************************************");
+	// print("");
+	// printB("****************************************");
+	// print("");
+	// printB("****************************************");
+	// print("");
+	// printB("****************************************");
+	// print("");
+	// printB("****************************************");
+	// print("");
 	printB("****************************************");
 	print("");
 	printB("****** destroy classes *****************");
 
+	delete ice_tmp;
+	delete cure_tmp;
+	delete nada_tmp;
 	delete ice3;
 	delete cure3;
 	delete quelle;
