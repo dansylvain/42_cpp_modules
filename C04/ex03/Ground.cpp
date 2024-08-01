@@ -17,6 +17,8 @@ Ground::Ground(const Ground& other)
 
 Ground::~Ground()
 {
+	for (int i = 0; i < MAXMATERIA; i++)
+		delete inv[i];
 	delete[] inv;
 	print("Ground destroyed");
 }

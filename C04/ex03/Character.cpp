@@ -31,6 +31,8 @@ Character::Character(const Character& other) : ICharacter(), name(new std::strin
 Character::~Character()
 {
 	delete name;
+	for (int i = 0; i < 4; i++)
+		delete inv[i];
 	delete[] inv;
 	print("Character destroyed");
 }
