@@ -142,7 +142,7 @@ int main()
 	character2.unequip(1);
 	print("");
 	
-	printB("****** cerate MateriaSource ************");
+	printB("******* learn MateriaSource ************");
 	quelle->learnMateria(&iceTest);
 	quelle->learnMateria(&cureTest);
 	quelle->learnMateria(&iceTest);
@@ -155,6 +155,20 @@ int main()
 	quelle->learnMateria(&ice);
 	quelle->learnMateria(&ice);
 
+	print("");
+	printB("******** create Materias tests *********");
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
+	print("");
+	printB("****************************************");
 	print("");
 	printB("****************************************");
 	print("");

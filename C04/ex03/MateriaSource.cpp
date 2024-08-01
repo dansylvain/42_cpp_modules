@@ -56,7 +56,11 @@ void MateriaSource::learnMateria(AMateria *m)
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	AMateria* ptr;
-	type == "ice" ? ptr = new Ice() : ptr = new Cure();
+	if (type == "ice")
+		ptr = new Ice();
+	else if (type == "cure")
+		ptr = new Cure();
+	else ptr = NULL;
 	return (ptr);
 }
 
