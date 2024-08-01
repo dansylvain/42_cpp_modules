@@ -10,7 +10,8 @@ SRC =	main.cpp \
 		Ice.cpp Cure.cpp \
 		Character.cpp \
 		MateriaSource.cpp \
-		Ground.cpp
+		Ground.cpp \
+		test_one.cpp
 
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
