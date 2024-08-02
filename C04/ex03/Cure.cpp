@@ -3,19 +3,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Cure::Cure() : AMateria(), id(new int(AMateria::materiaCount))
+Cure::Cure() : AMateria(), id(new int(AMateria::materiaCount)), loc(new std::string("ground"))
 {
 	*type = CURE;
 	print("Cure created (default constructor)");
 }
 
-Cure::Cure(std::string const & type) : AMateria(), id(new int(AMateria::materiaCount))
+Cure::Cure(std::string const & type) : AMateria(), id(new int(AMateria::materiaCount)), loc(new std::string("ground"))
 {
 	*Cure::type = type;
 	print("Cure created (parameter constructor)");
 }
 
-Cure::Cure(const Cure& other) : AMateria(other), id(new int(AMateria::materiaCount))
+Cure::Cure(const Cure& other) : AMateria(other), id(new int(AMateria::materiaCount)), loc(new std::string("ground"))
 {
 	print("Cure created (copy constructor)");
 }
@@ -23,6 +23,7 @@ Cure::Cure(const Cure& other) : AMateria(other), id(new int(AMateria::materiaCou
 Cure::~Cure()
 {
 	delete id;
+	delete loc;
 	print("Cure destroyed");
 }
 
