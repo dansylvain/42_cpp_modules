@@ -41,7 +41,7 @@ void MateriaSource::learnMateria(AMateria *m)
 	{
 		if (inv[i] == NULL && m->isFree())
 		{
-			inv[i] = m->clone();
+			// Do something here?
 			break;
 		}
 	}

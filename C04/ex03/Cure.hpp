@@ -22,7 +22,7 @@ class Cure : public AMateria
 		using AMateria::getType;
 
 		// action member functions
-		Cure* clone() const;
+		void clone() const;
 		void use(ICharacter& target);
 };
 

@@ -21,7 +21,7 @@ class Ice : public AMateria
 		using AMateria::getType;
 		
 		// action member functions
-		Ice* clone() const;
+		void clone() const;
 		void use(ICharacter& target);
 };
 

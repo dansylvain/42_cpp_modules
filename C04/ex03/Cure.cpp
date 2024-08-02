@@ -41,10 +41,10 @@ Cure& Cure::operator=(const Cure& other)
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
-Cure* Cure::clone() const
+void Cure::clone() const
 {
+	AMateria::addMateria(new Cure(*this));
 	print("Cure cloned");
-	return new Cure(*this);
 }
 
 void Cure::use(ICharacter& target)

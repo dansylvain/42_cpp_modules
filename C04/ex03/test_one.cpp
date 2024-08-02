@@ -63,11 +63,6 @@ void	test_one()
 	print("");
 
 	printB("********** clone test ******************");
-	Ice *ice3 = ice2.clone();
-	print((*ice3).getType());
-	print("");
-	Cure *cure3 = cure2.clone();
-	print((*cure3).getType());
 	
 	print("");
 	printB("********** inv tests********************");
@@ -219,7 +214,6 @@ void	test_one()
 
 
 	// delete nada_tmp;
-	delete ice3;
-	delete cure3;
+
 	delete quelle;
 }

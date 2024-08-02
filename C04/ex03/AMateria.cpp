@@ -1,7 +1,7 @@
 #include "AMateria.hpp"
 
-AMateria	*materias[100] = {NULL};
-int			materiaCount = 0;
+AMateria	*AMateria::materias[100] = {NULL};
+int			AMateria::materiaCount = 0;
 
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
@@ -64,6 +64,12 @@ void	AMateria::toggleMateriaAvailability()
 	// std::cout << "before: " << *free;
 	*free ? *free = 0 : *free = 1;
 	// std::cout << ", after: " << *free <<std::endl;
+}
+void AMateria::addMateria(AMateria *newMateria)
+{
+	if (materiaCount < 100) {
+        materias[materiaCount++] = newMateria;
+    }
 }
 
 /**========================================================================

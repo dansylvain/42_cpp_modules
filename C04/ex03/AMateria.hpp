@@ -30,8 +30,9 @@ class AMateria
 		void		toggleMateriaAvailability();
 
 		// action member functions
-		virtual AMateria* clone() const = 0;
+		virtual void clone() const = 0;
 		virtual void use(ICharacter& target);
+		static	void addMateria(AMateria *newMateria);
 };
 
 #endif

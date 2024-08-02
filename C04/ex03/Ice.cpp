@@ -41,10 +41,10 @@ Ice& Ice::operator=(const Ice& other)
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
-Ice* Ice::clone() const
+void Ice::clone() const
 {
-	print("Ice clone");
-	return new Ice(*this);
+	print("Ice cloned");
+	AMateria::addMateria(new Ice(*this));
 }
 
 void Ice::use(ICharacter& target)
