@@ -2,31 +2,40 @@ TARGET = interface
 
 CXX = g++
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror \
-			-g
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g
 
-SRC =	main.cpp \
-		AMateria.cpp \
-		Ice.cpp Cure.cpp \
-		Character.cpp \
-		MateriaSource.cpp \
-		Ground.cpp \
-		test_one.cpp \
-		test_two.cpp
+SRC = main.cpp \
+	AMateria.cpp \
+	Ice.cpp Cure.cpp \
+	Character.cpp \
+	MateriaSource.cpp \
+	Ground.cpp \
+	test_one.cpp \
+	test_two.cpp
 
-$(TARGET): $(SRC)
-	@$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+# Fichier marqueur pour l'animation
+DESIGN_MARKER = .design_running
 
-all: design $(TARGET)
+# Règle principale
+all: $(TARGET)
 
-design:
+# Règle pour afficher le motif en arrière-plan, si nécessaire
+$(DESIGN_MARKER):
 	clear
 	@bash generateGradient.sh &
+	@touch $(DESIGN_MARKER)
 
+# Règle pour compiler le projet
+$(TARGET): $(SRC) $(DESIGN_MARKER)
+	@$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
+# Nettoyage
 fclean: clean
-	rm	-f	$(TARGET) 
+	rm -f $(TARGET)
+	@rm -f $(DESIGN_MARKER)  # Supprimer le fichier marqueur après compilation
 
-re:	fclean	all
+# Recompile tout après nettoyage
+re: fclean all
 
-.PHONY: all clean
+# Dépendances pour les cibles
+.PHONY: all clean re
