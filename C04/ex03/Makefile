@@ -22,13 +22,12 @@ all: $(TARGET)
 # Règle pour afficher le motif en arrière-plan, si nécessaire
 $(DESIGN_MARKER):
 	clear
-	@bash generateGradient.sh &
+	@bash generateGradient.cpp &
 	@touch $(DESIGN_MARKER)
 
 # Règle pour compiler le projet
 $(TARGET): $(SRC) $(DESIGN_MARKER)
 	@$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
-	@printf "\n\n\n"  # Ajouter 3 lignes vides
 
 # Nettoyage
 fclean: clean

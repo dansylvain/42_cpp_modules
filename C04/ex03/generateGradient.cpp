@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# this bah script should be names with extention .sh
+# this is bad practice, all because of 42 guidelines...
 # Définir le motif ASCII
 pattern=(
 "  ██▓ ███▄    █ ▄▄▄█████▓▓█████  ██▀███    █████▒▄▄▄       ▄████▄  ▓█████  "
@@ -48,5 +50,5 @@ display_pattern() {
 		sleep "$delay"
 	done
 }
-
 display_pattern
+printf "\n\n\n";
