@@ -71,6 +71,16 @@ void	AMateria::cleanup()
     }
     materiaCount = 0;
 }
+
+std::string const & AMateria::getLoc() const
+{
+	return (loc);
+}
+
+void AMateria::setLoc(std::string newLoc)
+{
+	loc = newLoc;
+}
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
