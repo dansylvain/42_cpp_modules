@@ -6,7 +6,8 @@
 class Cure : public AMateria
 {
 	private:
-		int	id;
+		int			*id;
+		std::string *loc;
 	public:
 		// constructors and destructor
 		Cure();
