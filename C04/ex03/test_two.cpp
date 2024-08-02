@@ -17,12 +17,9 @@ void	test_two()
 	printB("*******Objects creation ********");
 	print("");
 	MateriaSource	source;
-	Character		character[3];
-
-
 	print("");
-	AMateria::addMateria(new Ice);
 	
+	AMateria::addMateria(new Ice);
 	ICharacter::createNewCharacter("BOBBY");
 	
 	

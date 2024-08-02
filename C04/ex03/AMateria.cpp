@@ -77,7 +77,6 @@ void AMateria::addMateria(AMateria *newMateria)
 void	AMateria::cleanup()
 {
 	for (int i = 0; i < AMateria::materiaCount; ++i) {
-		print("*************deleting**************");
         delete materias[i];
     }
 
