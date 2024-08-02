@@ -74,6 +74,7 @@ void Character::equip(AMateria* m)
 		if (inv[i] == NULL)
 		{
 			inv[i] = m;
+			m->setLoc(getName());
 			break;
 		}
 	}
@@ -83,6 +84,7 @@ void Character::unequip(int idx)
 {
 	if (inv[idx])
 	{
+		inv[idx]->setLoc(GROUND);
 		inv[idx] = NULL;
 	}
 }

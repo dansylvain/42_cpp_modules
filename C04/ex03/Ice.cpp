@@ -3,19 +3,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Ice::Ice() : AMateria(), id(new int(AMateria::materiaCount)), loc(new std::string("ground"))
+Ice::Ice() : AMateria(), id(new int(AMateria::materiaCount)), loc(new std::string(GROUND))
 {
 	*type = ICE;
 	print("Ice created (default constructor)");
 }
 
-Ice::Ice(std::string const & type) : AMateria(), id(new int(AMateria::materiaCount)), loc(new std::string("ground"))
+Ice::Ice(std::string const & type) : AMateria(), id(new int(AMateria::materiaCount)), loc(new std::string(GROUND))
 {
 	*Ice::type = type;
 	print("Ice created (parameter constructor)");
 }
 
-Ice::Ice(const Ice& other) : AMateria(other), id(new int(AMateria::materiaCount)), loc(new std::string("ground"))
+Ice::Ice(const Ice& other) : AMateria(other), id(new int(AMateria::materiaCount)), loc(new std::string(GROUND))
 {
 	print("Ice created (copy constructor)");
 }

@@ -45,6 +45,7 @@ void MateriaSource::learnMateria(AMateria *m)
 		if (inv[i] == NULL)
 		{
 			print(m->getType() + " added to inv");
+			m->setLoc(MATERIASOURCE);
 			inv[i] = m;
 			break;
 		}

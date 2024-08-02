@@ -3,6 +3,9 @@
 
 #define ICE "ice"
 #define CURE "cure"
+#define GROUND "ground"
+#define MATERIASOURCE "materiaSource"
+
 #define MAXMATERIA 100
 #include <iostream>
 
