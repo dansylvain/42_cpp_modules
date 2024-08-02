@@ -6,7 +6,7 @@
 class Cure : public AMateria
 {
 	private:
-		Cure*	ptr;
+		int	id;
 	public:
 		// constructors and destructor
 		Cure();

@@ -9,7 +9,6 @@ class AMateria
 {
 	protected:
 		std::string 	*type;
-		bool			*free;
 		static AMateria *materias[100];
 		static int		materiaCount;
 	public:

@@ -3,19 +3,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Cure::Cure() : AMateria(), ptr(NULL)
+Cure::Cure() : AMateria()
 {
 	*type = CURE;
 	print("Cure created (default constructor)");
 }
 
-Cure::Cure(std::string const & type) : AMateria(), ptr(NULL)
+Cure::Cure(std::string const & type) : AMateria()
 {
 	*Cure::type = type;
 	print("Cure created (parameter constructor)");
 }
 
-Cure::Cure(const Cure& other) : AMateria(other), ptr(NULL)
+Cure::Cure(const Cure& other) : AMateria(other)
 {
 	print("Cure created (copy constructor)");
 }

@@ -6,7 +6,7 @@
 class Ice : public AMateria
 {
 		private:
-		Ice*	ptr;
+		int	id;
 	public:
 		// constructors and destructor
 		Ice();

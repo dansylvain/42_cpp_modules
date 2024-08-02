@@ -21,8 +21,6 @@ class Character : public ICharacter
 
 		// geters and seters
 		std::string const & getName() const;
-		int			const & getMateriaNbr() const;
-		void		setMateriaNbr(int num);
 
 		// action member functions
 		void equip(AMateria* m);

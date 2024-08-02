@@ -6,27 +6,24 @@ int			AMateria::materiaCount = 0;
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-AMateria::AMateria() : type(new std::string("turlututu")), free(new bool(true))
+AMateria::AMateria() : type(new std::string("turlututu"))
 {
 	print("AMateria Created (default constructor)");
 }
 
-AMateria::AMateria(std::string const & type) : type(new std::string(type)), free(new bool(true))
+AMateria::AMateria(std::string const & type) : type(new std::string(type))
 {
 	print("AMateria Created (parameter constructor)");
 }
 
-AMateria::AMateria(const AMateria& other) : type(new std::string(*other.type)), free(new bool(other.free))
+AMateria::AMateria(const AMateria& other) : type(new std::string(*other.type))
 {
 	print("AMateria Created (copy constructor)");
 }
 
 AMateria::~AMateria()
 {
-	delete type;
-	delete free;
-	
-	
+	delete type;	
 	print("AMateria destroyed");
 }
 
@@ -40,7 +37,6 @@ AMateria& AMateria::operator=(const AMateria& other)
 	{
 		print("AMateria copied");
 		*type = *other.type;
-		*free = *other.free;
 	}
 	return (*this);
 }
