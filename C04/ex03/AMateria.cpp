@@ -88,3 +88,12 @@ void AMateria::use(ICharacter& target)
 {
 	(void)target;
 }
+
+void	AMateria::displayMaterias()
+{
+	for (int i = 0; i < materiaCount; i++)
+	{
+		if(materias[i]->getLoc() == GROUND)
+		print(materias[i]->getType() + ", loc: " + materias[i]->getLoc());
+	}
+}

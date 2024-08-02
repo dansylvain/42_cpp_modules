@@ -33,6 +33,8 @@ class AMateria
 		static	void		cleanup();
 		virtual void		use(ICharacter& target);
 		virtual AMateria*		clone() const = 0;
+		static void	displayMaterias();
+
 };
 
 #endif

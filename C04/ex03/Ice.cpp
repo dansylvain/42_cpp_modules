@@ -48,6 +48,7 @@ AMateria* Ice::clone() const
 	AMateria* ptr = new Ice(*this);
 	print("Ice cloned");
 	AMateria::addMateria(ptr);
+	ptr->setLoc(GROUND);
 	return (ptr);
 }
 

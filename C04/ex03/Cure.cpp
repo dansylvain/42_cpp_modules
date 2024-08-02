@@ -47,6 +47,7 @@ AMateria* Cure::clone() const
 {
 	AMateria* ptr = new Cure(*this);
 	AMateria::addMateria(ptr);
+	ptr->setLoc(GROUND);
 	print("Cure cloned");
 	return (ptr);
 }

@@ -11,6 +11,8 @@ void	print(std::string str);
 void	printB(const std::string& str);
 void	test_one();
 void	test_two();
+void	displayAppState(MateriaSource source);
+
 
 void	test_two()
 {
@@ -34,6 +36,14 @@ void	test_two()
 	charly->equip(cure);
 	charly->use(0, *bobby);
 	AMateria *ice2 = cure->clone();
+	AMateria *ice3 = cure->clone();
+	AMateria *ice4 = cure->clone();
+	AMateria *ice5 = cure->clone();
+	AMateria *ice6 = cure->clone();
+	AMateria *ice7 = ice->clone();
+	AMateria *ice8 = ice->clone();
+	AMateria *ice9 = ice->clone();
+	AMateria *ice10 = ice->clone();
 
 	print(ice2->getType());
 
@@ -62,7 +72,8 @@ void	test_two()
 	(void)cure;
 	(void)charly;
 	
-	
+	printB("** display all materias    *****");
+	AMateria::displayMaterias();
 	
 	printB("**create materias - ground *****");
 	
@@ -92,6 +103,27 @@ void	test_two()
 	print("");
 	printB("*******Objects destruction *****");
 	print("");
+
+	printB("Materias on the ground: ");
+	AMateria::displayMaterias();
+	for (int i = 0; i < ICharacter::characterCount; i++)
+	{
+		printB("Character " + ICharacter::characters[i]->getName() + ": ");
+		ICharacter::characters[i]->displayMaterias();
+	}
+	printB("Materia Source : ");
+	source.displayMaterias();
 	AMateria::cleanup();
 	ICharacter::cleanup();
+
+	(void)ice3;
+	(void)ice4;
+	(void)ice5;
+	(void)ice6;
+	(void)ice7;
+	(void)ice8;
+	(void)ice9;
+	(void)ice10;
+
+	
 }

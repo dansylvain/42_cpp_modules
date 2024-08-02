@@ -12,6 +12,9 @@ void	test_two();
 
 bool TEST;
 
+
+
+
 int main()
 {
 	TEST = true;

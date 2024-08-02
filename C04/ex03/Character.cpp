@@ -103,7 +103,6 @@ void Character::displayMaterias()
 		if (inv[i])
 			std::cout << i << ": " << inv[i]->getType() << std::endl;
 	}
-		// print(inv[i]->getType());
 }
 
 /**========================================================================
