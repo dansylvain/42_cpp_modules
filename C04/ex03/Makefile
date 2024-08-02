@@ -28,6 +28,7 @@ $(DESIGN_MARKER):
 # Règle pour compiler le projet
 $(TARGET): $(SRC) $(DESIGN_MARKER)
 	@$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+	@printf "\n\n\n"  # Ajouter 3 lignes vides
 
 # Nettoyage
 fclean: clean
