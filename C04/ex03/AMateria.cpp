@@ -56,17 +56,6 @@ std::string const & AMateria::getType() const
 	return (empty);
 }
 
-bool	const & AMateria::isFree() const
-{
-	return (*free);
-}
-
-void	AMateria::toggleMateriaAvailability()
-{
-	// std::cout << "before: " << *free;
-	*free ? *free = 0 : *free = 1;
-	// std::cout << ", after: " << *free <<std::endl;
-}
 void AMateria::addMateria(AMateria *newMateria)
 {
 	if (materiaCount < 100) {

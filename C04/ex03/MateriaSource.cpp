@@ -39,14 +39,15 @@ void MateriaSource::learnMateria(AMateria *m)
 	int i;
 	for (i = 0; i < 4; i++)
 	{
-		if (inv[i] == NULL && m->isFree())
+		if (inv[i] == NULL)
 		{
 			// Do something here?
 			break;
 		}
 	}
-	if (i == 4 && m->isFree())
+	if (i == 4)
 		print("MateriaSource full");
+	(void)m;
 }
 void MateriaSource::createMateria(std::string const & type)
 {

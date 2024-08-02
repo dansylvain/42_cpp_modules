@@ -26,14 +26,12 @@ class AMateria
 
 		// geters and seters
 		std::string const & getType() const;
-		bool		const & isFree() const;
-		void		toggleMateriaAvailability();
 
 		// action member functions
-		virtual void clone() const = 0;
-		virtual void use(ICharacter& target);
-		static	void addMateria(AMateria *newMateria);
-		static	void		cleanup();
+		virtual void	clone() const = 0;
+		virtual void	use(ICharacter& target);
+		static	void	addMateria(AMateria *newMateria);
+		static	void	cleanup();
 };
 
 #endif

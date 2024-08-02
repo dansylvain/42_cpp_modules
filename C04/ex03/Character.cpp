@@ -48,7 +48,6 @@ Character& Character::operator=(const Character& other)
 		{
 			if (inv[i])
 			{
-				inv[i]->toggleMateriaAvailability();
 				inv[i] = NULL;
 			}
 			if (other.inv[i])
@@ -74,10 +73,9 @@ void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i] == NULL && m->isFree())
+		if (inv[i] == NULL)
 		{
 			inv[i] = m;
-			m->toggleMateriaAvailability();
 			break;
 		}
 	}
@@ -87,7 +85,6 @@ void Character::unequip(int idx)
 {
 	if (inv[idx])
 	{
-		inv[idx]->toggleMateriaAvailability();
 		inv[idx] = NULL;
 	}
 }
