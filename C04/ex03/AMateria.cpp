@@ -25,6 +25,8 @@ AMateria::~AMateria()
 {
 	delete type;
 	delete free;
+	
+	
 	print("AMateria destroyed");
 }
 
@@ -72,6 +74,18 @@ void AMateria::addMateria(AMateria *newMateria)
     }
 }
 
+void	AMateria::cleanup()
+{
+	for (int i = 0; i < AMateria::materiaCount; ++i) {
+		print("*************deleting**************");
+        delete materias[i];
+    }
+
+	for (int i = 0; i < 100; ++i) {
+        materias[i] = NULL;
+    }
+    materiaCount = 0;
+}
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/

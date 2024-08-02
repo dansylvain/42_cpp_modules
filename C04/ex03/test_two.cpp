@@ -17,7 +17,7 @@ void	test_two()
 	MateriaSource	source;
 	Character		character[3];
 	print("");
-
+	AMateria::addMateria(new Ice);
 	printB("**create materias - ground *****");
 	
 	printB("Ground content:");
@@ -46,5 +46,5 @@ void	test_two()
 	print("");
 	printB("*******Objects destruction *****");
 	print("");
-	
+	AMateria::cleanup();
 }

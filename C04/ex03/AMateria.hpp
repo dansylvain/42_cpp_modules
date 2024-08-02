@@ -33,6 +33,7 @@ class AMateria
 		virtual void clone() const = 0;
 		virtual void use(ICharacter& target);
 		static	void addMateria(AMateria *newMateria);
+		static	void		cleanup();
 };
 
 #endif
