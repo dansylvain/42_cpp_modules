@@ -12,28 +12,22 @@
  *========================================================================**/
 Character::Character() : ICharacter(), name(new std::string("Bobby"))
 {
-	initInv();
 	print("Character created (default constructor)");
 }
 
 Character::Character(std::string const & name) : ICharacter(), name(new std::string(name))
 {
-	initInv();
 	print("Character created (parameter constructor)");
 }
 
 Character::Character(const Character& other) : ICharacter(), name(new std::string(*other.name))
 {
-	initInv();
 	print("Character created (copy constructor)");
 }
 
 Character::~Character()
 {
 	delete name;
-	for (int i = 0; i < 4; i++)
-		delete inv[i];
-	delete[] inv;
 	print("Character destroyed");
 }
 
@@ -121,7 +115,7 @@ void Character::displayMaterias()
 
 void	Character::initInv()
 {
-	inv = new AMateria*[4];
-	for (int i = 0; i < 4; i++)
-		inv[i] = NULL;
+	// inv = new AMateria*[4];
+	// for (int i = 0; i < 4; i++)
+	// 	inv[i] = NULL;
 }

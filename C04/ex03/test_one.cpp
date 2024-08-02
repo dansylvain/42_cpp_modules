@@ -4,7 +4,6 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
-#include "Ground.hpp"
 #include "main.h"
 void	print(std::string str);
 void	printB(const std::string& str);
@@ -173,18 +172,10 @@ void	test_one()
 	print("");
 	printB("******** create Materias tests *********");
 	printB("Materais creation");
-	AMateria *ice_tmp = quelle->createMateria(ICE);
-	AMateria *cure_tmp = quelle->createMateria(CURE);
-	AMateria *nada_tmp = quelle->createMateria("NADAZERO");
 	printB("Materia display");
-	print(ice_tmp->getType());
-	print(cure_tmp->getType());
-	if (nada_tmp)
-		print(nada_tmp->getType());
 	print("");
 
 	printB("********** Create Ground ***************");
-	Ground* ground = new Ground;
 	print("");
 	printB("******* Test equip Ground **************");
 	printB("charac inv");
@@ -215,14 +206,6 @@ void	test_one()
 	// ground->equip(&tmp5);
 
 	printB("display ground materias:");
-	if (TEST)
-		ground->displayMaterias();
-	print("");
-	printB("******** Test unequip Ground ***********");
-	ground->unequip(4);
-	ground->unequip(2);
-	if (TEST)
-		ground->displayMaterias();
 	print("");
 	printB("****************************************");
 	print("");
@@ -235,11 +218,8 @@ void	test_one()
 	printB("****** destroy classes *****************");
 
 
-	delete ice_tmp;
-	delete cure_tmp;
 	// delete nada_tmp;
 	delete ice3;
 	delete cure3;
 	delete quelle;
-	delete ground;
 }

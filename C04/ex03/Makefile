@@ -9,7 +9,6 @@ SRC = main.cpp \
 	Ice.cpp Cure.cpp \
 	Character.cpp \
 	MateriaSource.cpp \
-	Ground.cpp \
 	test_one.cpp \
 	test_two.cpp
 

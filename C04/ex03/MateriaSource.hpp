@@ -17,7 +17,7 @@ class MateriaSource
 		const std::string&	getMateriaType(int idx);
 
 		virtual void learnMateria(AMateria*);
-		virtual AMateria* createMateria(std::string const & type);
+		virtual void createMateria(std::string const & type);
 		void	initInv();
 		void	displayMaterias() const;
 };

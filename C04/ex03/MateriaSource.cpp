@@ -5,21 +5,16 @@
  *========================================================================**/
 MateriaSource::MateriaSource()
 {
-	initInv();
 	print("MateriaSource Created (default constructor)");
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
-	initInv();
 	(void)other;
 }
 
 MateriaSource::~MateriaSource()
 {
-	for (int i = 0; i < 4; i++)
-		delete inv[i];
-	delete[] inv;
 	print("MateriaSource destroyed");
 }
 
@@ -53,15 +48,9 @@ void MateriaSource::learnMateria(AMateria *m)
 	if (i == 4 && m->isFree())
 		print("MateriaSource full");
 }
-AMateria* MateriaSource::createMateria(std::string const & type)
+void MateriaSource::createMateria(std::string const & type)
 {
-	AMateria* ptr;
-	if (type == ICE)
-		ptr = new Ice();
-	else if (type == CURE)
-		ptr = new Cure();
-	else ptr = NULL;
-	return (ptr);
+	(void)type;
 }
 
 const std::string&	MateriaSource::getMateriaType(int idx)
@@ -75,17 +64,17 @@ const std::string&	MateriaSource::getMateriaType(int idx)
 
 void	MateriaSource::initInv()
 {
-	inv = new AMateria*[4];
-	for (int i = 0; i < 4; i++)
-		inv[i] = NULL;
+	// inv = new AMateria*[4];
+	// for (int i = 0; i < 4; i++)
+	// 	inv[i] = NULL;
 }
 
 void	MateriaSource::displayMaterias() const
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (inv[i])
-			std::cout << i << ": " << inv[i]->getType() << std::endl;
-	}
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	if (inv[i])
+	// 		std::cout << i << ": " << inv[i]->getType() << std::endl;
+	// }
 		// print(inv[i]->getType());
 }

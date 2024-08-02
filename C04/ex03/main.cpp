@@ -4,7 +4,6 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
-#include "Ground.hpp"
 
 void	print(std::string str);
 void	printB(const std::string& str);
@@ -15,7 +14,7 @@ bool TEST;
 
 int main()
 {
-	// TEST = false;
+	TEST = true;
 	// std::string c;
 	// while (c != "1" && c != "2")
 	// {
@@ -34,7 +33,7 @@ int main()
 	// 		print("Fuck off");
 	// 		break;
 	// }
-	test_one();
+	test_two();
 	return 0;
 }
 

@@ -8,9 +8,13 @@ class ICharacter;
 class AMateria
 {
 	protected:
-	public:
 		std::string 	*type;
 		bool			*free;
+		static AMateria *materias[100];
+		static int		materiaCount;
+	public:
+
+
 		// constructors and destructor
 		AMateria();
 		AMateria(std::string const & type);
