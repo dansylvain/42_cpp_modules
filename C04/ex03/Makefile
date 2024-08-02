@@ -15,14 +15,14 @@ SRC =	main.cpp \
 		test_two.cpp
 
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+	@$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
 all: design $(TARGET)
 
 design:
-	@echo "\033[0;32m"
-	@cat mfile_design
-	@echo "\033[0m"
+	clear
+	@bash generateGradient.sh &
+
 
 fclean: clean
 	rm	-f	$(TARGET) 
