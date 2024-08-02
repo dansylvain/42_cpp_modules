@@ -8,6 +8,7 @@ class Character : public ICharacter
 	protected:
 		std::string 	*name;
 		AMateria** 		inv;
+
 	public:
 		// constructors and destructor
 		Character();
