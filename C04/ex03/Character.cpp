@@ -71,7 +71,7 @@ void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i] == NULL)
+		if (inv[i] == NULL && m->getLoc() != getName())
 		{
 			inv[i] = m;
 			m->setLoc(getName());
