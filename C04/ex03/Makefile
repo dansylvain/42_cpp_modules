@@ -17,7 +17,12 @@ SRC =	main.cpp \
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
 
-all: $(TARGET)
+all: design $(TARGET)
+
+design:
+	@echo "\033[0;32m"
+	@cat mfile_design
+	@echo "\033[0m"
 
 fclean: clean
 	rm	-f	$(TARGET) 
