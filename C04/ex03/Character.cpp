@@ -10,19 +10,22 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Character::Character() : ICharacter(), name(new std::string("Bobby"))
+Character::Character() : ICharacter()
 {
 	print("Character created (default constructor)");
+	initInv();
 }
 
 Character::Character(std::string const & name) : ICharacter(), name(new std::string(name))
 {
 	print("Character created (parameter constructor)");
+	initInv();
 }
 
 Character::Character(const Character& other) : ICharacter(), name(new std::string(*other.name))
 {
 	print("Character created (copy constructor)");
+	initInv();
 }
 
 Character::~Character()
@@ -33,9 +36,6 @@ Character::~Character()
 
 /**========================================================================
  *                           ASSIGNMENT OPERATOR
- * since memory is allocated on the stack, 
- * delete simulated by bool unavailability
- * ! will have to be changed with memo management changes
  *========================================================================**/
 Character& Character::operator=(const Character& other)
 {
@@ -47,9 +47,7 @@ Character& Character::operator=(const Character& other)
 		for (int i = 0; i < 4; i++)
 		{
 			if (inv[i])
-			{
 				inv[i] = NULL;
-			}
 			if (other.inv[i])
 				inv[i] = other.inv[i];
 		}
@@ -112,7 +110,6 @@ void Character::displayMaterias()
 
 void	Character::initInv()
 {
-	// inv = new AMateria*[4];
-	// for (int i = 0; i < 4; i++)
-	// 	inv[i] = NULL;
+	for (int i = 0; i < 4; i++)
+		inv[i] = NULL;
 }

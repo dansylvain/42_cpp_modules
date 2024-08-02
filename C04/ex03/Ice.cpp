@@ -3,19 +3,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria(), id(AMateria::materiaCount)
 {
 	*type = ICE;
 	print("Ice created (default constructor)");
 }
 
-Ice::Ice(std::string const & type) : AMateria()
+Ice::Ice(std::string const & type) : AMateria(), id(AMateria::materiaCount)
 {
 	*Ice::type = type;
 	print("Ice created (parameter constructor)");
 }
 
-Ice::Ice(const Ice& other) : AMateria(other)
+Ice::Ice(const Ice& other) : AMateria(other), id(AMateria::materiaCount)
 {
 	print("Ice created (copy constructor)");
 }
@@ -41,10 +41,12 @@ Ice& Ice::operator=(const Ice& other)
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
-void Ice::clone() const
+AMateria* Ice::clone() const
 {
+	AMateria* ptr = new Ice(*this);
 	print("Ice cloned");
-	AMateria::addMateria(new Ice(*this));
+	AMateria::addMateria(ptr);
+	return (ptr);
 }
 
 void Ice::use(ICharacter& target)

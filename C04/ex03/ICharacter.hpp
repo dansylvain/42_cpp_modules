@@ -14,11 +14,13 @@ class ICharacter
 		virtual std::string const & getName() const = 0;
 		
 		// action member functions
-		virtual void	equip(AMateria* m) = 0;
-		virtual void	unequip(int idx) = 0;
-		virtual void	use(int idx, ICharacter& target) = 0;
-		static	void	createNewCharacter(const std:: string &name);
-		static	void			cleanup();
+		virtual void		equip(AMateria* m) = 0;
+		virtual void		unequip(int idx) = 0;
+		virtual void		use(int idx, ICharacter& target) = 0;
+		static	ICharacter*	createNewCharacter(const std:: string &name);
+		virtual void		displayMaterias() = 0;
+
+		static	void		cleanup();
 
 };
 

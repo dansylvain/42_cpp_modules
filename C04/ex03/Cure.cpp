@@ -3,19 +3,19 @@
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-Cure::Cure() : AMateria()
+Cure::Cure() : AMateria(), id(AMateria::materiaCount)
 {
 	*type = CURE;
 	print("Cure created (default constructor)");
 }
 
-Cure::Cure(std::string const & type) : AMateria()
+Cure::Cure(std::string const & type) : AMateria(), id(AMateria::materiaCount)
 {
 	*Cure::type = type;
 	print("Cure created (parameter constructor)");
 }
 
-Cure::Cure(const Cure& other) : AMateria(other)
+Cure::Cure(const Cure& other) : AMateria(other), id(AMateria::materiaCount)
 {
 	print("Cure created (copy constructor)");
 }
@@ -41,10 +41,12 @@ Cure& Cure::operator=(const Cure& other)
 /**========================================================================
  *                                ACTION METHODS
  *========================================================================**/
-void Cure::clone() const
+AMateria* Cure::clone() const
 {
-	AMateria::addMateria(new Cure(*this));
+	AMateria* ptr = new Cure(*this);
+	AMateria::addMateria(ptr);
 	print("Cure cloned");
+	return (ptr);
 }
 
 void Cure::use(ICharacter& target)

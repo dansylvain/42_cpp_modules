@@ -7,13 +7,13 @@ class Character : public ICharacter
 {
 	protected:
 		std::string 	*name;
-		AMateria** 		inv;
+		AMateria* 		inv[4];
+		Character();
+		Character(const Character& other);
 
 	public:
 		// constructors and destructor
-		Character();
 		Character(std::string const & name);
-		Character(const Character& other);
 		~Character();
 
 		// assignment operator
@@ -26,11 +26,11 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		void	initInv();
+		void displayMaterias();
 
 		// Utils
-		void	initInv();
 		//tmp
-		void displayMaterias();
 
 };
 

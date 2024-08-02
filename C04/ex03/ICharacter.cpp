@@ -4,18 +4,21 @@
 ICharacter	*ICharacter::characters[100] = {NULL};
 int			ICharacter::characterCount = 0;
 
-void	ICharacter::createNewCharacter(const std::string &name)
+ICharacter*	ICharacter::createNewCharacter(const std::string &name)
 {
-	if (characterCount < 100) {
-        characters[characterCount++] = new Character(name);
+	Character* ptr;
+	ptr = new Character(name);
+	if (characterCount < 100)
+	{
+        characters[characterCount++] = ptr;
     }
-printB("CREATE NEW CHARACTER " + name + " !!!");	
+	print("new ICharacter created");
+	return (ptr);
 }
 
 void	ICharacter::cleanup()
 {
 	for (int i = 0; i < ICharacter::characterCount; ++i) {
-		print("*************deleting**************");
         delete characters[i];
     }
 

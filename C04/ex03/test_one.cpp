@@ -22,11 +22,9 @@ void	test_one()
 	Ice ice2;
 	Ice iceTest("Fanta");
 	Cure cureTest("CocaCola");
-	Character character1;
 	Character character2("Pug");
 	Cure copyCure(cure2);
 	Ice copyIce(ice2);
-	Character copyCharacter(character2);
 	Character characTest("Saligaud");
 
 	print("");
@@ -35,13 +33,11 @@ void	test_one()
 	print("type :" + cure2.getType());
 	print("type :" + ice.getType());
 	print("type :" + ice2.getType());
-	print("type :" + character1.getName());
 	print("type :" + character2.getName());
 	print("");
 	printB("Copy tests:");
 	print("type :" + copyCure.getType());
 	print("type :" + copyIce.getType());
-	print("type :" + copyCharacter.getName());
 	print("");
 
 	printB("*** assignment operator tests **********");
@@ -53,12 +49,8 @@ void	test_one()
 	ice = ice2;
 	print("type after:"  + ice.getType());print("");
 	print("");	
-	print("type before:" + character1.getName());
-	character1 = character2;
-	print("type after:"  + character1.getName());print("");
 
 	printB("********* Use method tests *************");
-	cure2.use(character1);
 	ice.use(character2);
 	print("");
 
@@ -80,7 +72,6 @@ void	test_one()
 	character2.use(2, character2);
 	character2.use(-2, characTest);
 	character2.use(16, characTest);
-	character1.use(2, characTest);
 	character2.use(1, characTest);	
 	print("");
 
@@ -111,21 +102,14 @@ void	test_one()
 	// print("");
 
 	printB("***Charac Copy contructor tests ********");
-	character1.equip(&cure);
-	character1.equip(&ice2);
-	character1.equip(&iceTest);
 	printB("char1 inventory before");
-	if (TEST)
-		character1.displayMaterias();
+	
 	print("");
 	printB("char2 inventory before");
 	if (TEST)
 		character2.displayMaterias();
-	character1 = character2;
 	print("");
 	printB("char1 inventory after");
-	if (TEST)
-		character1.displayMaterias();
 	print("");
 	printB("char2 inventory after");
 	if (TEST)
@@ -175,8 +159,6 @@ void	test_one()
 	printB("******* Test equip Ground **************");
 	printB("charac inv");
 	printB("equip materias");
-	if (TEST)
-		character1.displayMaterias();
 	print(cureTest.getType());
 	// std::cout << *cureTest.type << *cureTest.free << std::endl;
 	// Cure tmp1;

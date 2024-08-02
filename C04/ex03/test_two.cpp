@@ -19,14 +19,37 @@ void	test_two()
 	MateriaSource	source;
 	print("");
 	
-	AMateria::addMateria(new Ice);
-	ICharacter::createNewCharacter("BOBBY");
+	AMateria *ice = AMateria::addMateria(new Ice);
+	AMateria *cure = AMateria::addMateria(new Cure);
+	ICharacter *bobby = ICharacter::createNewCharacter("BOBBY");
+	ICharacter *charly = ICharacter::createNewCharacter("Charly");
+
+	print(bobby->getName());
+	bobby->equip(ice);	
+	// bobby->equip(cure);	
+	bobby->equip(ice);	
+	bobby->equip(ice);	
+	bobby->equip(ice);	
+	bobby->displayMaterias();
+	charly->equip(cure);
+	charly->use(0, *bobby);
+	AMateria *ice2 = cure->clone();
+
+	print(ice2->getType());
+
+	static_cast<Cure*>(ice2)->use(*bobby);
+	ice->use(*charly);
+	// bobby->equip(ice);	
+	// charly->equip(cure);	
+	// charly->equip(ice);	
+	// charly->equip(cure);	
+	// charly->equip(ice);	
+	// charly->equip(ice);	
 	
 	
-	
-	
-	
-	
+	(void)ice;
+	(void)cure;
+	(void)charly;
 	
 	
 	

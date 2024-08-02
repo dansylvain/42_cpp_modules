@@ -52,11 +52,12 @@ std::string const & AMateria::getType() const
 	return (empty);
 }
 
-void AMateria::addMateria(AMateria *newMateria)
+AMateria *AMateria::addMateria(AMateria *newMateria)
 {
 	if (materiaCount < 100) {
         materias[materiaCount++] = newMateria;
     }
+	return (newMateria);
 }
 
 void	AMateria::cleanup()

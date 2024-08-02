@@ -11,13 +11,12 @@ class AMateria
 		std::string 	*type;
 		static AMateria *materias[100];
 		static int		materiaCount;
-	public:
-
-
-		// constructors and destructor
-		AMateria();
 		AMateria(std::string const & type);
 		AMateria(const AMateria& other);
+
+	public:
+		// constructors and destructor
+		AMateria();
 		virtual ~AMateria();
 
 		// assignment operator
@@ -27,10 +26,10 @@ class AMateria
 		std::string const & getType() const;
 
 		// action member functions
-		virtual void	clone() const = 0;
-		virtual void	use(ICharacter& target);
-		static	void	addMateria(AMateria *newMateria);
-		static	void	cleanup();
+		static	AMateria*	addMateria(AMateria *newMateria);
+		static	void		cleanup();
+		virtual void		use(ICharacter& target);
+		virtual AMateria*		clone() const = 0;
 };
 
 #endif
