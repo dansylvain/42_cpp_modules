@@ -7,19 +7,18 @@
 class MateriaSource
 {
 	private:
-		AMateria** 		inv;
+		AMateria*		inv[4];
 	public:
 		MateriaSource();
 		MateriaSource(const MateriaSource& other);
 		virtual ~MateriaSource();
 
 		MateriaSource& operator=(const MateriaSource& other);
-		const std::string&	getMateriaType(int idx);
 
-		virtual void learnMateria(AMateria*);
-		virtual void createMateria(std::string const & type);
-		void	initInv();
-		void	displayMaterias() const;
+		virtual void 		learnMateria(AMateria*);
+		virtual AMateria*	createMateria(std::string const & type);
+		void				initInv();
+		void				displayMaterias() const;
 };
 
 #endif

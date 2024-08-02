@@ -46,7 +46,18 @@ void	test_two()
 	// charly->equip(ice);	
 	// charly->equip(ice);	
 	
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
 	
+	print("before: Source content:");
+	source.displayMaterias();
+	AMateria* materia = source.createMateria(ICE);
+	print("after:  Source content:");
+	source.displayMaterias();
+	print(materia->getType());
 	(void)ice;
 	(void)cure;
 	(void)charly;

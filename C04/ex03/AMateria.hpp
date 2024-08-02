@@ -11,10 +11,10 @@ class AMateria
 		std::string 	*type;
 		static AMateria *materias[100];
 		static int		materiaCount;
-		AMateria(std::string const & type);
 		AMateria(const AMateria& other);
 
 	public:
+		AMateria(std::string const & type);
 		// constructors and destructor
 		AMateria();
 		virtual ~AMateria();
