@@ -25,10 +25,10 @@ void printFB(const std::string& str);
 void	test_one();
 void	test_two();
 
-void	displayAppState(MateriaSource source)
+void	displayAppState(MateriaSource *source)
 {
 	printFB("Source state:");
-	source.displayMaterias();
+	source->displayMaterias();
 	printFB("AMAteria state:");
 	AMateria::displayMaterias();
 	printFB("Characters state:");
@@ -42,26 +42,30 @@ void	displayAppState(MateriaSource source)
 
 void	test_four()
 {
-	MateriaSource source;
+	MateriaSource *source = new MateriaSource;
 
 	AMateria *ice = AMateria::addMateria("ice");
 	AMateria *cure = AMateria::addMateria("cure");
 	
-	source.learnMateria(ice);
-	source.learnMateria(ice);
-	source.learnMateria(ice);
-	source.learnMateria(ice);
-	source.learnMateria(cure);
+	source->learnMateria(ice);
+	source->learnMateria(ice);
+	source->learnMateria(ice);
+	source->learnMateria(ice);
+	source->learnMateria(cure);
+	source->learnMateria(cure);
+	source->learnMateria(cure);
+
+
 	
-	source.createMateria(ICE);
-	source.createMateria(ICE);
-	source.createMateria(ICE);
-	source.createMateria(ICE);
-	source.createMateria(ICE);
-	source.createMateria(CURE);
-	source.createMateria(CURE);
-	source.createMateria(CURE);
-	source.createMateria(CURE);
+	source->createMateria(ICE);
+	source->createMateria(ICE);
+	source->createMateria(ICE);
+	source->createMateria(ICE);
+	source->createMateria(ICE);
+	source->createMateria(CURE);
+	source->createMateria(CURE);
+	source->createMateria(CURE);
+	source->createMateria(CURE);
 
 	
 	Character *clitorine = Character::createNewCharacter("Clitorine");
@@ -71,7 +75,15 @@ void	test_four()
 	clitorine->equip(cure);
 	clitorine->equip(cure);
 	clitorine->equip(cure);
-	clitorine->equip(cure);
+	clitorine->equip(6);
+	clitorine->equip(7);
+	clitorine->equip(3);
+	clitorine->equip(3);
+	clitorine->equip(3);
+	clitorine->equip(3);
+	constantin->equip(5);
+	constantin->equip(8);
+	constantin->equip(4);
 	constantin->use(1, *clitorine);
 
 	displayAppState(source);
@@ -79,4 +91,5 @@ void	test_four()
 
 	Character::cleanup();
 	AMateria::cleanup();
+	delete source;
 }

@@ -61,7 +61,6 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 		ptr = AMateria::addMateria(new Cure(type));
 	else if (type == ICE)
 	{
-		std::cout << "ICE CREATED" << std::endl;
 		ptr = AMateria::addMateria(new Ice(type));
 	}
 	return (ptr);
@@ -82,6 +81,6 @@ void	MateriaSource::displayMaterias() const
 	for (int i = 0; i < 4; i++)
 	{
 		if (inv[i])
-			std::cout << i << ": " << inv[i]->getType() << std::endl;
+			std::cout << i << " : " << inv[i]->getType() << std::endl;
 	}
 }

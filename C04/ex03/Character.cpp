@@ -123,7 +123,7 @@ void Character::displayMaterias()
 	
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i] && TEST)
+		if (inv[i])
 			std::cout << i << ": " << inv[i]->getType() << std::endl;
 	}
 }
