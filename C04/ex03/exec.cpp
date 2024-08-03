@@ -10,6 +10,7 @@ void	printB(const std::string& str);
 void	printF(std::string str);
 void	test_one();
 void	test_two();
+void	test_three();
 
 bool TEST;
 
@@ -37,7 +38,7 @@ int main()
 	// 		print("Fuck off");
 	// 		break;
 	// }
-	test_two();
+	test_three();
 	return 0;
 }
 
