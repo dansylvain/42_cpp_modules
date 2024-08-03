@@ -78,7 +78,7 @@ void	MateriaSource::displayMaterias() const
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i])
+		if (inv[i]  && TEST)
 			std::cout << i << ": " << inv[i]->getType() << std::endl;
 	}
 }

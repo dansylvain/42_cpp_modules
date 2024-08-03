@@ -7,6 +7,7 @@
 
 void	print(std::string str);
 void	printB(const std::string& str);
+void	printF(std::string str);
 void	test_one();
 void	test_two();
 
@@ -17,7 +18,7 @@ bool TEST;
 
 int main()
 {
-	TEST = true;
+	// TEST = true;
 	// std::string c;
 	// while (c != "1" && c != "2")
 	// {
@@ -53,3 +54,7 @@ void printB(const std::string& str)
     	std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
 }
 
+void	printF(std::string str)
+{
+		std::cout << str << std::endl;
+}
