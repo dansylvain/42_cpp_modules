@@ -17,38 +17,47 @@ void	displayAppState(MateriaSource source);
 
 void	test_three()
 {
-	printB("*******Objects creation ********");
 	print("");
-	MateriaSource	source;
-	AMateria *ice = AMateria::addMateria(new Ice);
-	AMateria *cure = AMateria::addMateria(new Cure);
-	AMateria *ice2 = cure->clone();
-	AMateria* materia = source.createMateria(ICE);
-
+	printB("******* Initial data creation *************");
+	print("");
+	printB("******** AMateria getType *****************");
+	print("");
+	printB("******** AMateria getLoc ******************");
+	print("");
+	printB("******** AMateria setLoc ******************");
+	print("");
+	printB("******** AMateria addMateria1 *************");
+	print("");
+	printB("******** AMateria addMateria2 *************");
+	print("");
+	printB("******** AMateria use *********************");
+	print("");
+	printB("******** AMateria clone *******************");
+	print("");
+	printB("******** AMateria displayMaterias *********");
+	print("");
+	printB("********* Character equip *****************");
+	print("");
+	printB("********* Character unequip ***************");
+	print("");
+	printB("********* Character getName ***************");
+	print("");
+	printB("********* Character use *******************");
+	print("");
+	printB("********* Character createNewCharacter ****");
+	print("");
+	printB("********* Character displayMaterias *******");
+	print("");
+	printB("********** Cure/Ice clone *****************");
+	print("");
+	printB("********** Cure/Ice use *******************");
+	print("");
+	printB("********** MateriaSource learnMateria *****");
+	print("");
+	printB("********** Cure/Ice createMateria *********");
 	
 
-	// bobby->equip(cure);	
 	
-	
-
-	print(ice2->getType());
-
-	
-	source.learnMateria(ice2);
-	source.learnMateria(ice2);
-	source.learnMateria(ice2);
-	source.learnMateria(ice2);
-	source.learnMateria(ice2);
-	
-	source.displayMaterias();
-	source.displayMaterias();
-	print(materia->getType());
-	(void)ice;
-	(void)cure;
-	
-
-	AMateria::cleanup();
-	Character::cleanup();
 
 
 }
