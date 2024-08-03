@@ -14,16 +14,6 @@ void	test_one();
 void	test_two();
 void	displayAppState(MateriaSource source);
 
-void	displayAppState(MateriaSource *source)
-{
-	printF("Source state:");
-	source->	displayMaterias();
-	printF("AMAteria state:");
-	AMateria::displayMaterias();
-	printF("Characters state:");
-	Character::characters[0]->displayMaterias();
-}
-
 void	test_three()
 {
 	print("");
@@ -151,8 +141,6 @@ void	test_three()
 	source->createMateria(CURE);
 
 	print("");
-
-	displayAppState(source);
 
 	printB("******* ressources destruction ************");
 	

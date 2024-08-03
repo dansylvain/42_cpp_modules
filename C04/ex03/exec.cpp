@@ -13,6 +13,7 @@ void	printF(std::string str);
 void	test_one();
 void	test_two();
 void	test_three();
+void	test_four();
 
 bool TEST;
 
@@ -21,7 +22,7 @@ bool TEST;
 
 int main()
 {
-	TEST = false;
+	TEST = true;
 	// std::string c;
 	// while (c != "1" && c != "2")
 	// {
@@ -40,7 +41,7 @@ int main()
 	// 		print("Fuck off");
 	// 		break;
 	// }
-	test_three();
+	test_four();
 	return 0;
 }
 
