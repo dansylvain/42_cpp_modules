@@ -1,4 +1,7 @@
 #include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 AMateria	*AMateria::materias[100] = {NULL};
 int			AMateria::materiaCount = 0;
@@ -55,21 +58,33 @@ std::string const & AMateria::getType() const
 AMateria *AMateria::addMateria(AMateria *newMateria)
 {
 	if (materiaCount < 100) {
-        materias[materiaCount++] = newMateria;
-    }
+		materias[materiaCount++] = newMateria;
+	}
 	return (newMateria);
 }
+
+AMateria*	AMateria::addMateria(std::string type)
+{
+	AMateria *ptr;
+	if (type == CURE)
+		ptr = AMateria::addMateria(new Cure(type));
+	else if (type == ICE)
+		ptr = AMateria::addMateria(new Ice(type));
+	return (ptr);
+	
+}
+
 
 void	AMateria::cleanup()
 {
 	for (int i = 0; i < AMateria::materiaCount; ++i) {
-        	delete materias[i];
-    }
+			delete materias[i];
+	}
 
 	for (int i = 0; i < 100; ++i) {
-        materias[i] = NULL;
-    }
-    materiaCount = 0;
+		materias[i] = NULL;
+	}
+	materiaCount = 0;
 }
 
 std::string const & AMateria::getLoc() const

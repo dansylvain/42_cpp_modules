@@ -6,6 +6,18 @@
 #define GROUND "ground"
 #define MATERIASOURCE "materiaSource"
 
+typedef enum
+{
+	e_ICE,
+	e_CURE,
+} eType;
+
+typedef enum
+{
+	e_GROUND,
+	e_MATERIASOURCE
+} eLoc;
+
 #define MAXMATERIA 100
 #include <iostream>
 

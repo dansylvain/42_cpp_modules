@@ -30,6 +30,7 @@ class AMateria
 
 		// action member functions
 		static	AMateria*	addMateria(AMateria *newMateria);
+		static	AMateria*	addMateria(std::string type);
 		static	void		cleanup();
 		virtual void		use(ICharacter& target);
 		virtual AMateria*		clone() const = 0;

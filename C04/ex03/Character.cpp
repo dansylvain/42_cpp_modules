@@ -115,18 +115,6 @@ void	Character::initInv()
 		inv[i] = NULL;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 Character	*Character::characters[100] = {NULL};
 int			Character::characterCount = 0;
 

@@ -6,12 +6,14 @@
 class Character : public ICharacter
 {
 	protected:
+	public:
+		static Character*		characters[100];
+		static int				characterCount;
 		std::string 	*name;
 		AMateria* 		inv[4];
 		Character();
 		Character(const Character& other);
 
-	public:
 		// constructors and destructor
 		Character(std::string const & name);
 		~Character();
@@ -28,11 +30,6 @@ class Character : public ICharacter
 		void use(int idx, ICharacter& target);
 		void	initInv();
 		void displayMaterias();
-
-
-
-		static Character*		characters[100];
-		static int				characterCount;
 		// geters and seters
 		
 		// action member functions
