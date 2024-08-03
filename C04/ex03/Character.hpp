@@ -26,6 +26,7 @@ class Character : public ICharacter
 
 		// action member functions
 		void equip(AMateria* m);
+		void equip(int idx);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 		void	initInv();

@@ -9,12 +9,12 @@ class AMateria
 {
 	protected:
 		std::string 	*type;
-		static AMateria *materias[100];
 		static int		materiaCount;
 		AMateria(const AMateria& other);
 		std::string loc;
 
 	public:
+		static AMateria *materias[100];
 		AMateria(std::string const & type);
 		// constructors and destructor
 		AMateria();

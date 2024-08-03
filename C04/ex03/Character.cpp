@@ -79,9 +79,29 @@ void Character::equip(AMateria* m)
 			break;
 		}
 	}
+	if (i == 4 && m->getLoc() != getName())
+		print("Inventory full");
+	else
+		print(("Already equipped"));
+}
+
+void Character::equip(int idx)
+{
+	AMateria *m = AMateria::materias[idx];
+	int i;
+	for (i = 0; i < 4; i++)
+	{
+		if (inv[i] == NULL && m && m->getLoc() == GROUND)
+		{
+			inv[i] = m;
+			m->setLoc(getName());
+			break;
+		}
+	}
 	if (i == 4)
 		print("Inventory full");
 }
+
 
 void Character::unequip(int idx)
 {

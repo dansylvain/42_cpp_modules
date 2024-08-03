@@ -6,25 +6,77 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
+/**========================================================================
+ *                             COMMENT BLOCK
+ * 
+ *  Always instantiate new Characters with Character::createNewCharacter()
+ *  + call Character::cleanup
+ * 
+ *  Always instantiate new Materias with AMateria::addMateria("ice");
+ *  + call AMateria::cleanup
+ * 
+ * the source you instantiate, you delete.
+ *  
+ *========================================================================**/
 void	print(std::string str);
 void	printB(const std::string& str);
 void	printF(std::string str);
 void printFB(const std::string& str);
 void	test_one();
 void	test_two();
-void	displayAppState(MateriaSource source);
 
-void	displayAppState(MateriaSource *source)
+void	displayAppState(MateriaSource source)
 {
-	printF("Source state:");
-	source->	displayMaterias();
-	printF("AMAteria state:");
+	printFB("Source state:");
+	source.displayMaterias();
+	printFB("AMAteria state:");
 	AMateria::displayMaterias();
-	printF("Characters state:");
-	Character::characters[0]->displayMaterias();
+	printFB("Characters state:");
+	for (int i = 0; i < Character::characterCount; i++)
+	{
+		if (Character::characters[i])
+			Character::characters[i]->displayMaterias();
+	}
+		
 }
 
 void	test_four()
 {
-	print("Welcome to the jungle");
+	MateriaSource source;
+
+	AMateria *ice = AMateria::addMateria("ice");
+	AMateria *cure = AMateria::addMateria("cure");
+	
+	source.learnMateria(ice);
+	source.learnMateria(ice);
+	source.learnMateria(ice);
+	source.learnMateria(ice);
+	source.learnMateria(cure);
+	
+	source.createMateria(ICE);
+	source.createMateria(ICE);
+	source.createMateria(ICE);
+	source.createMateria(ICE);
+	source.createMateria(ICE);
+	source.createMateria(CURE);
+	source.createMateria(CURE);
+	source.createMateria(CURE);
+	source.createMateria(CURE);
+
+	
+	Character *clitorine = Character::createNewCharacter("Clitorine");
+	Character *constantin = Character::createNewCharacter("Constantin");
+	
+	clitorine->equip(ice);
+	clitorine->equip(cure);
+	clitorine->equip(cure);
+	clitorine->equip(cure);
+	clitorine->equip(cure);
+	constantin->use(1, *clitorine);
+
+	displayAppState(source);
+
+
+	Character::cleanup();
+	AMateria::cleanup();
 }
