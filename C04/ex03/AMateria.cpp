@@ -2,6 +2,7 @@
 #include "IMateriaSource.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include <iomanip>
 
 AMateria	*AMateria::materias[100] = {NULL};
 int			AMateria::materiaCount = 0;
@@ -119,7 +120,7 @@ void	AMateria::displayMaterias()
 	for (int i = 0; i < materiaCount; i++)
 	{
 		if (materias[i]->getLoc() == GROUND)
-				std::cout << i << "  ";
+		std::cout << std::setw(2) << std::setfill(' ') << i << " ";
 	
 	}
 	std::cout << std::endl;
