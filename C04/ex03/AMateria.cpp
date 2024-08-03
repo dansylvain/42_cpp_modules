@@ -110,6 +110,7 @@ void	AMateria::displayMaterias()
 	for (int i = 0; i < materiaCount; i++)
 	{
 		if(materias[i]->getLoc() == GROUND)
-			print(materias[i]->getType() + ", loc: " + materias[i]->getLoc());
+		std::cout << i << materias[i]->getType() + ", loc: " + materias[i]->getLoc() << std::endl;
+			// print(materias[i]->getType() + ", loc: " + materias[i]->getLoc());
 	}
 }

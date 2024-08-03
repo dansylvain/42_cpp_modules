@@ -69,7 +69,8 @@ std::string const & Character::getName() const
  *========================================================================**/
 void Character::equip(AMateria* m)
 {
-	for (int i = 0; i < 4; i++)
+	int i;
+	for (i = 0; i < 4; i++)
 	{
 		if (inv[i] == NULL && m->getLoc() != getName())
 		{
@@ -78,6 +79,8 @@ void Character::equip(AMateria* m)
 			break;
 		}
 	}
+	if (i == 4)
+		print("Inventory full");
 }
 
 void Character::unequip(int idx)
