@@ -21,7 +21,7 @@ bool TEST;
 
 int main()
 {
-	TEST = true;
+	TEST = false;
 	// std::string c;
 	// while (c != "1" && c != "2")
 	// {

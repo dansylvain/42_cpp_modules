@@ -14,6 +14,15 @@ void	test_one();
 void	test_two();
 void	displayAppState(MateriaSource source);
 
+void	displayAppState(MateriaSource *source)
+{
+	printF("Source state:");
+	source->	displayMaterias();
+	printF("AMAteria state:");
+	AMateria::displayMaterias();
+	printF("Characters state:");
+	Character::characters[0]->displayMaterias();
+}
 
 void	test_three()
 {
@@ -135,7 +144,7 @@ void	test_three()
 	source->learnMateria(ice);
 	source->learnMateria(ice);
 	printB("Source inv:");
-	source->displayMaterias();
+	// source->displayMaterias();
 	
 	print("");
 	printB("******* MateriaSource createMateria *******");
@@ -143,9 +152,12 @@ void	test_three()
 
 	print("");
 
+	displayAppState(source);
 
 	printB("******* ressources destruction ************");
 	
+
+
 	Character::cleanup();
 	AMateria::cleanup();
 	delete source;
