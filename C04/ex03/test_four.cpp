@@ -5,6 +5,7 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
+#include "Terminal.hpp"
 
 /**========================================================================
  *                             COMMENT BLOCK
@@ -27,16 +28,19 @@ void	test_two();
 
 void	displayAppState(MateriaSource *source)
 {
+	Terminal term;
+	term.execSystemCmd(term.clearCommand);
 	printFB("Source state:");
 	source->displayMaterias();
-	printFB("AMAteria state:");
-	AMateria::displayMaterias();
-	printFB("Characters state:");
+	printF("");
 	for (int i = 0; i < Character::characterCount; i++)
 	{
 		if (Character::characters[i])
 			Character::characters[i]->displayMaterias();
+		printF("");
 	}
+	printFB("Ground state:");
+	AMateria::displayMaterias();
 		
 }
 
