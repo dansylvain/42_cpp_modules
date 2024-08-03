@@ -2,7 +2,7 @@
 #include "unistd.h"
 
 Terminal::Terminal() :
-	terminalCommand("gnome-terminal -- bash -c \"./exec; exec bash\""),
+	terminalCommand("gnome-terminal --geometry=150x24 -- bash -c \"./exec; exec bash\""),
 	clearCommand("clear"),
 	contentMenu("\033[1;32m Welcome to My Awesome PhoneBook\033[0m\n\n\
 \033[1;31m - ADD\033[0m 		\033[1;32m=>\033[0m	add a new contact\n\
