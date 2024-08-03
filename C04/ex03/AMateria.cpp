@@ -58,6 +58,7 @@ std::string const & AMateria::getType() const
 AMateria *AMateria::addMateria(AMateria *newMateria)
 {
 	if (materiaCount < 100) {
+		newMateria->loc = GROUND;
 		materias[materiaCount++] = newMateria;
 	}
 	return (newMateria);
