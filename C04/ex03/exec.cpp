@@ -7,6 +7,8 @@
 
 void	print(std::string str);
 void	printB(const std::string& str);
+void printFB(const std::string& str);
+
 void	printF(std::string str);
 void	test_one();
 void	test_two();
@@ -19,7 +21,7 @@ bool TEST;
 
 int main()
 {
-	TEST = true;
+	TEST = false;
 	// std::string c;
 	// while (c != "1" && c != "2")
 	// {
@@ -50,7 +52,6 @@ void	print(std::string str)
 
 void printB(const std::string& str)
 {
-    // Code d'échappement pour le texte en gras (1) et couleur verte (32)
 	if (TEST)
     	std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
 }
@@ -58,4 +59,9 @@ void printB(const std::string& str)
 void	printF(std::string str)
 {
 		std::cout << str << std::endl;
+}
+
+void printFB(const std::string& str)
+{
+   	std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
 }

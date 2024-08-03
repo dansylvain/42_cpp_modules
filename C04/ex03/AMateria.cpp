@@ -63,7 +63,8 @@ AMateria *AMateria::addMateria(AMateria *newMateria)
 void	AMateria::cleanup()
 {
 	for (int i = 0; i < AMateria::materiaCount; ++i) {
-        delete materias[i];
+		if (materias && materias[i])
+        	delete materias[i];
     }
 
 	for (int i = 0; i < 100; ++i) {
@@ -94,6 +95,6 @@ void	AMateria::displayMaterias()
 	for (int i = 0; i < materiaCount; i++)
 	{
 		if(materias[i]->getLoc() == GROUND)
-		print(materias[i]->getType() + ", loc: " + materias[i]->getLoc());
+			print(materias[i]->getType() + ", loc: " + materias[i]->getLoc());
 	}
 }

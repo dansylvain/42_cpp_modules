@@ -9,6 +9,8 @@
 
 void	print(std::string str);
 void	printB(const std::string& str);
+void	printF(std::string str);
+void printFB(const std::string& str);
 void	test_one();
 void	test_two();
 void	displayAppState(MateriaSource source);
@@ -16,5 +18,38 @@ void	displayAppState(MateriaSource source);
 
 void	test_three()
 {
-	print("Welcome to the Jungle");
+	printB("*******Objects creation ********");
+	print("");
+	MateriaSource	source;
+	AMateria *ice = AMateria::addMateria(new Ice);
+	AMateria *cure = AMateria::addMateria(new Cure);
+	AMateria *ice2 = cure->clone();
+	AMateria* materia = source.createMateria(ICE);
+
+	
+
+	// bobby->equip(cure);	
+	
+	
+
+	print(ice2->getType());
+
+	
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	source.learnMateria(ice2);
+	
+	source.displayMaterias();
+	source.displayMaterias();
+	print(materia->getType());
+	(void)ice;
+	(void)cure;
+	
+
+	AMateria::cleanup();
+	ICharacter::cleanup();
+
+
 }
