@@ -29,6 +29,16 @@ class Character : public ICharacter
 		void	initInv();
 		void displayMaterias();
 
+
+
+		static Character*		characters[100];
+		static int				characterCount;
+		// geters and seters
+		
+		// action member functions
+		static	Character*	createNewCharacter(const std:: string &name);
+
+		static	void		cleanup();
 		// Utils
 		//tmp
 

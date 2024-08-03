@@ -114,3 +114,42 @@ void	Character::initInv()
 	for (int i = 0; i < 4; i++)
 		inv[i] = NULL;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+Character	*Character::characters[100] = {NULL};
+int			Character::characterCount = 0;
+
+Character*	Character::createNewCharacter(const std::string &name)
+{
+	Character* ptr;
+	ptr = new Character(name);
+	if (characterCount < 100)
+	{
+        characters[characterCount++] = ptr;
+    }
+	print("new ICharacter created");
+	return (ptr);
+}
+
+void	Character::cleanup()
+{
+	for (int i = 0; i < Character::characterCount; ++i) {
+        delete characters[i];
+    }
+
+	for (int i = 0; i < 100; ++i) {
+        characters[i] = NULL;
+    }
+    characterCount = 0;
+}

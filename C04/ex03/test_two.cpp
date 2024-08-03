@@ -1,11 +1,10 @@
 #include <iostream>
 #include "AMateria.hpp"
-#include "Character.hpp"
 #include "ICharacter.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
-#include "ICharacter.hpp"
+#include "Character.hpp"
 
 void	print(std::string str);
 void	printB(const std::string& str);
@@ -23,8 +22,8 @@ void	test_two()
 	
 	AMateria *ice = AMateria::addMateria(new Ice);
 	AMateria *cure = AMateria::addMateria(new Cure);
-	ICharacter *bobby = ICharacter::createNewCharacter("BOBBY");
-	ICharacter *charly = ICharacter::createNewCharacter("Charly");
+	Character *bobby = Character::createNewCharacter("BOBBY");
+	Character *charly = Character::createNewCharacter("Charly");
 
 	print(bobby->getName());
 	bobby->equip(ice);	
@@ -106,15 +105,15 @@ void	test_two()
 
 	printB("Materias on the ground: ");
 	AMateria::displayMaterias();
-	for (int i = 0; i < ICharacter::characterCount; i++)
+	for (int i = 0; i < Character::characterCount; i++)
 	{
-		printB("Character " + ICharacter::characters[i]->getName() + ": ");
-		ICharacter::characters[i]->displayMaterias();
+		printB("Character " + Character::characters[i]->getName() + ": ");
+		Character::characters[i]->displayMaterias();
 	}
 	printB("Materia Source : ");
 	source.displayMaterias();
 	AMateria::cleanup();
-	ICharacter::cleanup();
+	Character::cleanup();
 
 	(void)ice3;
 	(void)ice4;
