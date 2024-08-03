@@ -81,6 +81,19 @@ void	MateriaSource::displayMaterias() const
 	for (int i = 0; i < 4; i++)
 	{
 		if (inv[i])
-			std::cout << i << " : " << inv[i]->getType() << std::endl;
+		{
+			if (inv[i]->getType() == ICE)
+				std::cout << "🧊 ";
+			else if (inv[i]->getType() == CURE)
+				std::cout << "💚 ";
+
+		}
 	}
+	std::cout << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (inv[i])
+			std::cout << i << "  ";
+	}
+	std::cout << std::endl;
 }

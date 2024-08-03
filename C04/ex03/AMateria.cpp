@@ -107,9 +107,39 @@ void AMateria::use(ICharacter& target)
 
 void	AMateria::displayMaterias()
 {
+	
 	for (int i = 0; i < materiaCount; i++)
 	{
-		if(materias[i]->getLoc() == GROUND)
-		std::cout << i << " : " << materias[i]->getType() << std::endl;
+		if (materias[i]->getType() == ICE && materias[i]->getLoc() == GROUND)
+				std::cout << "🧊 ";
+			else if (materias[i]->getType() == CURE &&materias[i]->getLoc() == GROUND)
+				std::cout << "💚 ";
 	}
+	std::cout << std::endl;
+	for (int i = 0; i < materiaCount; i++)
+	{
+		if (materias[i]->getLoc() == GROUND)
+				std::cout << i << "  ";
+	
+	}
+	std::cout << std::endl;
+
 }
+
+
+// for (int i = 0; i < 4; i++)
+// 	{
+// 		if (inv[i])
+// 		{
+// 			if (materias[i]->getType() == ICE)
+// 				std::cout << "🧊 ";
+// 			else if (materias[i]->getType() == CURE)
+// 				std::cout << "💚 ";
+
+// 		}
+// 	}
+// 	for (int i = 0; i < 4; i++)
+// 	{
+// 		if (inv[i])
+// 			std::cout << i << "  ";
+// 	}
