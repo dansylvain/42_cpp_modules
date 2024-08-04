@@ -40,9 +40,8 @@ int main()
 
 	while (1)
 	{
-		// term.execSystemCmd(term.clearCommand);
+		term.execSystemCmd(term.clearCommand);
 		displayAppState();
-		std::cout << source->inv[0]->getType() << std::endl;
 		term.displayString(term.contentMenu);
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
@@ -50,7 +49,6 @@ int main()
 		std::string tokens[3];
 		int i = 0;
 
-		std::cout << source->inv[0]->getType() << std::endl;
 
 		while (iss >> token)
 		{

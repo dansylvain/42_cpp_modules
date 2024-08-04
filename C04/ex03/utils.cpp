@@ -35,14 +35,16 @@ Character *getCharacterByName(std::string name)
 	for (int i = 0; i < Character::characterCount; i++)
 	{
 		if (Character::characters[i]->getName() == name)
+		{
 			return (Character::characters[i]);
+		}
 	}
 	return (NULL);
 }
 
 AMateria *getMateriaFromCharInv(std::string index, Character *character)
 {
-	if (!isDigitsOnly(index) || index.empty())
+	if (!isDigitsOnly(index) || index.empty() || !character)
 		return (NULL);
 	int idx = std::atoi(index.c_str());
 	if (idx < 0 && idx > 3)
@@ -57,7 +59,6 @@ AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source)
 	int idx = std::atoi(index.c_str());
 	if (idx < 0 && idx > 4)
 		return (NULL);
-	std::cout << idx << source->inv[0]->getType()<< std::endl;
 	return source->inv[idx];
 }
 
