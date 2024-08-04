@@ -27,12 +27,28 @@ Terminal::Terminal() :
 	searchEndPrompt("\033[1;32m\nPress Enter to continue...\033[0m")
 	{}
 
-void	Terminal::framingFuncOutput(int len, void (*f)(void))
+void	Terminal::framingFuncOutput(int len, std::string title, void (*f1)(void), void (*f2)(void))
 {
-	std::cout << "framingFuncOutput" << std::endl; 
-	// printF();
-	(void)len;
-	(void)f;
+	std::cout << "framingFuncOutput :" << len << std::endl; 
+	std::cout << "┏";
+	for (int i = 0; i < len; i++)
+	{
+		std::cout << "━";
+	}
+	std::cout << "┓\n";
+	std::cout << "┃\033[1;31m"  << title << "\033[0m";
+	for (unsigned int i = 0; i < len - title.size(); i++)
+		std::cout << " ";
+	std::cout << "┃\n┃";
+	f1();
+	std::cout << "┃\n┃";
+	f2();
+	std::cout << "┃\n┗";
+		for (int i = 0; i < len; i++)
+	{
+		std::cout << "━";
+	}
+	std::cout << "┛" << std::endl;
 }
 
 void	Terminal::execSystemCmd(std::string str) const

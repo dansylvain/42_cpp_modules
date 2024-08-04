@@ -9,11 +9,11 @@ class AMateria
 {
 	protected:
 		std::string 	*type;
-		static int		materiaCount;
 		AMateria(const AMateria& other);
 		std::string loc;
 
 	public:
+		static int		materiaCount;
 		static AMateria *materias[100];
 		AMateria(std::string const & type);
 		// constructors and destructor
@@ -27,6 +27,7 @@ class AMateria
 		std::string const & getType() const;
 		std::string const & getLoc() const;
 		void setLoc(std::string newLoc);
+		static	int	getGroundSize();
 
 		// action member functions
 		static	AMateria*	addMateria(AMateria *newMateria);
@@ -35,6 +36,8 @@ class AMateria
 		virtual void		use(ICharacter& target);
 		virtual AMateria*		clone() const = 0;
 		static void	displayMaterias();
+		static void	displayMateriaCount();
+
 
 };
 

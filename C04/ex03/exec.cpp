@@ -27,7 +27,7 @@ AMateria *getMateriaFromGround(std::string index);
 void	displayAppState(MateriaSource* source)
 {
 
-	Terminal::framingFuncOutput(10, AMateria::displayMaterias);
+	Terminal::framingFuncOutput(AMateria::getGroundSize() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 	// printFB("Source state:");
 	source->displayMaterias();
 	printF("");
