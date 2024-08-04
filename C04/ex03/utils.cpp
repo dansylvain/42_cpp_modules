@@ -50,14 +50,15 @@ AMateria *getMateriaFromCharInv(std::string index, Character *character)
 	return (character->inv[idx]);
 }
 
-AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource source)
+AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source)
 {
 	if (!isDigitsOnly(index) || index.empty())
 		return (NULL);
 	int idx = std::atoi(index.c_str());
 	if (idx < 0 && idx > 4)
 		return (NULL);
-	return source.inv[idx];
+	std::cout << idx << source->inv[0]->getType()<< std::endl;
+	return source->inv[idx];
 }
 
 AMateria *getMateriaFromGround(std::string index)

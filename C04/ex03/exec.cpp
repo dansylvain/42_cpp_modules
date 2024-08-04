@@ -21,29 +21,36 @@ void	test_four();
 bool isDigitsOnly(const std::string& str);
 Character *getCharacterByName(std::string name);
 AMateria *getMateriaFromCharInv(std::string index, Character *character);
-AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource source);
+AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source);
 AMateria *getMateriaFromGround(std::string index);
 
+void	displayAppState()
+{
+	printFB("My APP STATE!!!\n\n\n");
+}
 int main()
 {
 	std::string userInput;
 	Terminal term;
 	Character::createNewCharacter("Dan");
-	MateriaSource source;
-	source.createMateria(ICE);
+	MateriaSource *source = new MateriaSource;
+	source->createMateria(ICE);
 	Character::characters[0]->equip(AMateria::materias[0]);
-	source.learnMateria(AMateria::materias[0]);
-	std::cout << source.inv[0]->getType() << std::endl;
+	source->learnMateria(AMateria::materias[0]);
 
 	while (1)
 	{
 		// term.execSystemCmd(term.clearCommand);
+		displayAppState();
+		std::cout << source->inv[0]->getType() << std::endl;
 		term.displayString(term.contentMenu);
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
 		std::string token;
 		std::string tokens[3];
 		int i = 0;
+
+		std::cout << source->inv[0]->getType() << std::endl;
 
 		while (iss >> token)
 		{
