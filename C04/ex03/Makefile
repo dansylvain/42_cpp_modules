@@ -10,6 +10,7 @@ SRC_INTERFACE =	main.cpp \
 	   			
 
 SRC_EXEC =	exec.cpp \
+			utils.cpp \
 			AMateria.cpp \
 			Ice.cpp Cure.cpp \
 			Character.cpp \

@@ -18,69 +18,11 @@ void	test_two();
 void	test_three();
 void	test_four();
 
-bool TEST;
-
-
-
-bool isDigitsOnly(const std::string& str) {
-	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
-		if (!std::isdigit(static_cast<unsigned char>(*it))) {
-			return false;
-		}
-	}
-	return true;
-}
-
-Character *getCharacterByName(std::string name)
-{
-	for (int i = 0; i < Character::characterCount; i++)
-	{
-		if (Character::characters[i]->getName() == name)
-			return (Character::characters[i]);
-	}
-	return (NULL);
-}
-
-AMateria *getMateriaFromCharInv(std::string index, Character *character)
-{
-	if (!isDigitsOnly(index) || index.empty())
-		return (NULL);
-	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 3)
-		return (NULL);
-	return (character->inv[idx]);
-}
-
-AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource source)
-{
-	if (!isDigitsOnly(index) || index.empty())
-		return (NULL);
-	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 4)
-		return (NULL);
-	return source.inv[idx];
-}
-
-AMateria *getMateriaToLearnByIndex(std::string index)
-{
-	if (!isDigitsOnly(index) || index.empty())
-		return (NULL);
-	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 4)
-		return (NULL);
-	return AMateria::materias[idx];
-}
-
-AMateria *getMateriaFromGround(std::string index)
-{
-	if (!isDigitsOnly(index) || index.empty())
-		return (NULL);
-	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 99)
-		return (NULL);
-	return AMateria::materias[idx];
-}
-
+bool isDigitsOnly(const std::string& str);
+Character *getCharacterByName(std::string name);
+AMateria *getMateriaFromCharInv(std::string index, Character *character);
+AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource source);
+AMateria *getMateriaFromGround(std::string index);
 
 int main()
 {
@@ -122,7 +64,6 @@ int main()
 			printF("CREATE moi ca");
 		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
 			std::cout << "create ce char: " << tokens[1] << std::endl;
-		
 		else 
 			term.displayError(term.errorMessage);
 
