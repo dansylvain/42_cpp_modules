@@ -7,6 +7,7 @@
 #include "Terminal.hpp"	
 #include <sstream>
 #include <string>
+#include <cstdlib> 
 
 void	print(std::string str);
 void	printB(const std::string& str);
@@ -59,27 +60,28 @@ int main()
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
 		std::string token;
-		std::string tokens[3];
+		std::string tokens[4];
 		int i = 0;
 
 
 		while (iss >> token)
 		{
-			if (i == 4)
+			if (i == 5)
 				break;
 			tokens[i++] = token;
 		}
 
 		if (i == 3 && tokens[1] == "EQUIP" && getMateriaFromGround(tokens[2]) && getCharacterByName(tokens[0]))
-			printF("EQUIP MOI çA");
+			getCharacterByName(tokens[0])->equip(getMateriaFromGround(tokens[2]));
 		else if (i == 3 && tokens[1] == "UNEQUIP" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
-			printF("UNEQUIP MOI çA");
-		else if (i == 3 && tokens[1] == "USE" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
-			printF("USE MOI çA");
+			getCharacterByName(tokens[0])->unequip(std::atoi(tokens[2].c_str()));
+		else if (i == 4 && tokens[1] == "USE" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
+			getCharacterByName(tokens[0])->use(std::atoi(tokens[2].c_str()), *getCharacterByName(tokens[0]));
 		else if (i == 2 && tokens[0] == "LEARN" && getMateriaFromGround(tokens[1]))
-			printF("Learn noi ca");
+			source->learnMateria(getMateriaFromGround(tokens[1]));
 		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1], source))
-			printF("CREATE moi ca");
+			continue;
+			
 		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
 		{
 			if (tokens[1].size() > 12)
