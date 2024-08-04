@@ -89,8 +89,7 @@ int main()
 		else if (i == 2 && tokens[0] == "LEARN" && getMateriaFromGround(tokens[1]))
 			source->learnMateria(getMateriaFromGround(tokens[1]));
 		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1], source))
-			continue;
-			
+			source->createMateria(getMateriaToCreateByIndex(tokens[1], source)->getType());
 		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
 		{
 			if (tokens[1].size() > 12)

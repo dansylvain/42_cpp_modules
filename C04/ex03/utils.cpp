@@ -57,7 +57,7 @@ AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source)
 	if (!isDigitsOnly(index) || index.empty())
 		return (NULL);
 	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 4)
+	if (idx < 0 || idx > 4)
 		return (NULL);
 	return source->inv[idx];
 }
