@@ -30,7 +30,7 @@ void	Terminal::displayString(std::string str) const
 		{std::cout << str << std::flush;};
 
 void	Terminal::displayError(std::string str) const
-		{std::cout << str << std::flush;sleep(1);};
+		{std::cout << str << std::flush;sleep(1);sleep(1);};
 
 void	Terminal::getUserinput(std::string& userInput)
 		{std::getline(std::cin, userInput);};
