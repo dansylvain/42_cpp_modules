@@ -30,6 +30,7 @@ class	Terminal
 		std::string searchTabHeader;
 		std::string searchPrompt;
 		std::string searchEndPrompt;
+		std::string mssg;
 };
 
 #endif

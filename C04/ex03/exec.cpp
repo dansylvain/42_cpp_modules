@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <cstdlib> 
+#include "unistd.h"
 
 void	print(std::string str);
 void	printB(const std::string& str);
@@ -57,6 +58,7 @@ int main()
 		term.execSystemCmd(term.clearCommand);
 		displayAppState();
 		term.displayString(term.contentMenu);
+		term.displayString(term.mssg);
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
 		std::string token;
@@ -75,8 +77,15 @@ int main()
 			getCharacterByName(tokens[0])->equip(getMateriaFromGround(tokens[2]));
 		else if (i == 3 && tokens[1] == "UNEQUIP" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
 			getCharacterByName(tokens[0])->unequip(std::atoi(tokens[2].c_str()));
-		else if (i == 4 && tokens[1] == "USE" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
-			getCharacterByName(tokens[0])->use(std::atoi(tokens[2].c_str()), *getCharacterByName(tokens[0]));
+		else if (i == 4 && tokens[1] == "USE" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]) && getCharacterByName(tokens[3]))
+		{
+			if (getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0]))->getType() == ICE)
+				std::cout << "\033[36;14H\033[1;32m* shoots an ice bolt at " + tokens[3] + "\033[0m" << std::flush;
+			else 
+				std::cout << "\033[36;14H\033[1;32m* heals " + tokens[3] + "’s wounds *\033[0m" << std::flush;
+			
+			sleep(2);
+		}
 		else if (i == 2 && tokens[0] == "LEARN" && getMateriaFromGround(tokens[1]))
 			source->learnMateria(getMateriaFromGround(tokens[1]));
 		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1], source))
