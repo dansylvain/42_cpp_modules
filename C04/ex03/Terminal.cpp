@@ -4,7 +4,14 @@
 Terminal::Terminal() :
 	terminalCommand("gnome-terminal --geometry=150x24 -- bash -c \"./exec; exec bash\""),
 	clearCommand("clear"),
-	contentMenu("Welcome to the jungle : "),
+	contentMenu("\033[1;32m Welcome to Interface\033[0m\n\n\
+\033[1;31m - <NAME> EQUIP <INDEX>\033[0m 	\033[1;32m=>\033[0m	Character equips Materia\n\
+\033[1;31m - <NAME> UNEQUIP <INDEX>\033[0m	\033[1;32m=>\033[0m	Character unequips Materia\n\
+\033[1;31m - <NAME> USE <INDEX>\033[0m	 	\033[1;32m=>\033[0m	Character uses Materia\n\
+\033[1;31m - LEARN <INDEX>\033[0m	 	\033[1;32m=>\033[0m	Source learns Materia\n\
+\033[1;31m - CREATE <INDEX>\033[0m	 	\033[1;32m=>\033[0m	Source creates Materia\n\
+\033[1;31m - CREATE \"NAME\"\033[0m	 	\033[1;32m=>\033[0m	Creates Character\n\n\
+\033[1;32m Your choice: \033[0m"),
 	headerAdd("\033[1;32m Add a New Contact\n\033[0m\n"),
 	contentSearch("\033[1;32m Search Contact Form\n\033[0m\n"),
 	headerDisplay("\033[1;32m Contact Details\033[0m\n"),
