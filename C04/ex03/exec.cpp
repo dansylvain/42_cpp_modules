@@ -118,9 +118,9 @@ int main()
 			printF("USE MOI çA");
 		else if (i == 2 && tokens[0] == "LEARN" && getMateriaFromGround(tokens[1]))
 			printF("Learn noi ca");
-		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToLearnByIndex(tokens[1]))
-			printF("CREATE noi ca");
-		else if (i == 2 && tokens[0] == "CREATE")
+		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1], source))
+			printF("CREATE moi ca");
+		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
 			std::cout << "create ce char: " << tokens[1] << std::endl;
 		
 		else 
