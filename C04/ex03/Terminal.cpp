@@ -18,7 +18,7 @@ Terminal::Terminal() :
 	contentSearch("\033[1;32m Search Contact Form\n\033[0m\n"),
 	headerDisplay("\033[1;32m Contact Details\033[0m\n"),
 	promptDisplay("New search? (Y/N)"),
-	errorMessage("\033[36;2H\033[5;31m Not Valid\033[0m"),
+	errorMessage("\033[?25l\033[36;2H\033[5;31m Not Valid\033[0m"),
 	// errorMessage("\033[36;2H\033[5;31m Not Valid"),
 	contactAddedMessage("\n\033[1;32m Contact added successfully!\033[0m"),
 	searchTabHeader("\033[1;31m	|     index|first name| last name|  nickname| \033[0m\n"),
@@ -29,6 +29,8 @@ Terminal::Terminal() :
 
 void	Terminal::framingFuncOutput(int len, std::string title, void (*f1)(void), void (*f2)(void))
 {
+	if (len < 8)
+		len = 8; 
 	std::cout << "framingFuncOutput :" << len << std::endl; 
 	std::cout << "┏";
 	for (int i = 0; i < len; i++)
@@ -58,7 +60,7 @@ void	Terminal::displayString(std::string str) const
 		{std::cout << str << std::flush;};
 
 void	Terminal::displayError(std::string str) const
-		{std::cout << str << std::flush;sleep(1);};
+		{std::cout << str << std::flush;sleep(2);std::cout << "\033[?25h";};
 
 void	Terminal::getUserinput(std::string& userInput)
 		{std::getline(std::cin, userInput);};

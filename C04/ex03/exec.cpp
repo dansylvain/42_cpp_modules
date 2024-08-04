@@ -86,8 +86,16 @@ int main()
 		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1], source))
 			printF("CREATE moi ca");
 		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
-			std::cout << "create ce char: " << tokens[1] << std::endl;
-		else if (i == 1 && tokens[0] == "EXIT")
+		{
+			if (tokens[1].size() > 12)
+			{
+				std::cout << "\033[36;11H\033[5;31m : Name too long\033[0m";
+				term.displayError(term.errorMessage);
+			}
+			else
+				continue;
+		}
+		else if (tokens[0] == "EXIT")
 			break;
 		else 
 			term.displayError(term.errorMessage);
