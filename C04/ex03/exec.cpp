@@ -24,11 +24,25 @@ AMateria *getMateriaFromCharInv(std::string index, Character *character);
 AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source);
 AMateria *getMateriaFromGround(std::string index);
 
+class DisplayMateriasFunctor {
+public:
+    DisplayMateriasFunctor(MateriaSource* source) : source_(source) {}
+    
+    void operator()() const {
+        source_->displayMaterias();
+    }
+    
+private:
+    MateriaSource* source_;
+};
+
 void	displayAppState(MateriaSource* source)
 {
 
 	Terminal::framingFuncOutput(AMateria::getGroundSize() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 	// printFB("Source state:");
+	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
+
 	source->displayMaterias();
 	printF("");
 	for (int i = 0; i < Character::characterCount; i++)

@@ -1,4 +1,7 @@
 #include "MateriaSource.hpp"
+#include <iomanip>
+
+AMateria*		MateriaSource::inv[4] = {NULL};
 
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
@@ -76,24 +79,28 @@ void	MateriaSource::initInv()
 		inv[i] = NULL;
 }
 
-void	MateriaSource::displayMaterias() const
+void	MateriaSource::displayMaterias()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i])
-		{
-			if (inv[i]->getType() == ICE)
-				std::cout << "🧊 ";
-			else if (inv[i]->getType() == CURE)
-				std::cout << "💚 ";
-
-		}
+		if (inv[i] && MateriaSource::inv[i]->getType() == ICE)
+			std::cout << "🧊 ";
+		else if (inv[i] && MateriaSource::inv[i]->getType() == CURE)
+			std::cout << "💚 ";
+		else
+			std::cout << "⬜ ";
 	}
-	std::cout << std::endl;
+
+}
+
+void	MateriaSource::displayMateriaCount()
+{
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i])
-			std::cout << i << "  ";
+		if (MateriaSource::inv[i])
+			std::cout << std::setw(2) << std::setfill(' ') << i << " ";
+		else
+			std::cout << "   " ;
+
 	}
-	std::cout << std::endl;
 }

@@ -8,7 +8,7 @@ class MateriaSource
 {
 	private:
 	public:
-		AMateria*		inv[4];
+		static AMateria*		inv[4];
 		MateriaSource();
 		MateriaSource(const MateriaSource& other);
 		virtual ~MateriaSource();
@@ -18,7 +18,9 @@ class MateriaSource
 		virtual void 		learnMateria(AMateria*);
 		virtual AMateria*	createMateria(std::string const & type);
 		void				initInv();
-		void				displayMaterias() const;
+		static void				displayMaterias();
+		static void		displayMateriaCount();
+
 };
 
 #endif

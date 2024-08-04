@@ -112,8 +112,8 @@ void	AMateria::displayMaterias()
 	{
 		if (materias[i]->getType() == ICE && materias[i]->getLoc() == GROUND)
 				std::cout << "🧊 ";
-			else if (materias[i]->getType() == CURE &&materias[i]->getLoc() == GROUND)
-				std::cout << "💚 ";
+		else if (materias[i]->getType() == CURE &&materias[i]->getLoc() == GROUND)
+			std::cout << "💚 ";
 	}
 }
 
