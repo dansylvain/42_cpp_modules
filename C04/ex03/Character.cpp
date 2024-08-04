@@ -120,7 +120,6 @@ void Character::use(int idx, ICharacter& target)
 
 void Character::displayMaterias()
 {
-	printFB(*name);
 	for (int i = 0; i < 4; i++)
 	{
 		if (inv[i])

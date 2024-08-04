@@ -24,9 +24,19 @@ AMateria *getMateriaFromCharInv(std::string index, Character *character);
 AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source);
 AMateria *getMateriaFromGround(std::string index);
 
-void	displayAppState()
+void	displayAppState(MateriaSource* source)
 {
-	printFB("My APP STATE!!!\n\n\n");
+	// printFB("Source state:");
+	source->displayMaterias();
+	printF("");
+	for (int i = 0; i < Character::characterCount; i++)
+	{
+		if (Character::characters[i])
+			Character::characters[i]->displayMaterias();
+		printF("");
+	}
+	// printFB("Ground state:");
+	AMateria::displayMaterias();
 }
 int main()
 {
@@ -35,13 +45,18 @@ int main()
 	Character::createNewCharacter("Dan");
 	MateriaSource *source = new MateriaSource;
 	source->createMateria(ICE);
+	source->createMateria(CURE);
+	source->createMateria(CURE);
+	source->createMateria(ICE);
+	source->createMateria(ICE);
+	source->createMateria(CURE);
 	Character::characters[0]->equip(AMateria::materias[0]);
 	source->learnMateria(AMateria::materias[0]);
 
 	while (1)
 	{
 		term.execSystemCmd(term.clearCommand);
-		displayAppState();
+		displayAppState(source);
 		term.displayString(term.contentMenu);
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);

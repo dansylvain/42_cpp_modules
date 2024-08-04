@@ -4,19 +4,20 @@
 Terminal::Terminal() :
 	terminalCommand("gnome-terminal --geometry=150x24 -- bash -c \"./exec; exec bash\""),
 	clearCommand("clear"),
-	contentMenu("\033[1;32m Welcome to Interface\033[0m\n\n\
-\033[1;31m - <NAME> EQUIP <INDEX>\033[0m 	\033[1;32m=>\033[0m	Character equips Materia\n\
-\033[1;31m - <NAME> UNEQUIP <INDEX>\033[0m	\033[1;32m=>\033[0m	Character unequips Materia\n\
-\033[1;31m - <NAME> USE <INDEX>\033[0m	 	\033[1;32m=>\033[0m	Character uses Materia\n\
-\033[1;31m - LEARN <INDEX>\033[0m	 	\033[1;32m=>\033[0m	Source learns Materia\n\
-\033[1;31m - CREATE <INDEX>\033[0m	 	\033[1;32m=>\033[0m	Source creates Materia\n\
+	contentMenu("\033[26;2H\033[1;32m Commands Available: \033[0m\n\n\
+\033[1;31m - <NAME> EQUIP <IDX-GROUND>\033[0m 	\033[1;32m=>\033[0m	Character equips Materia\n\
+\033[1;31m - <NAME> UNEQUIP <IDX-CHAR>\033[0m	\033[1;32m=>\033[0m	Character unequips Materia\n\
+\033[1;31m - <NAME> USE <IDX-CHAR>\033[0m	\033[1;32m=>\033[0m	Character uses Materia\n\
+\033[1;31m - LEARN <IDX-SRC>\033[0m	 	\033[1;32m=>\033[0m	Source learns Materia\n\
+\033[1;31m - CREATE <IDX-SRC>\033[0m	 	\033[1;32m=>\033[0m	Source creates Materia\n\
 \033[1;31m - CREATE \"NAME\"\033[0m	 	\033[1;32m=>\033[0m	Creates Character\n\n\
 \033[1;32m Your choice: \033[0m"),
 	headerAdd("\033[1;32m Add a New Contact\n\033[0m\n"),
 	contentSearch("\033[1;32m Search Contact Form\n\033[0m\n"),
 	headerDisplay("\033[1;32m Contact Details\033[0m\n"),
 	promptDisplay("New search? (Y/N)"),
-	errorMessage("Error\n"),
+	errorMessage("\033[36;2H\033[5;31m Not Valid\033[0m"),
+	// errorMessage("\033[36;2H\033[5;31m Not Valid"),
 	contactAddedMessage("\n\033[1;32m Contact added successfully!\033[0m"),
 	searchTabHeader("\033[1;31m	|     index|first name| last name|  nickname| \033[0m\n"),
 	searchPrompt("\033[13;2H\033[1;32mEnter an index:                                   \
