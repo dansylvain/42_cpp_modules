@@ -7,8 +7,8 @@
 class MateriaSource
 {
 	private:
-		AMateria*		inv[4];
 	public:
+		AMateria*		inv[4];
 		MateriaSource();
 		MateriaSource(const MateriaSource& other);
 		virtual ~MateriaSource();
