@@ -26,25 +26,7 @@ void printFB(const std::string& str);
 void	test_one();
 void	test_two();
 
-// void	displayAppState(MateriaSource *source)
-// {
-// 	Terminal term;
-// 	term.execSystemCmd(term.clearCommand);
-// 	printFB("Source state:");
-// 	source->displayMaterias();
-// 	printF("");
-// 	for (int i = 0; i < Character::characterCount; i++)
-// 	{
-// 		if (Character::characters[i])
-// 			Character::characters[i]->displayMaterias();
-// 		printF("");
-// 	}
-// 	printFB("Ground state:");
-// 	AMateria::displayMaterias();
-		
-// }
-
-void	displayAppState(MateriaSource *source);
+void	displayAppState();
 
 void	test_four()
 {
@@ -92,7 +74,7 @@ void	test_four()
 	constantin->equip(4);
 	constantin->use(1, *clitorine);
 
-	displayAppState(source);
+	displayAppState();
 
 
 	Character::cleanup();

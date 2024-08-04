@@ -31,7 +31,6 @@ void	Terminal::framingFuncOutput(int len, std::string title, void (*f1)(void), v
 {
 	if (len < 8)
 		len = 8; 
-	std::cout << "framingFuncOutput :" << len << std::endl; 
 	std::cout << "┏";
 	for (int i = 0; i < len; i++)
 	{

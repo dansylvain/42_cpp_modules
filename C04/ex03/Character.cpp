@@ -1,5 +1,7 @@
 #include "Character.hpp"
 
+AMateria* 		Character::inv[4] = {NULL};
+
 /**========================================================================
  *                             COMMENT BLOCK
  *  

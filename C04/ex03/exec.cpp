@@ -24,35 +24,21 @@ AMateria *getMateriaFromCharInv(std::string index, Character *character);
 AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source);
 AMateria *getMateriaFromGround(std::string index);
 
-class DisplayMateriasFunctor {
-public:
-    DisplayMateriasFunctor(MateriaSource* source) : source_(source) {}
-    
-    void operator()() const {
-        source_->displayMaterias();
-    }
-    
-private:
-    MateriaSource* source_;
-};
 
-void	displayAppState(MateriaSource* source)
+void	displayAppState()
 {
-
-	Terminal::framingFuncOutput(AMateria::getGroundSize() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
-	// printFB("Source state:");
 	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
 
-	source->displayMaterias();
 	printF("");
 	for (int i = 0; i < Character::characterCount; i++)
 	{
 		if (Character::characters[i])
-			Character::characters[i]->displayMaterias();
+			Terminal::framingFuncOutput(12, Character::characters[i]->getName(), Character::characters[i]->displayMaterias, Character::characters[i]->displayMaterias);
+
 		printF("");
 	}
-	// printFB("Ground state:");
-	AMateria::displayMaterias();
+
+	Terminal::framingFuncOutput(AMateria::getGroundSize() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 }
 int main()
 {
@@ -73,7 +59,7 @@ int main()
 	while (1)
 	{
 		term.execSystemCmd(term.clearCommand);
-		displayAppState(source);
+		displayAppState();
 		term.displayString(term.contentMenu);
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
