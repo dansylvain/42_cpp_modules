@@ -98,7 +98,9 @@ int main()
 				term.displayError(term.errorMessage);
 			}
 			else
-				continue;
+			{
+				Character::createNewCharacter(tokens[1]);
+			}
 		}
 		else if (tokens[0] == "EXIT")
 			break;
