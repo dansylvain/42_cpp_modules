@@ -31,6 +31,8 @@ class Character : public ICharacter
 		void use(int idx, ICharacter& target);
 		void	initInv();
 		static void displayMaterias();
+		static void displayMateriaCount();
+
 		// geters and seters
 		
 		// action member functions

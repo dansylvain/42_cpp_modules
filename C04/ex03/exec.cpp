@@ -27,18 +27,13 @@ AMateria *getMateriaFromGround(std::string index);
 
 void	displayAppState()
 {
+	Terminal::framingFuncOutput(AMateria::getGroundSize() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
-
-	printF("");
 	for (int i = 0; i < Character::characterCount; i++)
 	{
 		if (Character::characters[i])
-			Terminal::framingFuncOutput(12, Character::characters[i]->getName(), Character::characters[i]->displayMaterias, Character::characters[i]->displayMaterias);
-
-		printF("");
+			Terminal::framingFuncOutput(12, Character::characters[i]->getName(), Character::characters[i]->displayMaterias, Character::characters[i]->displayMateriaCount);
 	}
-
-	Terminal::framingFuncOutput(AMateria::getGroundSize() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 }
 int main()
 {

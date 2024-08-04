@@ -123,24 +123,28 @@ void Character::use(int idx, ICharacter& target)
 void Character::displayMaterias()
 {
 	for (int i = 0; i < 4; i++)
-	{
-		if (inv[i])
-		{
-			if (inv[i]->getType() == ICE)
-				std::cout << "🧊 ";
-			else if (inv[i]->getType() == CURE)
-				std::cout << "💚 ";
-
-		}
+	{	
+		if (inv[i] && inv[i]->getType() == ICE)
+			std::cout << "🧊 ";
+		else if (inv[i] && inv[i]->getType() == CURE)
+			std::cout << "💚 ";
+		else
+			std::cout << "⬜ ";
 	}
-	std::cout << std::endl;
+
+	
+}
+
+void Character::displayMateriaCount()
+{
 	for (int i = 0; i < 4; i++)
 	{
 		if (inv[i])
 			std::cout << i << "  ";
+		else
+			std::cout << "   ";
+
 	}
-	std::cout << std::endl;
-	
 }
 
 /**========================================================================
