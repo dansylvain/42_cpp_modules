@@ -34,7 +34,28 @@ void	displayAppState()
 	for (int i = 0; i < Character::characterCount; i++)
 	{
 		if (Character::characters[i])
-			Terminal::framingFuncOutput(12, Character::characters[i]->getName(), Character::characters[i]->displayMaterias, Character::characters[i]->displayMateriaCount);
+		{
+			unsigned int len = Character::characters[i]->getName().length();
+			std::cout << "┏";
+			for (int i = 0; i < 12; i++)
+			{
+				std::cout << "━";
+			}
+			std::cout << "┓\n";
+			std::cout << "┃\033[1;31m"  << Character::characters[i]->getName() << "\033[0m";
+			for (unsigned int i = 0; i < 12 - len; i++)
+				std::cout << " ";
+			std::cout << "┃\n┃";
+			Character::characters[i]->displayMaterias();
+			std::cout << "┃\n┃";
+			Character::characters[i]->displayMateriaCount();
+			std::cout << "┃\n┗";
+				for (int i = 0; i < 12; i++)
+			{
+				std::cout << "━";
+			}
+			std::cout << "┛" << std::endl;
+		}
 	}
 }
 int main()
@@ -95,6 +116,11 @@ int main()
 			if (tokens[1].size() > 12)
 			{
 				std::cout << "\033[36;11H\033[5;31m : Name too long\033[0m";
+				term.displayError(term.errorMessage);
+			}
+			else if (Character::characterCount == 3)
+			{
+				std::cout << "\033[36;11H\033[5;31m : Too many characters already\033[0m";
 				term.displayError(term.errorMessage);
 			}
 			else

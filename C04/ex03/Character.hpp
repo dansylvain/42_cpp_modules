@@ -10,7 +10,7 @@ class Character : public ICharacter
 		static Character*		characters[100];
 		static int				characterCount;
 		std::string 	*name;
-		static AMateria* 		inv[4];
+		AMateria* 		inv[4];
 		Character();
 		Character(const Character& other);
 
@@ -30,8 +30,8 @@ class Character : public ICharacter
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 		void	initInv();
-		static void displayMaterias();
-		static void displayMateriaCount();
+		void displayMaterias();
+		void displayMateriaCount();
 
 		// geters and seters
 		
