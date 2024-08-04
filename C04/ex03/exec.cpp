@@ -26,6 +26,8 @@ AMateria *getMateriaFromGround(std::string index);
 
 void	displayAppState(MateriaSource* source)
 {
+
+	Terminal::framingFuncOutput(10, AMateria::displayMaterias);
 	// printFB("Source state:");
 	source->displayMaterias();
 	printF("");
@@ -40,6 +42,7 @@ void	displayAppState(MateriaSource* source)
 }
 int main()
 {
+
 	std::string userInput;
 	Terminal term;
 	Character::createNewCharacter("Dan");

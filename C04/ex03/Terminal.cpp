@@ -1,5 +1,7 @@
 #include "Terminal.hpp"
 #include "unistd.h"
+#include "main.h"
+void	printF(std::string str);
 
 Terminal::Terminal() :
 	terminalCommand("gnome-terminal --geometry=150x24 -- bash -c \"./exec; exec bash\""),
@@ -25,6 +27,13 @@ Terminal::Terminal() :
 	searchEndPrompt("\033[1;32m\nPress Enter to continue...\033[0m")
 	{}
 
+void	Terminal::framingFuncOutput(int len, void (*f)(void))
+{
+	std::cout << "framingFuncOutput" << std::endl; 
+	// printF();
+	(void)len;
+	(void)f;
+}
 
 void	Terminal::execSystemCmd(std::string str) const
 		{std::system(str.c_str());}
@@ -37,3 +46,13 @@ void	Terminal::displayError(std::string str) const
 
 void	Terminal::getUserinput(std::string& userInput)
 		{std::getline(std::cin, userInput);};
+
+void	Terminal::print(std::string str)
+{
+	std::cout << str << std::endl;
+}
+
+void Terminal::printB(const std::string& str)
+{
+	std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
+}
