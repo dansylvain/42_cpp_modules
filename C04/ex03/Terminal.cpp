@@ -12,7 +12,7 @@ Terminal::Terminal() :
 \033[1;31m - LEARN <IDX-SRC>\033[0m	 		\033[1;32m=>\033[0m	Source learns Materia\n\
 \033[1;31m - <NAME> EQUIP <IDX-GROUND>\033[0m 		\033[1;32m=>\033[0m	Character equips Materia\n\
 \033[1;31m - <NAME> UNEQUIP <IDX-CHAR>\033[0m		\033[1;32m=>\033[0m	Character unequips Materia\n\
-\033[1;31m - <NAME> USE <IDX-INV> <IDX-CHAR>\033[0m	\033[1;32m=>\033[0m	Character uses Materia\n\
+\033[1;31m - <NAME> USE <IDX-CHAR> <NAME>\033[0m	\033[1;32m=>\033[0m	Character uses Materia\n\
 \033[1;31m - EXIT \033[0m			 	\033[1;32m=>\033[0m	Quit the app\n\n\
 \033[1;32m Your choice: \033[0m"),
 	headerAdd("\033[1;32m Add a New Contact\n\033[0m\n"),
