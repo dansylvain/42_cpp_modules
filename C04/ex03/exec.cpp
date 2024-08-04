@@ -87,6 +87,8 @@ int main()
 			printF("CREATE moi ca");
 		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
 			std::cout << "create ce char: " << tokens[1] << std::endl;
+		else if (i == 1 && tokens[0] == "EXIT")
+			break;
 		else 
 			term.displayError(term.errorMessage);
 
