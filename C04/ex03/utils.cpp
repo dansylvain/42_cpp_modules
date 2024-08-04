@@ -47,7 +47,7 @@ AMateria *getMateriaFromCharInv(std::string index, Character *character)
 	if (!isDigitsOnly(index) || index.empty() || !character)
 		return (NULL);
 	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 3)
+	if (idx < 0 || idx > 3)
 		return (NULL);
 	return (character->inv[idx]);
 }

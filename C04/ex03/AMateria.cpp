@@ -114,6 +114,8 @@ void	AMateria::displayMaterias()
 				std::cout << "🧊 ";
 		else if (materias[i]->getType() == CURE &&materias[i]->getLoc() == GROUND)
 			std::cout << "💚 ";
+		else
+			std::cout << "   ";
 	}
 }
 
@@ -122,8 +124,10 @@ void	AMateria::displayMateriaCount()
 	for (int i = 0; i < materiaCount; i++)
 	{
 		if (materias[i]->getLoc() == GROUND)
-		std::cout << std::setw(2) << std::setfill(' ') << i << " ";
-	
+			std::cout << std::setw(2) << std::setfill(' ') << i << " ";
+		else
+			std::cout << "   ";
+
 	}
 }
 

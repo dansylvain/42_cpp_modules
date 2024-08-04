@@ -107,7 +107,7 @@ void Character::equip(int idx)
 
 void Character::unequip(int idx)
 {
-	if (inv[idx])
+	if (inv[idx] && idx < 4 && idx >= 0)
 	{
 		inv[idx]->setLoc(GROUND);
 		inv[idx] = NULL;

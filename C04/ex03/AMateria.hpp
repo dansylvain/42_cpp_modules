@@ -10,7 +10,7 @@ class AMateria
 	protected:
 		std::string 	*type;
 		AMateria(const AMateria& other);
-		std::string loc;
+		std::string		loc;
 
 	public:
 		static int		materiaCount;
