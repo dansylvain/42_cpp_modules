@@ -10,7 +10,7 @@ int			AMateria::materiaCount = 0;
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
-AMateria::AMateria() : type(new std::string("turlututu"))
+AMateria::AMateria() : type(new std::string("AMateria"))
 {
 	print("AMateria Created (default constructor)");
 }
@@ -48,6 +48,36 @@ AMateria& AMateria::operator=(const AMateria& other)
 /**========================================================================
  *                           GETTERS AND SETTERS
  *========================================================================**/
+std::string const & AMateria::getType() const
+{
+	static std::string empty;
+	if (type)
+		return (*type);
+	return (empty);
+}
+
+std::string const & AMateria::getLoc() const
+{
+	return (loc);
+}
+
+void AMateria::setLoc(std::string newLoc)
+{
+	loc = newLoc;
+}
+
+int	AMateria::getGroundSize()
+{
+	int j = 0;
+	for (int i = 0; i < materiaCount; i++)
+	{
+		if (materias[i]->getLoc() == GROUND)
+			j++;
+	}
+	return (j);
+
+}
+
 AMateria	**AMateria::getMaterias()
 {
 	return (materias);
@@ -58,14 +88,18 @@ int	AMateria::getMateriaCount()
 	return (materiaCount);
 }
 
-std::string const & AMateria::getType() const
+
+/**========================================================================
+ *                                ACTION METHODS
+ *========================================================================**/
+void AMateria::use(ICharacter& target)
 {
-	static std::string empty;
-	if (type)
-		return (*type);
-	return (empty);
+	(void)target;
 }
 
+/**========================================================================
+ *                           ACTION METHODS
+ *========================================================================**/
 AMateria *AMateria::addMateria(AMateria *newMateria)
 {
 	if (materiaCount < 100) {
@@ -99,23 +133,6 @@ void	AMateria::cleanup()
 	materiaCount = 0;
 }
 
-std::string const & AMateria::getLoc() const
-{
-	return (loc);
-}
-
-void AMateria::setLoc(std::string newLoc)
-{
-	loc = newLoc;
-}
-/**========================================================================
- *                                ACTION METHODS
- *========================================================================**/
-void AMateria::use(ICharacter& target)
-{
-	(void)target;
-}
-
 void	AMateria::displayMaterias()
 {
 	int count = materiaCount;
@@ -143,31 +160,3 @@ void	AMateria::displayMateriaCount()
 
 	}
 }
-
-int	AMateria::getGroundSize()
-{
-	int j = 0;
-	for (int i = 0; i < materiaCount; i++)
-	{
-		if (materias[i]->getLoc() == GROUND)
-			j++;
-	}
-	return (j);
-
-}
-// for (int i = 0; i < 4; i++)
-// 	{
-// 		if (inv[i])
-// 		{
-// 			if (materias[i]->getType() == ICE)
-// 				std::cout << "🧊 ";
-// 			else if (materias[i]->getType() == CURE)
-// 				std::cout << "💚 ";
-
-// 		}
-// 	}
-// 	for (int i = 0; i < 4; i++)
-// 	{
-// 		if (inv[i])
-// 			std::cout << i << "  ";
-// 	}

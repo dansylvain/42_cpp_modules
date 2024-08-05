@@ -9,7 +9,6 @@ class AMateria
 {
 	protected:
 		std::string 	*type;
-		AMateria(const AMateria& other);
 		std::string		loc;
 		static AMateria *materias[100];
 		static int		materiaCount;
@@ -18,6 +17,7 @@ class AMateria
 		// constructors and destructor
 		AMateria();
 		AMateria(std::string const & type);
+		AMateria(const AMateria& other);
 		virtual ~AMateria();
 
 		// assignment operator
