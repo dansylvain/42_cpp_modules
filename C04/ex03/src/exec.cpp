@@ -34,7 +34,23 @@ void	executeMateriaUsage(std::string tokens[])
 	sleep(2);
 }
 
-
+void	createChararacter(std::string tokens[], Terminal *term)
+{
+	if (tokens[1].size() > 12)
+	{
+		std::cout << "\033[36;11H\033[5;31m : Name too long\033[0m";
+		term->displayError(term->errorMessage);
+	}
+	else if (Character::getCharacterCount() == 3)
+	{
+		std::cout << "\033[36;11H\033[5;31m : Too many characters already\033[0m";
+		term->displayError(term->errorMessage);
+	}
+	else
+	{
+		Character::createNewCharacter(tokens[1]);
+	}
+}
 
 
 
@@ -60,7 +76,8 @@ int main()
 	{
 		term.execSystemCmd(term.clearCommand);
 		term.displayAppState();
-		term.displayString(term.contentMenu);		
+		term.displayString(term.contentMenu);	
+			
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
 		std::string token;
@@ -85,22 +102,7 @@ int main()
 		else if (choiceIs_CREATE_MATERIA(i, tokens, source))
 			source->createMateria(getMateriaToCreateByIndex(tokens[1], source)->getType());
 		else if (choiceIs_CREATE_CHAR(i, tokens))
-		{
-			if (tokens[1].size() > 12)
-			{
-				std::cout << "\033[36;11H\033[5;31m : Name too long\033[0m";
-				term.displayError(term.errorMessage);
-			}
-			else if (Character::getCharacterCount() == 3)
-			{
-				std::cout << "\033[36;11H\033[5;31m : Too many characters already\033[0m";
-				term.displayError(term.errorMessage);
-			}
-			else
-			{
-				Character::createNewCharacter(tokens[1]);
-			}
-		}
+			createChararacter(tokens, &term);
 		else if (tokens[0] == "EXIT")
 			break;
 		else 
