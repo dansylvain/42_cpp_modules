@@ -1,12 +1,8 @@
 #include "Character.hpp"
 
-/**========================================================================
- *                             COMMENT BLOCK
- *  
- *  ? delete[] to free 
- *  
- *  
- *========================================================================**/
+
+Character	*Character::characters[100] = {NULL};
+int			Character::characterCount = 0;
 /**========================================================================
  *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
@@ -63,6 +59,20 @@ std::string const & Character::getName() const
 	return (*name);
 }
 
+Character	**Character::getCharacters()
+{
+	return (characters);
+}
+
+int			Character::getCharacterCount()
+{
+	return (characterCount);
+}
+
+AMateria		**Character::getInv()
+{
+	return (inv);
+}
 
 /**========================================================================
  *                                ACTION METHODS
@@ -118,24 +128,11 @@ void Character::use(int idx, ICharacter& target)
 		inv[idx]->use(target);
 }
 
+
+
 /**========================================================================
- *                           GETTERS AND SETTERS
+ *                           UTILS METHODS
  *========================================================================**/
-Character	**Character::getCharacters()
-{
-	return (characters);
-}
-
-int			Character::getCharacterCount()
-{
-	return (characterCount);
-}
-
-AMateria		**Character::getInv()
-{
-	return (inv);
-}
-
 void Character::displayMaterias()
 {
 	for (int i = 0; i < 4; i++)
@@ -159,13 +156,8 @@ void Character::displayMateriaCount()
 			std::cout << i << "  ";
 		else
 			std::cout << "   ";
-
 	}
 }
-
-/**========================================================================
- *                           UTILS
- *========================================================================**/
 
 void	Character::initInv()
 {
@@ -173,29 +165,21 @@ void	Character::initInv()
 		inv[i] = NULL;
 }
 
-Character	*Character::characters[100] = {NULL};
-int			Character::characterCount = 0;
-
 Character*	Character::createNewCharacter(const std::string &name)
 {
 	Character* ptr;
 	ptr = new Character(name);
 	if (characterCount < 100)
-	{
-        characters[characterCount++] = ptr;
-    }
+		characters[characterCount++] = ptr;
 	print("new ICharacter created");
 	return (ptr);
 }
 
 void	Character::cleanup()
 {
-	for (int i = 0; i < Character::characterCount; ++i) {
-        delete characters[i];
-    }
-
-	for (int i = 0; i < 100; ++i) {
-        characters[i] = NULL;
-    }
-    characterCount = 0;
+	for (int i = 0; i < Character::characterCount; ++i)
+		delete characters[i];
+	for (int i = 0; i < 100; ++i)
+		characters[i] = NULL;
+	characterCount = 0;
 }

@@ -126,7 +126,6 @@ void	AMateria::cleanup()
 	for (int i = 0; i < AMateria::materiaCount; ++i) {
 			delete materias[i];
 	}
-
 	for (int i = 0; i < 100; ++i) {
 		materias[i] = NULL;
 	}
@@ -157,6 +156,5 @@ void	AMateria::displayMateriaCount()
 			std::cout << std::setw(2) << std::setfill(' ') << i << " ";
 		else
 			std::cout << "   ";
-
 	}
 }

@@ -6,10 +6,10 @@
 class Character : public ICharacter
 {
 	protected:
-		static Character*		characters[100];
-		static int				characterCount;
-		std::string 	*name;
-		AMateria* 		inv[4];
+		static Character*	characters[100];
+		static int			characterCount;
+		std::string 		*name;
+		AMateria* 			inv[4];
 	public:
 		// constructors and destructor
 		Character();
@@ -26,12 +26,13 @@ class Character : public ICharacter
 		static int			getCharacterCount();
 		AMateria			**getInv();
 		
-		// action member functions
-		void 	equip(AMateria* m);
+		// action 
+		void 				equip(AMateria* m);
 		void				equip(int idx);
 		void				unequip(int idx);
 		void				use(int idx, ICharacter& target);
 		
+		// utils
 		static	Character*	createNewCharacter(const std:: string &name);
 		void				initInv();
 		void				displayMaterias();
