@@ -1,21 +1,8 @@
 #include <iostream>
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
 #include "MateriaSource.hpp"
 #include "Terminal.hpp"	
 #include <sstream>
-#include <string>
-#include <cstdlib> 
 #include "unistd.h"
-
-void	print(std::string str);
-void	printB(const std::string& str);
-void printFB(const std::string& str);
-
-void	printF(std::string str);
-void	test_three();
 
 bool isDigitsOnly(const std::string& str);
 Character *getCharacterByName(std::string name);
@@ -24,40 +11,61 @@ AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source);
 AMateria *getMateriaFromGround(std::string index);
 
 
+bool	choiceIs_EQUIP(int i,std::string tokens[]);
+bool	choiceIs_UNEQUIP(int i,std::string tokens[]);
+bool choiceIs_USE(int i,std::string tokens[]);
+bool choiceIs_LEARN(int i,std::string tokens[], MateriaSource *source);
+bool choiceIs_CREATE_MATERIA(int i,std::string tokens[], MateriaSource *source);
+bool choiceIs_CREATE_CHAR(int i,std::string tokens[]);
+
+
+
+
+
+
+
+void	executeMateriaUsage(std::string tokens[])
+{
+	if (getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0]))->getType() == ICE)
+		std::cout << "\033[36;14H\033[1;32m* shoots an ice bolt at " + tokens[3] + " *\033[0m" << std::flush;
+	else 
+		std::cout << "\033[36;14H\033[1;32m* heals " + tokens[3] + "’s wounds *\033[0m" << std::flush;
+	
+	sleep(2);
+}
+
+
+
+
+
 int main()
 {
-
-	// test_three();
-	
-	// return 0;
+	// vars declaration
 	std::string userInput;
 	Terminal term;
-	
-	MateriaSource *source = new MateriaSource;
+	MateriaSource *source;
+	int i;
+
+	// vars init
+	source = new MateriaSource;
 	Character::createNewCharacter("Dan");
-	
 	AMateria::addMateria(ICE);
 	AMateria::addMateria(CURE);
 	AMateria::addMateria(ICE);
-
-
 	Character::getCharacters()[0]->equip(AMateria::getMaterias()[0]);
 	source->learnMateria(AMateria::getMaterias()[0]);
 
+	// prompt loop
 	while (1)
 	{
 		term.execSystemCmd(term.clearCommand);
-
 		term.displayAppState();
-		term.displayString(term.contentMenu);
-	
-		
+		term.displayString(term.contentMenu);		
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
 		std::string token;
 		std::string tokens[4];
-		int i = 0;
-
+		i = 0;
 
 		while (iss >> token)
 		{
@@ -66,24 +74,17 @@ int main()
 			tokens[i++] = token;
 		}
 
-		if (i == 3 && tokens[1] == "EQUIP" && getMateriaFromGround(tokens[2]) && getCharacterByName(tokens[0]) && !getCharacterByName(tokens[0])->getInv()[3])
+		if (choiceIs_EQUIP(i, tokens))
 			getCharacterByName(tokens[0])->equip(getMateriaFromGround(tokens[2]));
-		else if (i == 3 && tokens[1] == "UNEQUIP" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
+		else if (choiceIs_UNEQUIP(i, tokens))
 			getCharacterByName(tokens[0])->unequip(std::atoi(tokens[2].c_str()));
-		else if (i == 4 && tokens[1] == "USE" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]) && getCharacterByName(tokens[3]) && tokens[3] != tokens[0])
-		{
-			if (getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0]))->getType() == ICE)
-				std::cout << "\033[36;14H\033[1;32m* shoots an ice bolt at " + tokens[3] + " *\033[0m" << std::flush;
-			else 
-				std::cout << "\033[36;14H\033[1;32m* heals " + tokens[3] + "’s wounds *\033[0m" << std::flush;
-			
-			sleep(2);
-		}
-		else if (i == 2 && tokens[0] == "LEARN" && getMateriaFromGround(tokens[1]) && !getMateriaToCreateByIndex("3", source))
+		else if (choiceIs_USE(i, tokens))
+			executeMateriaUsage(tokens);
+		else if (choiceIs_LEARN(i, tokens, source))
 			source->learnMateria(getMateriaFromGround(tokens[1]));
-		else if (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1], source))
+		else if (choiceIs_CREATE_MATERIA(i, tokens, source))
 			source->createMateria(getMateriaToCreateByIndex(tokens[1], source)->getType());
-		else if (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]))
+		else if (choiceIs_CREATE_CHAR(i, tokens))
 		{
 			if (tokens[1].size() > 12)
 			{
@@ -109,4 +110,35 @@ int main()
 	AMateria::cleanup();
 	Character::cleanup();
 	return 0;
+}
+
+bool	choiceIs_EQUIP(int i,std::string tokens[])
+{
+	return (i == 3 && tokens[1] == "EQUIP" && getMateriaFromGround(tokens[2])
+	&& getCharacterByName(tokens[0]) && !getCharacterByName(tokens[0])->getInv()[3]);
+}
+bool	choiceIs_UNEQUIP(int i,std::string tokens[])
+{
+	return (i == 3 && tokens[1] == "UNEQUIP" && getMateriaFromCharInv(tokens[2],
+	getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]));
+}
+bool choiceIs_USE(int i,std::string tokens[])
+{
+	return (i == 4 && tokens[1] == "USE" && getMateriaFromCharInv(tokens[2],
+	getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]) &&
+	getCharacterByName(tokens[3]) && tokens[3] != tokens[0]);
+}
+bool choiceIs_LEARN(int i,std::string tokens[], MateriaSource *source)
+{
+	return (i == 2 && tokens[0] == "LEARN" && getMateriaFromGround(tokens[1])
+	&& !getMateriaToCreateByIndex("3", source));
+}
+bool choiceIs_CREATE_MATERIA(int i,std::string tokens[], MateriaSource *source)
+{
+	return (i == 2 && tokens[0] == "CREATE" && getMateriaToCreateByIndex(tokens[1],
+	source));
+}
+bool choiceIs_CREATE_CHAR(int i,std::string tokens[])
+{
+	return (i == 2 && tokens[0] == "CREATE" && !isDigitsOnly(tokens[1]));
 }
