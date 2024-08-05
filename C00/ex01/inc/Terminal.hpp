@@ -12,7 +12,7 @@ class	Terminal
 		void	execSystemCmd(std::string str) const;
 		void	displayString(std::string str) const;
 		void	displayError(std::string str) const;
-		void	getUserinput(std::string& userInput);
+		void	getUserinput(std::string& userInput) const;
 
 		std::string terminalCommand;
 		std::string clearCommand;

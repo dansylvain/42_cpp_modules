@@ -32,5 +32,5 @@ void	Terminal::displayString(std::string str) const
 void	Terminal::displayError(std::string str) const
 		{std::cout << str << std::flush;sleep(1);sleep(1);};
 
-void	Terminal::getUserinput(std::string& userInput)
+void	Terminal::getUserinput(std::string& userInput) const
 		{std::getline(std::cin, userInput);};
