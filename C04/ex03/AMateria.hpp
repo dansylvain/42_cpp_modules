@@ -11,13 +11,13 @@ class AMateria
 		std::string 	*type;
 		AMateria(const AMateria& other);
 		std::string		loc;
+		static AMateria *materias[100];
+		static int		materiaCount;
 
 	public:
-		static int		materiaCount;
-		static AMateria *materias[100];
-		AMateria(std::string const & type);
 		// constructors and destructor
 		AMateria();
+		AMateria(std::string const & type);
 		virtual ~AMateria();
 
 		// assignment operator
@@ -26,19 +26,21 @@ class AMateria
 		// geters and seters
 		std::string const & getType() const;
 		std::string const & getLoc() const;
-		void setLoc(std::string newLoc);
-		static	int	getGroundSize();
+		void 				setLoc(std::string newLoc);
+		static	int			getGroundSize();
+		static	AMateria	**getMaterias();
+		static	int			getMateriaCount();
+		
+		// action
+		virtual void		use(ICharacter& target);
+		virtual AMateria*		clone() const = 0;
 
-		// action member functions
+		// utils
 		static	AMateria*	addMateria(AMateria *newMateria);
 		static	AMateria*	addMateria(std::string type);
 		static	void		cleanup();
-		virtual void		use(ICharacter& target);
-		virtual AMateria*		clone() const = 0;
-		static void	displayMaterias();
-		static void	displayMateriaCount();
-
-
+		static	void		displayMateriaCount();
+		static	void		displayMaterias();
 };
 
 #endif

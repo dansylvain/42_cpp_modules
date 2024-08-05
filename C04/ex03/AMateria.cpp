@@ -48,6 +48,16 @@ AMateria& AMateria::operator=(const AMateria& other)
 /**========================================================================
  *                           GETTERS AND SETTERS
  *========================================================================**/
+AMateria	**AMateria::getMaterias()
+{
+	return (materias);
+}
+
+int	AMateria::getMateriaCount()
+{
+	return (materiaCount);
+}
+
 std::string const & AMateria::getType() const
 {
 	static std::string empty;

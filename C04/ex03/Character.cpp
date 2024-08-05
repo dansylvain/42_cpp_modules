@@ -87,7 +87,7 @@ void Character::equip(AMateria* m)
 
 void Character::equip(int idx)
 {
-	AMateria *m = AMateria::materias[idx];
+	AMateria *m = AMateria::getMaterias()[idx];
 	int i;
 	for (i = 0; i < 4; i++)
 	{

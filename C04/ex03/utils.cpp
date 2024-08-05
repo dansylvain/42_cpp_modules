@@ -66,5 +66,5 @@ AMateria *getMateriaFromGround(std::string index)
 	int idx = std::atoi(index.c_str());
 	if (idx < 0 && idx > 99)
 		return (NULL);
-	return AMateria::materias[idx];
+	return AMateria::getMaterias()[idx];
 }
