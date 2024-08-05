@@ -11,13 +11,16 @@ class Zombie {
 		std::string	name;
 		std::string	mssg;
 	public:
+		// constructors & destructor
 		Zombie();
 		Zombie(const std::string& name);
 		~Zombie();
+
+		// other methods
 		void	announce(void);
 		Zombie*	newZombie( std::string name );
 		void	randomChump( std::string name );
-		Zombie*	zombieHorde( int N, std::string name );
+		static Zombie*	zombieHorde( int N, std::string name );
 		void	set_name(std::string name);
 };
 
