@@ -137,6 +137,7 @@ int main()
 		else 
 			term.displayError(term.errorMessage);
 	}
+	delete source;
 	AMateria::cleanup();
 	Character::cleanup();
 	return 0;

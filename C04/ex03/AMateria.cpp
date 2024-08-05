@@ -118,7 +118,10 @@ void AMateria::use(ICharacter& target)
 
 void	AMateria::displayMaterias()
 {
-	for (int i = 0; i < materiaCount; i++)
+	int count = materiaCount;
+	if (count == 2)
+		count = 4;
+	for (int i = 0; i < count; i++)
 	{
 		if (materias[i]->getType() == ICE && materias[i]->getLoc() == GROUND)
 				std::cout << "🧊 ";
