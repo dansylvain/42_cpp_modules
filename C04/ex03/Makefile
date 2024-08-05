@@ -3,20 +3,21 @@ NAME_EXEC = exec
 
 CXX = g++
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g -Iinc
 
-SRC_INTERFACE =	main.cpp \
-				Terminal.cpp \
+SRC_INTERFACE =	src/main.cpp \
+				src/Terminal.cpp \
 	   			
 
-SRC_EXEC =	exec.cpp \
-			utils.cpp \
-			AMateria.cpp \
-			Ice.cpp Cure.cpp \
-			Character.cpp \
-			MateriaSource.cpp \
-			test_three.cpp \
-			Terminal.cpp 
+SRC_EXEC =	src/exec.cpp \
+			src/utils.cpp \
+			src/AMateria.cpp \
+			src/Ice.cpp \
+			src/Cure.cpp \
+			src/Character.cpp \
+			src/MateriaSource.cpp \
+			src/test_three.cpp \
+			src/Terminal.cpp 
 
 OBJS_INTERFACE = $(SRC_INTERFACE:.cpp=.o)
 OBJS_EXEC = $(SRC_EXEC:.cpp=.o)
@@ -30,7 +31,7 @@ all: $(NAME_EXEC) $(NAME_INTERFACE)
 # Règle pour afficher le motif en arrière-plan, si nécessaire
 $(DESIGN_MARKER):
 	clear
-	@bash generateGradient.cpp &
+	@bash src/generateGradient.cpp &
 	@touch $(DESIGN_MARKER)
 
 # Règle pour compiler le projet
