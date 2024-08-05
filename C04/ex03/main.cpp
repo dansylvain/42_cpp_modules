@@ -13,11 +13,22 @@ int main(int argc, char **argv)
 {
 	Terminal term;
 
+	std::string answer;
 	if (argc == 1)
-		term.execSystemCmd(term.terminalCommand);
-	else
-		std::cout << "Usage: ./interface" << std::endl;
-	
+	{
+		std::cout << "Enter 1 for tests\nEnter 2 for demo-app" << std::endl;
+		while (answer != "1" && answer != "2")
+		{
+			std::cout << "Your choice: ";
+			std::cin >> answer;
+		}
+		if (answer == "2")
+			term.execSystemCmd(term.terminalCommand);
+		else if (answer == "1")
+			std::cout << "Usage: ./interface" << std::endl;
+		
+
+	}
 	return 0;
 	(void)argv;
 }

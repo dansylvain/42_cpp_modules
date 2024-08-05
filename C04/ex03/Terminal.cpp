@@ -4,7 +4,7 @@
 void	printF(std::string str);
 
 Terminal::Terminal() :
-	terminalCommand("gnome-terminal --geometry=100x36 -- bash -c \"./exec; exec bash\""),
+	terminalCommand("gnome-terminal --geometry=100x36 -- bash -c \"./exec\""),
 	clearCommand("clear"),
 	contentMenu("\033[26;2H\033[1;32m Commands Available: \033[0m\n\
 \033[1;31m - CREATE <IDX-SRC>\033[0m		 	\033[1;32m=>\033[0m	Source creates Materia\n\

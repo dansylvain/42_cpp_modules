@@ -26,6 +26,7 @@ AMateria *getMateriaFromGround(std::string index);
 
 void	displayAppState()
 {
+	printFB("			INTERFACE");
 	Terminal::framingFuncOutput(AMateria::materiaCount * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
 	for (int i = 0; i < Character::characterCount; i++)
@@ -58,21 +59,20 @@ void	displayAppState()
 int main()
 {
 
-	test_three();
+	// test_three();
 	
-	return 0;
+	// return 0;
 	std::string userInput;
 	Terminal term;
 	
 	MateriaSource *source = new MateriaSource;
 	Character::createNewCharacter("Dan");
 	
-	source->createMateria(ICE);
-	source->createMateria(CURE);
-	source->createMateria(CURE);
-	source->createMateria(ICE);
-	source->createMateria(ICE);
-	source->createMateria(CURE);
+	AMateria::addMateria(ICE);
+	AMateria::addMateria(CURE);
+	AMateria::addMateria(ICE);
+
+
 	Character::characters[0]->equip(AMateria::materias[0]);
 	source->learnMateria(AMateria::materias[0]);
 
