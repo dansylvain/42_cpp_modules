@@ -18,7 +18,7 @@ class Cure : public AMateria
 		// assignment operator
 		Cure& operator=(const Cure& other);
 		
-		// std::string const & getType() const;
+		// getter
 		using AMateria::getType;
 
 		// action member functions

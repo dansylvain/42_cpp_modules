@@ -14,6 +14,7 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
+	// no need for implementation
 	(void)other;
 	initInv();
 }
@@ -31,10 +32,16 @@ MateriaSource::~MateriaSource()
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
 	if (this != &other)
-	{
 		print("MateriaSource copied");
-	}
 	return (*this);
+}
+
+/**========================================================================
+ *                           GETTERS AND SETTERS
+ *========================================================================**/
+AMateria		**MateriaSource::getInv()
+{
+	return (inv);
 }
 
 /**========================================================================
@@ -54,7 +61,6 @@ void MateriaSource::learnMateria(AMateria *m)
 	}
 	if (i == 4)
 		print("MateriaSource full");
-	(void)m;
 }
 AMateria *MateriaSource::createMateria(std::string const & type)
 {
@@ -68,10 +74,6 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 	return (ptr);
 }
 
-AMateria		**MateriaSource::getInv()
-{
-	return (inv);
-}
 /**========================================================================
  *                           UTILS
  *========================================================================**/
@@ -104,6 +106,5 @@ void	MateriaSource::displayMateriaCount()
 			std::cout << std::setw(2) << std::setfill(' ') << i << " ";
 		else
 			std::cout << "   " ;
-
 	}
 }

@@ -18,7 +18,7 @@ class Ice : public AMateria
 		// assignment operator
 		Ice& operator=(const Ice& other);
 
-		// geters and seters
+		// geter
 		using AMateria::getType;
 		
 		// action member functions
