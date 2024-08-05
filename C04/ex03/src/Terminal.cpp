@@ -1,7 +1,8 @@
 #include "Terminal.hpp"
 #include "unistd.h"
 #include "main.h"
-void	printF(std::string str);
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 Terminal::Terminal() :
 	terminalCommand("gnome-terminal --geometry=100x36 -- bash -c \"./exec\""),
@@ -36,6 +37,38 @@ void	Terminal::framingFuncOutput(int len, std::string title, void (*f1)(void), v
 		for (int i = 0; i < len; i++)
 		std::cout << "━";
 	std::cout << "┛" << std::endl;
+}
+
+void	Terminal::FramingFuncOutputNoMethod(int *i)
+{
+	if (Character::getCharacters()[*i])
+	{
+		unsigned int len = Character::getCharacters()[*i]->getName().length();
+		std::cout << "┏";
+		for (int i = 0; i < 12; i++)
+			std::cout << "━";
+		std::cout << "┓\n";
+		std::cout << "┃\033[1;31m"  << Character::getCharacters()[*i]->getName() << "\033[0m";
+		for (unsigned int i = 0; i < 12 - len; i++)
+			std::cout << " ";
+		std::cout << "┃\n┃";
+		Character::getCharacters()[*i]->displayMaterias();
+		std::cout << "┃\n┃";
+		Character::getCharacters()[*i]->displayMateriaCount();
+		std::cout << "┃\n┗";
+			for (int i = 0; i < 12; i++)
+			std::cout << "━";
+		std::cout << "┛" << std::endl;
+	}
+}
+
+void Terminal::displayAppState()
+{
+	std::cout << "\033[1;31m			INTERFACE\033[0m" << std::endl;
+	Terminal::framingFuncOutput(AMateria::getMateriaCount() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
+	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
+	for (int i = 0; i < Character::getCharacterCount(); i++)
+		Terminal::FramingFuncOutputNoMethod(&i);
 }
 
 void	Terminal::execSystemCmd(std::string str) const

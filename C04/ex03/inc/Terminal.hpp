@@ -13,6 +13,8 @@ class	Terminal
 		void			displayString(std::string str) const;
 		void			displayError(std::string str) const;
 		static void		framingFuncOutput(int len, std::string title, void (*f1)(void), void (*f2)(void));
+		static void		FramingFuncOutputNoMethod(int *i);
+		static void 	displayAppState();
 		static void		print(std::string str);	
 		static void		printB(const std::string& str);
 		static void		printF(std::string str);
