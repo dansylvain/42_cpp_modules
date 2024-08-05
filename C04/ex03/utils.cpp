@@ -29,7 +29,7 @@ bool isDigitsOnly(const std::string& str) {
 
 Character *getCharacterByName(std::string name)
 {
-	for (int i = 0; i < Character::characterCount; i++)
+	for (int i = 0; i < Character::getCharacterCount(); i++)
 	{
 		if (Character::getCharacters()[i]->getName() == name)
 		{
@@ -46,7 +46,7 @@ AMateria *getMateriaFromCharInv(std::string index, Character *character)
 	int idx = std::atoi(index.c_str());
 	if (idx < 0 || idx > 3)
 		return (NULL);
-	return (character->inv[idx]);
+	return (character->getInv()[idx]);
 }
 
 AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source)
@@ -56,7 +56,7 @@ AMateria *getMateriaToCreateByIndex(std::string index, MateriaSource *source)
 	int idx = std::atoi(index.c_str());
 	if (idx < 0 || idx > 4)
 		return (NULL);
-	return source->inv[idx];
+	return source->getInv()[idx];
 }
 
 AMateria *getMateriaFromGround(std::string index)

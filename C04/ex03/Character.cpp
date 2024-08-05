@@ -126,6 +126,15 @@ Character	**Character::getCharacters()
 	return (characters);
 }
 
+int			Character::getCharacterCount()
+{
+	return (characterCount);
+}
+
+AMateria		**Character::getInv()
+{
+	return (inv);
+}
 
 void Character::displayMaterias()
 {

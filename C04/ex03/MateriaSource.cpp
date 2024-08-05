@@ -68,6 +68,10 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 	return (ptr);
 }
 
+AMateria		**MateriaSource::getInv()
+{
+	return (inv);
+}
 /**========================================================================
  *                           UTILS
  *========================================================================**/

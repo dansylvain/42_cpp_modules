@@ -29,7 +29,7 @@ void	displayAppState()
 	printFB("			INTERFACE");
 	Terminal::framingFuncOutput(AMateria::getMateriaCount() * 3, "Ground:", AMateria::displayMaterias, AMateria::displayMateriaCount);
 	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
-	for (int i = 0; i < Character::characterCount; i++)
+	for (int i = 0; i < Character::getCharacterCount(); i++)
 	{
 		if (Character::getCharacters()[i])
 		{
@@ -98,7 +98,7 @@ int main()
 			tokens[i++] = token;
 		}
 
-		if (i == 3 && tokens[1] == "EQUIP" && getMateriaFromGround(tokens[2]) && getCharacterByName(tokens[0]) && !getCharacterByName(tokens[0])->inv[3])
+		if (i == 3 && tokens[1] == "EQUIP" && getMateriaFromGround(tokens[2]) && getCharacterByName(tokens[0]) && !getCharacterByName(tokens[0])->getInv()[3])
 			getCharacterByName(tokens[0])->equip(getMateriaFromGround(tokens[2]));
 		else if (i == 3 && tokens[1] == "UNEQUIP" && getMateriaFromCharInv(tokens[2], getCharacterByName(tokens[0])) && getCharacterByName(tokens[0]))
 			getCharacterByName(tokens[0])->unequip(std::atoi(tokens[2].c_str()));
@@ -122,7 +122,7 @@ int main()
 				std::cout << "\033[36;11H\033[5;31m : Name too long\033[0m";
 				term.displayError(term.errorMessage);
 			}
-			else if (Character::characterCount == 3)
+			else if (Character::getCharacterCount() == 3)
 			{
 				std::cout << "\033[36;11H\033[5;31m : Too many characters already\033[0m";
 				term.displayError(term.errorMessage);

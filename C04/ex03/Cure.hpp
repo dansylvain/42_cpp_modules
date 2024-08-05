@@ -18,7 +18,6 @@ class Cure : public AMateria
 		// assignment operator
 		Cure& operator=(const Cure& other);
 		
-		// geters and seters
 		// std::string const & getType() const;
 		using AMateria::getType;
 

@@ -14,7 +14,6 @@ SRC_EXEC =	exec.cpp \
 			AMateria.cpp \
 			Ice.cpp Cure.cpp \
 			Character.cpp \
-			ICharacter.cpp \
 			MateriaSource.cpp \
 			test_three.cpp \
 			Terminal.cpp 

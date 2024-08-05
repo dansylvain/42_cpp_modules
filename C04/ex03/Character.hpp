@@ -7,41 +7,36 @@ class Character : public ICharacter
 {
 	protected:
 		static Character*		characters[100];
-	public:
 		static int				characterCount;
 		std::string 	*name;
 		AMateria* 		inv[4];
+	public:
+		// constructors and destructor
 		Character();
 		Character(const Character& other);
-
-		// constructors and destructor
 		Character(std::string const & name);
 		~Character();
 
 		// assignment operator
-		Character& operator=(const Character& other);
+		Character&			operator=(const Character& other);
 
 		// geters and seters
 		std::string const & getName() const;
 		static Character	**getCharacters();
-		// action member functions
-		void equip(AMateria* m);
-		void equip(int idx);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
-		void	initInv();
-		void displayMaterias();
-		void displayMateriaCount();
-
-		// geters and seters
+		static int			getCharacterCount();
+		AMateria			**getInv();
 		
 		// action member functions
+		void 	equip(AMateria* m);
+		void				equip(int idx);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
+		
 		static	Character*	createNewCharacter(const std:: string &name);
-
+		void				initInv();
+		void				displayMaterias();
+		void				displayMateriaCount();
 		static	void		cleanup();
-		// Utils
-		//tmp
-
 };
 
 #endif
