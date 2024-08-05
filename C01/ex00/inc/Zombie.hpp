@@ -6,17 +6,21 @@
 /**========================================================================
  *                           ZOMBIE
  *========================================================================**/
-class Zombie {
+class Zombie
+{
 	private:
 		std::string	name;
 		std::string	mssg;
 	public:
+		// constructor & destructor
 		Zombie();
 		Zombie(const std::string& name);
 		~Zombie();
-		void	announce(void);
-		Zombie*	newZombie( std::string name );
-		void	randomChump( std::string name );
+
+		// methods
+		static	Zombie*	newZombie( std::string name );
+		static	void	randomChump( std::string name );
+		void	announce(void) const;
 };
 
 #endif

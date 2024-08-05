@@ -3,27 +3,28 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 RM = rm -rf
 
-SRC =	main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
-			Zombie.cpp \
+OBJDIR = obj
 
-OBJS = $(SRC:.cpp=.o)
+SRC = src/main.cpp \
+	src/Zombie.cpp
+
+OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o $@
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)  # Crée le répertoire obj s'il n'existe pas
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	$(RM) $(OBJDIR)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re run
+.PHONY: all clean fclean re

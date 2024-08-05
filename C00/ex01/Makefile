@@ -15,22 +15,30 @@ SRC_EXEC =	src/Contact.cpp \
 OBJS_PB = $(SRC_PB:.cpp=.o)
 OBJS_EXEC = $(SRC_EXEC:.cpp=.o)
 
+DESIGN_MARKER = .design_running
+
 all: $(NAME_PB) $(NAME_EXEC)
 
-$(NAME_PB): $(OBJS_PB)
-	$(CC) $(CFLAGS) $(OBJS_PB) -o $(NAME_PB)
+$(DESIGN_MARKER):
+	@clear
+	@bash src/generateGradient.cpp &
+	@touch $(DESIGN_MARKER)
 
-$(NAME_EXEC): $(OBJS_EXEC)
-	$(CC) $(CFLAGS) $(OBJS_EXEC) -o $(NAME_EXEC)
+$(NAME_PB): $(OBJS_PB) $(DESIGN_MARKER)
+	@$(CC) $(CFLAGS) $(OBJS_PB) -o $(NAME_PB)
+
+$(NAME_EXEC): $(OBJS_EXEC) $(DESIGN_MARKER)
+	@$(CC) $(CFLAGS) $(OBJS_EXEC) -o $(NAME_EXEC)
 
 %.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	rm -rf $(OBJS_PB) $(OBJS_EXEC)
+	@rm -rf $(OBJS_PB) $(OBJS_EXEC)
+	@rm -rf $(DESIGN_MARKER)
 
 fclean: clean
-	$(RM) $(NAME) $(NAME_EXEC)
+	@$(RM) $(NAME) $(NAME_EXEC)
 
 re: fclean all
 
