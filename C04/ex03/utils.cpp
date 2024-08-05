@@ -31,9 +31,9 @@ Character *getCharacterByName(std::string name)
 {
 	for (int i = 0; i < Character::characterCount; i++)
 	{
-		if (Character::characters[i]->getName() == name)
+		if (Character::getCharacters()[i]->getName() == name)
 		{
-			return (Character::characters[i]);
+			return (Character::getCharacters()[i]);
 		}
 	}
 	return (NULL);

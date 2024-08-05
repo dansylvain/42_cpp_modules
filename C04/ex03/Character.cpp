@@ -118,6 +118,15 @@ void Character::use(int idx, ICharacter& target)
 		inv[idx]->use(target);
 }
 
+/**========================================================================
+ *                           GETTERS AND SETTERS
+ *========================================================================**/
+Character	**Character::getCharacters()
+{
+	return (characters);
+}
+
+
 void Character::displayMaterias()
 {
 	for (int i = 0; i < 4; i++)

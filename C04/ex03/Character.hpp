@@ -6,8 +6,8 @@
 class Character : public ICharacter
 {
 	protected:
-	public:
 		static Character*		characters[100];
+	public:
 		static int				characterCount;
 		std::string 	*name;
 		AMateria* 		inv[4];
@@ -23,7 +23,7 @@ class Character : public ICharacter
 
 		// geters and seters
 		std::string const & getName() const;
-
+		static Character	**getCharacters();
 		// action member functions
 		void equip(AMateria* m);
 		void equip(int idx);

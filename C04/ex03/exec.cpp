@@ -31,22 +31,22 @@ void	displayAppState()
 	Terminal::framingFuncOutput(12, "Source:", MateriaSource::displayMaterias, MateriaSource::displayMateriaCount);
 	for (int i = 0; i < Character::characterCount; i++)
 	{
-		if (Character::characters[i])
+		if (Character::getCharacters()[i])
 		{
-			unsigned int len = Character::characters[i]->getName().length();
+			unsigned int len = Character::getCharacters()[i]->getName().length();
 			std::cout << "┏";
 			for (int i = 0; i < 12; i++)
 			{
 				std::cout << "━";
 			}
 			std::cout << "┓\n";
-			std::cout << "┃\033[1;31m"  << Character::characters[i]->getName() << "\033[0m";
+			std::cout << "┃\033[1;31m"  << Character::getCharacters()[i]->getName() << "\033[0m";
 			for (unsigned int i = 0; i < 12 - len; i++)
 				std::cout << " ";
 			std::cout << "┃\n┃";
-			Character::characters[i]->displayMaterias();
+			Character::getCharacters()[i]->displayMaterias();
 			std::cout << "┃\n┃";
-			Character::characters[i]->displayMateriaCount();
+			Character::getCharacters()[i]->displayMateriaCount();
 			std::cout << "┃\n┗";
 				for (int i = 0; i < 12; i++)
 			{
@@ -73,7 +73,7 @@ int main()
 	AMateria::addMateria(ICE);
 
 
-	Character::characters[0]->equip(AMateria::getMaterias()[0]);
+	Character::getCharacters()[0]->equip(AMateria::getMaterias()[0]);
 	source->learnMateria(AMateria::getMaterias()[0]);
 
 	while (1)
