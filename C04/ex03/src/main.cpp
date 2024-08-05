@@ -28,7 +28,7 @@ void	test_three();
 int main(int argc, char **argv)
 {
 	Terminal term;
-
+	
 	std::string answer;
 	if (argc == 1)
 	{
