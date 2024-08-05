@@ -3,20 +3,26 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 RM = rm -rf
 
-SRC =	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+OBJDIR = obj
+
+SRC =	src/main.cpp \
+		src/Weapon.cpp \
+		src/HumanA.cpp \
+		src/HumanB.cpp 
 		
-OBJS = $(SRC:.cpp=.o)
+OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+$(OBJDIR)/%.o: src/%.cpp
+	mkdir -p $(OBJDIR)
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	$(RM) $(OBJDIR)
 
 fclean: clean
 	$(RM) $(NAME)
