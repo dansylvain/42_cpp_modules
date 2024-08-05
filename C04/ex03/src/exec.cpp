@@ -142,25 +142,3 @@ int main()
 	Character::cleanup();
 	return 0;
 }
-
-void	print(std::string str)
-{
-	if (TEST)
-		std::cout << str << std::endl;
-}
-
-void printB(const std::string& str)
-{
-	if (TEST)
-		std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
-}
-
-void	printF(std::string str)
-{
-		std::cout << str << std::endl;
-}
-
-void printFB(const std::string& str)
-{
-	std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
-}

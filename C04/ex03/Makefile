@@ -7,7 +7,13 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g -Iinc
 
 SRC_INTERFACE =	src/main.cpp \
 				src/Terminal.cpp \
-	   			
+	   			src/utils.cpp \
+				src/AMateria.cpp \
+				src/Ice.cpp \
+				src/Cure.cpp \
+				src/Character.cpp \
+				src/MateriaSource.cpp \
+				src/test_three.cpp \
 
 SRC_EXEC =	src/exec.cpp \
 			src/utils.cpp \

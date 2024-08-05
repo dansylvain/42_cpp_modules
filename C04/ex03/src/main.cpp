@@ -1,6 +1,22 @@
 #include "Terminal.hpp"
 #include <iostream>
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "MateriaSource.hpp"
+#include "Terminal.hpp"	
+#include <sstream>
+#include <string>
+#include <cstdlib> 
+#include "unistd.h"
 
+void	print(std::string str);
+void	printB(const std::string& str);
+void printFB(const std::string& str);
+
+void	printF(std::string str);
+void	test_three();
 
 /**========================================================================
  *                           INTERFACE
@@ -25,10 +41,10 @@ int main(int argc, char **argv)
 		if (answer == "2")
 			term.execSystemCmd(term.terminalCommand);
 		else if (answer == "1")
-			std::cout << "Usage: ./interface" << std::endl;
-		
-
+			test_three();
 	}
+	else
+		std::cout << "Usage: ./interface" << std::endl;
 	return 0;
 	(void)argv;
 }
