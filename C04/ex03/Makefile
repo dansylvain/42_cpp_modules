@@ -16,10 +16,7 @@ SRC_EXEC =	exec.cpp \
 			Character.cpp \
 			ICharacter.cpp \
 			MateriaSource.cpp \
-			test_one.cpp \
-			test_two.cpp \
 			test_three.cpp \
-			test_four.cpp \
 			Terminal.cpp 
 
 OBJS_INTERFACE = $(SRC_INTERFACE:.cpp=.o)

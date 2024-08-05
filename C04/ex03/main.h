@@ -27,8 +27,6 @@ void	print(std::string str);
 void	printB(const std::string& str);
 void	printF(std::string str);
 void	printFB(const std::string& str);
-void	test_one();
-void	test_two();
 extern bool TEST;
 
 #endif

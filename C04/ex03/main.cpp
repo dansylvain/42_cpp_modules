@@ -3,7 +3,7 @@
 
 
 /**========================================================================
- *                           PHONEBOOK
+ *                           INTERFACE
  * for increased portability, checks could be carried out to ensure that the
  * system is running a Unix-like system before executing the command.
  * But since this app will run at 42 only, 
@@ -14,12 +14,9 @@ int main(int argc, char **argv)
 	Terminal term;
 
 	if (argc == 1)
-	{
-		std::cout << term.terminalCommand << std::endl;
 		term.execSystemCmd(term.terminalCommand);
-	}
 	else
-		std::cout << "Usage: ./exec" << std::endl;
+		std::cout << "Usage: ./interface" << std::endl;
 	
 	return 0;
 	(void)argv;

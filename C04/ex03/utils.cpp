@@ -13,10 +13,7 @@ void	printB(const std::string& str);
 void printFB(const std::string& str);
 
 void	printF(std::string str);
-void	test_one();
-void	test_two();
 void	test_three();
-void	test_four();
 
 bool TEST;
 

@@ -9,13 +9,11 @@
 void	print(std::string str);
 void	printB(const std::string& str);
 void	printF(std::string str);
-void printFB(const std::string& str);
-void	test_one();
-void	test_two();
-void	displayAppState(MateriaSource source);
+void	printFB(const std::string& str);
 
 void	test_three()
 {
+	TEST = true;
 	print("");
 	printB("******* Initial data creation *************");
 	MateriaSource *source = new MateriaSource;
@@ -75,6 +73,7 @@ void	test_three()
 	printB("********* Character equip *****************");
 	print("Charc inv before use");
 	clitorine->displayMaterias();
+	print("");
 	clitorine->equip(ice);
 	clitorine->equip(ice2);
 	clitorine->equip(ice3);
@@ -82,15 +81,20 @@ void	test_three()
 	clitorine->equip(ice5);
 	print("Charc after before use");
 	clitorine->displayMaterias();
+	print("");
+
 	
 	print("");
 	printB("********* Character unequip ***************");
 	print("Charc inv before unequip");
 	clitorine->displayMaterias();
+	print("");
+
 	clitorine->unequip(0);
 	clitorine->unequip(3);
 	print("Charc inv after unequip");
 	clitorine->displayMaterias();
+	print("");
 
 	print("");
 	printB("******** AMateria getLoc ******************");
@@ -112,8 +116,10 @@ void	test_three()
 	printB("********* Character displayMaterias *******");
 	print(constantin->getName() + "inv: ");
 	constantin->displayMaterias();
+	print("");
 	print(clitorine->getName() + "inv: ");
 	clitorine->displayMaterias();
+	print("");
 	print("");
 	printB("********** Cure/Ice clone *****************");
 	cure->clone();
@@ -127,14 +133,15 @@ void	test_three()
 	
 	print("");
 	printB("********** MateriaSource learnMateria *****");
-	// source->learnMateria(cure);
-	// source->learnMateria(cure);
+	source->learnMateria(cure);
+	source->learnMateria(cure);
 	source->learnMateria(ice);
 	source->learnMateria(ice);
 	source->learnMateria(ice);
 	source->learnMateria(ice);
 	printB("Source inv:");
-	// source->displayMaterias();
+	source->displayMaterias();
+	print("");
 	
 	print("");
 	printB("******* MateriaSource createMateria *******");

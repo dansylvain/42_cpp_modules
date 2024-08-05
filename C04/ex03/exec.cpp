@@ -15,10 +15,7 @@ void	printB(const std::string& str);
 void printFB(const std::string& str);
 
 void	printF(std::string str);
-void	test_one();
-void	test_two();
 void	test_three();
-void	test_four();
 
 bool isDigitsOnly(const std::string& str);
 Character *getCharacterByName(std::string name);
@@ -61,10 +58,15 @@ void	displayAppState()
 int main()
 {
 
+	test_three();
+	
+	return 0;
 	std::string userInput;
 	Terminal term;
-	Character::createNewCharacter("Dan");
+	
 	MateriaSource *source = new MateriaSource;
+	Character::createNewCharacter("Dan");
+	
 	source->createMateria(ICE);
 	source->createMateria(CURE);
 	source->createMateria(CURE);
@@ -77,9 +79,11 @@ int main()
 	while (1)
 	{
 		term.execSystemCmd(term.clearCommand);
+
 		displayAppState();
 		term.displayString(term.contentMenu);
-		term.displayString(term.mssg);
+	
+		
 		std::getline(std::cin, userInput);
 		std::istringstream iss(userInput);
 		std::string token;
@@ -132,13 +136,8 @@ int main()
 			break;
 		else 
 			term.displayError(term.errorMessage);
-
-		
 	}
-	return 0;
-
-	TEST = false;
-	test_four();
+	AMateria::cleanup();
 	Character::cleanup();
 	return 0;
 }
