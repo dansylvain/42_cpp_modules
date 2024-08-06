@@ -3,17 +3,18 @@ NAME_EXEC = exec
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 RM = rm -rf
+OBJDIR = obj
 
 SRC_PB =	src/Terminal.cpp \
-	   		main.cpp \
+	   		src/main.cpp \
 
 SRC_EXEC =	src/Contact.cpp \
 	   		src/PhoneBook.cpp \
 	   		src/Terminal.cpp \
-	   		exec.cpp \
+	   		src/exec.cpp \
 
-OBJS_PB = $(SRC_PB:.cpp=.o)
-OBJS_EXEC = $(SRC_EXEC:.cpp=.o)
+OBJS_PB = $(patsubst src/%, $(OBJDIR)/%, $(SRC_PB:.cpp=.o))
+OBJS_EXEC = $(patsubst src/%, $(OBJDIR)/%, $(SRC_EXEC:.cpp=.o))
 
 DESIGN_MARKER = .design_running
 
@@ -24,21 +25,22 @@ $(DESIGN_MARKER):
 	@bash src/generateGradient.cpp &
 	@touch $(DESIGN_MARKER)
 
-$(NAME_PB): $(OBJS_PB) $(DESIGN_MARKER)
+$(NAME_PB): $(DESIGN_MARKER) $(OBJS_PB)
 	@$(CC) $(CFLAGS) $(OBJS_PB) -o $(NAME_PB)
 
-$(NAME_EXEC): $(OBJS_EXEC) $(DESIGN_MARKER)
+$(NAME_EXEC):$(DESIGN_MARKER) $(OBJS_EXEC)
 	@$(CC) $(CFLAGS) $(OBJS_EXEC) -o $(NAME_EXEC)
 
-%.o: %.cpp
-	@${CC} ${CFLAGS} -c $< -o $@
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS_PB) $(OBJS_EXEC)
-	@rm -rf $(DESIGN_MARKER)
+	@$(RM) $(OBJDIR)
 
 fclean: clean
-	@$(RM) $(NAME) $(NAME_EXEC)
+	@$(RM) $(NAME_PB) $(NAME_EXEC) $(DESIGN_MARKER)
+
 
 re: fclean all
 
