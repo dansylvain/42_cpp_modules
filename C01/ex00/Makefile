@@ -10,16 +10,9 @@ SRC = src/main.cpp \
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
-DESIGN_MARKER = .design_running
-
 all: $(NAME)
 
-$(DESIGN_MARKER):
-	clear
-	@bash src/generateGradient.cpp &
-	@touch $(DESIGN_MARKER)
-
-$(NAME): $(OBJS) $(DESIGN_MARKER)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o: src/%.cpp
@@ -30,7 +23,7 @@ clean:
 	@$(RM) $(OBJDIR)
 
 fclean: clean 
-	@$(RM) $(NAME) $(DESIGN_MARKER)
+	@$(RM) $(NAME)
 
 re: fclean all
 
