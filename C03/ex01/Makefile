@@ -14,17 +14,17 @@ OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o: src/%.cpp
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJDIR)
+	$(RM) $(OBJDIR)
 
 fclean: clean 
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
