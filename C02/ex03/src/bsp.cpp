@@ -18,7 +18,6 @@ void	initializeArray(int array[], Point const p)
 
 bool haveSameSign(int x, int y)
 {
-	printf("x: %i, y: %i\n", x, y);
 	if ((x > 0 && y > 0) || (x < 0 && y < 0))
 		return (true);
 	return (false);
