@@ -1,35 +1,32 @@
 NAME = megaphone
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc #-g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-
-OBJDIR = obj
 
 SRC = megaphone.cpp
 
-OBJS = $(patsubst /%, $(OBJDIR)/%, $(SRC:.cpp=.o))
+OBJS = $(SRC:.cpp=.o)
 
-DESIGN_MARKER = .design_running
+#DESIGN_MARKER = .design_running
 
 all: $(NAME)
 
-$(DESIGN_MARKER):
-	clear
-	@bash generateGradient.cpp &
-	@touch $(DESIGN_MARKER)
+#$(DESIGN_MARKER):
+	@#clear
+	@#@bash generateGradient.cpp &
+	@#@touch $(DESIGN_MARKER)
 
-$(NAME): $(DESIGN_MARKER) $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJDIR)/%.o: src/%.cpp
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean 
-	@$(RM) $(NAME) $(DESIGN_MARKER)
+	$(RM) $(NAME)
 
 re: fclean all
 
