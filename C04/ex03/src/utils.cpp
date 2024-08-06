@@ -64,7 +64,7 @@ AMateria *getMateriaFromGround(std::string index)
 	if (!isDigitsOnly(index) || index.empty())
 		return (NULL);
 	int idx = std::atoi(index.c_str());
-	if (idx < 0 && idx > 99)
+	if (idx < 0 || idx > 99)
 		return (NULL);
 	return AMateria::getMaterias()[idx];
 }

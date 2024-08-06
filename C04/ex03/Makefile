@@ -1,7 +1,7 @@
 NAME_INTERFACE = interface
 NAME_EXEC = exec
 
-CXX = g++
+CXX = c++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g -Iinc
 

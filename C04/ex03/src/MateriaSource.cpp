@@ -64,7 +64,7 @@ void MateriaSource::learnMateria(AMateria *m)
 }
 AMateria *MateriaSource::createMateria(std::string const & type)
 {
-	AMateria *ptr;
+	AMateria *ptr = NULL;
 	if (type == CURE)
 		ptr = AMateria::addMateria(new Cure(type));
 	else if (type == ICE)

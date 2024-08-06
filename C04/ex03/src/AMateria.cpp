@@ -111,7 +111,7 @@ AMateria *AMateria::addMateria(AMateria *newMateria)
 
 AMateria*	AMateria::addMateria(std::string type)
 {
-	AMateria *ptr;
+	AMateria *ptr = NULL;
 	if (type == CURE)
 		ptr = AMateria::addMateria(new Cure(type));
 	else if (type == ICE)
