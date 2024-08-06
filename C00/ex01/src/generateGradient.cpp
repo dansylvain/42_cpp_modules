@@ -28,7 +28,7 @@ color_step_g=$(( (end_g - start_g) / (lines - 1) ))
 color_step_b=$(( (end_b - start_b) / (lines - 1) ))
 
 display_pattern() {
-	local delay=0.1  # Délai en secondes entre les lignes
+	local delay=0.01  # Délai en secondes entre les lignes
 	local padding_x=5  # Espacement horizontal
 	local padding_y=2  # Espacement vertical
 
