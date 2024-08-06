@@ -1,19 +1,29 @@
-TARGET = letUsSpeak
+NAME = letUsSpeak
+CC = c++
+CFLAGS = -std=c++98 -Wall -Wextra -Werror -Iinc
+RM = rm -rf
+OBJDIR = obj
 
-CXX = g++
+SRC = 	src/main.cpp \
+		src/Fixed.cpp
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
-SRC = main.cpp Fixed.cpp
+all: $(NAME)
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-all: $(TARGET)
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-fclean: clean
-	rm	-f	$(TARGET) 
+clean:
+	@$(RM) $(OBJDIR)
 
-re:	fclean	all
+fclean: clean 
+	@$(RM) $(NAME)
 
-.PHONY: all clean
+re: fclean all
+
+.PHONY: all clean fclean re
