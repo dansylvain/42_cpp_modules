@@ -7,11 +7,11 @@ class Harl {
 		void warning( void );
 		void error( void );
 
-	public:
 		std::string _debugMssg;
 		std::string _infoMssg;
 		std::string _warningMssg;
 		std::string _errorMssg;
+	public:
 		Harl();
 		~Harl();
 		void complain( std::string level );
