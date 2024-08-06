@@ -1,19 +1,31 @@
-TARGET = serena
+NAME = serena
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc #-g
+RM = rm -rf
 
-CXX = g++
+OBJDIR = obj
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+SRC = 	src/main.cpp \
+		src/ClapTrap.cpp \
+		src/ScavTrap.cpp \
 
-SRC = main.cpp ClapTrap.hpp ClapTrap.cpp ScavTrap.cpp
+OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+all: $(NAME)
 
-all: $(TARGET)
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-fclean: clean
-	rm	-f	$(TARGET) 
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-re:	fclean	all
+clean:
+	@$(RM) $(OBJDIR)
 
-.PHONY: all clean
+fclean: clean 
+	@$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
