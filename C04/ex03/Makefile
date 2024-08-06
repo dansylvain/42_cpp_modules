@@ -44,7 +44,7 @@ $(NAME_EXEC): $(DESIGN_MARKER) $(OBJS_EXEC)
 	@$(CC) $(CFLAGS) $(OBJS_EXEC) -o $(NAME_EXEC)
 
 $(OBJDIR)/%.o: src/%.cpp
-	@mkdir -p $(OBJDIR)  # Crée le répertoire obj s'il n'existe pas
+	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
