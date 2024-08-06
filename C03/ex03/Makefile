@@ -1,19 +1,40 @@
-TARGET = howWeird
+NAME = howWeird
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc #-g
+RM = rm -rf
 
-CXX = g++
+OBJDIR = obj
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+SRC = 	src/main.cpp \
+		src/ClapTrap.cpp \
+		src/ScavTrap.cpp \
+		src/DiamondTrap.cpp \
+		src/FragTrap.cpp \
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+DESIGN_MARKER = .design_running
 
-all: $(TARGET)
+all: $(NAME)
 
-fclean: clean
-	rm	-f	$(TARGET) 
+$(DESIGN_MARKER):
+	@clear
+	@bash src/generateGradient.cpp &
+	@touch $(DESIGN_MARKER)
 
-re:	fclean	all
+$(NAME): $(DESIGN_MARKER) $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-.PHONY: all clean
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	@$(RM) $(OBJDIR)
+
+fclean: clean 
+	@$(RM) $(NAME) $(DESIGN_MARKER)
+
+re: fclean all
+
+.PHONY: all clean fclean re
