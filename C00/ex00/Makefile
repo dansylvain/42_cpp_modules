@@ -7,14 +7,7 @@ SRC = megaphone.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
-#DESIGN_MARKER = .design_running
-
 all: $(NAME)
-
-#$(DESIGN_MARKER):
-	@#clear
-	@#@bash generateGradient.cpp &
-	@#@touch $(DESIGN_MARKER)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

@@ -1,6 +1,6 @@
 NAME = be_violent
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc #-g
 RM = rm -rf
 
 OBJDIR = obj
@@ -19,7 +19,7 @@ $(NAME): $(OBJS)
 
 $(OBJDIR)/%.o: src/%.cpp
 	mkdir -p $(OBJDIR)
-	${CC} ${CFLAGS} -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJDIR)

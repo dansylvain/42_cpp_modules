@@ -1,23 +1,24 @@
 NAME = sed
 CC = c++
-CFLAGS = 	-std=c++98 -Iinc \
-			-Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc #-g
 RM = rm -rf
-
-SRC =	main.cpp Utils.cpp
+OBJDIR = obj
+SRC =	src/main.cpp \
+		src/Utils.cpp
 		
-OBJS = $(SRC:.cpp=.o)
+OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
-	${CC} ${CFLAGS} -c $< -o $@
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	$(RM) $(OBJDIR) *.replace
 
 fclean: clean
 	$(RM) $(NAME)

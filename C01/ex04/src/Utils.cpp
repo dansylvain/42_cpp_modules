@@ -6,7 +6,7 @@
 /*   By: dansylvain <dansylvain@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 10:57:09 by dansylvain        #+#    #+#             */
-/*   Updated: 2024/07/20 11:10:19 by dansylvain       ###   ########.fr       */
+/*   Updated: 2024/08/06 14:23:39 by dansylvain       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,9 @@ void	Utils::createNewFile(std::ifstream& inputFile,
 {
 	std::string newline;
 	std::string line;
-
 	while (std::getline(inputFile, line))
 	{
-		std::cout << line << std::endl;
 		newline = Utils::replaceAllOccurrences(line, argv);
-		std::cout << newline << std::endl;
 		outputFile << newline << std::endl;
 	}
 }
