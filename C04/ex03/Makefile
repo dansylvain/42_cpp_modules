@@ -1,10 +1,9 @@
 NAME_INTERFACE = interface
 NAME_EXEC = exec
-
-CXX = c++
-
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g -Iinc
-
+CC = c++
+OBJDIR = obj
+RM = rm -rf
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 SRC_INTERFACE =	src/main.cpp \
 				src/Terminal.cpp \
 	   			src/utils.cpp \
@@ -25,34 +24,35 @@ SRC_EXEC =	src/exec.cpp \
 			src/test_three.cpp \
 			src/Terminal.cpp 
 
-OBJS_INTERFACE = $(SRC_INTERFACE:.cpp=.o)
-OBJS_EXEC = $(SRC_EXEC:.cpp=.o)
+OBJS_INTERFACE = $(patsubst src/%, $(OBJDIR)/%, $(SRC_INTERFACE:.cpp=.o))
+OBJS_EXEC = $(patsubst src/%, $(OBJDIR)/%, $(SRC_EXEC:.cpp=.o))
 
-# Fichier marqueur pour l'animation
 DESIGN_MARKER = .design_running
 
-# Règle principale
 all: $(NAME_EXEC) $(NAME_INTERFACE)
 
-# Règle pour afficher le motif en arrière-plan, si nécessaire
 $(DESIGN_MARKER):
 	clear
 	@bash src/generateGradient.cpp &
 	@touch $(DESIGN_MARKER)
 
-# Règle pour compiler le projet
-$(NAME_EXEC): $(SRC_EXEC) $(DESIGN_MARKER)
-	@$(CXX) $(CXXFLAGS) $(SRC_EXEC) -o $(NAME_EXEC)
 
-$(NAME_INTERFACE): $(SRC_INTERFACE) $(DESIGN_MARKER)
-	@$(CXX) $(CXXFLAGS) $(SRC_INTERFACE) -o $(NAME_INTERFACE)
-# Nettoyage
+$(NAME_INTERFACE): $(DESIGN_MARKER) $(OBJS_INTERFACE)
+	@$(CC) $(CFLAGS) $(OBJS_INTERFACE) -o $(NAME_INTERFACE)
+
+$(NAME_EXEC): $(DESIGN_MARKER) $(OBJS_EXEC)
+	@$(CC) $(CFLAGS) $(OBJS_EXEC) -o $(NAME_EXEC)
+
+$(OBJDIR)/%.o: src/%.cpp
+	@mkdir -p $(OBJDIR)  # Crée le répertoire obj s'il n'existe pas
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	@$(RM) $(OBJDIR)
+
 fclean: clean
-	@rm -f $(NAME_EXEC)
-	@rm -f $(DESIGN_MARKER)  # Supprimer le fichier marqueur après compilation
+	@$(RM) $(NAME_EXEC) $(NAME_INTERFACE) $(DESIGN_MARKER)
 
-# Recompile tout après nettoyage
 re: fclean all
 
-# Dépendances pour les cibles
-.PHONY: all clean re
+.PHONY: all clean fclean re
