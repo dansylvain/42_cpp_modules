@@ -13,6 +13,15 @@ int main (void)
 	print("");
 	try
 	{
+		Bureaucrat bureaucrat("Kamel", 666);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	print("");
+	try
+	{
 		zaphod->incrementGrade();
 		zaphod->incrementGrade();
 		zaphod->incrementGrade();
