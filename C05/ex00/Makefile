@@ -19,6 +19,9 @@ $(OBJDIR)/%.o: src/%.cpp
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+wno: CFLAGS = -std=c++98 -Iinc -g
+wno: $(NAME)
+
 clean:
 	$(RM) $(OBJDIR)
 

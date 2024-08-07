@@ -1,9 +1,11 @@
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include <iostream>
 
 class Bureaucrat{
 	private:
-		const std::string	name;
-		int					grade;
+		const std::string	_name;
+		int					_grade;
 	public:
 		// constructors and destructor
 		Bureaucrat();
@@ -19,4 +21,18 @@ class Bureaucrat{
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
+
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			virtual char const* what() const throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			virtual char const* what() const throw();
+	};
 };
+
+#endif
