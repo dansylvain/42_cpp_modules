@@ -69,7 +69,7 @@ void	Bureaucrat::decrementGrade()
 
 void	Bureaucrat::incrementGrade()
 {
-	if (_grade <= 0)
+	if (_grade <= 1)
 		throw GradeTooLowException();
 	_grade--;
 	std::cout << _name << "grade incremented: now at " << _grade << std::endl;

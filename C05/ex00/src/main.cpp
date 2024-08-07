@@ -16,9 +16,16 @@ int main (void)
 		zaphod->incrementGrade();
 		zaphod->incrementGrade();
 		zaphod->incrementGrade();
-		zaphod->incrementGrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	print("");
+	try
+	{
 		bureaucrat.incrementGrade();
-		bureaucrat.incrementGrade();
+		bureaucrat.decrementGrade();
 		bureaucrat.decrementGrade();
 	}
 	catch(const std::exception& e)
@@ -28,6 +35,9 @@ int main (void)
 	print("");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
+	bureaucrat = *zaphod;
+	std::cout << bureaucrat << std::endl;
+
 	delete zaphod;
 }
 
