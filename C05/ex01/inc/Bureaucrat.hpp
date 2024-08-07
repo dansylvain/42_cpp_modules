@@ -16,10 +16,10 @@ class Bureaucrat{
 		// assignment operateur
 		Bureaucrat& operator=(const Bureaucrat& other);
 
-		std::string* operator<<(const Bureaucrat& bureaucrat);
+		std::string& operator<<(const Bureaucrat& bureaucrat);
 
 		// getters and setters
-		const std::string&	getName() const;
+		const std::string&	get_name() const;
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();

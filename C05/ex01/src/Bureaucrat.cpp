@@ -41,7 +41,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
-	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	os << bureaucrat.get_name() << ", bureaucrat grade " << bureaucrat.getGrade();
 		return os;
 }
 
@@ -49,7 +49,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 /**========================================================================
  *                           GETTERS AND SETTERS
  *========================================================================**/
-const std::string&	Bureaucrat::getName() const 
+const std::string&	Bureaucrat::get_name() const 
 {
 	return (_name);
 }
