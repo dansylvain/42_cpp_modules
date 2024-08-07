@@ -1,8 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "main.hpp"
-//		const std::string	name;
-//		int					grade;
-		// constructors and destructor
+#include <sstream>
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
@@ -28,7 +26,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 
 Bureaucrat::~Bureaucrat()
 {
-	print("Bureaucrat destroyed");
+	std::cout << "Bureaucrat " << _name << " destroyed" << std::endl;
 }
 
 /**========================================================================
@@ -41,6 +39,13 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return (*this);
 }
 
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
+{
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+		return os;
+}
+
+
 /**========================================================================
  *                           GETTERS AND SETTERS
  *========================================================================**/
@@ -49,34 +54,36 @@ const std::string&	Bureaucrat::getName() const
 	return (_name);
 }
 
-int					Bureaucrat::getGrade() const
+int		Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
 
-void				Bureaucrat::incrementGrade()
+void	Bureaucrat::decrementGrade()
 {
 	if (_grade >= 150)
 		throw GradeTooHighException();
 	_grade++;
+	std::cout << _name << "grade decremented: now at " << _grade << std::endl;
 }
 
-void				Bureaucrat::decrementGrade()
+void	Bureaucrat::incrementGrade()
 {
 	if (_grade <= 0)
 		throw GradeTooLowException();
 	_grade--;
+	std::cout << _name << "grade incremented: now at " << _grade << std::endl;
 }
 
 /**========================================================================
  *                           EXCEPTIONS
  *========================================================================**/
-const char* 		Bureaucrat::GradeTooHighException::what() const throw() 
+const char*	Bureaucrat::GradeTooHighException::what() const throw() 
 {
 	return ("Grade too high");
 }
 
-const char* 		Bureaucrat::GradeTooLowException::what() const throw() 
+const char*	Bureaucrat::GradeTooLowException::what() const throw() 
 {
 	return ("Grade too low");
 }

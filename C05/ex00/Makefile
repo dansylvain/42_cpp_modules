@@ -1,5 +1,5 @@
 NAME = bureaucrats
-CC = c++
+CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc -g
 RM = rm -rf
 

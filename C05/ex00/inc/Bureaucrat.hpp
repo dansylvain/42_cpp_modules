@@ -16,23 +16,26 @@ class Bureaucrat{
 		// assignment operateur
 		Bureaucrat& operator=(const Bureaucrat& other);
 
+		std::string* operator<<(const Bureaucrat& bureaucrat);
+
 		// getters and setters
 		const std::string&	getName() const;
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
 
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			virtual char const* what() const throw();
-	};
-
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual char const* what() const throw();
-	};
+		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+		
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual char const* what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual char const* what() const throw();
+		};
 };
 
 #endif
