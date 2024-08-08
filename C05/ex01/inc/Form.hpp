@@ -2,6 +2,7 @@
 #define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -27,6 +28,8 @@ class Form
 		bool				getIsSigned() const;
 		int					getGradeToSign() const;
 		int					getGradeToExec() const;
+		void				beSigned(Bureaucrat& bureaucrat);
+
 
 	class GradeTooHighException : public std::exception
 	{

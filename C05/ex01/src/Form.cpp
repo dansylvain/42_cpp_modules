@@ -1,13 +1,14 @@
 #include "Form.hpp"
 #include "main.hpp"
 #include <sstream>
+#include "Bureaucrat.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Form::Form() : _name("Form"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
+Form::Form() : _name("form"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
 {
-	print("Form created (default constructor)");
+	std::cout << "Form " << _name << " created (default constructor)" << std::endl;
 }
 
 Form::Form(const std::string name, const int gradeToSign, const int gradeToExec) :	_name(name),
@@ -19,7 +20,7 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExec)
 		throw GradeTooHighException();
 	if (gradeToSign < 0 || gradeToExec < 0)
 		throw GradeTooLowException();
-	print("Form created (parametered constructor)");
+	std::cout << "Form " << _name << " created (parametered constructor)" << std::endl;
 }
 
 Form::Form(const Form& other) :	_isSigned(other._isSigned),
@@ -51,11 +52,14 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 		str = "signed, ";
 	else 
 		str = "NOT signed, ";
-	os << form.get_name() << ", " + form.getIsSigned() + str << "grade to sign: "
-	<< form.getGradeToSign() << ", grade to execute: " << form.getGradeToExec();
+	os << form.get_name() << ", " + str << "grade needed to sign: "
+	<< form.getGradeToSign() << ", grade needed to execute: " << form.getGradeToExec();
 		return os;
 }
 
+/**========================================================================
+ *                           GETTERS AND SETTERS
+ *========================================================================**/
 const std::string&	Form::get_name() const
 {
 	return (_name);
@@ -76,6 +80,20 @@ int	Form::getGradeToExec() const
 	return (_gradeToExec);
 }
 
+void	Form::beSigned(Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() > _gradeToSign)
+	{
+		std::cout << bureaucrat.get_name() << " couldn't sign " << _name << " because ";
+		throw (GradeTooLowException());
+	}
+	_isSigned = true;
+	std::cout << bureaucrat.get_name() << " signed " << _name << std::endl;
+}
+
+/**========================================================================
+ *                           EXCEPTIONS
+ *========================================================================**/
 const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high");

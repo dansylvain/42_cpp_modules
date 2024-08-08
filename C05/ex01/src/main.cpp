@@ -8,7 +8,6 @@ int main (void)
 	print("Welcome to the jungle");
 	print("");
 	print("--------- Bureaucrats Tests -------------");
-
 	Bureaucrat bureaucrat;
 	Bureaucrat *zaphod = new Bureaucrat("Zaphod Beeblebrox", 3	);
 	print("");
@@ -50,20 +49,13 @@ int main (void)
 	std::cout << *zaphod << std::endl;
 	bureaucrat = *zaphod;
 	std::cout << bureaucrat << std::endl;
-
 	print("");
 	print("--------- Forms Tests -------------");
-
-
-
-
-
-
 	Form form;
-	Form *Form42 = new Form("Form42", 42, 142);
+	Form *form42 = new Form("form42", 42, 142);
 	print("");
 	std::cout << form << std::endl;
-	std::cout << *Form42 << std::endl;
+	std::cout << *form42 << std::endl;
 	print("");
 	try
 	{
@@ -74,14 +66,22 @@ int main (void)
 		std::cerr << e.what() << '\n';
 	}
 	print("");
-	std::cout << *Form42 << std::endl;
+	std::cout << *form42 << std::endl;
+	try
+	{
+		form42->beSigned(*zaphod);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << *form42 << std::endl;
 	std::cout << form << std::endl;
-	form = *Form42;
+	form = *form42;
 	std::cout << form << std::endl;
-
-
-
-	delete Form42;
+	print("");
+	print("--------- clean ressources --------");
+	delete form42;
 	delete zaphod;
 
 }
