@@ -56,28 +56,28 @@ int main (void)
 	print("--------- Forms Tests -------------");
 
 	ShrubberyCreationForm form;
-	RobotomyRequestForm roboForm("order66", "All jedis");
-	PresidentialPardonForm presForm("form666", "All humans");
+	RobotomyRequestForm order66("order66", "All jedis");
+	PresidentialPardonForm form666("form666", "All humans");
 
 	ShrubberyCreationForm *form42 = new ShrubberyCreationForm("form42", "ouioui");
 	print("");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
-	std::cout << roboForm << std::endl;
-	std::cout << presForm << std::endl;
+	std::cout << order66 << std::endl;
+	std::cout << form666 << std::endl;
 	print("");
 	
 	try
 	{
-		zaphod->signForm(roboForm);
-		zaphod->signForm(presForm);
+		zaphod->signForm(order66);
+		zaphod->signForm(form666);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << roboForm << std::endl;
-	std::cout << presForm << std::endl;
+	std::cout << order66 << std::endl;
+	std::cout << form666 << std::endl;
 	
 	print("");
 	
@@ -121,7 +121,23 @@ int main (void)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << form7B << std::endl;
+
+	print("");
+	print("--------- execution tests- --------");
+	try
+	{
+		form42->execute(*zaphod);
+		form.execute(*zaphod);
+		order66.execute(*zaphod);
+		form666.execute(*zaphod);
+		form7B.execute(*zaphod);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
+
 	print("");
 	print("--------- clean ressources --------");
 	delete form42;

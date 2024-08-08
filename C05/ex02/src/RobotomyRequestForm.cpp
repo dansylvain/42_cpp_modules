@@ -24,8 +24,12 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "RobotomyRequestForm " << _name << " destroyed" << std::endl;
 }
 
-void				RobotomyRequestForm::setSignedToTrue()
+void	RobotomyRequestForm::setSignedToTrue()
 {
 	_isSigned = true;
-	std::cout << "****** ShrubberyCreationForm *********** " << _target << std::endl;
+}
+
+void	RobotomyRequestForm::action() const
+{
+	std::cout << "****** RobotomyRequestForm *********** " << _target << std::endl;	
 }

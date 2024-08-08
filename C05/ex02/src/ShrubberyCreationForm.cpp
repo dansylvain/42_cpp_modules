@@ -24,7 +24,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm " << _name << " destroyed" << std::endl;
 }
 
-void				ShrubberyCreationForm::setSignedToTrue()
+void	ShrubberyCreationForm::setSignedToTrue()
 {
-	std::cout << "****** ShrubberyCreationForm *********** " << _target << std::endl;
+	_isSigned = true;
+}
+
+void	ShrubberyCreationForm::action() const
+{
+	std::cout << "****** ShrubberyCreationForm *********** " << _target << std::endl;	
 }

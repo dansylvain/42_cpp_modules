@@ -10,4 +10,5 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const PresidentialPardonForm& other);
 		~PresidentialPardonForm();
 		void				setSignedToTrue();
+		void				action() const;
 };

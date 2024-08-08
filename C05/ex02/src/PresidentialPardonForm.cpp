@@ -27,5 +27,9 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void				PresidentialPardonForm::setSignedToTrue()
 {
 	_isSigned = true;
-	std::cout << "****** PresidentialPardonForm *********** " << _target << std::endl;
+}
+
+void	PresidentialPardonForm::action() const
+{
+	std::cout << "****** PresidentialPardonForm *********** " << _target << std::endl;	
 }

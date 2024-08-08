@@ -23,7 +23,6 @@ class AForm
 
 		//assignment operator
 		AForm& operator=(const AForm& other);
-
 		friend std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 		//getters and setters
@@ -33,7 +32,8 @@ class AForm
 		virtual int					getGradeToExec() const;
 		virtual void				beSigned(Bureaucrat& bureaucrat);
 		virtual void				setSignedToTrue() = 0;
-
+		void						execute(const Bureaucrat& executor) const;
+		virtual void				action() const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -45,6 +45,11 @@ class AForm
 		public:
 			virtual char const* what() const throw();
 	};
+	class FormNotSignedException : public std::exception
+	{
+		public:
+			virtual char const* what() const throw();
+	};	
 };
 
 #endif

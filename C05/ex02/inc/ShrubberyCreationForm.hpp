@@ -10,4 +10,5 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm();
 		void				setSignedToTrue();
+		void				action() const;
 };

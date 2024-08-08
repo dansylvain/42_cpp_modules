@@ -10,4 +10,5 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		~RobotomyRequestForm();
 		void				setSignedToTrue();
+		void				action() const;
 };
