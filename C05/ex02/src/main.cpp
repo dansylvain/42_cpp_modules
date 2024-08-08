@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 #include "main.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main (void)
 {
@@ -47,19 +48,20 @@ int main (void)
 	print("");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
-	bureaucrat = *zaphod;
+	// bureaucrat = *zaphod;
 	std::cout << bureaucrat << std::endl;
 	print("");
 	print("--------- Forms Tests -------------");
-	AForm form;
-	AForm *form42 = new AForm("form42", 42, 142);
+
+	ShrubberyCreationForm form;
+	ShrubberyCreationForm *form42 = new ShrubberyCreationForm("form42");
 	print("");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
 	print("");
 	try
 	{
-		AForm form7B("form7B", 151, 7);
+		ShrubberyCreationForm form7B("form7B");
 	}
 	catch(const std::exception& e)
 	{
@@ -70,6 +72,7 @@ int main (void)
 	try
 	{
 		form42->beSigned(*zaphod);
+		form42->beSigned(bureaucrat);
 	}
 	catch(const std::exception& e)
 	{
@@ -80,11 +83,11 @@ int main (void)
 
 	std::cout << form << std::endl;
 	form = *form42;
-	Bureaucrat prostetnic("Prostetnic Vogon Jeltz", 74);
+	Bureaucrat prostetnic("Prostetnic Vogon Jeltz", 150);
 	std::cout << form << std::endl;
 	print("");
 	
-	AForm form7B("form7B", 42, 42);
+	ShrubberyCreationForm form7B("form7B");
 	std::cout << form7B << std::endl;
 	try
 	{

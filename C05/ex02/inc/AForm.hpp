@@ -9,17 +9,17 @@ class Bureaucrat;
 
 class AForm
 {
-	private:
-		const std::string	_name;
+	protected:
+		std::string	_name;
 		bool				_isSigned;
-		const int			_gradeToSign;
-		const int			_gradeToExec;
+		int			_gradeToSign;
+		int			_gradeToExec;
 	public:
 		//constructor and destructor
 		AForm();
 		AForm(const std::string	_name, const int gradeToSign, const int gradeToExec);
 		AForm(const AForm& other);
-		~AForm();
+		virtual ~AForm();
 
 		//assignment operator
 		AForm& operator=(const AForm& other);
@@ -27,12 +27,12 @@ class AForm
 		friend std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 		//getters and setters
-		const std::string&	get_name() const;
-		bool				getIsSigned() const;
-		int					getGradeToSign() const;
-		int					getGradeToExec() const;
-		void				beSigned(Bureaucrat& bureaucrat);
-		void				setSignedToTrue();
+		virtual const std::string&	get_name() const;
+		virtual bool				getIsSigned() const;
+		virtual int					getGradeToSign() const;
+		virtual int					getGradeToExec() const;
+		virtual void				beSigned(Bureaucrat& bureaucrat);
+		virtual void				setSignedToTrue() = 0;
 
 
 	class GradeTooHighException : public std::exception
