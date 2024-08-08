@@ -18,8 +18,7 @@ class Bureaucrat{
 
 		// assignment operateur
 		Bureaucrat& operator=(const Bureaucrat& other);
-
-		std::string& operator<<(const Bureaucrat& bureaucrat);
+		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 		// getters and setters
 		const std::string&	get_name() const;
@@ -27,8 +26,7 @@ class Bureaucrat{
 		void				incrementGrade();
 		void				decrementGrade();
 		void				signForm(AForm& form);
-
-		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+		void				executeForm(AForm const & form) const;
 		
 		class GradeTooHighException : public std::exception
 		{

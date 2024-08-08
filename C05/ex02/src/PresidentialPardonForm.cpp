@@ -1,5 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "main.hpp"
+
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("target")
 {
 	std::cout << "PresidentialPardonForm " << _name << " created (default constructor)" << std::endl;
@@ -24,7 +25,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "PresidentialPardonForm " << _name << " destroyed" << std::endl;
 }
 
-void				PresidentialPardonForm::setSignedToTrue()
+void	PresidentialPardonForm::setSignedToTrue()
 {
 	_isSigned = true;
 }

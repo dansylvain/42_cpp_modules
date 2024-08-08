@@ -136,6 +136,21 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	print("");
+	try
+	{
+		zaphod->executeForm(*form42);
+		zaphod->executeForm(form);
+		zaphod->executeForm(order66);
+		zaphod->executeForm(form666);
+		zaphod->executeForm(form7B);
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	
 
 	print("");

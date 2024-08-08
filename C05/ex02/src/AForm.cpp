@@ -100,13 +100,21 @@ void	AForm::setSignedToTrue()
 	_isSigned = true;
 }
 
-void	AForm::execute(const Bureaucrat& executor) const
+int	AForm::execute(const Bureaucrat& executor) const
 {
 	if (!_isSigned)
+	{
+		std::cout << executor.get_name() << " could not execute " << get_name() << ": " << std::endl;
 		throw (FormNotSignedException());
+	}
+
 	if (executor.getGrade() > _gradeToExec)
+	{
+		std::cout << executor.get_name() << " could not execute " << get_name() << ": " << std::endl;
 		throw (GradeTooLowException());
+	}
 	action();
+	return (1);
 }
 
 /**========================================================================

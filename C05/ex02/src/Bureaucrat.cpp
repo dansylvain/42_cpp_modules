@@ -87,6 +87,16 @@ void	Bureaucrat::signForm(AForm& form)
 	form.setSignedToTrue();
 }
 
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	if (form.execute(*this))
+	{
+		std::cout << this->get_name() << " executed " << form.get_name() << std::endl;
+		return ;
+	}
+	std::cout << this->get_name() << " could not execute " << form.get_name() << ": " << std::endl;
+}
+
 /**========================================================================
  *                           EXCEPTIONS
  *========================================================================**/
