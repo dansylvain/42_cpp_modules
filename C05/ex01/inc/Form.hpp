@@ -7,9 +7,9 @@ class Form
 {
 	private:
 		const std::string	_name;
-		bool				isSigned;
-		const int			gradeToSign;
-		const int			gradeToExec;
+		bool				_isSigned;
+		const int			_gradeToSign;
+		const int			_gradeToExec;
 	public:
 		//constructor and destructor
 		Form();
