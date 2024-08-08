@@ -31,5 +31,6 @@ void				PresidentialPardonForm::setSignedToTrue()
 
 void	PresidentialPardonForm::action() const
 {
-	std::cout << "****** PresidentialPardonForm *********** " << _target << std::endl;	
+
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;	
 }
