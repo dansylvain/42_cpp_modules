@@ -51,15 +51,15 @@ int main (void)
 	std::cout << bureaucrat << std::endl;
 	print("");
 	print("--------- Forms Tests -------------");
-	Form form;
-	Form *form42 = new Form("form42", 42, 142);
+	AForm form;
+	AForm *form42 = new AForm("form42", 42, 142);
 	print("");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
 	print("");
 	try
 	{
-		Form form7B("form7B", 151, 7);
+		AForm form7B("form7B", 151, 7);
 	}
 	catch(const std::exception& e)
 	{
@@ -84,7 +84,7 @@ int main (void)
 	std::cout << form << std::endl;
 	print("");
 	
-	Form form7B("form7B", 42, 42);
+	AForm form7B("form7B", 42, 42);
 	std::cout << form7B << std::endl;
 	try
 	{

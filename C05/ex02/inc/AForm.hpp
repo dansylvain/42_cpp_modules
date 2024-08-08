@@ -7,7 +7,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	_name;
@@ -16,15 +16,15 @@ class Form
 		const int			_gradeToExec;
 	public:
 		//constructor and destructor
-		Form();
-		Form(const std::string	_name, const int gradeToSign, const int gradeToExec);
-		Form(const Form& other);
-		~Form();
+		AForm();
+		AForm(const std::string	_name, const int gradeToSign, const int gradeToExec);
+		AForm(const AForm& other);
+		~AForm();
 
 		//assignment operator
-		Form& operator=(const Form& other);
+		AForm& operator=(const AForm& other);
 
-		friend std::ostream& operator<<(std::ostream& os, const Form& form);
+		friend std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 		//getters and setters
 		const std::string&	get_name() const;

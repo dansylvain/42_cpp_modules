@@ -6,12 +6,12 @@
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Form::Form() : _name("form"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
+AForm::AForm() : _name("form"), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
 {
-	std::cout << "Form " << _name << " created (default constructor)" << std::endl;
+	std::cout << "AForm " << _name << " created (default constructor)" << std::endl;
 }
 
-Form::Form(const std::string name, const int gradeToSign, const int gradeToExec) :	_name(name),
+AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExec) :	_name(name),
 																				_isSigned(false),
 																				_gradeToSign(gradeToSign),
 																				_gradeToExec(gradeToExec)
@@ -20,32 +20,32 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExec)
 		throw GradeTooHighException();
 	if (gradeToSign < 0 || gradeToExec < 0)
 		throw GradeTooLowException();
-	std::cout << "Form " << _name << " created (parametered constructor)" << std::endl;
+	std::cout << "AForm " << _name << " created (parametered constructor)" << std::endl;
 }
 
-Form::Form(const Form& other) :	_isSigned(other._isSigned),
+AForm::AForm(const AForm& other) :	_isSigned(other._isSigned),
 							_gradeToSign(other._gradeToSign),
 							_gradeToExec(other._gradeToExec)
 {
-	print("Form created (copy constructor)");
+	print("AForm created (copy constructor)");
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	print("Form destroyed");
+	print("AForm destroyed");
 }
 
 /**========================================================================
  *                           ASSIGNMENT OPERATOR
  *========================================================================**/
-Form& Form::operator=(const Form& other)
+AForm& AForm::operator=(const AForm& other)
 {
 	if (this != &other)
 		_isSigned = other._isSigned;
 	return (*this);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form)
+std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
 	std::string str;
 	if (form.getIsSigned())
@@ -63,27 +63,27 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 /**========================================================================
  *                           GETTERS AND SETTERS
  *========================================================================**/
-const std::string&	Form::get_name() const
+const std::string&	AForm::get_name() const
 {
 	return (_name);
 }
 
-bool	Form::getIsSigned() const
+bool	AForm::getIsSigned() const
 {
 	return (_isSigned);
 }
 
-int	Form::getGradeToSign() const
+int	AForm::getGradeToSign() const
 {
 	return (_gradeToSign);
 }
 
-int	Form::getGradeToExec() const
+int	AForm::getGradeToExec() const
 {
 	return (_gradeToExec);
 }
 
-void	Form::beSigned(Bureaucrat& bureaucrat)
+void	AForm::beSigned(Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSign)
 	{
@@ -94,7 +94,7 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 	std::cout << bureaucrat.get_name() << " signed " << _name << std::endl;
 }
 
-void	Form::setSignedToTrue()
+void	AForm::setSignedToTrue()
 {
 	_isSigned = true;
 }
@@ -103,12 +103,12 @@ void	Form::setSignedToTrue()
 /**========================================================================
  *                           EXCEPTIONS
  *========================================================================**/
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
 }

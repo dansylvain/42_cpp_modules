@@ -76,7 +76,7 @@ void	Bureaucrat::incrementGrade()
 	std::cout << _name << "grade incremented: now at " << _grade << std::endl;
 }
 
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(AForm& form)
 {
 	if (getGrade() > form.getGradeToSign())
 	{
