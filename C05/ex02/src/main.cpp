@@ -3,6 +3,8 @@
 #include "main.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main (void)
 {
@@ -54,11 +56,32 @@ int main (void)
 	print("--------- Forms Tests -------------");
 
 	ShrubberyCreationForm form;
+	RobotomyRequestForm roboForm;
+	PresidentialPardonForm presForm;
+
 	ShrubberyCreationForm *form42 = new ShrubberyCreationForm("form42");
 	print("");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
+	std::cout << roboForm << std::endl;
+	std::cout << presForm << std::endl;
 	print("");
+	
+	try
+	{
+		zaphod->signForm(roboForm);
+		zaphod->signForm(presForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << roboForm << std::endl;
+	std::cout << presForm << std::endl;
+	
+	print("");
+	
+	
 	try
 	{
 		ShrubberyCreationForm form7B("form7B");
