@@ -1,20 +1,20 @@
 #include "RobotomyRequestForm.hpp"
 #include "main.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("target")
 {
 	std::cout << "RobotomyRequestForm " << _name << " created (default constructor)" << std::endl;
 }
 
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string	_name) : AForm(_name, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string	name, const std::string target) : AForm(name, 72, 45), _target(target)
 {
 	std::cout << "RobotomyRequestForm " << _name << " created (parametered constructor)" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const AForm& other) :	AForm(other.get_name(), 
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) :	AForm(other.get_name(), 
 																	other.getGradeToSign(),
-																	other.getGradeToExec())
+																	other.getGradeToExec()), _target(other._target)
 {
 	std::cout << "RobotomyRequestForm " << _name << " created (copy constructor)" << std::endl;
 }
@@ -27,5 +27,5 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void				RobotomyRequestForm::setSignedToTrue()
 {
 	_isSigned = true;
-	print("*************** RobotomyRequestForm DO SOMETHING *************");
+	std::cout << "****** ShrubberyCreationForm *********** " << _target << std::endl;
 }

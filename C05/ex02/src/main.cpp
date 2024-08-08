@@ -56,10 +56,10 @@ int main (void)
 	print("--------- Forms Tests -------------");
 
 	ShrubberyCreationForm form;
-	RobotomyRequestForm roboForm;
-	PresidentialPardonForm presForm;
+	RobotomyRequestForm roboForm("order66", "All jedis");
+	PresidentialPardonForm presForm("form666", "All humans");
 
-	ShrubberyCreationForm *form42 = new ShrubberyCreationForm("form42");
+	ShrubberyCreationForm *form42 = new ShrubberyCreationForm("form42", "ouioui");
 	print("");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
@@ -84,7 +84,7 @@ int main (void)
 	
 	try
 	{
-		ShrubberyCreationForm form7B("form7B");
+		ShrubberyCreationForm form7B("form7B", "nonnon");
 	}
 	catch(const std::exception& e)
 	{
@@ -110,7 +110,7 @@ int main (void)
 	std::cout << form << std::endl;
 	print("");
 	
-	ShrubberyCreationForm form7B("form7B");
+	ShrubberyCreationForm form7B("form7B", "what");
 	std::cout << form7B << std::endl;
 	try
 	{

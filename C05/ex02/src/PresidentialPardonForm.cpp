@@ -1,19 +1,20 @@
 #include "PresidentialPardonForm.hpp"
 #include "main.hpp"
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("target")
 {
 	std::cout << "PresidentialPardonForm " << _name << " created (default constructor)" << std::endl;
 }
 
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string	_name) : AForm(_name, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string name, std::string target) : AForm(name, 25, 5), _target(target)
 {
 	std::cout << "PresidentialPardonForm " << _name << " created (parametered constructor)" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const AForm& other) :	AForm(other.get_name(), 
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) :	AForm(other.get_name(), 
 																	other.getGradeToSign(),
-																	other.getGradeToExec())
+																	other.getGradeToExec()),
+																	_target(other._target)
 {
 	std::cout << "PresidentialPardonForm " << _name << " created (copy constructor)" << std::endl;
 }
@@ -26,5 +27,5 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void				PresidentialPardonForm::setSignedToTrue()
 {
 	_isSigned = true;
-	print("*************** PresidentialPardonForm DO SOMETHING *************");
+	std::cout << "****** PresidentialPardonForm *********** " << _target << std::endl;
 }
