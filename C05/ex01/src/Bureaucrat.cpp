@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "main.hpp"
 #include <sstream>
+#include "Form.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
@@ -73,6 +74,17 @@ void	Bureaucrat::incrementGrade()
 		throw GradeTooLowException();
 	_grade--;
 	std::cout << _name << "grade incremented: now at " << _grade << std::endl;
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	if (getGrade() > form.getGradeToSign())
+	{
+		std::cout << get_name() << " couldn't sign " << form.get_name() << " because ";
+		throw (GradeTooLowException());
+	}
+	std::cout << get_name() << " signed " << form.get_name() << std::endl;
+	form.setSignedToTrue();
 }
 
 /**========================================================================

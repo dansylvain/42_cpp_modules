@@ -52,9 +52,12 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 		str = "signed, ";
 	else 
 		str = "NOT signed, ";
-	os << form.get_name() << ", " + str << "grade needed to sign: "
-	<< form.getGradeToSign() << ", grade needed to execute: " << form.getGradeToExec();
-		return os;
+	os << form.get_name() << ", " + str
+	<< "grade needed to sign: "
+	<< form.getGradeToSign()
+	<< ", grade needed to execute: "
+	<< form.getGradeToExec();
+	return os;
 }
 
 /**========================================================================
@@ -90,6 +93,12 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 	_isSigned = true;
 	std::cout << bureaucrat.get_name() << " signed " << _name << std::endl;
 }
+
+void	Form::setSignedToTrue()
+{
+	_isSigned = true;
+}
+
 
 /**========================================================================
  *                           EXCEPTIONS

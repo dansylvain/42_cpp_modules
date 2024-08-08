@@ -76,9 +76,26 @@ int main (void)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << *form42 << std::endl;
+	print("");
+
 	std::cout << form << std::endl;
 	form = *form42;
+	Bureaucrat prostetnic("Prostetnic Vogon Jeltz", 74);
 	std::cout << form << std::endl;
+	print("");
+	
+	Form form7B("form7B", 42, 42);
+	std::cout << form7B << std::endl;
+	try
+	{
+		prostetnic.signForm(form7B);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << form7B << std::endl;
+	
 	print("");
 	print("--------- clean ressources --------");
 	delete form42;
