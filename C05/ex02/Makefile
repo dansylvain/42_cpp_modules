@@ -7,7 +7,6 @@ OBJDIR = obj
 
 SRC = 	src/main.cpp \
 		src/Bureaucrat.cpp \
-		src/Form.cpp \
 		src/AForm.cpp \
 		src/ShrubberyCreationForm.cpp \
 		src/RobotomyRequestForm.cpp \

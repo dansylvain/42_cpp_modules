@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "main.hpp"
 #include <sstream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
