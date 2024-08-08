@@ -15,6 +15,10 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExec)
 																				_gradeToSign(gradeToSign),
 																				_gradeToExec(gradeToExec)
 {
+	if (gradeToSign > 150 || gradeToExec > 150)
+		throw GradeTooHighException();
+	if (gradeToSign < 0 || gradeToExec < 0)
+		throw GradeTooLowException();
 	print("Form created (parametered constructor)");
 }
 
@@ -44,11 +48,11 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 {
 	std::string str;
 	if (form.getIsSigned())
-		str = "signed ,";
+		str = "signed, ";
 	else 
-		str = "NOT signed ,";
+		str = "NOT signed, ";
 	os << form.get_name() << ", " + form.getIsSigned() + str << "grade to sign: "
-	<< form.getGradeToSign() << "grade to execute: " << form.getGradeToExec();
+	<< form.getGradeToSign() << ", grade to execute: " << form.getGradeToExec();
 		return os;
 }
 
