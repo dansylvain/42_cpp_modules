@@ -90,7 +90,8 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 		std::cout << bureaucrat.get_name() << " couldn't sign " << _name << " because ";
 		throw (GradeTooLowException());
 	}
-	_isSigned = true;
+	setSignedToTrue();
+	// _isSigned = true;
 	std::cout << bureaucrat.get_name() << " signed " << _name << std::endl;
 }
 

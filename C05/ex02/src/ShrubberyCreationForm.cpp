@@ -1,5 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
-
+#include "main.hpp"
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 147, 137)
 {
 	std::cout << "ShrubberyCreationForm " << _name << " created (default constructor)" << std::endl;
@@ -25,5 +25,5 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void				ShrubberyCreationForm::setSignedToTrue()
 {
-
+	print("*************** DO SOMETHING *************");
 }
