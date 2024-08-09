@@ -156,12 +156,26 @@ int main (void)
 	print("");
 	print("--------- Intern Tests ------------");
 	Intern newIntern;
-	AForm *newForm;
-	newForm = newIntern.makeForm("ShrubberyCreationForm", "FirstTarget");
+	AForm *newForm1;
+	AForm *newForm2;
+	AForm *newForm3;
+	// AForm *newForm4;
+	newForm1 = newIntern.makeForm("ShrubberyCreationForm", "FirstTarget");
+	newForm2 = newIntern.makeForm("RobotomyRequestForm", "SecondTarget");
+	newForm3 = newIntern.makeForm("PresidentialPardonForm", "ThirdPresidentialPardonFormTarget");
+	// newForm4 = newIntern.makeForm("UnknownForm", "FourthTarget");
 	try
 	{
-		newForm->beSigned(*zaphod);
-		newForm->execute(*zaphod);
+		newForm1->beSigned(*zaphod);
+		newForm1->execute(*zaphod);
+		print("");
+		zaphod->signForm(*newForm2);
+		zaphod->executeForm(*newForm2);
+		print("");
+		newForm3->beSigned(*zaphod);
+		newForm3->execute(*zaphod);
+		print("");
+		// zaphod->signForm(*newForm4);
 	}
 	catch(const std::exception& e)
 	{
