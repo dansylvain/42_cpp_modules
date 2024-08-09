@@ -76,25 +76,32 @@ void	Bureaucrat::incrementGrade()
 	std::cout << _name << "grade incremented: now at " << _grade << std::endl;
 }
 
-void	Bureaucrat::signForm(AForm& form)
+void	Bureaucrat::signForm(AForm* form)
 {
-	if (getGrade() > form.getGradeToSign())
+	if (form == NULL)
 	{
-		std::cout << get_name() << " couldn't sign " << form.get_name() << " because ";
+		std::cout << get_name() << " couldn't sign form because ";
+		throw (NonExistant());
+	}
+	if (getGrade() > form->getGradeToSign())
+	{
+		std::cout << get_name() << " couldn't sign " << form->get_name() << " because ";
 		throw (GradeTooLowException());
 	}
-	std::cout << get_name() << " signed " << form.get_name() << std::endl;
-	form.setSignedToTrue();
+	std::cout << get_name() << " signed " << form->get_name() << std::endl;
+	form->setSignedToTrue();
 }
 
-void	Bureaucrat::executeForm(AForm const & form) const
+void	Bureaucrat::executeForm(AForm const * form) const
 {
-	if (form.execute(*this))
+	if (!form)
+		std::cout << this->get_name() << " could not execute " << form->get_name() << ": " << std::endl;
+	if (form->execute(*this))
 	{
-		std::cout << this->get_name() << " executed " << form.get_name() << std::endl;
+		// std::cout << this->get_name() << " executed " << form->get_name() << std::endl;
 		return ;
 	}
-	std::cout << this->get_name() << " could not execute " << form.get_name() << ": " << std::endl;
+	std::cout << this->get_name() << " could not execute " << form->get_name() << ": " << std::endl;
 }
 
 /**========================================================================
@@ -110,3 +117,7 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
+const char*	Bureaucrat::NonExistant::what() const throw() 
+{
+	return ("it doesn't exist");
+}

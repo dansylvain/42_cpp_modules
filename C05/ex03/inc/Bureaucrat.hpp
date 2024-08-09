@@ -25,8 +25,8 @@ class Bureaucrat{
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
-		void				signForm(AForm& form);
-		void				executeForm(AForm const & form) const;
+		void				signForm(AForm* form);
+		void				executeForm(AForm const * form) const;
 		
 		class GradeTooHighException : public std::exception
 		{
@@ -34,6 +34,11 @@ class Bureaucrat{
 				virtual char const* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual char const* what() const throw();
+		};
+		class NonExistant : public std::exception
 		{
 			public:
 				virtual char const* what() const throw();

@@ -113,9 +113,8 @@ int	AForm::execute(const Bureaucrat& executor) const
 		std::cout << executor.get_name() << " could not execute " << get_name() << ": " << std::endl;
 		throw (GradeTooLowException());
 	}
-	std::cout << executor.get_name() << " executed " << this->get_name() << std::endl;
-
 	action();
+	std::cout << executor.get_name() << " executed " << this->get_name() << std::endl;
 	return (1);
 }
 

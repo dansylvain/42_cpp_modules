@@ -70,8 +70,8 @@ int main (void)
 	
 	try
 	{
-		zaphod->signForm(order66);
-		zaphod->signForm(form666);
+		zaphod->signForm(&order66);
+		zaphod->signForm(&form666);
 	}
 	catch(const std::exception& e)
 	{
@@ -115,7 +115,7 @@ int main (void)
 	std::cout << form7B << std::endl;
 	try
 	{
-		prostetnic.signForm(form7B);
+		prostetnic.signForm(&form7B);
 	}
 	catch(const std::exception& e)
 	{
@@ -140,11 +140,11 @@ int main (void)
 	print("");
 	try
 	{
-		zaphod->executeForm(*form42);
-		zaphod->executeForm(form);
-		zaphod->executeForm(order66);
-		zaphod->executeForm(form666);
-		zaphod->executeForm(form7B);
+		zaphod->executeForm(form42);
+		zaphod->executeForm(&form);
+		zaphod->executeForm(&order66);
+		zaphod->executeForm(&form666);
+		zaphod->executeForm(&form7B);
 
 	}
 	catch(const std::exception& e)
@@ -159,23 +159,25 @@ int main (void)
 	AForm *newForm1;
 	AForm *newForm2;
 	AForm *newForm3;
-	// AForm *newForm4;
+	AForm *newForm4;
 	newForm1 = newIntern.makeForm("ShrubberyCreationForm", "FirstTarget");
 	newForm2 = newIntern.makeForm("RobotomyRequestForm", "SecondTarget");
 	newForm3 = newIntern.makeForm("PresidentialPardonForm", "ThirdPresidentialPardonFormTarget");
-	// newForm4 = newIntern.makeForm("UnknownForm", "FourthTarget");
+	newForm4 = newIntern.makeForm("UnknownForm", "FourthTarget");
+	std::cout << newForm4 << std::endl;
+	print("");
 	try
 	{
 		newForm1->beSigned(*zaphod);
 		newForm1->execute(*zaphod);
 		print("");
-		zaphod->signForm(*newForm2);
-		zaphod->executeForm(*newForm2);
+		zaphod->signForm(newForm2);
+		zaphod->executeForm(newForm2);
 		print("");
 		newForm3->beSigned(*zaphod);
 		newForm3->execute(*zaphod);
 		print("");
-		// zaphod->signForm(*newForm4);
+		zaphod->signForm(newForm4);
 	}
 	catch(const std::exception& e)
 	{
