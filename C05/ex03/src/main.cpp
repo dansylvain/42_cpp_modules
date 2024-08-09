@@ -5,6 +5,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main (void)
 {
@@ -151,6 +152,21 @@ int main (void)
 		std::cerr << e.what() << '\n';
 	}
 	
+	
+	print("");
+	print("--------- Intern Tests ------------");
+	Intern newIntern;
+	AForm *newForm;
+	newForm = newIntern.makeForm("ShrubberyCreationForm", "FirstTarget");
+	try
+	{
+		newForm->beSigned(*zaphod);
+		newForm->execute(*zaphod);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
 
 	print("");

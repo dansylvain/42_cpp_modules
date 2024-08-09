@@ -46,17 +46,25 @@ FormType Intern::getFormType(const std::string formName) const
 
 AForm* Intern::makeForm(const std::string formName, std::string formTarget) const
 {
+	AForm* ptr;
+
 	FormType formType = getFormType(formName);
 	switch (formType)
 	{
 		case SHRUBBERY:
-			return new ShrubberyCreationForm("ShrubberyCreationForm", formTarget);
+			ptr = new ShrubberyCreationForm("ShrubberyCreationForm", formTarget);
+			break;
 		case ROBOTOMY:
-			return new RobotomyRequestForm("RobotomyRequestForm", formTarget);
+			ptr = new RobotomyRequestForm("RobotomyRequestForm", formTarget);
+			break;
 		case PRESIDENTIAL:
-			return new PresidentialPardonForm("PresidentialPardonForm", formTarget);
+			ptr = new PresidentialPardonForm("PresidentialPardonForm", formTarget);
+			break;
 		default:
 			std::cout << "Form " << formName << " doesn't exist and can't be created." << std::endl;
-			return NULL;
+			ptr = NULL;
+			return ptr;
 	}
+	std::cout << "Intern creates " << formName << std::endl;
+	return ptr;
 }
