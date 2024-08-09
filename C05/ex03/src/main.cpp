@@ -187,6 +187,11 @@ int main (void)
 
 	print("");
 	print("--------- clean ressources --------");
+	
+	delete newForm1;
+	delete newForm2;
+	delete newForm3;
+	delete newForm4;
 	delete form42;
 	delete zaphod;
 
