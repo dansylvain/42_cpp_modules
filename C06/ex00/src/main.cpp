@@ -1,13 +1,14 @@
 #include "main.hpp"
+#include "ScalarConverter.hpp"
 
 int main(int argc, char **argv)
 {
-	std::string num;
+	std::string input;
 
 	if (argc == 2)
 	{
-		num = argv[1];
-		print(num);
+		input = argv[1];
+		ScalarConverter::convert(input);
 	}
 	else
 		print("Usage: ./convert <number>");
