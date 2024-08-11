@@ -12,6 +12,17 @@ void ScalarConverter::convert(const std::string& literal)
 		std::cout << "double: " << static_cast<double>(c) << std::endl;
 		return;
 	}
+	else if (literal == "+inff" || literal == "-inff" || literal == "nanf" || literal == "+inf" || literal == "-inf" || literal == "nan")
+	{
+		std::string literalBis = literal;
+		if (literal[literal.length() - 1] == 'f' && literal[literal.length() - 2] == 'f')
+			literalBis = literal.substr(0, literal.length() - 1);
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << literalBis << 'f' << std::endl;
+        std::cout << "double: " <<  literalBis << std::endl;
+        return;
+    }
 	
 	char* end;
 	double value = strtod(literal.c_str(), &end);
