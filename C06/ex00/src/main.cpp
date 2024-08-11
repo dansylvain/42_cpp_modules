@@ -21,6 +21,7 @@ enum literalTpe
 	INT,
 	FLOAT,
 	DOUBLE,
+	PSEUDOLITERAL,
 	UNKNOWN
 };
 
@@ -44,6 +45,8 @@ literalTpe getType(std::string str)
 		type = FLOAT;
 	else if (ScalarConverter::isDouble(str))
 		type = DOUBLE;
+	else if (str == "-inff" || str == "+inff" || str == "-inf" || str == "+inf" || str == "nan")
+		type = PSEUDOLITERAL;
 	else
 		type = UNKNOWN;
 	return (type);
@@ -59,22 +62,28 @@ int main()
 	{
 		std::cin >> input;
 		type = getType(input);
+		std::istringstream issInt(input);
+		issInt >> Value;
+		
 		if (type == CHAR)
 		{
-			std::cout << input[0] << std::endl;	
 			Value = input[0];
 		}
-		else if (type == INT || type == FLOAT || type == DOUBLE)
-		{
-			std::istringstream issInt(input);
-			issInt >> Value;
-		}
-		else
-		Value =  static_cast<double>(NULL);
+		// else if (type == INT || type == FLOAT || type == DOUBLE)
+		// {
+		// 	std::istringstream issInt(input);
+		// 	issInt >> Value;
+		// }
 
-		std::cout << "float: " << std::fixed << std::setprecision(2) <<  static_cast<float>(Value) << "f" << std::endl;
-		std::cout << "int: " <<  static_cast<int>(Value) << std::endl;
-		std::cout << "char: " <<  static_cast<char>(Value) << std::endl;
+		if (std::isprint(static_cast<char>(Value)))
+			std::cout << "char: " <<  static_cast<char>(Value) << std::endl;
+		else 
+			std::cout << "char: impossible" << std::endl;
+		if (type != PSEUDOLITERAL)
+			std::cout << "int: " <<  static_cast<int>(Value) << std::endl;
+		else 
+			std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) <<  static_cast<float>(Value) << "f" << std::endl;
 		std::cout << "double: " <<  (Value) << std::endl;
 
 		// std::cout << type << std::endl;
