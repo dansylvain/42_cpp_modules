@@ -1,30 +1,4 @@
-#include <iostream>
-#include <stdint.h>
-
-struct Data
-{
-	int number;
-	std::string text;
-
-	Data(int num, const std::string& str) : number(num), text(str) {}
-};
-
-class Serializer
-{
-public:
-	static uintptr_t serialize(Data* ptr)
-	{
-		return reinterpret_cast<uintptr_t>(ptr);
-	}
-	static Data* deserialize(uintptr_t raw)
-	{
-		return reinterpret_cast<Data*>(raw);
-	}
-
-private:
-	Serializer() {}
-	~Serializer() {}
-};
+#include "main.hpp"
 
 int main() {
 	Data originalData(42, "Hello World");
@@ -37,8 +11,6 @@ int main() {
 		std::cout << "Text: " << deserializedData->text << "\n";
 	}
 	else
-	{
 		std::cout << "Failure: The pointers are different.\n";
-	}
 	return 0;
 }
