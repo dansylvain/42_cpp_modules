@@ -51,6 +51,7 @@ literalTpe getType(std::string str)
 
 int main()
 {
+	double Value;
 	std::string input;
 	literalTpe type;
 
@@ -58,15 +59,19 @@ int main()
 	{
 		std::cin >> input;
 		type = getType(input);
-		std::istringstream issInt(input);
-		double Value;
-		issInt >> Value;
-
 		if (type == CHAR)
 		{
 			std::cout << input[0] << std::endl;	
 			Value = input[0];
 		}
+		else if (type == INT || type == FLOAT || type == DOUBLE)
+		{
+			std::istringstream issInt(input);
+			issInt >> Value;
+		}
+		else
+		Value =  static_cast<double>(NULL);
+
 		std::cout << "float: " << std::fixed << std::setprecision(2) <<  static_cast<float>(Value) << "f" << std::endl;
 		std::cout << "int: " <<  static_cast<int>(Value) << std::endl;
 		std::cout << "char: " <<  static_cast<char>(Value) << std::endl;
