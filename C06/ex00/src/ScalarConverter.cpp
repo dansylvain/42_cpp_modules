@@ -23,10 +23,9 @@ void ScalarConverter::convert(const std::string& literal)
         std::cout << "double: " <<  literalBis << std::endl;
         return;
     }
-	
 	char* end;
 	double value = strtod(literal.c_str(), &end);
-	if (*end != '\0')
+	if (*end != '\0' && *end != 'f')
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
