@@ -1,27 +1,47 @@
-#include "main.hpp"
 #include "ScalarConverter.hpp"
+#include <iostream>
+#include <sstream>
+#include <cctype>
+#include <limits>
+#include <string>
 
-int main(int argc, char **argv)
-{
+enum PseudoLiterals {
+	NEG_INFF,
+	POS_INFF,
+	NEG_INF,
+	POS_INF,
+	NAN,
+	NUM_PSEUDO_LITERALS
+};
+
+const std::string pseudoLiteralsArray[NUM_PSEUDO_LITERALS] = {
+	"-inff"
+	"+inff"
+	"-inf",
+	"+inf",
+	"nan"
+};
+
+
+
+int main() {
 	std::string input;
 
-	if (argc == 2)
+	while (1)
 	{
-		input = argv[1];
-		ScalarConverter::convert(input);
+			std::cin >> input;
+			if (ScalarConverter::isInt(input)) {
+				std::cout << "Int" << std::endl;
+			} else if (ScalarConverter::isChar(input)) {
+				std::cout << "Char" << std::endl;
+			} else if (ScalarConverter::isFloat(input)) {
+				std::cout << "Float" << std::endl;
+			} else if (ScalarConverter::isDouble(input)) {
+				std::cout << "Double" << std::endl;
+			} else {
+				std::cout << "Unknown type" << std::endl;
+			}
 	}
-	else
-		print("Usage: ./convert <number>");
 
-	return (0);
-}
-
-void print(const std::string& str)
-{
-		std::cout << str << std::endl;
-}
-
-void printB(const std::string& str)
-{
-		std::cout << "\033[1;32m" << str << "\033[0m" << std::endl;
+	return 0;
 }
