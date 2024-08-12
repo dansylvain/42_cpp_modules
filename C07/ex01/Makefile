@@ -1,4 +1,4 @@
-NAME = startWithAFewFunctions
+NAME = iter
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc -g
 RM = rm -rf
