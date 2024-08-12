@@ -15,17 +15,6 @@ Zombie::~Zombie()
 /**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
-Zombie* Zombie::newZombie( std::string name )
-{
-	Zombie *zombie = new Zombie(name);
-	return (zombie);
-}
-
-void	Zombie::randomChump( std::string name )
-{
-	Zombie zombie(name);
-	zombie.announce();
-}
 
 void Zombie::announce(void) const
 {

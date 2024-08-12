@@ -6,7 +6,9 @@ RM = rm -rf
 OBJDIR = obj
 
 SRC = src/main.cpp \
-	src/Zombie.cpp
+	src/Zombie.cpp \
+	src/randomChump.cpp \
+	src/newZombie.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
