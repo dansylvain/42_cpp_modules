@@ -10,6 +10,7 @@ class Megaphone
 	{
 		for (size_t i = 0; i < input.size(); ++i)
 			std::cout << static_cast<char>(std::toupper(input[i]));
+		std::cout << std::endl;
 	}
 };
 
