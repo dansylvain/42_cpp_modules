@@ -1,5 +1,4 @@
 #include "Terminal.hpp"
-#include "unistd.h"
 
 Terminal::Terminal() :
 	terminalCommand("gnome-terminal -- bash -c \"./exec\""),
@@ -34,3 +33,13 @@ void	Terminal::displayError(std::string str) const
 
 void	Terminal::getUserinput(std::string& userInput) const
 		{std::getline(std::cin, userInput);};
+
+std::string	Terminal::getTerminalCommand()
+{
+	return (terminalCommand);
+}
+
+std::string	Terminal::getClearCommand()
+{
+	return (clearCommand);
+};

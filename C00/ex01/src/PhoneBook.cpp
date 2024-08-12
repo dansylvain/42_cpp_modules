@@ -1,5 +1,4 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 PhoneBook::PhoneBook() : contactCount(0),
 	alphaStr("azertyuiopqsdfghjklmwxcvbn AZERTYUIOPQSDFGHJKLMWXCVBN-'\"éèàäëïöüùêîôûâ"),
@@ -74,7 +73,7 @@ void	PhoneBook::addContact() {
 	while (!PhoneBook::StringIsAlphaNum(input));
 	contact.setDarkestSecret(input);
 
-	contacts[contactCount % 8] = contact;
+	getContacts()[contactCount % 8] = contact;
 	contactCount++;
 }
 
@@ -92,4 +91,14 @@ void	PhoneBook::displayContact(Contact contact) const {
 	std::cout << PhoneBook::nicknameStr << "      " << contact.getNickname() << std::endl;
 	std::cout << PhoneBook::phoneNumberStr << "  " << contact.getPhoneNumber() << std::endl;
 	std::cout << PhoneBook::darkestSecretStr << contact.getDarkestSecret() << std::endl;
+}
+
+Contact		*PhoneBook::getContacts()
+{
+	return (contacts);
+}
+
+int			PhoneBook::getContactCount()
+{
+ return (contactCount);
 }

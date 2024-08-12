@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	Terminal term;
 
 	if (argc == 1)
-		term.execSystemCmd(term.terminalCommand);
+		term.execSystemCmd(term.getTerminalCommand());
 	else
 		std::cout << "Usage: ./exec" << std::endl;
 	
