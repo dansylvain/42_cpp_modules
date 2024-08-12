@@ -16,7 +16,7 @@ Zombie::~Zombie()
  *                           OTHER METHODS
  *========================================================================**/
 
-void Zombie::announce(void) const
+void	Zombie::announce() const
 {
 	std::cout << this->name << ": " << this->mssg << std::endl;
 }
