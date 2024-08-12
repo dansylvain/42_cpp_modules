@@ -22,7 +22,6 @@ class PhoneBook {
 		void		getInput(std::string str, std::string& input) const;
 		int			getContactCount();
 		std::string getFormatString();
-		
 		// utils methods
 		void		addContact();
 		void		searchContact(int index) const;
@@ -31,7 +30,6 @@ class PhoneBook {
 		int			StringIsAlpha(std::string input) const;
 		int			StringIsNum(std::string input) const;
 		int			StringIsAlphaNum(std::string input) const;
-		
 };
 
 #endif
