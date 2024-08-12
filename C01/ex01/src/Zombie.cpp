@@ -23,18 +23,6 @@ void Zombie::announce(void)
 	std::cout << this->name << ": " << this->mssg << std::endl;
 }
 
-Zombie* Zombie::newZombie( std::string name )
-{
-	Zombie *zombie = new Zombie(name);
-	return (zombie);
-}
-
-void	Zombie::randomChump( std::string name )
-{
-	Zombie zombie(name);
-	zombie.announce();
-}
-
 void	Zombie::set_name(std::string name)
 {
 	this->name = name;

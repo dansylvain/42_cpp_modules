@@ -18,8 +18,6 @@ class Zombie {
 
 		// other methods
 		void	announce(void);
-		Zombie*	newZombie( std::string name );
-		void	randomChump( std::string name );
 		static Zombie*	zombieHorde( int N, std::string name );
 		void	set_name(std::string name);
 };
