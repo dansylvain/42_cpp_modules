@@ -64,24 +64,18 @@ void	Harl::filter( std::string level )
 {
 	switch (levelToEnum(level))
 	{
-	case ERROR:
-		complain("error");
-		break;
+	case INFO:
+		complain("info");
+		// no break
+	case DEBUG:
+		complain("debug");
+		// no break
 	case WARNING:
 		complain("warning");
+		// no break
+	case ERROR:
 		complain("error");
-		break;
-	case INFO:
-		complain("warning");
-		complain("error");
-		complain("info");
-		break;
-	case DEBUG:
-		complain("warning");
-		complain("error");
-		complain("debug");
-		complain("info");
-		break;	
+		break; 
 	default:
 		complain("Unknown level");
 		break;
