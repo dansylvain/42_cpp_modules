@@ -66,13 +66,13 @@ void	Harl::filter( std::string level )
 	{
 	case INFO:
 		complain("info");
-		// no break
+		// intentionally fall through
 	case DEBUG:
 		complain("debug");
-		// no break
+		// intentionally fall through
 	case WARNING:
 		complain("warning");
-		// no break
+		// intentionally fall through
 	case ERROR:
 		complain("error");
 		break; 
