@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	if (argc == 2)
 		harl.filter(argv[1]);
 	else
-		print("usage: ./harlfilter level (error/warning/debug/info)");
+		print("usage: ./harlfilter level ( ERROR / WARNING / DEBUG / INFO )");
 	return 0;
 }
 

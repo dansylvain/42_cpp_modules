@@ -59,6 +59,8 @@ void Harl::complain( std::string level )
 }
 /**========================================================================
  *                           FILTER
+ *? to fall through a switch case, the comment content is non optional,
+ *? it must be " // intentionally fall through ", God knows why...
  *========================================================================**/
 void	Harl::filter( std::string level )
 {
@@ -85,9 +87,9 @@ void	Harl::filter( std::string level )
 
 int		Harl::levelToEnum(std::string level)
 {
-	if (level == "debug") return DEBUG;
-	if (level == "info") return INFO;
-	if (level == "warning") return WARNING;
-	if (level == "error") return ERROR;
+	if (level == "DEBUG") return DEBUG;
+	if (level == "INFO") return INFO;
+	if (level == "WARNING") return WARNING;
+	if (level == "ERROR") return ERROR;
 	return UNKNOWN;
 }
