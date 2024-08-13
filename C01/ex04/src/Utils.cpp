@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dansylvain <dansylvain@student.42.fr>      +#+  +:+       +#+        */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 10:57:09 by dansylvain        #+#    #+#             */
-/*   Updated: 2024/08/06 14:23:39 by dansylvain       ###   ########.fr       */
+/*   Updated: 2024/08/13 10:33:56 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**========================================================================
  *                           VAR INITIALIZATION
  *========================================================================**/
-std::string Utils::errMssg = "Error: wrong number of arguments";
+std::string Utils::errMssg = "Usage: ./sed <file> <string1> <string2>";
 std::string Utils::errMssg2 = "could not create output file";
 
 /**========================================================================
@@ -41,7 +41,7 @@ int	Utils::openStreamsFails(std::ifstream& inputFile, std::ofstream& outputFile,
 	destFile = srcFile + ".replace";
 	inputFile.open(srcFile.c_str());
 	if (!inputFile)
-		return (std::cout << "Error: file not found" << std::endl, 2);
+		return (std::cout << "File error" << std::endl, 2);
 	outputFile.open(destFile.c_str());
 	if (!outputFile)
 		return (std::cout << Utils::errMssg2 << std::endl, 3);
