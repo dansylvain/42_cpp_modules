@@ -1,17 +1,26 @@
 #include "Weapon.hpp"
 
-// constructors
-Weapon::Weapon(){};
-Weapon::Weapon(std::string type){this->type = type;};
-
-// destructor
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
+Weapon::Weapon()
+{};
+Weapon::Weapon(std::string type)
+{
+	this->type = type;
+}
 Weapon::~Weapon(){};
 
-// getters and setters
+/**========================================================================
+ *                           GETTERS AND SETTERS
+ *========================================================================**/
 const std::string &Weapon::getType(void) const
 {
 	const std::string &typeREF = this->type;
 	return (typeREF);
 }
 
-void Weapon::setType(std::string type){this->type = type;};
+void Weapon::setType(std::string type)
+{
+	this->type = type;
+}

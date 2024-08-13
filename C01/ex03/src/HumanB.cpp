@@ -1,10 +1,17 @@
 #include "HumanB.hpp"
 
-// constructors / destructors
-HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
-HumanB::~HumanB() {};
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
+HumanB::HumanB(std::string name) : name(name), weapon(NULL)
+{}
 
-// member functions
+HumanB::~HumanB()
+{};
+
+/**========================================================================
+ *                           MEMBER FUNCTIONS
+ *========================================================================**/
 void HumanB::attack(void)
 {
 	if (this->weapon)

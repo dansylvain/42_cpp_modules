@@ -1,10 +1,17 @@
 #include "HumanA.hpp"
 
-// constructors / destructors
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {}
-HumanA::~HumanA() {};
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
+HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
+{}
 
-// member functions
+HumanA::~HumanA()
+{}
+
+/**========================================================================
+ *                           MEMBER FUNCTIONS
+ *========================================================================**/
 void HumanA::attack(void)
 {
 	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
