@@ -1,5 +1,8 @@
 #include "Zombie.hpp"
 
+/**========================================================================
+ *                           ZOMBIEHORDE
+ *========================================================================**/
 Zombie	*zombieHorde( int N, std::string name )
 {
 	Zombie	*Horde = new Zombie[N];

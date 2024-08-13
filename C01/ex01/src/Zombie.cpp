@@ -3,7 +3,7 @@
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Zombie::Zombie() : name("Unnamed"), mssg("BraiiiiiiinnnzzzZ...") {
+Zombie::Zombie() : name("Unnamed zombie"), mssg("BraiiiiiiinnnzzzZ...") {
 	std::cout << this->name << " was created" << std::endl;
 }
 

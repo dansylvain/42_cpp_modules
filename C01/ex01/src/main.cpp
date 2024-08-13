@@ -4,8 +4,10 @@ Zombie	*zombieHorde( int N, std::string name );
 /**========================================================================
  *                           MAIN
  *========================================================================**/
-int main(void)
+int main(int argc, char **argv)
 {
+	if (argc != 1)
+		return (std::cout << "Usage: ./horde" << std::endl, 1);
 	Zombie *horde;
 
 	horde = NULL;
@@ -14,4 +16,5 @@ int main(void)
 		horde[i].announce();
 	delete [] horde;
 	return (0);
+	(void)argv;
 }
