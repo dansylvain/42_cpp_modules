@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 /**========================================================================
- *                           CONSTRUCTOR & DESTRUCTOR
+ *                           CONSTRUCTORS & DESTRUCTOR
  *========================================================================**/
 Zombie::Zombie() : name("Unnamed"), mssg("BraiiiiiiinnnzzzZ...") {};
 

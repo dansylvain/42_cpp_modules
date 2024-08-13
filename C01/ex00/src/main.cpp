@@ -1,12 +1,12 @@
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name );
-void	randomChump( std::string name );
 /**========================================================================
  *                           MAIN
  *========================================================================**/
-int main(void)
+int main(int argc, char **argv)
 {
+	if (argc != 1)
+		return (std::cout << "Usage: ./brainzz" << std::endl, 1);
 	Zombie zombie("Bub");
 	zombie.announce();
 
@@ -16,4 +16,5 @@ int main(void)
 	randomChump("Tyrone");
 	delete Zombina;
 	return (0);
+	(void)argv;
 }
