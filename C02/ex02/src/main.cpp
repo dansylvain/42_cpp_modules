@@ -21,43 +21,43 @@ int main() {
 	Fixed d(b);
 
 	printB("Initial values:");
-	std::cout << std::fixed << std::setprecision(1) << "a: " << a << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "b: " << b << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "c: " << c << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "d: " << d << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "b: " << b << std::endl;
+	std::cout << "c: " << c << std::endl;
+	std::cout << "d: " << d << std::endl;
 	pause();
 	// Test des opérateurs de comparaison
 	printB("\nComparison operators:");
-	std::cout << std::fixed << std::setprecision(1) << "a > b: " << (a > b) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "a < b: " << (a < b) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "a >= b: " << (a >= b) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "a <= b: " << (a <= b) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "a == b: " << (a == b) << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "a != b: " << (a != b) << std::endl;
+	std::cout << "a > b: " << (a > b) << std::endl;
+	std::cout << "a < b: " << (a < b) << std::endl;
+	std::cout << "a >= b: " << (a >= b) << std::endl;
+	std::cout << "a <= b: " << (a <= b) << std::endl;
+	std::cout << "a == b: " << (a == b) << std::endl;
+	std::cout << "a != b: " << (a != b) << std::endl;
 	pause();
 
 	// Test des opérateurs arithmétiques
 	printB("\nArithmetic operators:");
 	Fixed result;
 	result = b + c;
-	std::cout << std::fixed << std::setprecision(1) << "b + c: " << result << std::endl;
+	std::cout << "b + c: " << result << std::endl;
 	result = b - c;
-	std::cout << std::fixed << std::setprecision(1) << "b - c: " << result << std::endl;
+	std::cout << "b - c: " << result << std::endl;
 	result = b * c;
-	std::cout << std::fixed << std::setprecision(1) << "b * c: " << result << std::endl;
+	std::cout << "b * c: " << result << std::endl;
 	result = b / c;
-	std::cout << std::fixed << std::setprecision(1) << "b / c: " << result << std::endl;
+	std::cout << "b / c: " << result << std::endl;
 	pause();
 
 	// Test des opérateurs d'incrémentation et de décrémentation
 	printB("\nIncrement/Decrement operators:");
-	std::cout  << std::fixed << std::setprecision(1) << "value of a: " << a << std::endl;
-	std::cout  << std::fixed << std::setprecision(1) << "After ++a: " << ++a << std::endl;
-	std::cout  << std::fixed << std::setprecision(1) << "After a++: " << a++ << std::endl;
-	std::cout  << std::fixed << std::setprecision(1) << "value of a: " << a << std::endl;
-	std::cout  << std::fixed << std::setprecision(1) << "After --a: " << --a << std::endl;
-	std::cout  << std::fixed << std::setprecision(1) << "After a--: " << a-- << std::endl;
-	std::cout  << std::fixed << std::setprecision(1) << "value of a: " << a << std::endl;
+	std::cout << "value of a: " << a << std::endl;
+	std::cout << "After ++a: " << ++a << std::endl;
+	std::cout << "After a++: " << a++ << std::endl;
+	std::cout << "value of a: " << a << std::endl;
+	std::cout << "After --a: " << --a << std::endl;
+	std::cout << "After a--: " << a-- << std::endl;
+	std::cout << "value of a: " << a << std::endl;
 	pause();
 
 	// Test des méthodes min et max

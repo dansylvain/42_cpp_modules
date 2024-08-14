@@ -101,23 +101,25 @@ Fixed Fixed::operator/(const Fixed &other) const {
 
 /**========================================================================
  *                     INCREMENT AND DECREMENT OPERATORS
+ * --_value -= (1 << _fractionalBits) to increment by one unit
+ * https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_representation.html
  *========================================================================**/
 Fixed& Fixed::operator++() {
-	_value += (1 << _fractionalBits);
+	_value++;
 	return *this;}
 
 Fixed Fixed::operator++(int) {
 	Fixed temp = *this;
-	_value += (1 << _fractionalBits);
+	++_value;
 	return temp;}
 
 Fixed& Fixed::operator--() {
-	_value -= (1 << _fractionalBits);
+	_value--;
 	return *this;}
 
 Fixed Fixed::operator--(int) {
 	Fixed temp = *this;
-	_value -= (1 << _fractionalBits);
+	--_value;
 	return temp;}
 
 /**========================================================================
