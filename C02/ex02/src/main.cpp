@@ -19,12 +19,14 @@ int main() {
 	Fixed const b(4.2f);
 	Fixed const c(2);
 	Fixed d(b);
+	Fixed z(0);
 
 	printB("Initial values:");
 	std::cout << "a: " << a << std::endl;
 	std::cout << "b: " << b << std::endl;
 	std::cout << "c: " << c << std::endl;
 	std::cout << "d: " << d << std::endl;
+	std::cout << "z: " << z << std::endl;
 	pause();
 	// Test des opérateurs de comparaison
 	printB("\nComparison operators:");
@@ -47,6 +49,9 @@ int main() {
 	std::cout << "b * c: " << result << std::endl;
 	result = b / c;
 	std::cout << "b / c: " << result << std::endl;
+	std::cout << "b / z: " << std::flush;
+	result = b / z;
+	std::cout << std::endl;
 	pause();
 
 	// Test des opérateurs d'incrémentation et de décrémentation
