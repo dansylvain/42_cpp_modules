@@ -5,7 +5,9 @@ RM = rm -rf
 OBJDIR = obj
 
 SRC = 	src/main.cpp \
-		src/Fixed.cpp
+		src/Fixed.cpp \
+
+INC =	inc/Fixed.hpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
@@ -14,7 +16,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJDIR)/%.o: src/%.cpp
+$(OBJDIR)/%.o: src/%.cpp $(INC)
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
