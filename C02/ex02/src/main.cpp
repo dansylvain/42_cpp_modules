@@ -28,6 +28,7 @@ int main() {
 	std::cout << "d: " << d << std::endl;
 	std::cout << "z: " << z << std::endl;
 	pause();
+	
 	// Test des opérateurs de comparaison
 	printB("\nComparison operators:");
 	std::cout << "a > b: " << (a > b) << std::endl;

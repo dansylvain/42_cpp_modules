@@ -18,109 +18,155 @@ Fixed::~Fixed() {}
 /**========================================================================
  *                        ACCESS AND UTILITY METHODS
  *========================================================================**/
-int		Fixed::getRawBits(void) const{
-	return this->_value;}
+int		Fixed::getRawBits(void) const
+{
+	return this->_value;
+}
 
-void	Fixed::setRawBits(int const raw){
-	this->_value = raw;}
+void	Fixed::setRawBits(int const raw)
+{
+	this->_value = raw;
+}
 
-float Fixed::toFloat(void) const {
-	return static_cast<float>(_value) / (1 << _fractionalBits);}
+float Fixed::toFloat(void) const
+{
+	return static_cast<float>(_value) / (1 << _fractionalBits);
+}
 
-int Fixed::toInt(void) const {
-	return _value >> _fractionalBits;}
+int Fixed::toInt(void) const
+{
+	return _value >> _fractionalBits;
+}
 
 /**========================================================================
  *                           MIN AND MAX METHODS
  *========================================================================**/
-Fixed &Fixed::min(Fixed &a, Fixed &b) {
-	return (a._value < b._value) ? a : b;}
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	return (a._value < b._value) ? a : b;
+}
 
-const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
-	return (a._value < b._value) ? a : b;}
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	return (a._value < b._value) ? a : b;
+}
 
-Fixed &Fixed::max(Fixed &a, Fixed &b) {
-	return (a._value > b._value) ? a : b;}
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	return (a._value > b._value) ? a : b;
+}
 
-const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
-	return (a._value > b._value) ? a : b;}
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	return (a._value > b._value) ? a : b;
+}
 
 /**========================================================================
  *                          ASSIGNMENT OPERATOR
  *========================================================================**/
-Fixed &Fixed::operator=(const Fixed &src){
+Fixed &Fixed::operator=(const Fixed &src)
+{
 	if (this != &src)
 		this->_value = src.getRawBits();
-	return *this;}
+	return *this;
+}
 
 /**========================================================================
  *                    COMPARISON OPERATORS
  *========================================================================**/
-bool Fixed::operator==(const Fixed &other) const {
-	return _value == other._value;}
+bool Fixed::operator==(const Fixed &other) const
+{
+	return _value == other._value;
+}
 
-bool Fixed::operator!=(const Fixed &other) const {
-	return _value != other._value;}
+bool Fixed::operator!=(const Fixed &other) const
+{
+	return _value != other._value;
+}
 
-bool Fixed::operator>(const Fixed &other) const {
-	return _value > other._value;}
+bool Fixed::operator>(const Fixed &other) const
+{
+	return _value > other._value;
+}
 
-bool Fixed::operator<(const Fixed &other) const {
-	return _value < other._value;}
+bool Fixed::operator<(const Fixed &other) const
+{
+	return _value < other._value;
+}
 
-bool Fixed::operator>=(const Fixed &other) const {
-	return _value >= other._value;}
+bool Fixed::operator>=(const Fixed &other) const
+{
+	return _value >= other._value;
+}
 
-bool Fixed::operator<=(const Fixed &other) const {
-	return _value <= other._value;}
+bool Fixed::operator<=(const Fixed &other) const
+{
+	return _value <= other._value;
+}
 
 /**========================================================================
  *                    ARITHMETIC OPERATORS
  *========================================================================**/
-Fixed Fixed::operator+(const Fixed &other) const {
+Fixed Fixed::operator+(const Fixed &other) const
+{
 	Fixed result;
 	result._value = _value + other._value;
-	return result;}
+	return result;
+}
 
-Fixed Fixed::operator-(const Fixed &other) const {
+Fixed Fixed::operator-(const Fixed &other) const
+{
 	Fixed result;
 	result._value = _value - other._value;
-	return result;}
+	return result;
+}
 
-Fixed Fixed::operator*(const Fixed &other) const {
+Fixed Fixed::operator*(const Fixed &other) const
+{
 	Fixed result;
 	result._value = (static_cast<long long>(_value) * other._value) >> _fractionalBits;
-	return result;}
+	return result;
+}
 
-Fixed Fixed::operator/(const Fixed &other) const {
+Fixed Fixed::operator/(const Fixed &other) const
+{
 	if (other._value == 0)
 		return (std::cout <<("Division by zero"), Fixed(0));
 	Fixed result;
 	result._value = (static_cast<long long>(_value) << _fractionalBits) / other._value;
-	return result;}
+	return result;
+}
 
 /**========================================================================
  *                     INCREMENT AND DECREMENT OPERATORS
  * --_value -= (1 << _fractionalBits) to increment by one unit
  * https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_representation.html
  *========================================================================**/
-Fixed& Fixed::operator++() {
+Fixed& Fixed::operator++()
+{
 	_value++;
-	return *this;}
+	return *this;
+}
 
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++(int)
+{
 	Fixed temp = *this;
 	++_value;
-	return temp;}
+	return temp;
+}
 
-Fixed& Fixed::operator--() {
+Fixed& Fixed::operator--()
+{
 	_value--;
-	return *this;}
+	return *this;
+}
 
-Fixed Fixed::operator--(int) {
+Fixed Fixed::operator--(int)
+{
 	Fixed temp = *this;
 	--_value;
-	return temp;}
+	return temp;
+}
 
 /**========================================================================
  *                         OVERLOAD OF << OPERATOR

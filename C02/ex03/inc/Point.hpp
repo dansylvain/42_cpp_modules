@@ -20,8 +20,6 @@ class Point {
 		// access and utility methods
 		const Fixed& get_x(void) const;
 		const Fixed& get_y(void) const;
-
-		// others...
 };
 
 #endif

@@ -77,53 +77,71 @@ bool Fixed::operator<=(const Fixed &other) const {
 /**========================================================================
  *                    ARITHMETIC OPERATORS
  *========================================================================**/
-Fixed Fixed::operator+(const Fixed &other) const {
+Fixed Fixed::operator+(const Fixed &other) const
+{
 	Fixed result;
 	result._value = _value + other._value;
-	return result;}
+	return result;
+}
 
-Fixed Fixed::operator-(const Fixed &other) const {
+Fixed Fixed::operator-(const Fixed &other) const
+{
 	Fixed result;
 	result._value = _value - other._value;
-	return result;}
+	return result;
+}
 
-Fixed Fixed::operator*(const Fixed &other) const {
+Fixed Fixed::operator*(const Fixed &other) const
+{
 	Fixed result;
 	result._value = (static_cast<long long>(_value) * other._value) >> _fractionalBits;
-	return result;}
+	return result;
+}
 
-Fixed Fixed::operator/(const Fixed &other) const {
+Fixed Fixed::operator/(const Fixed &other) const
+{
 	if (other._value == 0)
-		throw std::runtime_error("Division by zero");
+		return (std::cout <<("Division by zero"), Fixed(0));
 	Fixed result;
 	result._value = (static_cast<long long>(_value) << _fractionalBits) / other._value;
-	return result;}
+	return result;
+}
 
 /**========================================================================
  *                     INCREMENT AND DECREMENT OPERATORS
  *========================================================================**/
-Fixed& Fixed::operator++() {
+Fixed& Fixed::operator++()
+{
 	++_value;
-	return *this;}
+	return *this;
+}
 
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++(int)
+{
 	Fixed temp = *this;
 	++_value;
-	return temp;}
+	return temp;
+}
 
-Fixed& Fixed::operator--() {
+Fixed& Fixed::operator--()
+{
 	--_value;
-	return *this;}
+	return *this;
+}
 
-Fixed Fixed::operator--(int) {
+Fixed Fixed::operator--(int)
+{
 	Fixed temp = *this;
 	--_value;
-	return temp;}
+	return temp;
+}
 
 /**========================================================================
  *                         OVERLOAD OF << OPERATOR
  * onverts fixed point number to float and forward it to output stream.
  *========================================================================**/
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
+{
 	out << fixed.toFloat();
-	return out;}
+	return out;
+}
