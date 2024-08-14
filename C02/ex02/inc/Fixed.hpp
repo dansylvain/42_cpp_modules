@@ -53,8 +53,8 @@ public:
 	Fixed& operator--();
 	Fixed operator--(int);
 	
-	// Overload of << operator
-	friend std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 };
+	// Overload of << operator
+	std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif

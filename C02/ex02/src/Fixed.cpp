@@ -103,27 +103,29 @@ Fixed Fixed::operator/(const Fixed &other) const {
  *                     INCREMENT AND DECREMENT OPERATORS
  *========================================================================**/
 Fixed& Fixed::operator++() {
-	++_value;
+	_value += (1 << _fractionalBits);
 	return *this;}
 
 Fixed Fixed::operator++(int) {
 	Fixed temp = *this;
-	++_value;
+	_value += (1 << _fractionalBits);
 	return temp;}
 
 Fixed& Fixed::operator--() {
-	--_value;
+	_value -= (1 << _fractionalBits);
 	return *this;}
 
 Fixed Fixed::operator--(int) {
 	Fixed temp = *this;
-	--_value;
+	_value -= (1 << _fractionalBits);
 	return temp;}
 
 /**========================================================================
  *                         OVERLOAD OF << OPERATOR
  * onverts fixed point number to float and forward it to output stream.
  *========================================================================**/
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
+{
 	out << fixed.toFloat();
-	return out;}
+	return out;
+}
