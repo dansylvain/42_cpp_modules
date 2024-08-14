@@ -1,61 +1,86 @@
 // Array.tpp
-#include <stdexcept>
-#include <algorithm>
 
 template <typename T>
-Array<T>::Array(size_t size) : size(size) {
-    data = new T[size];
+Array<T>::Array() : data(NULL), _size(0)
+{
 }
 
 template <typename T>
-Array<T>::Array(const Array& other) : size(other.size) {
-    data = new T[size];
-    copyFrom(other);
+Array<T>::Array(unsigned int n) : _size(n)
+{
+	if (_size == 0)
+		data = NULL;
+	else
+		data = new T[_size];
 }
 
 template <typename T>
-Array<T>& Array<T>::operator=(const Array& other) {
-    if (this != &other) {
-        free();
-        size = other.size;
-        data = new T[size];
-        copyFrom(other);
-    }
-    return *this;
+Array<T>::Array(const Array& other) : _size(other._size) {
+	if (_size == 0)
+		data = NULL;
+	else
+	{
+		data = new T[_size];
+		copyFrom(other);
+	}
 }
 
 template <typename T>
-Array<T>::~Array() {
-    free();
+Array<T>& Array<T>::operator=(const Array& other)
+{
+	if (this != &other)
+	{
+		free();
+		_size = other._size;
+		if (_size == 0)
+			data = NULL;
+		else
+		{
+			data = new T[_size];
+			copyFrom(other);
+		}
+	}
+	return *this;
 }
 
 template <typename T>
-T& Array<T>::operator[](size_t index) {
-    if (index >= size) {
-        throw std::out_of_range("Index out of bounds");
-    }
-    return data[index];
+Array<T>::~Array()
+{
+	free();
 }
 
 template <typename T>
-const T& Array<T>::operator[](size_t index) const {
-    if (index >= size) {
-        throw std::out_of_range("Index out of bounds");
-    }
-    return data[index];
+T& Array<T>::operator[](unsigned int index)
+{
+	if (index >= _size)
+		throw std::out_of_range("Index out of bounds");
+	return data[index];
 }
 
 template <typename T>
-size_t Array<T>::getSize() const {
-    return size;
+const T& Array<T>::operator[](unsigned int index) const
+{
+	if (index >= _size)
+		throw std::out_of_range("Index out of bounds");
+	return data[index];
 }
 
 template <typename T>
-void Array<T>::copyFrom(const Array& other) {
-    std::copy(other.data, other.data + size, data);
+unsigned int Array<T>::size() const
+{
+	return _size;
 }
 
 template <typename T>
-void Array<T>::free() {
-    delete[] data;
+void Array<T>::copyFrom(const Array& other)
+{
+	for (unsigned int i = 0; i < _size; ++i)
+		data[i] = other.data[i];
+}
+
+template <typename T>
+void Array<T>::free()
+{
+	delete[] data;
+	data = NULL;
 }
