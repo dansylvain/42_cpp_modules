@@ -66,11 +66,11 @@ void	Harl::filter( std::string level )
 {
 	switch (levelToEnum(level))
 	{
-	case INFO:
-		complain("info");
-		// intentionally fall through
 	case DEBUG:
 		complain("debug");
+		// intentionally fall through
+	case INFO:
+		complain("info");
 		// intentionally fall through
 	case WARNING:
 		complain("warning");
