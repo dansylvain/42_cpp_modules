@@ -30,9 +30,6 @@ public:
 };
 
 // Overload of << operator
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
-{
-    out << fixed.toFloat();
-    return out;
-}
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
+
 #endif
