@@ -1,27 +1,4 @@
-#include "Point.hpp"
-#include "Fixed.hpp"
-#include <cstdio>
-
-bool haveSameSign(float x, float y);
-float cross_product_2d(float x[], float y[], float z[]);
-void	initializeArray(int array[], Point const p);
-
-float	cross_product_2d(float x[], float y[], float z[]){
-	return ((y[0]-x[0])*(z[1]-x[1])-(y[1]-x[1])*(z[0]-x[0]));
-}
-
-void	initializeArray(float array[], Point const p)
-{
-	array[0] = p.get_x().toFloat();
-	array[1] = p.get_y().toFloat();
-}
-
-bool haveSameSign(float x, float y)
-{
-	if ((x > 0 && y > 0) || (x < 0 && y < 0))
-		return (true);
-	return (false);
-}
+#include "bsp.hpp"
 
 /**========================================================================
  *                           BSP
@@ -47,4 +24,24 @@ bool bsp( Point const a, Point const b, Point const c, Point const point){
 	bool sameSign3 = haveSameSign(cp1, cp4);
 
 	return (sameSign1 && sameSign2 && sameSign3);
+}
+
+/**========================================================================
+ *                           UTILS
+ *========================================================================**/
+float	cross_product_2d(float x[], float y[], float z[]){
+	return ((y[0]-x[0])*(z[1]-x[1])-(y[1]-x[1])*(z[0]-x[0]));
+}
+
+void	initializeArray(float array[], Point const p)
+{
+	array[0] = p.get_x().toFloat();
+	array[1] = p.get_y().toFloat();
+}
+
+bool haveSameSign(float x, float y)
+{
+	if ((x > 0 && y > 0) || (x < 0 && y < 0))
+		return (true);
+	return (false);
 }
