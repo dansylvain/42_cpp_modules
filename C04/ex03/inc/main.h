@@ -21,6 +21,7 @@ typedef enum
 #define MAXMATERIA 100
 #include <iostream>
 
+void	myPause();
 void	print(std::string str);
 void	printB(const std::string& str);
 void	print(std::string str);
@@ -29,4 +30,4 @@ void	printF(std::string str);
 void	printFB(const std::string& str);
 extern bool TEST;
 
-#endif
+#endif 

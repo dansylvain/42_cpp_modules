@@ -18,14 +18,15 @@ void	test_three()
 	printB("******* Initial data creation *************");
 	MateriaSource *source = new MateriaSource;
 	
-	
 	print("");
+	myPause();
 	printB("********* Character createNewCharacter ****");
 	Character *clitorine = Character::createNewCharacter("Clitorine");
 	Character *constantin = Character::createNewCharacter("Constantin");
 	
 	
 	print("");
+	myPause();
 	printB("******** AMateria addMateria1 *************");
 	AMateria::addMateria("ice");
 	AMateria::addMateria("ice");
@@ -43,15 +44,18 @@ void	test_three()
 	AMateria::addMateria("cure");
 	print(ice->getType());
 	print("");
+	myPause();
 	printB("******** AMateria addMateria2 *************");
 	Cure *cure = static_cast<Cure*>(AMateria::addMateria(new Cure));
 	
 	print("");
+	myPause();
 	printB("******** AMateria getType *****************");
 	print(cure->getType());
 	print(ice->getType());
 	
 	print("");
+	myPause();
 	printB("******** AMateria setLoc ******************");
 	print("before: " + cure->getLoc());
 	cure->setLoc(MATERIASOURCE);
@@ -60,16 +64,19 @@ void	test_three()
 	print("after: " + cure->getLoc());
 	
 	print("");
+	myPause();
 	printB("******** AMateria clone *******************");
 	AMateria *tmp = cure->clone();
 	print(tmp->getType());	
 	
 	print("");
+	myPause();
 	printB("******** AMateria use *********************");
 	cure->use(*clitorine);
 	ice->use(*constantin);
 	
 	print("");
+	myPause();
 	printB("********* Character equip *****************");
 	print("Charc inv before use");
 	clitorine->displayMaterias();
@@ -85,6 +92,7 @@ void	test_three()
 
 	
 	print("");
+	myPause();
 	printB("********* Character unequip ***************");
 	print("Charc inv before unequip");
 	clitorine->displayMaterias();
@@ -97,22 +105,26 @@ void	test_three()
 	print("");
 
 	print("");
+	myPause();
 	printB("******** AMateria getLoc ******************");
 	print(cure->getLoc());
 	print(ice->getLoc());
 	
 	print("");
+	myPause();
 	printB("********* Character getName ***************");
 	print(constantin->getName());
 	print(clitorine->getName());
 	
 	print("");
+	myPause();
 	printB("********* Character use *******************");
 	constantin->equip(tmp);
 	constantin->use(0, *clitorine);
 	clitorine->use(1, *constantin);
 	
 	print("");
+	myPause();
 	printB("********* Character displayMaterias *******");
 	print(constantin->getName() + "inv: ");
 	constantin->displayMaterias();
@@ -121,17 +133,20 @@ void	test_three()
 	clitorine->displayMaterias();
 	print("");
 	print("");
+	myPause();
 	printB("********** Cure/Ice clone *****************");
 	cure->clone();
 
 
 	print("");
+	myPause();
 	printB("********** Cure/Ice use *******************");
 	ice->use(*clitorine);
 	cure->use(*constantin);
 	
 	
 	print("");
+	myPause();
 	printB("********** MateriaSource learnMateria *****");
 	source->learnMateria(cure);
 	source->learnMateria(cure);
@@ -144,11 +159,13 @@ void	test_three()
 	print("");
 	
 	print("");
+	myPause();
 	printB("******* MateriaSource createMateria *******");
 	source->createMateria(CURE);
 
 	print("");
 
+	myPause();
 	printB("******* ressources destruction ************");
 	
 
