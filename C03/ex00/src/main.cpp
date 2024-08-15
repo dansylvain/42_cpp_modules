@@ -1,9 +1,14 @@
 #include "ClapTrap.hpp"
 
+void	printB(std::string str)
+{
+	std::cout << "\033[31;1m" << str << "\033[0m" << std::endl;
+}
+
 void	displayClapTraps()
 {
 	std::cout << std::endl;	
-	std::cout << "*** Display: (Name, EnergyPoints, HitPoints, AttackDamage) ***" << std::endl;
+	printB("*** Display: (_name, _energyPoints, _hitPoints, _attackDamage) ***");
 	for (int i = 0; i < ClapTrap::count; i++)
 		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
 		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
@@ -21,44 +26,40 @@ void	pause()
 	std::cin.get();
 }
 
-void	printB(std::string str)
-{
-	std::cout << "\033[31;1m" << str << "\033[0m" << std::endl;
-}
 
 int main(void)
 {
-	std::cout << "****** Create ClapTraps ******" << std::endl;
+	printB("****** Create ClapTraps ******");
 	ClapTrap Clapster("Clapster");
 	ClapTrap ZappyClap("ZappyClap");
 	ClapTrap ClapMaster("ClapMaster");
 	ClapTrap ClapTronix("ClapTronix");
 	ClapTrap GigaClap("GigaClap");
 	
-	
-	displayClapTraps();
 	pause();
-	std::cout << "******* test: attack *********" << std::endl;
+	displayClapTraps();
+	
+	pause();
+	printB("******* test: attack *********");
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
 	Clapster.attack("ClapTronix");
 	ClapTronix.attack("Clapster");
-	std::cout << std::endl;
 	ZappyClap.attack("GigaClap");
-	pause();
 	
-	std::cout << "***** test: takeDamage *******" << std::endl;
+	pause();
+	printB("***** test: takeDamage *******");
 	ClapMaster.takeDamage(3);
 	ClapMaster.takeDamage(3);
 	ClapMaster.takeDamage(3);
 	ClapMaster.takeDamage(3);
 	ClapMaster.takeDamage(3);
 	std::cout << std::endl;
-	pause();
 	
-	std::cout << "***** test: beRepaired *******" << std::endl;
+	pause();
+	printB("***** test: beRepaired *******");
 	ClapMaster.beRepaired(10);
 	GigaClap.beRepaired(2);
 	Clapster.beRepaired(2);
@@ -70,10 +71,11 @@ int main(void)
 	Clapster.beRepaired(2);
 	std::cout << std::endl;
 
-	pause();
 	
+	pause();
 	displayClapTraps();
 
-	std::cout << "****** Detroy ClapTraps ******" << std::endl;
+	pause();
+	printB("****** Detroy ClapTraps ******");
 	return (0);
 }
