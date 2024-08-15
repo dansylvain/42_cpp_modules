@@ -6,24 +6,24 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), 
 										FragTrap(name),
-										Name(name), 
-										HitPoints(FragTrap::getHitPoints()), 
-										EnergyPoints(ScavTrap::getEnergyPoints()), 
-										AttackDamage(FragTrap::getAttackDamage())   {
-	print("&&& DiamondTrap ", Name, " created. &&&");
+										_name(name), 
+										_hitPoints(FragTrap::getHitPoints()), 
+										_energyPoints(ScavTrap::getEnergyPoints()), 
+										_attackDamage(FragTrap::getAttackDamage())   {
+	print("&&& DiamondTrap " + _name + " created. &&&");
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other)  : ClapTrap(other), ScavTrap(other), FragTrap(), 
-										Name(other.Name), 
-										HitPoints(other.HitPoints), 
-										EnergyPoints(other.EnergyPoints), 
-										AttackDamage(other.AttackDamage)  {
-	print("&&& DiamondTrap ", other.Name, " created. &&&");
+										_name(other._name), 
+										_hitPoints(other._hitPoints), 
+										_energyPoints(other._energyPoints), 
+										_attackDamage(other._attackDamage)  {
+	print("&&& DiamondTrap " + other._name + " created. &&&");
 
 }
 
 DiamondTrap::~DiamondTrap() {
-	print("&&& DiamondTrap ", Name, " destroyed. &&&");
+	print("&&& DiamondTrap " + _name + " destroyed. &&&");
 
 }
 
@@ -43,29 +43,29 @@ return (*this);
  *                           ACCESSORS AND SETTERS
  *========================================================================**/
 const std::string &DiamondTrap::getName(void) const {
-	return (Name);
+	return (_name);
 }
 
 const int	&DiamondTrap::getHitPoints(void) const {
-	return (HitPoints);
+	return (_hitPoints);
 }
 
 const int	&DiamondTrap::getEnergyPoints(void) const {
-	return (EnergyPoints);
+	return (_energyPoints);
 }
 
 const int	&DiamondTrap::getAttackDamage(void) const {
-	return (AttackDamage);
+	return (_attackDamage);
 }
 
 void	DiamondTrap::setHitPoints(int num) {
-	this->HitPoints += num;
+	this->_hitPoints += num;
 	if (num == 42)
-		this->HitPoints = 0;
+		this->_hitPoints = 0;
 }
 
 void	DiamondTrap::whoAmI()
 {
-	print("My name: " + this->Name);
-	print("My ClapTrap Class name: " + ClapTrap::Name);
+	print("My name: " + this->_name);
+	print("My ClapTrap Class name: " + ClapTrap::_name);
 }

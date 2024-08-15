@@ -7,10 +7,10 @@
 
 class DiamondTrap : virtual public ClapTrap, virtual public ScavTrap, virtual public FragTrap {
 	protected:
-		std::string			Name;
-		int					HitPoints;
-		int					EnergyPoints;
-		int					AttackDamage;
+		std::string			_name;
+		int					_hitPoints;
+		int					_energyPoints;
+		int					_attackDamage;
 	public:
 		// Constructors and destructor
 		DiamondTrap();

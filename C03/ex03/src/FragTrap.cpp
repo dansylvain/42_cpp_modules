@@ -6,17 +6,17 @@
 FragTrap::FragTrap() : ClapTrap() {
 	initialize(" created ###");}
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name), Name(name), 
-										HitPoints(100), 
-										EnergyPoints(100), 
-										AttackDamage(30)  {
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name), _name(name), 
+										_hitPoints(100), 
+										_energyPoints(100), 
+										_attackDamage(30)  {
 	initialize(" created ###");
 }
 
-FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other), Name(other.Name), 
-										HitPoints(other.HitPoints), 
-										EnergyPoints(other.EnergyPoints), 
-										AttackDamage(other.AttackDamage)  {
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other), _name(other._name), 
+										_hitPoints(other._hitPoints), 
+										_energyPoints(other._energyPoints), 
+										_attackDamage(other._attackDamage)  {
 	initialize(" created ###");}
 
 FragTrap::~FragTrap() {
@@ -41,38 +41,38 @@ void	FragTrap::attack(const std::string& target) {
 }
 
 void	FragTrap::highFivesGuys() const {
-	print(this->getName(), " sends a high five, guys.");
+	print(this->getName() + " sends a high five, guys.");
 }
 
 void	FragTrap::DisplayName(std::string str) const {
-	print("### FragTrap ", this->getName(), str);
+	print("### FragTrap " + this->getName() + str);
 }
 
 void FragTrap::initialize(std::string str) {
-	print("### FragTrap ", Name, str);
+	print("### FragTrap " + _name + str);
 }
 
 /**========================================================================
  *                           ACCESSORS AND SETTERS
  *========================================================================**/
 const std::string &FragTrap::getName(void) const {
-	return (Name);
+	return (_name);
 }
 
 const int	&FragTrap::getHitPoints(void) const {
-	return (HitPoints);
+	return (_hitPoints);
 }
 
 const int	&FragTrap::getEnergyPoints(void) const {
-	return (EnergyPoints);
+	return (_energyPoints);
 }
 
 const int	&FragTrap::getAttackDamage(void) const {
-	return (AttackDamage);
+	return (_attackDamage);
 }
 
 void	FragTrap::setHitPoints(int num) {
-	this->HitPoints += num;
+	this->_hitPoints += num;
 	if (num == 42)
-		this->HitPoints = 0;
+		this->_hitPoints = 0;
 }
