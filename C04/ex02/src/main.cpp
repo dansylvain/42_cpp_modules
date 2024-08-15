@@ -1,40 +1,29 @@
-#include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "Brain.hpp"
-#include <ctime>
-#include <cstdlib>
-#include <typeinfo>
+#include "main.hpp"
 
 void	print(std::string str);
 
+/**========================================================================
+ *                           MAIN
+ * abstract classes cannot be instantiated
+ * create a pure fonction (by adding = 0 at the end)
+ * to make a class abstract
+ *========================================================================**/
 int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(0)));
 
-	// abstract classes cannot be instantiated
-	// create a pure fonction (by adding = 0 at the end)
-	// to make a class abstract
-
-	//? uncomment this line for test
-	// Animal test;
-
-
-
-
 	print("Welcome to the Jungle");
 	print("");
 
-	print("******** Animal Creation ***********");
+	printB("******** Animal Creation ***********");
 	Animal* animals[10];
 	for (int i = 0; i < 5; i++)
 		animals[i] = new Dog();
 	for (int i = 5; i < 10; i++)
 		animals[i] = new Cat();
 	print("");
-	print("********** Brain Tests *************");
+	pause();
+	printB("********** Brain Tests *************");
 	for (int i = 0; i < 10; i++)
 	{
 		if (i == 5) print("");
@@ -44,8 +33,9 @@ int main()
 		dogPtr ? print(str + dogPtr->myBrain->getIdea()) : 
 		print(str + CatPtr->myBrain->getIdea());
 	}
+	pause();
 	print("");
-	print("**** Copy constructor test *********");
+	printB("**** Copy constructor test *********");
 	const Cat *catPtr = dynamic_cast<Cat*>(animals[8]);
 	print("PussyCat thinks: " + catPtr->myBrain->ideas[7]);
 	print("PussyCat thinks: " + catPtr->myBrain->ideas[15]);
@@ -63,8 +53,9 @@ int main()
 	print("copyCat thinks: " + copyCat.myBrain->ideas[42]);
 
 
+	pause();
 	print("");
-	print("***** Assignment Tests *************");
+	printB("***** Assignment Tests *************");
 	Dog *dogOne = dynamic_cast<Dog*>(animals[4]);
 	Dog *dogTwo = dynamic_cast<Dog*>(animals[2]);
 	
@@ -79,6 +70,7 @@ int main()
 
 	*dogOne = *dogTwo;
 
+	pause();
 	print("");
 	print("after assignment");
 	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
@@ -89,7 +81,8 @@ int main()
 	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
 	print("");
 
-	print("******* Animals destruction ********");
+	pause();
+	printB("******* Animals destruction ********");
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
 	return 0;
