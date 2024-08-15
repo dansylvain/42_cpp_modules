@@ -1,17 +1,11 @@
-#include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-
-void	print(std::string str);
+#include "main.hpp"
 
 int main()
 {
-print("Welcome to the Jungle");
+printB("Welcome to the Jungle");
 print("");
 
-print("******** Creation Tests ************");
+printB("******** Creation Tests ************");
 const Animal* meta = new Animal();
 const Animal* dog = new Dog();
 const Animal* cat = new Cat();
@@ -19,7 +13,8 @@ const WrongAnimal* wa = new WrongAnimal();
 const WrongAnimal* wc = new WrongCat();
 print("");
 
-print("********Makesound Test ************");
+pause();
+printB("********Makesound Test ************");
 meta->makeSound();
 cat->makeSound();
 dog->makeSound();
@@ -29,7 +24,8 @@ print("");
 
 
 
-print("*****Copy constructor Test ********");
+pause();
+printB("*****Copy constructor Test ********");
 Dog CopyDog(*dynamic_cast<const Dog*>(dog));
 CopyDog.makeSound();
 print(CopyDog.getType());
@@ -46,8 +42,8 @@ print("");
  * ? hence, I did it on the stack, not to loose reference
  *========================================================================**/
 
-print("*****assign. operator Test ********");
-
+pause();
+printB("*****assign. operator Test ********");
 const Animal* animalPtr = &CopyDog;
 print("Before Transgender Surgery:");
 animalPtr->makeSound();
@@ -64,15 +60,12 @@ print("After Transgender Surgery:");
 WanimalPtr->makeSound();
 print("");
 
+pause();
+printB("****** cleaning ressources ********");
 delete meta;
 delete cat;
 delete dog;
 delete wa;
 delete wc;
 
-}
-
-void	print(std::string str)
-{
-	std::cout << str << std::endl;
 }
