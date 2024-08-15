@@ -1,4 +1,5 @@
-// Array.tpp
+#pragma once
+#include "Array.hpp"
 
 template <typename T>
 Array<T>::Array() : data(NULL), _size(0)
@@ -11,11 +12,16 @@ Array<T>::Array(unsigned int n) : _size(n)
 	if (_size == 0)
 		data = NULL;
 	else
+	{
 		data = new T[_size];
+		for (unsigned int i = 0; i < _size; i++)
+			data[i] = T(); // initialization by default for primitiv types
+	}
 }
 
 template <typename T>
-Array<T>::Array(const Array& other) : _size(other._size) {
+Array<T>::Array(const Array& other) : _size(other._size)
+{
 	if (_size == 0)
 		data = NULL;
 	else
