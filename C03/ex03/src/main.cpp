@@ -2,7 +2,12 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
-
+void	pause()
+{
+	std::cout << std::endl;
+	std::cout << "Press Enter to continue..." << std::endl;
+	std::cin.get();
+}
 int main(void)
 {
 	print("******************************");
@@ -17,7 +22,7 @@ int main(void)
 	ScavTrap ScavBuddy("ScavBuddy");
 	FragTrap FraggyBoy("FraggyBoy");
 	DiamondTrap PearlTrap("PearlTrap");
-	
+	pause();
 	ClapTrap::displayClapTraps();
 	
 
@@ -36,6 +41,7 @@ int main(void)
 	Clapster.attack("ScavTronix");
 	ScavTronix.attack("Clapster");
 	print("");
+	pause();
 
 	print("***********************************");
 	print("****** Copy constructor test ******");
@@ -46,6 +52,7 @@ int main(void)
 	DiamondTrap DiamondCopy(PearlTrap);
 
 	ClapTrap::displayClapTraps();
+	pause();
 	
 	print("******************************");
 	print("***** test: takeDamage *******");
@@ -58,6 +65,7 @@ int main(void)
 	ScavMaster.takeDamage(22);
 	print("");
 
+	pause();
 
 	print("******************************");
 	print("***** test: beRepaired *******");
@@ -74,6 +82,7 @@ int main(void)
 	ClappyClappo.beRepaired(1);
 	ClappyClappo.beRepaired(1);
 	print("");
+	pause();
 
 	print("******************************");
 	print("**** special Traps tests *****");
@@ -81,6 +90,7 @@ int main(void)
 	FraggyBoy.highFivesGuys();
 	PearlTrap.whoAmI();
 	print("");
+	pause();
 	
 	print("****************************************");
 	print("****** Diamond values access test ******");
@@ -90,6 +100,7 @@ int main(void)
 	print(PearlTrap.ClapTrap::getHitPoints());
 	print(PearlTrap.ClapTrap::getEnergyPoints());
 	print(PearlTrap.ClapTrap::getAttackDamage());
+	pause();
 
 	print("");
 	print("ScavTrap values of " + PearlTrap.getName());
@@ -97,6 +108,7 @@ int main(void)
 	print(PearlTrap.ScavTrap::getHitPoints());
 	print(PearlTrap.ScavTrap::getEnergyPoints());
 	print(PearlTrap.ScavTrap::getAttackDamage());
+	pause();
 
 	print("");
 	print("FragTrap values of " + PearlTrap.getName());
@@ -104,6 +116,7 @@ int main(void)
 	print(PearlTrap.FragTrap::getHitPoints());
 	print(PearlTrap.FragTrap::getEnergyPoints());
 	print(PearlTrap.FragTrap::getAttackDamage());
+	pause();
 
 	print("");
 	print("DiamondTrap values of " + PearlTrap.getName());
@@ -117,6 +130,7 @@ int main(void)
 
 
 
+	pause();
 
 	print("******************************");
 	print("****** Detroy Claptraps ******");

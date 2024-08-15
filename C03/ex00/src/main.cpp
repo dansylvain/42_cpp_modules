@@ -13,6 +13,19 @@ void	displayClapTraps()
 	std::cout << std::endl;	
 }
 
+
+void	pause()
+{
+	std::cout << std::endl;
+	std::cout << "Press Enter to continue..." << std::endl;
+	std::cin.get();
+}
+
+void	printB(std::string str)
+{
+	std::cout << "\033[31;1m" << str << "\033[0m" << std::endl;
+}
+
 int main(void)
 {
 	std::cout << "****** Create ClapTraps ******" << std::endl;
@@ -24,7 +37,7 @@ int main(void)
 	
 	
 	displayClapTraps();
-	
+	pause();
 	std::cout << "******* test: attack *********" << std::endl;
 	Clapster.attack("NonExistingClapTrap");
 	Clapster.attack("");
@@ -34,6 +47,7 @@ int main(void)
 	ClapTronix.attack("Clapster");
 	std::cout << std::endl;
 	ZappyClap.attack("GigaClap");
+	pause();
 	
 	std::cout << "***** test: takeDamage *******" << std::endl;
 	ClapMaster.takeDamage(3);
@@ -42,6 +56,7 @@ int main(void)
 	ClapMaster.takeDamage(3);
 	ClapMaster.takeDamage(3);
 	std::cout << std::endl;
+	pause();
 	
 	std::cout << "***** test: beRepaired *******" << std::endl;
 	ClapMaster.beRepaired(10);
@@ -55,6 +70,7 @@ int main(void)
 	Clapster.beRepaired(2);
 	std::cout << std::endl;
 
+	pause();
 	
 	displayClapTraps();
 

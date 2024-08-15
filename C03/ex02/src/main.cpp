@@ -15,6 +15,13 @@ void	displayClapTraps()
 	print("");	
 }
 
+void	pause()
+{
+	std::cout << std::endl;
+	std::cout << "Press Enter to continue..." << std::endl;
+	std::cin.get();
+}
+
 int main(void)
 {
 	print("****** Create ClapTraps ******");
@@ -26,7 +33,7 @@ int main(void)
 	ScavTrap GigaScav("GigaScav");
 	ScavTrap ScavBuddy("ScavBuddy");
 	FragTrap FraggyBoy("FraggyBoy");
-	
+	pause();
 	displayClapTraps();
 	
 	print("******* test: attack *********");
@@ -41,6 +48,7 @@ int main(void)
 	ScavTronix.attack("Clapster");
 	print("");
 	ZappyClap.attack("GigaScav");
+	pause();
 	
 	print("***** test: takeDamage *******");
 	ScavMaster.takeDamage(22);
@@ -50,6 +58,7 @@ int main(void)
 	ScavMaster.takeDamage(22);
 	ScavMaster.takeDamage(22);
 	print("");
+	pause();
 
 	print("***** test: beRepaired *******");
 	ClappyClappo.beRepaired(1);
@@ -64,6 +73,7 @@ int main(void)
 	ClappyClappo.beRepaired(1);
 	ClappyClappo.beRepaired(1);
 	print("");
+	pause();
 
 	print("****** special Traps tests ******");
 	ScavBuddy.guardGate();
@@ -75,6 +85,7 @@ int main(void)
 
 
 
+	pause();
 	print("****** Detroy Claptraps ******");
 	return (0);
 }
