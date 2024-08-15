@@ -34,12 +34,12 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
-	print(this->getName(), " Enter Gate Keeper Mode");
+	print(this->getName() + " Enter Gate Keeper Mode");
 };
 
 void	ScavTrap::DisplayName(std::string str)
 {
-	print("***ScavTrap ", this->getName(), str);
+	print("***ScavTrap " + this->getName() + str);
 }
 void ScavTrap::initialize(std::string str)
 {

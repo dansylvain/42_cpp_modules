@@ -1,12 +1,4 @@
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-
-void	pause()
-{
-	std::cout << std::endl;
-	std::cout << "Press Enter to continue..." << std::endl;
-	std::cin.get();
-}
+#include "main.hpp"
 
 int main(void)
 {
@@ -61,31 +53,3 @@ int main(void)
 	return (0);
 }
 
-void	displayClapTraps()
-{
-	std::cout << std::endl;
-	print("*** Display: (_name, _energyPoints, _hitPoints, _attackDamage) ***");
-	for (int i = 0; i < ClapTrap::count; i++)
-		std::cout << ClapTrap::allClapTraps[i]->getName() << ", "
-		<< ClapTrap::allClapTraps[i]->getEnergyPoints() << ", "
-		<< ClapTrap::allClapTraps[i]->getHitPoints() << ", "
-		<< ClapTrap::allClapTraps[i]->getAttackDamage()
-		<< std::endl;
-	std::cout << std::endl;	
-}
-
-void	print(std::string a) {
-	std::cout << a << std::endl;
-}
-void	print(std::string a, std::string b) {
-	std::cout << a << b << std::endl;
-}
-void	print(std::string a, std::string b, std::string c) {
-	std::cout << a << b << c << std::endl;
-}
-void	print(std::string a, std::string b, std::string c, std::string d) {
-	std::cout << a << b << c << d << std::endl;
-}
-void	print(std::string a, std::string b, int c, std::string d) {
-	std::cout << a << b << c << d << std::endl;
-}
