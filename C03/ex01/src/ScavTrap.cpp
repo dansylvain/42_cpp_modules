@@ -29,7 +29,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
  *                           ACTION METHODS
  *========================================================================**/
 void ScavTrap::attack(const std::string& target) {
-	std::cout << "***ScrapTrap*** ";
+	std::cout << "***ScavTrap*** ";
 	ClapTrap::attack(target);
 }
 
@@ -43,8 +43,8 @@ void	ScavTrap::DisplayName(std::string str)
 }
 void ScavTrap::initialize(std::string str)
 {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	DisplayName(str);
 }
