@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	print("****** Create ClapTraps and ScavTraps ******");
+	printB("****** Create ClapTraps and ScavTraps ******");
 	ScavTrap Scavster("Scavster");
 	ClapTrap ZappyClap("ZappyClap");
 	ScavTrap ScavMaster("ScavMaster");
@@ -10,8 +10,9 @@ int main(void)
 	ScavTrap GigaScav("GigaScav");
 	pause();
 	displayClapTraps();
+	pause();
 	
-	print("******* test: attack *********");
+	printB("******* test: attack *********");
 	Scavster.attack("NonExistingClapTrap");
 	Scavster.attack("");
 	ZappyClap.attack("ScavTronix");
@@ -25,7 +26,7 @@ int main(void)
 	ZappyClap.attack("GigaScav");
 	print("");
 	pause();
-	print("***** test: takeDamage *******");
+	printB("***** test: takeDamage *******");
 	ScavMaster.takeDamage(22);
 	ScavMaster.takeDamage(22);
 	ScavMaster.takeDamage(22);
@@ -34,21 +35,21 @@ int main(void)
 	ScavMaster.takeDamage(22);
 	print("");	
 	pause();
-	print("***** test: beRepaired *******");
+	printB("***** test: beRepaired *******");
 	ScavMaster.beRepaired(10);
 	GigaScav.beRepaired(2);
 	Scavster.beRepaired(2);
 	Scavster.beRepaired(2);
 	print("");
 	pause();
-	print("****** special Traps tests ******");
+	printB("****** special Traps tests ******");
 	ScavTrap Scavilax("Scavilax");
 	Scavilax.guardGate();
 	print("");
 	pause();
 	displayClapTraps();
-	
-	print("****** Detroy ClapTraps ******");
+	pause();
+	printB("****** Detroy ClapTraps ******");
 	
 	return (0);
 }
