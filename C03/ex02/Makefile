@@ -9,7 +9,7 @@ SRC = 	src/main.cpp \
 		src/ClapTrap.cpp \
 		src/ScavTrap.cpp \
 		src/FragTrap.cpp \
-
+		src/utils.cpp
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
 all: $(NAME)

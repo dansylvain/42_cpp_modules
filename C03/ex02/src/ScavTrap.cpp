@@ -34,16 +34,16 @@ void	ScavTrap::attack(const std::string& target) {
 }
 
 void	ScavTrap::guardGate() const {
-	print(this->getName(), " Enter Gate Keeper Mode.");
+	print(this->getName() + " Enter Gate Keeper Mode.");
 };
 
 void	ScavTrap::DisplayName(std::string str) const {
-	print("***ScavTrap ", this->getName(), str);
+	print("***ScavTrap " + this->getName() + str);
 }
 void ScavTrap::initialize(std::string str)
 {
-	HitPoints = 100;
-	EnergyPoints = 50;
-	AttackDamage = 20;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	DisplayName(str);
 }
