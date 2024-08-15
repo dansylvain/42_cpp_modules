@@ -9,7 +9,8 @@ SRC = 	src/main.cpp \
 		src/Dog.cpp \
 		src/Cat.cpp \
 		src/Animal.cpp \
-		src/Brain.cpp
+		src/Brain.cpp \
+		src/utils.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
