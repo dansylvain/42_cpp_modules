@@ -2,10 +2,13 @@
 #include <ctime>
 #include <cstdlib>
 
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
 Cat::Cat() : Animal()
 {
 	type = "Cat";
-	print("Cat created - with a brain");
+	print("Cat created (default constructor)");
 	myBrain = new Brain();
 	getGlobalKnowledge();
 }
@@ -13,10 +16,19 @@ Cat::Cat() : Animal()
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	type = other.getType();
-	myBrain = new Brain(*other.myBrain);
-	std::cout << "Dog created - with a brain" << std::endl;
+	myBrain = new Brain(other.myBrain);
+	std::cout << "Cat created (copy constructor)" << std::endl;
 }
 
+Cat::~Cat()
+{
+	print("Cat destroyed");
+	delete myBrain;
+}
+
+/**========================================================================
+ *                           ASSIGNMENT OPERATOR
+ *========================================================================**/
 Cat& Cat::operator=(const Cat& src)
 {
 	if (this != &src)
@@ -27,20 +39,20 @@ Cat& Cat::operator=(const Cat& src)
 	return (*this);
 }
 
-Cat::~Cat()
-{
-	print("Cat destroyed");
-	delete myBrain;
-}
-
-Brain *Cat::getBrain() const
-{
-	return (myBrain);
-}
-
+/**========================================================================
+ *                           OTHER METHODS
+ *========================================================================**/
 void	Cat::makeSound() const
 {
 	print(getType() + " says MEOW!");
+}
+
+/**========================================================================
+ *                           GETTERS AND SETTERS>
+ *========================================================================**/
+Brain *Cat::getBrain() const
+{
+	return (myBrain);
 }
 
 void	Cat::getGlobalKnowledge()

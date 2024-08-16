@@ -72,7 +72,6 @@ int main()
 
 	*dogOne = *dogTwo;
 
-	pause();
 	print("");
 	print("after assignment");
 	print("dogOne thinks: " + dogOne->getBrain()->getIdeas()[42]);

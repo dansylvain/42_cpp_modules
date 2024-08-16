@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 
-
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
 Animal::Animal() : type("Animal")
 {
 	print("Animal created");
@@ -12,6 +14,14 @@ Animal::Animal(const Animal &other)
 	type = other.getType();
 }
 
+Animal::~Animal()
+{
+	print("Animal destroyed");
+}
+
+/**========================================================================
+ *                           ASSIGNMENT OPERATOR
+ *========================================================================**/
 Animal& Animal::operator=(const Animal& src)
 {
 	if (this != &src)
@@ -19,17 +29,18 @@ Animal& Animal::operator=(const Animal& src)
 	return (*this);
 }
 
-Animal::~Animal()
-{
-	print("Animal destroyed");
-}
-
-void	Animal::makeSound() const
-{
-	print(getType() + " says hi");
-}
-
+/**========================================================================
+ *                           GETTERS AND SETTERS>
+ *========================================================================**/
 const std::string	&Animal::getType() const
 {
 	return (type);
+}
+
+/**========================================================================
+ *                           OTHER METHODS
+ *========================================================================**/
+void	Animal::makeSound() const
+{
+	print(getType() + " says hi");
 }
