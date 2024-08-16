@@ -30,27 +30,27 @@ int main()
 		std::string str = (animals[i])->getType() + " thinks: ";
 		const Dog *dogPtr = dynamic_cast<const Dog*>(animals[i]);
 		const Cat *CatPtr = dynamic_cast<const Cat*>(animals[i]);
-		dogPtr ? print(str + dogPtr->myBrain->getIdea()) : 
-		print(str + CatPtr->myBrain->getIdea());
+		dogPtr ? print(str + dogPtr->getBrain()->getIdea()) : 
+		print(str + CatPtr->getBrain()->getIdea());
 	}
 	pause();
 	print("");
 	printB("**** Copy constructor test *********");
 	const Cat *catPtr = dynamic_cast<Cat*>(animals[8]);
-	print("PussyCat thinks: " + catPtr->myBrain->ideas[7]);
-	print("PussyCat thinks: " + catPtr->myBrain->ideas[15]);
-	print("PussyCat thinks: " + catPtr->myBrain->ideas[42]);
+	print("PussyCat thinks: " + catPtr->getBrain()->ideas[7]);
+	print("PussyCat thinks: " + catPtr->getBrain()->ideas[15]);
+	print("PussyCat thinks: " + catPtr->getBrain()->ideas[42]);
 
 	print("");
 	Cat copyCat(*catPtr);
 	print("");
 
-	print("Pussy thinks:   " + catPtr->myBrain->ideas[7]);
-	print("copyCat thinks: " + copyCat.myBrain->ideas[7]);
-	print("Pussy thinks:   " + catPtr->myBrain->ideas[15]);
-	print("copyCat thinks: " + copyCat.myBrain->ideas[15]);
-	print("Pussy thinks:   " + catPtr->myBrain->ideas[42]);
-	print("copyCat thinks: " + copyCat.myBrain->ideas[42]);
+	print("Pussy thinks:   " + catPtr->getBrain()->ideas[7]);
+	print("copyCat thinks: " + copyCat.getBrain()->ideas[7]);
+	print("Pussy thinks:   " + catPtr->getBrain()->ideas[15]);
+	print("copyCat thinks: " + copyCat.getBrain()->ideas[15]);
+	print("Pussy thinks:   " + catPtr->getBrain()->ideas[42]);
+	print("copyCat thinks: " + copyCat.getBrain()->ideas[42]);
 
 
 	pause();
@@ -60,12 +60,12 @@ int main()
 	Dog *dogTwo = dynamic_cast<Dog*>(animals[2]);
 	
 	print("before assignment");
-	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
-	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);
-	print("dogOne thinks: " + dogOne->myBrain->ideas[12]);
-	print("dogTwo thinks: " + dogTwo->myBrain->ideas[12]);
-	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
-	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
+	print("dogOne thinks: " + dogOne->getBrain()->ideas[42]);
+	print("dogTwo thinks: " + dogTwo->getBrain()->ideas[42]);
+	print("dogOne thinks: " + dogOne->getBrain()->ideas[12]);
+	print("dogTwo thinks: " + dogTwo->getBrain()->ideas[12]);
+	print("dogOne thinks: " + dogOne->getBrain()->ideas[5]);
+	print("dogTwo thinks: " + dogTwo->getBrain()->ideas[5]);
 	print("");
 
 	*dogOne = *dogTwo;
@@ -73,12 +73,12 @@ int main()
 	pause();
 	print("");
 	print("after assignment");
-	print("dogOne thinks: " + dogOne->myBrain->ideas[42]);
-	print("dogTwo thinks: " + dogTwo->myBrain->ideas[42]);
-	print("dogOne thinks: " + dogOne->myBrain->ideas[12]);
-	print("dogTwo thinks: " + dogTwo->myBrain->ideas[12]);
-	print("dogOne thinks: " + dogOne->myBrain->ideas[5]);
-	print("dogTwo thinks: " + dogTwo->myBrain->ideas[5]);
+	print("dogOne thinks: " + dogOne->getBrain()->ideas[42]);
+	print("dogTwo thinks: " + dogTwo->getBrain()->ideas[42]);
+	print("dogOne thinks: " + dogOne->getBrain()->ideas[12]);
+	print("dogTwo thinks: " + dogTwo->getBrain()->ideas[12]);
+	print("dogOne thinks: " + dogOne->getBrain()->ideas[5]);
+	print("dogTwo thinks: " + dogTwo->getBrain()->ideas[5]);
 	print("");
 
 	pause();
@@ -88,11 +88,3 @@ int main()
 	return 0;
 	(void)animals;
 }
-
-void	print(std::string str)
-{
-	std::cout << str << std::endl;
-}
-
-
-
