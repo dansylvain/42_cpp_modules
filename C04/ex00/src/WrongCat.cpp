@@ -7,7 +7,7 @@ WrongCat::WrongCat() : WrongAnimal() {
 }
 
 WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other){
-	print("WrongAnimal created");
+	print("WrongCat created");
 	type = other.getType();
 }
 
@@ -22,5 +22,5 @@ WrongCat::~WrongCat() {
 }
 
 void	WrongCat::makeSound() const {
-	print(getType() + " says MEOW!");
+	print(" says WOEM!");
 }

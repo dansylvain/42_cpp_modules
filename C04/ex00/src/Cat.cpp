@@ -30,5 +30,5 @@ Cat& Cat::operator=(const Cat& src) {
  *                           OTHER METHODS
  *========================================================================**/
 void	Cat::makeSound() const {
-	print(getType() + " says MEOW!");
+	print(" says MEOW!");
 }

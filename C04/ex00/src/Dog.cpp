@@ -30,5 +30,5 @@ Dog& Dog::operator=(const Dog& src) {
  *                           OTHER METHODS
  *========================================================================**/
 void	Dog::makeSound() const {
-	print(getType() + " says WOOF!");
+	print(" says WOOF!");
 }

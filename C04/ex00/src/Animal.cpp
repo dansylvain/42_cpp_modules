@@ -21,7 +21,7 @@ Animal::~Animal() {
 }
 
 void	Animal::makeSound() const {
-	print(getType() + " says hi");
+	print(" says hi");
 }
 
 const std::string	&Animal::getType() const {

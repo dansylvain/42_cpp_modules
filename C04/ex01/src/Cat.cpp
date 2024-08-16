@@ -29,9 +29,16 @@ Cat::~Cat() {
 	delete myBrain;
 }
 
+Brain *Cat::getBrain() const
+{
+	return (myBrain);
+}
+
 void	Cat::makeSound() const {
 	print(getType() + " says MEOW!");
 }
+
+
 
 void	Cat::getGlobalKnowledge() {
 	std::string GlobalCatKnowledge[100] = {

@@ -10,7 +10,8 @@ class Cat : public Animal {
 		Cat& operator=(const Cat& src);
 		~Cat(); 
 
-		virtual void	makeSound() const;	
+		using Animal::getType;
+		void	makeSound() const;	
 };
 
 #endif

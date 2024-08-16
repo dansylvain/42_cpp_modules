@@ -27,6 +27,11 @@ Dog::~Dog() {
 	delete myBrain;
 }
 
+Brain *Dog::getBrain() const
+{
+	return (myBrain);
+}
+
 void	Dog::makeSound() const {
 	print(getType() + " says WOOF!");
 }

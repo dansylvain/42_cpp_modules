@@ -3,6 +3,7 @@
 #include <cstdlib>
 
 Brain::Brain() {
+	print("brain created");
 }
 
 

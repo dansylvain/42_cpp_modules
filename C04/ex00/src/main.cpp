@@ -15,11 +15,11 @@ print("");
 
 pause();
 printB("********Makesound Test ************");
-meta->makeSound();
-cat->makeSound();
-dog->makeSound();
-wa->makeSound();
-wc->makeSound();
+std::cout<< meta->getType() << std::flush; meta->makeSound();
+std::cout<< cat->getType() << std::flush; cat->makeSound();
+std::cout<< dog->getType() << std::flush; dog->makeSound();
+std::cout<< wa->getType() << std::flush; wa->makeSound();
+std::cout<< wc->getType() << std::flush; wc->makeSound();
 print("");
 
 
@@ -27,18 +27,20 @@ print("");
 pause();
 printB("*****Copy constructor Test ********");
 Dog CopyDog(*dynamic_cast<const Dog*>(dog));
-CopyDog.makeSound();
-print(CopyDog.getType());
+std::cout << CopyDog.getType() << std::flush; CopyDog.makeSound();
 print("");
 
-WrongCat CopyCat(*dynamic_cast<const WrongCat*>(wc));
-CopyCat.makeSound();
-print(CopyCat.getType());
+WrongAnimal CopyCat(*dynamic_cast<const WrongCat*>(wc));
+std::cout << CopyCat.getType() << std::flush; CopyCat.makeSound();
+print("");
+
+WrongCat CopyCat2(*dynamic_cast<const WrongCat*>(wc));
+std::cout << CopyCat2.getType() << std::flush; CopyCat2.makeSound();
 print("");
 
 /**========================================================================
  * ? class cannot be assigned at random.
- * ? only "compatible" classes can be assigned
+ * ? only "compatible" classes can be assigned without explicit casting
  * ? hence, I did it on the stack, not to loose reference
  *========================================================================**/
 
@@ -46,18 +48,18 @@ pause();
 printB("*****assign. operator Test ********");
 const Animal* animalPtr = &CopyDog;
 print("Before Transgender Surgery:");
-animalPtr->makeSound();
+std::cout << animalPtr->getType(); animalPtr->makeSound();
 animalPtr = cat;
 print("After Transgender Surgery:");
-animalPtr->makeSound();
+std::cout << animalPtr->getType(); animalPtr->makeSound();
 print("");
 
 const WrongAnimal* WanimalPtr = &CopyCat;
 print("Before Transgender Surgery:");
-WanimalPtr->makeSound();
+std::cout << WanimalPtr->getType(); WanimalPtr->makeSound();
 WanimalPtr = wc;
 print("After Transgender Surgery:");
-WanimalPtr->makeSound();
+std::cout << WanimalPtr->getType(); WanimalPtr->makeSound();
 print("");
 
 pause();
