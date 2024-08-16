@@ -1,28 +1,28 @@
-#include "Animal.hpp"
+#include "main.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Animal::Animal() : type("Animal")
+AAnimal::AAnimal() : type("AAnimal")
 {
-	print("Animal created");
+	print("AAnimal created");
 }
 
-Animal::Animal(const Animal &other)
+AAnimal::AAnimal(const AAnimal &other)
 {
-	print("Animal created");
+	print("AAnimal created");
 	type = other.getType();
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	print("Animal destroyed");
+	print("AAnimal destroyed");
 }
 
 /**========================================================================
  *                           ASSIGNMENT OPERATOR
  *========================================================================**/
-Animal& Animal::operator=(const Animal& src)
+AAnimal& AAnimal::operator=(const AAnimal& src)
 {
 	if (this != &src)
 		this->type = src.getType();
@@ -32,7 +32,7 @@ Animal& Animal::operator=(const Animal& src)
 /**========================================================================
  *                           GETTERS AND SETTERS>
  *========================================================================**/
-const std::string	&Animal::getType() const
+const std::string	&AAnimal::getType() const
 {
 	return (type);
 }
@@ -40,7 +40,7 @@ const std::string	&Animal::getType() const
 /**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
-void	Animal::makeSound() const
+void	AAnimal::makeSound() const
 {
 	print(getType() + " says hi");
 }

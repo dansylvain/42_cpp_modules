@@ -8,7 +8,7 @@ OBJDIR = obj
 SRC = 	src/main.cpp \
 		src/Dog.cpp \
 		src/Cat.cpp \
-		src/Animal.cpp \
+		src/AAnimal.cpp \
 		src/Brain.cpp \
 		src/utils.cpp
 

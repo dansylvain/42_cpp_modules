@@ -1,10 +1,9 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "main.hpp"
 
-class Dog : public Animal
+class Dog : public AAnimal
 {
 	private:
 		Brain* myBrain;
@@ -14,7 +13,7 @@ class Dog : public Animal
 		Dog& operator=(const Dog& src);
 		~Dog(); 
 		
-		using Animal::getType;
+		using AAnimal::getType;
 		Brain*	getBrain() const;
 		void	getGlobalKnowledge();
 		void	makeSound() const;

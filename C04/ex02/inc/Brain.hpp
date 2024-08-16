@@ -1,8 +1,8 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include "Animal.hpp"
-#include <string>
+#include "main.hpp"
+
 class Brain
 {
 	private:

@@ -1,10 +1,9 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "main.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	private:
 		Brain* myBrain;
@@ -14,7 +13,7 @@ class Cat : public Animal
 		Cat& operator=(const Cat& src);
 		~Cat(); 
 
-		using Animal::getType;
+		using AAnimal::getType;
 		Brain*	getBrain() const;
 		void	getGlobalKnowledge();
 		void	makeSound() const;	

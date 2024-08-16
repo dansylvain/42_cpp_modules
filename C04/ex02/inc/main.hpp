@@ -1,13 +1,14 @@
 #pragma once
 
 #include <iostream>
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
 #include <ctime>
 #include <cstdlib>
 #include <typeinfo>
+
+#include "Brain.hpp"
+#include "AAnimal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 void	print(std::string str);
 void	printB(std::string str);

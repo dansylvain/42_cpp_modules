@@ -1,11 +1,9 @@
-#include "Cat.hpp"
-#include <ctime>
-#include <cstdlib>
+#include "main.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Cat::Cat() : Animal()
+Cat::Cat() : AAnimal()
 {
 	type = "Cat";
 	print("Cat created (default constructor)");
@@ -13,7 +11,7 @@ Cat::Cat() : Animal()
 	getGlobalKnowledge();
 }
 
-Cat::Cat(const Cat &other) : Animal(other)
+Cat::Cat(const Cat &other) : AAnimal(other)
 {
 	type = other.getType();
 	myBrain = new Brain(other.myBrain);
@@ -33,7 +31,7 @@ Cat& Cat::operator=(const Cat& src)
 {
 	if (this != &src)
 	{
-		Animal::operator=(src);
+		AAnimal::operator=(src);
 		print("Cat copied");
 	}
 	return (*this);

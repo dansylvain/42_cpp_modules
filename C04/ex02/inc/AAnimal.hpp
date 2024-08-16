@@ -1,22 +1,19 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
-#include "Brain.hpp"
+#include "main.hpp"
 
-#include <iostream>
-void	print(std::string str);
-
-class Animal
+class AAnimal
 {
 	protected:
 		std::string type;
 
 	public:
 		// constructors and destructors
-		Animal();
-		Animal(const Animal &other);
-		Animal& operator=(const Animal& src);
-		virtual ~Animal(); 
+		AAnimal();
+		AAnimal(const AAnimal &other);
+		AAnimal& operator=(const AAnimal& src);
+		virtual ~AAnimal(); 
 
 		// other member unctions
 		virtual void	makeSound() const = 0;

@@ -1,7 +1,5 @@
 #include "main.hpp"
 
-void	print(std::string str);
-
 /**========================================================================
  *                           MAIN
  * abstract classes cannot be instantiated
@@ -12,13 +10,13 @@ int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(0)));
 
-	// Animal test;
+	// AAnimal test;
 
 	print("Welcome to the Jungle");
 	print("");
 
-	printB("******** Animal Creation ***********");
-	Animal* animals[10];
+	printB("******** AAnimal Creation ***********");
+	AAnimal* animals[10];
 	for (int i = 0; i < 5; i++)
 		animals[i] = new Dog();
 	for (int i = 5; i < 10; i++)

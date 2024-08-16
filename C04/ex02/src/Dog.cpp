@@ -1,11 +1,9 @@
-#include "Dog.hpp"
-#include <ctime>
-#include <cstdlib>
+#include "main.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Dog::Dog() : Animal()
+Dog::Dog() : AAnimal()
 {
 	type = "Dog";
 	print("Dog created (default constructor)");
@@ -13,7 +11,7 @@ Dog::Dog() : Animal()
 	getGlobalKnowledge();
 }
 
-Dog::Dog(const Dog &src) : Animal(src)
+Dog::Dog(const Dog &src) : AAnimal(src)
 {
 	type = src.getType();
 	myBrain = new Brain(src.myBrain);

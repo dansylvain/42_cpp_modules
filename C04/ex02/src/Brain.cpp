@@ -1,6 +1,4 @@
-#include "Brain.hpp"
-#include <ctime>
-#include <cstdlib>
+#include "main.hpp"
 
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
