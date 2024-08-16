@@ -19,6 +19,7 @@ Cat& Cat::operator=(const Cat& src) {
 	if (this != &src)
 	{
 		Animal::operator=(src);
+		*myBrain = *src.myBrain;
 		print("Cat copied");
 	}
 	return (*this);
