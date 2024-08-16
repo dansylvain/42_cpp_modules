@@ -16,12 +16,12 @@ Cat::Cat(const Cat &other) : Animal(other){
 }
 
 Cat& Cat::operator=(const Cat& src) {
-	if (this != &src)
-	{
-		Animal::operator=(src);
-		*myBrain = *src.myBrain;
-		print("Cat copied");
-	}
+	if (this == &src) return (*this);
+	Animal::operator=(src);
+	print("Dog copied");
+	delete myBrain;
+	myBrain = new Brain;
+	*myBrain = *src.myBrain;
 	return (*this);
 }
 
