@@ -28,3 +28,8 @@ Brain::~Brain() {
 std::string& Brain::getIdea() {
 	return ideas[std::rand() % 100];
 }
+
+std::string* Brain::getIdeas()
+{
+	return (&ideas[0]);
+}

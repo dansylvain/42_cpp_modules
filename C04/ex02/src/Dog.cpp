@@ -139,5 +139,5 @@ void	Dog::getGlobalKnowledge() {
 		"I am a fan of soft, cozy beds.",
 		"I love to receive lots of affection and praise."};
 		for (int i = 0; i < 100; i++)
-			Dog::myBrain->ideas[i] = GlobalDogKnowledge[std::rand() % 100];
+			Dog::myBrain->getIdeas()[i] = GlobalDogKnowledge[std::rand() % 100];
 }

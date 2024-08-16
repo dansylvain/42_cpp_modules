@@ -3,16 +3,18 @@
 
 #include "Animal.hpp"
 #include <string>
-class Brain {
+class Brain
+{
 	private:
+		std::string 	ideas[100];
 
 	public:
-		std::string 	ideas[100];
 		Brain();
 		Brain(const Brain *other);
 		Brain& operator=(const Brain& src);
 		~Brain();
 
+		std::string* getIdeas();
 		std::string& getIdea();
 };
 

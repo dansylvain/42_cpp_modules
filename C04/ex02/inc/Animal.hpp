@@ -6,7 +6,8 @@
 #include <iostream>
 void	print(std::string str);
 
-class Animal {
+class Animal
+{
 	protected:
 		std::string type;
 	public:
