@@ -1,10 +1,9 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Cat : public Animal {
+#include "main.hpp"
+class Cat : public Animal
+{
 	private:
 		Brain* myBrain;
 	public:
@@ -13,8 +12,10 @@ class Cat : public Animal {
 		Cat& operator=(const Cat& src);
 		~Cat(); 
 
+		void	makeSound() const;	
+		
+		using Animal::getType;
 		Brain* getBrain() const;
-		virtual void	makeSound() const;	
 		void	getGlobalKnowledge();
 };
 

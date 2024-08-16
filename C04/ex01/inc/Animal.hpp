@@ -1,12 +1,10 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
-#include "Brain.hpp"
+#include "main.hpp"
 
-#include <iostream>
-void	print(std::string str);
-
-class Animal {
+class Animal
+{
 	protected:
 		std::string type;
 	public:

@@ -1,21 +1,22 @@
-#include "Cat.hpp"
-#include <ctime>
-#include <cstdlib>
+#include "main.hpp"
 
-Cat::Cat() : Animal() {
+Cat::Cat() : Animal()
+{
 	type = "Cat";
 	print("Cat created - with a brain");
 	myBrain = new Brain();
 	getGlobalKnowledge();
 }
 
-Cat::Cat(const Cat &other) : Animal(other){
+Cat::Cat(const Cat &other) : Animal(other)
+{
 	type = other.getType();
 	myBrain = new Brain(*other.myBrain);
 	std::cout << "Dog created - with a brain" << std::endl;
 }
 
-Cat& Cat::operator=(const Cat& src) {
+Cat& Cat::operator=(const Cat& src)
+{
 	if (this == &src) return (*this);
 	Animal::operator=(src);
 	print("Dog copied");
@@ -25,7 +26,8 @@ Cat& Cat::operator=(const Cat& src) {
 	return (*this);
 }
 
-Cat::~Cat() {
+Cat::~Cat()
+{
 	print("Cat destroyed");
 	delete myBrain;
 }
@@ -35,14 +37,17 @@ Brain *Cat::getBrain() const
 	return (myBrain);
 }
 
-void	Cat::makeSound() const {
+void	Cat::makeSound() const
+{
 	print(getType() + " says MEOW!");
 }
 
 
 
-void	Cat::getGlobalKnowledge() {
-	std::string GlobalCatKnowledge[100] = {
+void	Cat::getGlobalKnowledge()
+{
+	std::string GlobalCatKnowledge[100] =
+	{
 		"I am a curious explorer.",
 		"I love to nap in sunny spots.",
 		"I enjoy chasing laser pointers.",
@@ -145,5 +150,5 @@ void	Cat::getGlobalKnowledge() {
 		"I am a master at finding hidden treats."
 	};
 		for (int i = 0; i < 100; i++)
-			Cat::myBrain->ideas[i] = GlobalCatKnowledge[std::rand() % 100];	
+			Cat::myBrain->getIdeas()[i] = GlobalCatKnowledge[std::rand() % 100];	
 }

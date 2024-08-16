@@ -1,5 +1,4 @@
 #include "main.hpp"
-#include <iostream>
 
 void	print(std::string str)
 {
