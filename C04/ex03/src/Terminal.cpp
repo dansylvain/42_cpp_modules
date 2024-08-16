@@ -1,6 +1,6 @@
 #include "Terminal.hpp"
 #include "unistd.h"
-#include "main.h"
+#include "main.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
