@@ -46,6 +46,7 @@ int main()
 	print("copyCat thinks: " + copyCat.getBrain()->getIdeas()[42]);
 
 	pause();
+	printB("** Tmp class creation Tests *******");
 
 	Dog basic;
 	{

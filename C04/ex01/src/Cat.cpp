@@ -1,9 +1,9 @@
 #include "main.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal(), myBrain(NULL)
 {
 	type = "Cat";
-	print("Cat created - with a brain");
+	print("Cat created (default constructor)");
 	myBrain = new Brain();
 	getGlobalKnowledge();
 }
@@ -11,15 +11,15 @@ Cat::Cat() : Animal()
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	type = other.getType();
-	myBrain = new Brain(*other.myBrain);
-	std::cout << "Dog created - with a brain" << std::endl;
+	myBrain = new Brain(other.myBrain);
+	std::cout << "Cat created (copy constructor)" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& src)
 {
 	if (this == &src) return (*this);
 	Animal::operator=(src);
-	print("Dog copied");
+	print("Cat copied");
 	delete myBrain;
 	myBrain = new Brain;
 	*myBrain = *src.myBrain;

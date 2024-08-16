@@ -10,7 +10,7 @@ Brain::Brain(const Brain *other)
 {
 	for (int i = 0; i < 100; i++)
 		ideas[i] = (*other).ideas[i];
-	print("brain transplanted");
+	print("brain copied");
 }
 
 
@@ -20,7 +20,7 @@ Brain& Brain::operator=(const Brain& src)
 	{
 		for (int i = 0; i < 100; i++)
 			ideas[i] = src.ideas[i];
-		print("brain transplanted");
+		print("brain copied");
 	}
 	return (*this);
 }

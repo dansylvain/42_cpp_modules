@@ -1,16 +1,18 @@
 #include "main.hpp"
 
-Dog::Dog() : Animal() {
+Dog::Dog() : Animal()
+{
 	type = "Dog";
-	print("Dog created - with a brain");
+	print("Dog created");
 	myBrain = new Brain();
 	getGlobalKnowledge();
 }
 
-Dog::Dog(const Dog &src) : Animal(src) {
+Dog::Dog(const Dog &src) : Animal(src)
+{
 	type = src.getType();
-	myBrain = new Brain(*src.myBrain);
-	std::cout << "Dog created - with a brain" << std::endl;
+	myBrain = new Brain(src.myBrain);
+	std::cout << "Dog created" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
@@ -24,7 +26,8 @@ Dog& Dog::operator=(const Dog& other)
 	return (*this);
 }
 
-Dog::~Dog() {
+Dog::~Dog()
+{
 	print("Dog destroyed");
 	delete myBrain;
 }
@@ -34,12 +37,15 @@ Brain *Dog::getBrain() const
 	return (myBrain);
 }
 
-void	Dog::makeSound() const {
+void	Dog::makeSound() const
+{
 	print(getType() + " says WOOF!");
 }
 
-void	Dog::getGlobalKnowledge() {
-	std::string GlobalDogKnowledge[100] = {
+void	Dog::getGlobalKnowledge()
+{
+	std::string GlobalDogKnowledge[100] =
+	{
 		"I am a loyal companion.",
 		"I love chasing balls.",
 		"My favorite treat is a chew toy.",
@@ -139,7 +145,8 @@ void	Dog::getGlobalKnowledge() {
 		"I love to play with water from the hose.",
 		"I enjoy playing tug-of-war with my favorite rope.",
 		"I am a fan of soft, cozy beds.",
-		"I love to receive lots of affection and praise."};
+		"I love to receive lots of affection and praise."
+		};
 		for (int i = 0; i < 100; i++)
 			Dog::myBrain->getIdeas()[i] = GlobalDogKnowledge[std::rand() % 100];
 }
