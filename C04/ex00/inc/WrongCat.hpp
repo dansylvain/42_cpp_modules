@@ -3,15 +3,16 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal {
+class WrongCat : public WrongAnimal
+{
 	public:
 		WrongCat();
 		WrongCat(const WrongCat &other);
 		WrongCat& operator=(const WrongCat& src);
 		~WrongCat();
 
+		using	WrongAnimal::getType;
 		void	makeSound() const;
-
 };
 
 #endif

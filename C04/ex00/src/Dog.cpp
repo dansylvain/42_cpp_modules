@@ -3,12 +3,14 @@
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Dog::Dog() : Animal() {
+Dog::Dog() : Animal()
+{
 	type = "Dog";
 	print("Dog created");
 }
 
-Dog::Dog(const Dog &other) : Animal(other) {
+Dog::Dog(const Dog &other) : Animal(other)
+{
 	std::cout << "Dog created" << std::endl;
 	type = other.getType();
 }
@@ -20,7 +22,8 @@ Dog::~Dog() {
 /**========================================================================
  *                           ASSIGNMENT OPERATOR
  *========================================================================**/
-Dog& Dog::operator=(const Dog& src) {
+Dog& Dog::operator=(const Dog& src)
+{
 	if (this != &src)
 		Animal::operator=(src);
 	return (*this);
@@ -29,6 +32,7 @@ Dog& Dog::operator=(const Dog& src) {
 /**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
-void	Dog::makeSound() const {
+void	Dog::makeSound() const
+{
 	print(" says WOOF!");
 }

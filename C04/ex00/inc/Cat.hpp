@@ -3,14 +3,15 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat : public Animal
+{
 	public:
 		Cat();
 		Cat(const Cat &other);
 		Cat& operator=(const Cat& src);
 		~Cat(); 
 
-		using Animal::getType;
+		using	Animal::getType;
 		void	makeSound() const;	
 };
 
