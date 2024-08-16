@@ -12,6 +12,8 @@ int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(0)));
 
+	// Animal test;
+
 	print("Welcome to the Jungle");
 	print("");
 
