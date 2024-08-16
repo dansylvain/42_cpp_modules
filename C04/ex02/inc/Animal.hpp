@@ -10,6 +10,7 @@ class Animal
 {
 	protected:
 		std::string type;
+
 	public:
 		// constructors and destructors
 		Animal();
