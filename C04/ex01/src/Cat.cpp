@@ -1,5 +1,8 @@
 #include "main.hpp"
 
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
 Cat::Cat() : Animal(), myBrain(NULL)
 {
 	type = "Cat";
@@ -15,6 +18,15 @@ Cat::Cat(const Cat &other) : Animal(other)
 	std::cout << "Cat created (copy constructor)" << std::endl;
 }
 
+Cat::~Cat()
+{
+	print("Cat destroyed");
+	delete myBrain;
+}
+
+/**========================================================================
+ *                           ASSIGNMENT OPERATOR
+ *========================================================================**/
 Cat& Cat::operator=(const Cat& src)
 {
 	if (this == &src) return (*this);
@@ -26,23 +38,21 @@ Cat& Cat::operator=(const Cat& src)
 	return (*this);
 }
 
-Cat::~Cat()
-{
-	print("Cat destroyed");
-	delete myBrain;
-}
-
-Brain *Cat::getBrain() const
-{
-	return (myBrain);
-}
-
+/**========================================================================
+ *                           OTHER METHODS
+ *========================================================================**/
 void	Cat::makeSound() const
 {
 	print(getType() + " says MEOW!");
 }
 
-
+/**========================================================================
+ *                           GETTERS AND SETTERS>
+ *========================================================================**/
+Brain *Cat::getBrain() const
+{
+	return (myBrain);
+}
 
 void	Cat::getGlobalKnowledge()
 {

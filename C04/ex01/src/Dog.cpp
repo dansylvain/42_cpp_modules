@@ -1,5 +1,8 @@
 #include "main.hpp"
 
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
 Dog::Dog() : Animal()
 {
 	type = "Dog";
@@ -15,6 +18,15 @@ Dog::Dog(const Dog &src) : Animal(src)
 	std::cout << "Dog created" << std::endl;
 }
 
+Dog::~Dog()
+{
+	print("Dog destroyed");
+	delete myBrain;
+}
+
+/**========================================================================
+ *                           ASSIGNMENT OPERATOR
+ *========================================================================**/
 Dog& Dog::operator=(const Dog& other)
 {
 	if (this == &other) return (*this);
@@ -26,20 +38,20 @@ Dog& Dog::operator=(const Dog& other)
 	return (*this);
 }
 
-Dog::~Dog()
-{
-	print("Dog destroyed");
-	delete myBrain;
-}
-
-Brain *Dog::getBrain() const
-{
-	return (myBrain);
-}
-
+/**========================================================================
+ *                           OTHER METHODS
+ *========================================================================**/
 void	Dog::makeSound() const
 {
 	print(getType() + " says WOOF!");
+}
+
+/**========================================================================
+ *                           GETTERS AND SETTERS>
+ *========================================================================**/
+Brain *Dog::getBrain() const
+{
+	return (myBrain);
 }
 
 void	Dog::getGlobalKnowledge()

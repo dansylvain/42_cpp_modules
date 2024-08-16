@@ -1,10 +1,12 @@
 #include "main.hpp"
 
+/**========================================================================
+ *                           CONSTRUCTORS AND DESTRUCTOR
+ *========================================================================**/
 Brain::Brain()
 {
 	print("brain created");
 }
-
 
 Brain::Brain(const Brain *other)
 {
@@ -13,7 +15,14 @@ Brain::Brain(const Brain *other)
 	print("brain copied");
 }
 
+Brain::~Brain()
+{
+	print("Brain desintegrated");
+}
 
+/**========================================================================
+ *                           ASSIGNMENT OPERATOR
+ *========================================================================**/
 Brain& Brain::operator=(const Brain& src)
 {
 	if (this != &src)
@@ -25,11 +34,9 @@ Brain& Brain::operator=(const Brain& src)
 	return (*this);
 }
 
-Brain::~Brain()
-{
-	print("Brain desintegrated");
-}
-
+/**========================================================================
+ *                           GETTERS AND SETTERS>
+ *========================================================================**/
 std::string& Brain::getIdea()
 {
 	return ideas[std::rand() % 100];
