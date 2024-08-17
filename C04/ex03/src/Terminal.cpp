@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Terminal.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 10:41:00 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/08/17 10:45:09 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Terminal.hpp"
 
 Terminal::Terminal() :
-	terminalCommand("gnome-terminal --geometry=100x36 -- bash -c \"./exec\""),
+	terminalCommand("gnome-terminal --geometry=100x36 -- bash -c \"./src/exec\""),
 	clearCommand("clear"),
 	contentMenu("\033[26;2H\033[1;32m Commands Available: \033[0m\n\
 \033[1;31m - CREATE <IDX-SRC>\033[0m		 	\033[1;32m=>\033[0m	Source creates Materia\n\

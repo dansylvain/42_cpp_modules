@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Terminal.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 10:38:21 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/08/17 10:38:21 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef TERMINAL_HPP
 #define TERMINAL_HPP
 
 #include <iostream>
-#include <cstdlib>
-#include <string>
-#include "unistd.h"
-#include "main.hpp"
+#include <unistd.h>
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+
+void	test_three();
 
 class	Terminal
 {

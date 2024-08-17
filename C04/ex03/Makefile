@@ -1,5 +1,5 @@
 NAME_INTERFACE = interface
-NAME_EXEC = exec
+NAME_EXEC = src/exec
 CC = c++
 OBJDIR = obj
 RM = rm -rf

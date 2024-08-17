@@ -1,22 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 10:39:37 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/08/17 10:39:37 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Terminal.hpp"
-#include <iostream>
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "MateriaSource.hpp"
-#include "Terminal.hpp"	
-#include <sstream>
-#include <string>
-#include <cstdlib> 
-#include "unistd.h"
-
-void	print(std::string str);
-void	printB(const std::string& str);
-void printFB(const std::string& str);
-
-void	printF(std::string str);
-void	test_three();
 
 /**========================================================================
  *                           INTERFACE

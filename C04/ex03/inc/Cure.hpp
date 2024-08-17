@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 10:37:48 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/08/17 10:37:48 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CURE_HPP
 #define CURE_HPP
 
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
+
 class Cure : public AMateria
 {
 	private:
