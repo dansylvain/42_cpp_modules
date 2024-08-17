@@ -4,6 +4,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include "unistd.h"
+#include "main.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 class	Terminal
 {
@@ -24,5 +28,7 @@ class	Terminal
 		std::string		contentMenu;
 		std::string		errorMessage;
 };
+
+
 
 #endif

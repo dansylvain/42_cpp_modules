@@ -1,8 +1,4 @@
 #include "Terminal.hpp"
-#include "unistd.h"
-#include "main.hpp"
-#include "Character.hpp"
-#include "MateriaSource.hpp"
 
 Terminal::Terminal() :
 	terminalCommand("gnome-terminal --geometry=100x36 -- bash -c \"./exec\""),

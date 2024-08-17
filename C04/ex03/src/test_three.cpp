@@ -1,10 +1,5 @@
-#include <iostream>
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "MateriaSource.hpp"
-#include "Character.hpp"
+#include "test.hpp"
+
 
 void	print(std::string str);
 void	printB(const std::string& str);

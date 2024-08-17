@@ -1,12 +1,4 @@
-#include <iostream>
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "MateriaSource.hpp"
-#include "Terminal.hpp"	
-#include <sstream>
-#include <string>
+#include "utils.hpp"
 
 void	print(std::string str);
 void	printB(const std::string& str);

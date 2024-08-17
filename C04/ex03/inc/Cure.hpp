@@ -1,8 +1,8 @@
 #ifndef CURE_HPP
 #define CURE_HPP
 
-#include "Character.hpp"
-
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
 class Cure : public AMateria
 {
 	private:

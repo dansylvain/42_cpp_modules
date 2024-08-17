@@ -1,5 +1,4 @@
 #include "MateriaSource.hpp"
-#include <iomanip>
 
 AMateria*		MateriaSource::inv[4] = {NULL};
 

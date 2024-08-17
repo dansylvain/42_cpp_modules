@@ -6,6 +6,8 @@
 #define GROUND "ground"
 #define MATERIASOURCE "materiaSource"
 
+#include <cstdlib>
+
 typedef enum
 {
 	e_ICE,
@@ -29,5 +31,6 @@ void	printB(const std::string& str);
 void	printF(std::string str);
 void	printFB(const std::string& str);
 extern bool TEST;
+
 
 #endif 

@@ -1,7 +1,8 @@
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include "Character.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 class Ice : public AMateria
 {

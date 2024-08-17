@@ -43,4 +43,9 @@ class AMateria
 		static	void		displayMaterias();
 };
 
+#include "IMateriaSource.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include <iomanip>
+
 #endif

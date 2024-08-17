@@ -1,8 +1,4 @@
 #include "AMateria.hpp"
-#include "IMateriaSource.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include <iomanip>
 
 AMateria	*AMateria::materias[100] = {NULL};
 int			AMateria::materiaCount = 0;

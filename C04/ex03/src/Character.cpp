@@ -1,6 +1,5 @@
 #include "Character.hpp"
 
-
 Character	*Character::characters[100] = {NULL};
 int			Character::characterCount = 0;
 /**========================================================================

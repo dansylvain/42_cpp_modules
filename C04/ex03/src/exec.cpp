@@ -3,6 +3,7 @@
 #include "Terminal.hpp"	
 #include <sstream>
 #include "unistd.h"
+#include "Character.hpp"
 
 bool isDigitsOnly(const std::string& str);
 Character *getCharacterByName(std::string name);
