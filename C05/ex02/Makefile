@@ -11,6 +11,7 @@ SRC = 	src/main.cpp \
 		src/ShrubberyCreationForm.cpp \
 		src/RobotomyRequestForm.cpp \
 		src/PresidentialPardonForm.cpp \
+		src/utils.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
@@ -27,10 +28,10 @@ wno: CFLAGS = -std=c++98 -Iinc -g
 wno: $(NAME)
 
 clean:
-	$(RM) $(OBJDIR)
+	$(RM) $(OBJDIR) *_shrubbery
 
 fclean: clean 
-	$(RM) $(NAME)
+	$(RM) $(NAME) 
 
 re: fclean all
 
