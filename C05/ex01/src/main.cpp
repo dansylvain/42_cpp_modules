@@ -7,13 +7,14 @@ int main (void)
 {
 	print("Welcome to the jungle");
 	print("");
-	print("--------- Bureaucrats Tests -------------");
+	printB("--------- Bureaucrats Tests -------------");
+	printB("\nCreate bureaucrats:");
 	Bureaucrat bureaucrat;
 	Bureaucrat *zaphod = new Bureaucrat("Zaphod Beeblebrox", 3	);
-	print("");
+	printB("\ntest << operator:");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
-	print("");
+	printB("\ntest wrong level:");
 	try
 	{
 		Bureaucrat bureaucrat("Kamel", 666);
@@ -22,7 +23,7 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest increment and decrement methods:");	
 	try
 	{
 		zaphod->incrementGrade();
@@ -44,19 +45,21 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest assignment operator:");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
 	bureaucrat = *zaphod;
 	std::cout << bureaucrat << std::endl;
-	print("");
-	print("--------- Forms Tests -------------");
+	pause();
+	printB("\n--------- Forms Tests -------------");
+	printB("\nCreate forms");
 	Form form;
 	Form *form42 = new Form("form42", 42, 142);
-	print("");
+
+	printB("\ntest << operator:");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
-	print("");
+	printB("\nTest wrong level");
 	try
 	{
 		Form form7B("form7B", 151, 7);
@@ -65,7 +68,7 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest beSigned method:");
 	std::cout << *form42 << std::endl;
 	try
 	{
@@ -76,7 +79,7 @@ int main (void)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << *form42 << std::endl;
-	print("");
+	printB("\n");
 
 	std::cout << form << std::endl;
 	form = *form42;
@@ -97,13 +100,9 @@ int main (void)
 	std::cout << form7B << std::endl;
 	
 	print("");
-	print("--------- clean ressources --------");
+	printB("--------- clean ressources --------");
 	delete form42;
 	delete zaphod;
 
 }
 
-void	print(std::string str)
-{
-	std::cout << str << std::endl;
-}

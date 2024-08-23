@@ -8,6 +8,7 @@ OBJDIR = obj
 SRC = 	src/main.cpp \
 		src/Bureaucrat.cpp \
 		src/Form.cpp \
+		src/utils.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
