@@ -23,7 +23,6 @@ class AForm
 
 		//assignment operator
 		AForm& operator=(const AForm& other);
-		friend std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 		//getters and setters
 		virtual const std::string&	get_name() const;
@@ -51,5 +50,7 @@ class AForm
 			virtual char const* what() const throw();
 	};	
 };
+		
+std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 #endif

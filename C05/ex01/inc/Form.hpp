@@ -24,7 +24,6 @@ class Form
 		//assignment operator
 		Form& operator=(const Form& other);
 
-		friend std::ostream& operator<<(std::ostream& os, const Form& form);
 
 		//getters and setters
 		const std::string&	get_name() const;
@@ -46,5 +45,7 @@ class Form
 			virtual char const* what() const throw();
 	};
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif

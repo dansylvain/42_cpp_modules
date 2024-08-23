@@ -18,7 +18,6 @@ class Bureaucrat{
 
 		// assignment operateur
 		Bureaucrat& operator=(const Bureaucrat& other);
-		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 		// getters and setters
 		const std::string&	get_name() const;
@@ -39,5 +38,7 @@ class Bureaucrat{
 				virtual char const* what() const throw();
 		};
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

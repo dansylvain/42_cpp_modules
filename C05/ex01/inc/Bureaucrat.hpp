@@ -28,7 +28,6 @@ class Bureaucrat{
 		void				decrementGrade();
 		void				signForm(Form& form);
 
-		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 		
 		class GradeTooHighException : public std::exception
 		{
@@ -41,5 +40,7 @@ class Bureaucrat{
 				virtual char const* what() const throw();
 		};
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif
