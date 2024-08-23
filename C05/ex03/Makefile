@@ -28,7 +28,7 @@ wno: CFLAGS = -std=c++98 -Iinc -g
 wno: $(NAME)
 
 clean:
-	$(RM) $(OBJDIR)
+	$(RM) $(OBJDIR) *_shrubbery
 
 fclean: clean 
 	$(RM) $(NAME)
