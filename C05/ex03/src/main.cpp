@@ -9,15 +9,17 @@
 
 int main (void)
 {
-	print("Welcome to the jungle");
-	print("");
-	print("--------- Bureaucrats Tests -------------");
+	printB("\n--------- Bureaucrats Tests -------------");
+	printB("\nCreate Bureaucrats:");
 	Bureaucrat bureaucrat;
 	Bureaucrat *zaphod = new Bureaucrat("Zaphod Beeblebrox", 3	);
-	print("");
+	Bureaucrat lowLewelBureaucrat;
+	Bureaucrat prostetnic("Prostetnic Vogon Jeltz", 150);
+
+	printB("\nTest << operator");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
-	print("");
+	printB("\nTest wrong level");
 	try
 	{
 		Bureaucrat bureaucrat("Kamel", 666);
@@ -26,7 +28,7 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest increment and decrement methods");
 	try
 	{
 		zaphod->incrementGrade();
@@ -48,30 +50,32 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest assignment operator");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
-	// bureaucrat = *zaphod;
+	bureaucrat = *zaphod;
 	std::cout << bureaucrat << std::endl;
-	print("");
-	print("--------- Forms Tests -------------");
-
+	pause();
+	printB("\n--------- Forms Tests -------------");
+	printB("\nCreate forms");
 	ShrubberyCreationForm form;
 	RobotomyRequestForm order66("order66", "All jedis");
 	PresidentialPardonForm form666("form666", "All humans");
-
 	ShrubberyCreationForm *form42 = new ShrubberyCreationForm("form42", "ouioui");
-	print("");
+	ShrubberyCreationForm form7B("form7B", "what");
+
+	printB("\ntest assignment operator");
 	std::cout << form << std::endl;
 	std::cout << *form42 << std::endl;
 	std::cout << order66 << std::endl;
 	std::cout << form666 << std::endl;
-	print("");
 	
+	printB("\nTest signForm method");
 	try
 	{
 		zaphod->signForm(&order66);
 		zaphod->signForm(&form666);
+		lowLewelBureaucrat.signForm(&form666);
 	}
 	catch(const std::exception& e)
 	{
@@ -80,9 +84,7 @@ int main (void)
 	std::cout << order66 << std::endl;
 	std::cout << form666 << std::endl;
 	
-	print("");
-	
-	
+	printB("\nTest temp form creation");
 	try
 	{
 		ShrubberyCreationForm form7B("form7B", "nonnon");
@@ -91,27 +93,27 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest beSigned method");
 	std::cout << *form42 << std::endl;
 	try
 	{
 		form42->beSigned(*zaphod);
-		form42->beSigned(bureaucrat);
+		form42->beSigned(lowLewelBureaucrat);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+
 	std::cout << *form42 << std::endl;
 	print("");
 
+	printB("\nTest assignment operator");
 	std::cout << form << std::endl;
 	form = *form42;
-	Bureaucrat prostetnic("Prostetnic Vogon Jeltz", 150);
 	std::cout << form << std::endl;
-	print("");
 	
-	ShrubberyCreationForm form7B("form7B", "what");
+	printB("\nTest signForm method");
 	std::cout << form7B << std::endl;
 	try
 	{
@@ -122,9 +124,9 @@ int main (void)
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << form7B << std::endl;
-
-	print("");
-	print("--------- execution tests- --------");
+	pause();
+	printB("\n--------- execution tests- --------");
+	printB("\nTest execute method");
 	try
 	{
 		form42->execute(*zaphod);
@@ -137,7 +139,7 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\nTest executeForm method");
 	try
 	{
 		zaphod->executeForm(form42);
@@ -151,21 +153,21 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	
-	print("");
-	print("--------- Intern Tests ------------");
+	pause();
+	printB("\b--------- Intern Tests ------------");
+	printB("\nCreate Intern and forms");
 	Intern newIntern;
 	AForm *newForm1;
 	AForm *newForm2;
 	AForm *newForm3;
 	AForm *newForm4;
+	printB("\nTest makeForm method");
 	newForm1 = newIntern.makeForm("ShrubberyCreationForm", "FirstTarget");
 	newForm2 = newIntern.makeForm("RobotomyRequestForm", "SecondTarget");
 	newForm3 = newIntern.makeForm("PresidentialPardonForm", "ThirdPresidentialPardonFormTarget");
 	newForm4 = newIntern.makeForm("UnknownForm", "FourthTarget");
 	std::cout << newForm4 << std::endl;
-	print("");
+	printB("\nTest created forms with methods: besigned, execute, ...");
 	try
 	{
 		newForm1->beSigned(*zaphod);
@@ -185,19 +187,9 @@ int main (void)
 	}
 	
 
-	print("");
-	print("--------- clean ressources --------");
-	
-	delete newForm1;
-	delete newForm2;
-	delete newForm3;
-	delete newForm4;
+	pause();
+	printB("\n--------- clean ressources --------");
 	delete form42;
 	delete zaphod;
 
-}
-
-void	print(std::string str)
-{
-	std::cout << str << std::endl;
 }

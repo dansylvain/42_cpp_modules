@@ -11,7 +11,8 @@ SRC = 	src/main.cpp \
 		src/ShrubberyCreationForm.cpp \
 		src/RobotomyRequestForm.cpp \
 		src/PresidentialPardonForm.cpp \
-		src/Intern.cpp
+		src/Intern.cpp \
+		src/utils.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
