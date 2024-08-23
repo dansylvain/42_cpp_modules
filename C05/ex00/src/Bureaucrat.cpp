@@ -5,7 +5,7 @@
 /**========================================================================
  *                           CONSTRUCTORS AND DESTRUCTOR
  *========================================================================**/
-Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(150)
+Bureaucrat::Bureaucrat() : _name("DefaultBureaucrat"), _grade(150)
 {
 	print("Bureaucrat created (default constructor)");
 }
@@ -64,7 +64,7 @@ void	Bureaucrat::decrementGrade()
 	if (_grade >= 150)
 		throw GradeTooHighException();
 	_grade++;
-	std::cout << _name << "grade decremented: now at " << _grade << std::endl;
+	std::cout << _name << " grade decremented: now at " << _grade << std::endl;
 }
 
 void	Bureaucrat::incrementGrade()
@@ -72,7 +72,7 @@ void	Bureaucrat::incrementGrade()
 	if (_grade <= 1)
 		throw GradeTooLowException();
 	_grade--;
-	std::cout << _name << "grade incremented: now at " << _grade << std::endl;
+	std::cout << _name << " grade incremented: now at " << _grade << std::endl;
 }
 
 /**========================================================================

@@ -4,13 +4,16 @@
 
 int main (void)
 {
-	print("Welcome to the jungle");
+	printB("\n************ create bureaucrats ******************");
+
 	Bureaucrat bureaucrat;
 	Bureaucrat *zaphod = new Bureaucrat("Zaphod Beeblebrox", 3	);
-	print("");
+	
+	printB("\n************ Test << operator ********************");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
-	print("");
+
+	printB("\n************ Test Wrong Level ********************");
 	try
 	{
 		Bureaucrat bureaucrat("Kamel", 666);
@@ -19,7 +22,7 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\n***** Test increment and decrement methods *******");
 	try
 	{
 		zaphod->incrementGrade();
@@ -30,7 +33,6 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
 	try
 	{
 		bureaucrat.incrementGrade();
@@ -41,16 +43,12 @@ int main (void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	print("");
+	printB("\n*********** Test assignment operator  ************");
 	std::cout << bureaucrat << std::endl;
 	std::cout << *zaphod << std::endl;
 	bureaucrat = *zaphod;
 	std::cout << bureaucrat << std::endl;
+	printB("\n************ destroy bureaucrats *****************");
 
 	delete zaphod;
-}
-
-void	print(std::string str)
-{
-	std::cout << str << std::endl;
 }
