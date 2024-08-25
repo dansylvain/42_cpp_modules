@@ -5,6 +5,7 @@
 		"*.tpp": "cpp",
 		"ostream": "cpp",
 		"iomanip": "cpp",
-		"cctype": "cpp"
+		"cctype": "cpp",
+		"sstream": "cpp"
 	}
 }

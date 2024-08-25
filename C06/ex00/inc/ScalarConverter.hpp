@@ -2,40 +2,42 @@
 #include <iostream>
 #include <string>
 #include "main.hpp"
-#include "LiteralValue.hpp"
-
-
+#include <sstream>
+#include <cstdlib>
+#include <cctype>
+#include <cfloat>
+#include <climits>
+#include <iomanip>
+#include <cmath>
 
 class ScalarConverter
 {
 	private:
-
 		// coplien
 		ScalarConverter(const ScalarConverter& other);
-		virtual const ScalarConverter& operator=(const ScalarConverter& rhs) = 0;
-	public:
-		// coplien
+		const ScalarConverter& operator=(const ScalarConverter& rhs);
 		ScalarConverter();
 		~ScalarConverter();
 
 		// isType methods
-		static bool	isChar(const std::string &str);
-		static bool	isInt(const std::string &str);
-		static bool	isFloat(const std::string &str);
-		static bool	isDouble(const std::string &str);
-		static bool	isPseudoLiteral(const std::string &str);
-
-
+		bool	isChar(const std::string &str);
+		bool	isInt(const std::string &str);
+		bool	isFloat(const std::string &str);
+		bool	isDouble(const std::string &str);
+		bool	isPseudoLiteral(const std::string &str);
+		
 		// conversion methods
+		int convertToInt(const std::string& str);
+		float convertToFloat(const std::string& str);
+		double convertToDouble(const std::string& str);
+		char convertToChar(const std::string& str);
 
-		static int convertToInt(const std::string& str);
-		static float convertToFloat(const std::string& str);
-		static double convertToDouble(const std::string& str);
-		static char convertToChar(const std::string& str);
-
-		static void	printPseudoLiterals(std::string str);
-		static literalType getType(std::string str);
-		static std::string literalTypeToString(literalType type);
+		// other methods
+		void	printPseudoLiterals(std::string str);
+		literalType getType(std::string str);
+		std::string literalTypeToString(literalType type);
+	public:
+		// single static method
 		static void	convert(const std::string& str);
 };
 

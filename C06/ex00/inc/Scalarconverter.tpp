@@ -1,10 +1,5 @@
 #pragma once
-#include <cfloat>
-#include <climits>
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <cmath>
+#include "ScalarConverter.hpp"
 
 template <typename T>
 void printConversions(T value)

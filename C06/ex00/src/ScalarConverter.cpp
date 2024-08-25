@@ -1,15 +1,10 @@
 #include "ScalarConverter.hpp"
-#include <sstream>
-#include "LiteralValue.hpp"
-#include <cstdlib>
-#include <cctype>
 
 /**========================================================================
  *                           COPLIEN
  *========================================================================**/
 ScalarConverter::ScalarConverter()
 {
-	
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
@@ -166,29 +161,30 @@ void ScalarConverter::convert(const std::string& str)
 	int i;
 	double d;
 	float f;
-	literalType type = getType(str);
+	ScalarConverter sc;
+	literalType type = sc.getType(str);
 	try
 	{
 		switch(type)
 		{
 			case CHAR:
-				c = convertToChar(str);
+				c = sc.convertToChar(str);
 				printConversions(c);
 				break;
 			case INT:
-				i = convertToInt(str);
+				i = sc.convertToInt(str);
 				printConversions(i);
 				break;
 			case DOUBLE:
-				d = convertToDouble(str);
+				d = sc.convertToDouble(str);
 				printConversions(d);
 				break;
 			case FLOAT:
-				f = convertToFloat(str);
+				f = sc.convertToFloat(str);
 				printConversions(f);
 				break;
 			case PSEUDOLITERAL:
-				printPseudoLiterals(str);
+				sc.printPseudoLiterals(str);
 				break;
 			default :
 				throw std::runtime_error("Conversion impossible.");
