@@ -32,8 +32,6 @@ ScalarConverter::~ScalarConverter()
  *                           ISTYPE METHODS
 //? ISFLOAT && ISDOUBLE
 //? substring created to check validity of float before suffix 'f'
-//! missing digits before or after the point is considered valid input
-//! ex: 42.f and .42f are valid floats
 *========================================================================**/
 bool ScalarConverter::isChar(const std::string &str)
 {
