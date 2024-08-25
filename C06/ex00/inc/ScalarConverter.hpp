@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "main.hpp"
+#include "LiteralValue.hpp"
 
 class ScalarConverter
 {
@@ -21,7 +22,13 @@ class ScalarConverter
 		static bool	isFloat(const std::string &str);
 		static bool	isDouble(const std::string &str);
 
-		// other methods
+		// conversion methods
+
+		static int convertToInt(const std::string& str);
+		static float convertToFloat(const std::string& str);
+		static double convertToDouble(const std::string& str);
+		static char convertToChar(const std::string& str);
+
 		static literalType getType(std::string str);
 		static std::string literalTypeToString(literalType type);
 		static void	convert(const std::string& str);

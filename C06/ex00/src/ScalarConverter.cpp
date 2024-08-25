@@ -1,5 +1,7 @@
 #include "ScalarConverter.hpp"
 #include <sstream>
+#include "LiteralValue.hpp"
+#include <cstdlib>
 
 /**========================================================================
  *                           COPLIEN
@@ -103,10 +105,63 @@ std::string ScalarConverter::literalTypeToString(literalType type)
 
 
 /**========================================================================
+ *                           CONVERT METHODS
+ *========================================================================**/
+int ScalarConverter::convertToInt(const std::string& str)
+{
+    int value = atoi(str.c_str());
+    return static_cast<int>(value);
+}
+
+float ScalarConverter::convertToFloat(const std::string& str)
+{
+    float value = static_cast<float>(atof(str.c_str()));
+    return static_cast<float>(value);
+}
+
+double ScalarConverter::convertToDouble(const std::string& str)
+{
+    double value = atof(str.c_str());
+    return static_cast<double>(value);
+}
+
+char ScalarConverter::convertToChar(const std::string& str)
+{
+    char value = str[1];
+    return static_cast<char>(value);
+}
+
+/**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
 void ScalarConverter::convert(const std::string& str)
 {
+	char c;
+	int i;
+	double d;
+	float f;
 	literalType type = getType(str);
 	std::cout << str << ": " << literalTypeToString(type) << std::endl;
+	switch(type)
+	{
+		case CHAR:
+			c = convertToChar(str);
+			break;
+		case INT:
+			i = convertToInt(str);
+			break;
+		case DOUBLE:
+			d = convertToDouble(str);
+			break;
+		case FLOAT:
+			f = convertToFloat(str);
+			break;
+		default :
+			return;
+	}
+	(void)c;
+	(void)i;
+	(void)d;
+	(void)f;
+	
 }
