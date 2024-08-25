@@ -66,6 +66,11 @@ bool ScalarConverter::isDouble(const std::string &str)
 	return !(iss >> doubleValue).fail() && iss.eof() && (str.find('.') != std::string::npos);
 }
 
+bool	ScalarConverter::isPseudoLiteral(const std::string &str)
+{
+	return (str == "+inf" || str == "+inff" || str == "-inf"
+	|| str == "-inff" || str == "nan" || str == "nanf");
+}
 
 /**========================================================================
  *                           OTHER METHODS
@@ -161,6 +166,9 @@ void ScalarConverter::convert(const std::string& str)
 			case FLOAT:
 				f = convertToFloat(str);
 				printConversions(f);
+				break;
+			case PSEUDOLITERAL:
+				std::cout << "PSEUDOLITERAL!" << std::endl;
 				break;
 			default :
 				throw std::runtime_error("Conversion impossible.");
