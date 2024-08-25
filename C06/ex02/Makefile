@@ -6,7 +6,6 @@ RM = rm -rf
 OBJDIR = obj
 
 SRC = 	src/main.cpp \
-		src/Base.cpp \
 		src/A.cpp \
 		src/B.cpp \
 		src/C.cpp \

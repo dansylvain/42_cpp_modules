@@ -11,39 +11,41 @@ Base* generate(void)
 		return new C();
 }
 
-void identify(Base* p)
+std::string identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
+		return "A";
 	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
+		return "B";
 	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
+		return "C";
 	else
-		std::cout << "Unknown type" << std::endl;
+		return "Unknown type";
 }
 
-void identify(Base& p)
+std::string identify(Base& p)
 {
 	if (dynamic_cast<A*>(&p))
-		std::cout << "A" << std::endl;
+		return "A";
 	else if (dynamic_cast<B*>(&p))
-		std::cout << "B" << std::endl;
+		return "B";
 	else if (dynamic_cast<C*>(&p))
-		std::cout << "C" << std::endl;
+		return "C";
 	else
-		std::cout << "Unknown type" << std::endl;
+		return "Unknown type";
 }
 
 int main()
 {
-	std::cout << "welcome to the jungle" << std::endl;
 	srand(static_cast<unsigned int>(time(0)));
-	Base* obj = generate();
-	std::cout << "Identify by pointer: ";
-	identify(obj);
-	std::cout << "Identify by reference: ";
-	identify(*obj);
-	delete obj;
+
+	for (int i = 0; i < 5; i++)
+	{
+		Base* obj = generate();
+		std::cout << "Identify by pointer: " << identify(obj) << std::endl;
+		std::cout << "Identify by reference: " << identify(*obj) << std::endl;
+		delete obj;
+		std::cout << std::endl;
+	}
 	return (0);
 }
