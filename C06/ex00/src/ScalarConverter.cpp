@@ -87,7 +87,8 @@ literalType ScalarConverter::getType(std::string str)
 		type = FLOAT;
 	else if (ScalarConverter::isDouble(str))
 		type = DOUBLE;
-	else if (str == "-inff" || str == "+inff" || str == "-inf" || str == "+inf" || str == "nan" || str == "nanf")
+	else if (str == "-inff" || str == "+inff" || str == "-inf" || str == "+inf"
+			|| str == "nan" || str == "nanf")
 		type = PSEUDOLITERAL;
 	else
 		type = UNKNOWN;
@@ -162,7 +163,6 @@ void ScalarConverter::convert(const std::string& str)
 	double d;
 	float f;
 	literalType type = getType(str);
-	// std::cout << str << ": " << literalTypeToString(type) << std::endl;
 	try
 	{
 		switch(type)
