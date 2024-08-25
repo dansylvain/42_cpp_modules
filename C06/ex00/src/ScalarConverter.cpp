@@ -64,10 +64,43 @@ bool ScalarConverter::isDouble(const std::string &str)
 	return !(iss >> doubleValue).fail() && iss.eof() && (str.find('.') != std::string::npos);
 }
 
+literalType ScalarConverter::getType(std::string str)
+{
+	literalType type;
+
+	if (ScalarConverter::isInt(str))
+		type = INT;
+	else if (ScalarConverter::isChar(str))
+		type = CHAR;
+	else if (ScalarConverter::isFloat(str))
+		type = FLOAT;
+	else if (ScalarConverter::isDouble(str))
+		type = DOUBLE;
+	else if (str == "-inff" || str == "+inff" || str == "-inf" || str == "+inf" || str == "nan")
+		type = PSEUDOLITERAL;
+	else
+		type = UNKNOWN;
+	return (type);
+}
+
+std::string ScalarConverter::literalTypeToString(literalType type)
+{
+    switch(type)
+    {
+        case CHAR: return "Char";
+        case INT: return "Int";
+        case FLOAT: return "Float";
+        case DOUBLE: return "Double";
+        case PSEUDOLITERAL: return "Pseudoliteral";
+        default: return "Unknown";
+    }
+}
+
 /**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
 void ScalarConverter::convert(const std::string& str)
 {
-	std::cout << str << std::endl;
+	literalType type = getType(str);
+	std::cout << str << ": " << literalTypeToString(type) << std::endl;			
 }

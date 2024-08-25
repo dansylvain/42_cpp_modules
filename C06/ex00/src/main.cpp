@@ -11,13 +11,9 @@ int main(void)
 		std::cout << "input: " << std::flush;
 		std::getline(std::cin, input);
 		if (input.empty())
-		{
 			std::cout << "Please enter a valid input." << std::endl;
-		}
 		if (input.size())
-		{
 			ScalarConverter::convert(input);
-		}
 		input.clear();
 	}
     return (0);
