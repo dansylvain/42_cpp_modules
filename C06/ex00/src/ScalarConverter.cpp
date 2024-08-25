@@ -2,6 +2,7 @@
 #include <sstream>
 #include "LiteralValue.hpp"
 #include <cstdlib>
+#include <cctype>
 
 /**========================================================================
  *                           COPLIEN
@@ -36,7 +37,8 @@ ScalarConverter::~ScalarConverter()
 *========================================================================**/
 bool ScalarConverter::isChar(const std::string &str)
 {
-	return (str.length() == 3 && str[0] == '\'' && str[2] == '\'');
+	return (str.length() == 3 && str[0] == '\'' && str[2] == '\'')
+			|| (str.length() == 1 && isprint(str[0]));
 }
 
 bool ScalarConverter::isInt(const std::string &str)
@@ -99,8 +101,8 @@ std::string ScalarConverter::literalTypeToString(literalType type)
 {
 	switch(type)
 	{
-		case CHAR: return "Char";
 		case INT: return "Int";
+		case CHAR: return "Char";
 		case FLOAT: return "Float";
 		case DOUBLE: return "Double";
 		case PSEUDOLITERAL: return "Pseudoliteral";
@@ -133,7 +135,11 @@ double ScalarConverter::convertToDouble(const std::string& str)
 
 char ScalarConverter::convertToChar(const std::string& str)
 {
-	char value = str[1];
+	char value;
+	if (str.size() == 3)
+		value = str[1];
+	else
+		value = str[0];
 	return static_cast<char>(value);
 }
 

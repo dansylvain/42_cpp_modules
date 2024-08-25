@@ -1,20 +1,22 @@
 #include "main.hpp"
 #include "ScalarConverter.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
-    std::cout << "Welcome to the Jungle" << std::endl;
-	std::string input;
+	if (argc != 2)
+		return (std::cout << "usage: ./convert <string>" << std::endl, 0);
+	ScalarConverter::convert(argv[1]);
 
-	while (true)
-	{
-		std::cout << "input: " << std::flush;
-		std::getline(std::cin, input);
-		if (input.empty())
-			std::cout << "Please enter a valid input." << std::endl;
-		if (input.size())
-			ScalarConverter::convert(input);
-		input.clear();
-	}
+	// std::string input;
+	// while (true)
+	// {
+	// 	std::cout << "input: " << std::flush;
+	// 	std::getline(std::cin, input);
+	// 	if (input.empty())
+	// 		std::cout << "Please enter a valid input." << std::endl;
+	// 	if (input.size())
+	// 		ScalarConverter::convert(input);
+	// 	input.clear();
+	// }
     return (0);
 }
