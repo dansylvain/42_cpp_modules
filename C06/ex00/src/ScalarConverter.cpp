@@ -69,18 +69,5 @@ bool ScalarConverter::isDouble(const std::string &str)
  *========================================================================**/
 void ScalarConverter::convert(const std::string& str)
 {
-	std::string input;
-
-	while (true)
-	{
-		std::cout << "input: " << std::flush;
-		std::getline(std::cin, input);
-		if (input.empty())
-		{
-			std::cout << "Input cannot be empty. Please enter a valid input." << std::endl;
-			continue ;
-		}
-		std::cout << str << ": " << input << std::endl;
-		input.clear();
-	}
+	std::cout << str << std::endl;
 }
