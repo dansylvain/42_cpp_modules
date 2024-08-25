@@ -87,7 +87,7 @@ literalType ScalarConverter::getType(std::string str)
 		type = FLOAT;
 	else if (ScalarConverter::isDouble(str))
 		type = DOUBLE;
-	else if (str == "-inff" || str == "+inff" || str == "-inf" || str == "+inf" || str == "nan")
+	else if (str == "-inff" || str == "+inff" || str == "-inf" || str == "+inf" || str == "nan" || str == "nanf")
 		type = PSEUDOLITERAL;
 	else
 		type = UNKNOWN;
@@ -96,15 +96,15 @@ literalType ScalarConverter::getType(std::string str)
 
 std::string ScalarConverter::literalTypeToString(literalType type)
 {
-    switch(type)
-    {
-        case CHAR: return "Char";
-        case INT: return "Int";
-        case FLOAT: return "Float";
-        case DOUBLE: return "Double";
-        case PSEUDOLITERAL: return "Pseudoliteral";
-        default: return "Unknown";
-    }
+	switch(type)
+	{
+		case CHAR: return "Char";
+		case INT: return "Int";
+		case FLOAT: return "Float";
+		case DOUBLE: return "Double";
+		case PSEUDOLITERAL: return "Pseudoliteral";
+		default: return "Unknown";
+	}
 }
 
 
@@ -114,31 +114,47 @@ std::string ScalarConverter::literalTypeToString(literalType type)
  *========================================================================**/
 int ScalarConverter::convertToInt(const std::string& str)
 {
-    int value = atoi(str.c_str());
-    return static_cast<int>(value);
+	int value = atoi(str.c_str());
+	return static_cast<int>(value);
 }
 
 float ScalarConverter::convertToFloat(const std::string& str)
 {
-    float value = static_cast<float>(atof(str.c_str()));
-    return static_cast<float>(value);
+	float value = static_cast<float>(atof(str.c_str()));
+	return static_cast<float>(value);
 }
 
 double ScalarConverter::convertToDouble(const std::string& str)
 {
-    double value = atof(str.c_str());
-    return static_cast<double>(value);
+	double value = atof(str.c_str());
+	return static_cast<double>(value);
 }
 
 char ScalarConverter::convertToChar(const std::string& str)
 {
-    char value = str[1];
-    return static_cast<char>(value);
+	char value = str[1];
+	return static_cast<char>(value);
 }
 
 /**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
+
+void	ScalarConverter::printPseudoLiterals(std::string str)
+{
+	std::string floatStr = str;
+	std::string doubleStr = str;
+
+	if (str == "nanf" || str == "+inff" || str == "-inff")
+		str = str.substr(0, str.size() - 1);
+
+
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << str << "f" << std::endl;
+	std::cout << "double: " << str << std::endl;
+}
+
 void ScalarConverter::convert(const std::string& str)
 {
 	char c;
@@ -168,7 +184,7 @@ void ScalarConverter::convert(const std::string& str)
 				printConversions(f);
 				break;
 			case PSEUDOLITERAL:
-				std::cout << "PSEUDOLITERAL!" << std::endl;
+				printPseudoLiterals(str);
 				break;
 			default :
 				throw std::runtime_error("Conversion impossible.");
@@ -176,16 +192,16 @@ void ScalarConverter::convert(const std::string& str)
 		}
 	}
 	catch (const std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 template <>
 void printConversions<char>(char value)
 {
-    std::cout << "char: '" << value << "\'" << std::endl;
-    std::cout << "int: " << static_cast<int>(value) << std::endl;
-    std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
+	std::cout << "char: '" << value << "\'" << std::endl;
+	std::cout << "int: " << static_cast<int>(value) << std::endl;
+	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
 }

@@ -33,6 +33,7 @@ class ScalarConverter
 		static double convertToDouble(const std::string& str);
 		static char convertToChar(const std::string& str);
 
+		static void	printPseudoLiterals(std::string str);
 		static literalType getType(std::string str);
 		static std::string literalTypeToString(literalType type);
 		static void	convert(const std::string& str);
