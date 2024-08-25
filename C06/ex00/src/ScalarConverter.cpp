@@ -64,6 +64,10 @@ bool ScalarConverter::isDouble(const std::string &str)
 	return !(iss >> doubleValue).fail() && iss.eof() && (str.find('.') != std::string::npos);
 }
 
+
+/**========================================================================
+ *                           OTHER METHODS
+ *========================================================================**/
 literalType ScalarConverter::getType(std::string str)
 {
 	literalType type;
@@ -96,11 +100,13 @@ std::string ScalarConverter::literalTypeToString(literalType type)
     }
 }
 
+
+
 /**========================================================================
  *                           OTHER METHODS
  *========================================================================**/
 void ScalarConverter::convert(const std::string& str)
 {
 	literalType type = getType(str);
-	std::cout << str << ": " << literalTypeToString(type) << std::endl;			
+	std::cout << str << ": " << literalTypeToString(type) << std::endl;
 }
