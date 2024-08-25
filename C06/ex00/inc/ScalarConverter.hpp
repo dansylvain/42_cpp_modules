@@ -1,14 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include "main.hpp"
-#include <sstream>
-#include <cstdlib>
-#include <cctype>
-#include <cfloat>
-#include <climits>
-#include <iomanip>
-#include <cmath>
 
 class ScalarConverter
 {

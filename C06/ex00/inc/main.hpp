@@ -1,14 +1,13 @@
 #pragma once
-
-enum PseudoLiterals
-{
-	NEG_INFF,
-	POS_INFF,
-	NEG_INF,
-	POS_INF,
-	NAN,
-	NUM_PSEUDO_LITERALS
-};
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cstdlib>
+#include <cctype>
+#include <cfloat>
+#include <climits>
+#include <iomanip>
+#include <cmath>
 
 enum literalType
 {
