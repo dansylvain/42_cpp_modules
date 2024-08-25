@@ -141,27 +141,43 @@ void ScalarConverter::convert(const std::string& str)
 	double d;
 	float f;
 	literalType type = getType(str);
-	std::cout << str << ": " << literalTypeToString(type) << std::endl;
-	switch(type)
+	// std::cout << str << ": " << literalTypeToString(type) << std::endl;
+	try
 	{
-		case CHAR:
-			c = convertToChar(str);
-			break;
-		case INT:
-			i = convertToInt(str);
-			break;
-		case DOUBLE:
-			d = convertToDouble(str);
-			break;
-		case FLOAT:
-			f = convertToFloat(str);
-			break;
-		default :
-			return;
+		switch(type)
+		{
+			case CHAR:
+				c = convertToChar(str);
+				printConversions(c);
+				break;
+			case INT:
+				i = convertToInt(str);
+				printConversions(i);
+				break;
+			case DOUBLE:
+				d = convertToDouble(str);
+				printConversions(d);
+				break;
+			case FLOAT:
+				f = convertToFloat(str);
+				printConversions(f);
+				break;
+			default :
+				throw std::runtime_error("Conversion impossible.");
+				return;
+		}
 	}
-	(void)c;
-	(void)i;
-	(void)d;
-	(void)f;
-	
+	catch (const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
+template <>
+void printConversions<char>(char value)
+{
+    std::cout << "char: '" << value << "\'" << std::endl;
+    std::cout << "int: " << static_cast<int>(value) << std::endl;
+    std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
 }

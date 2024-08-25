@@ -4,6 +4,8 @@
 #include "main.hpp"
 #include "LiteralValue.hpp"
 
+
+
 class ScalarConverter
 {
 	private:
@@ -32,5 +34,12 @@ class ScalarConverter
 		static literalType getType(std::string str);
 		static std::string literalTypeToString(literalType type);
 		static void	convert(const std::string& str);
-
 };
+
+template <typename T>
+void printConversions(T value);
+
+template <>
+void printConversions<char>(char value);
+
+#include "Scalarconverter.tpp"
