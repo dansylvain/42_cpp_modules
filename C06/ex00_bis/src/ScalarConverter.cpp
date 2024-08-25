@@ -33,13 +33,11 @@
 
 /**========================================================================
  *                           ISCHAR
- *? I decided to check both forms (with and without 's) 
+ *? I decided to check both forms (with and without the <'> character) 
  *========================================================================**/
 bool ScalarConverter::isChar(const std::string &str)
 {
-	return ((str.length() == 3 && str[0] == '\'' && str[2] == '\''
-	&& std::isprint(static_cast<unsigned char>(str[1])))
-	|| (str.length() == 1 && std::isprint(static_cast<unsigned char>(str[0]))));
+	return (str.length() == 3 && str[0] == '\'' && str[2] == '\'');
 }
 
 /**========================================================================

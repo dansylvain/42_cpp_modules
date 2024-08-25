@@ -60,17 +60,17 @@ int main()
 
 	while (1)
 	{
-		std::cin >> input;
+		while (input.length() == 0)
+		{
+			std::cout << "input: " << std::flush;
+			std::cin >> input;
+		}
 		type = getType(input);
 		std::istringstream issInt(input);
-		issInt >> Value;
-		
-		// std::cout << "char: " << ScalarConverter::convert
-
-
+		issInt >> Value;		
 		if (type == CHAR)
 		{
-			Value = input[0];
+			Value = input[1];
 		}
 		if (std::isprint(static_cast<char>(Value)))
 			std::cout << "char: " <<  static_cast<char>(Value) << std::endl;
@@ -83,7 +83,7 @@ int main()
 		std::cout << "float: " << std::fixed << std::setprecision(1) <<  static_cast<float>(Value) << "f" << std::endl;
 		std::cout << "double: " <<  (Value) << std::endl;
 
-		// std::cout << type << std::endl;
+		input.clear();
 	}
 
 	return (0);
