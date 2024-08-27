@@ -32,5 +32,19 @@ int main()
 			ScalarConverter::convert(tab[i]);
 		}
 	}
+	pause();
+	std::cout << "Make your own tests!" << std::endl;
+	std::string input;
+	while (true)
+	{
+	std::cout << "\033[31;1mEnter a string representation of a C++ literal in its most common form (or type 'exit' to quit).\033[0m\nInput: " << std::flush;
+		std::getline(std::cin, input);
+		if (input == "exit")
+			break;
+		if (input.empty())
+			continue;
+		ScalarConverter::convert(input);
+	}
+
 	return (0);
 }
