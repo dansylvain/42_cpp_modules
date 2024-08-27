@@ -1,7 +1,18 @@
 #pragma once
+#include <iostream>
 
-#include "iter.hpp"	
-#include "print.hpp"
+template<typename T>
+void iter(T* array, unsigned int len, void (*func)(T&))
+{
+	for (unsigned int i = 0; i < len; ++i)
+		func(array[i]);
+}
+
+template<typename T>
+void print(T& var)
+{
+    std::cout << var << std::endl;
+}
 
 void	printInt(int& value);
 void	printB(std::string str);
