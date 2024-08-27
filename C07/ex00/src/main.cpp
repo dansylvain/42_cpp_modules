@@ -33,6 +33,7 @@ int main()
 	{
 		printB("Test with type <int>");
 		int x = 10, y = 20;
+		std::cout << "x = " << x << ", y = " << y << std::endl;
 		std::cout << "before swap: x = " << x << ", y = " << y << std::endl;
 		swap(x, y);
 		std::cout << "After  swap: x = " << x << ", y = " << y << std::endl;
@@ -44,6 +45,7 @@ int main()
 	{
 		printB("Test with type <double>");
 		double x = 15.5, y = 10.5;
+		std::cout << "x = " << x << ", y = " << y << std::endl;
 		std::cout << "before swap: x = " << x << ", y = " << y << std::endl;
 		swap(x, y);
 		std::cout << "After  swap: x = " << x << ", y = " << y << std::endl;
@@ -53,13 +55,14 @@ int main()
 	pause();
 	{
 		printB("Test with type <char>");
-		char a = 'A', b = 'B';
+		char a = 'A', b = 'A';
+		std::cout << "a = " << a << ", b = " << b << std::endl;
 		std::cout << "before swap: a = " << a << ", b = " << b << std::endl;
 		swap(a, b);
 		std::cout << "After  swap: a = " << a << ", b = " << b << std::endl;
 		
-		std::cout << "Min of 'A' and 'B': " << min(a, b) << std::endl;
-		std::cout << "Max of 'A' and 'B': " << max(a, b) << std::endl;
+		std::cout << "Min of a and b: " << min(a, b) << std::endl;
+		std::cout << "Max of a and b: " << max(a, b) << std::endl;
 
 	}
 	return 0;
