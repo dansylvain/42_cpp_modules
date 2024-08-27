@@ -6,9 +6,6 @@ RM = rm -rf
 OBJDIR = obj
 
 SRC = 	src/main.cpp \
-		src/A.cpp \
-		src/B.cpp \
-		src/C.cpp \
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
