@@ -17,12 +17,13 @@ int main()
 	Array<int> intArray(5);
 	printArray(intArray);
 
-	pause();
 	for (unsigned int i = 0; i < intArray.size(); ++i)
 		intArray[i] = static_cast<int>(i * 10);
+	pause();
 	printB("After putting in some values:");
 	printArray(intArray);
 
+	pause();
 	printB("\nUse of subscript operator [] :");
 	std::cout << "value of intArray[2]: " << intArray[2] << std::endl;
 	pause();
@@ -37,25 +38,29 @@ int main()
 	}
 	
 	pause();
-	printB("Test constructor bu copy");
+	printB("Test copy constructor");
 	print("\nCreate arrayOne (size 5)");
 	Array<int> arrayOne(5);
 	printArray(arrayOne);
+	
 	print("\nCreate arrayTwo (copy of arrayOne)");
 	Array<int>arrayTwo(arrayOne);
 	printArray(arrayTwo);
-	print("\nModify arrayOne content and print both arrays");
+	pause();
+	printB("\nModify arrayOne content and print both arrays");
 	arrayOne[0] = 21;
 	arrayOne[1] = 42;
 	arrayOne[2] = 666;
 	arrayOne[3] = 300;
 	arrayOne[4] = 2001;
 	printArray(arrayOne);
+	print("");
 	printArray(arrayTwo);
 	pause();
 	printB("Test assignment operator");
 	arrayTwo = arrayOne;
 	printArray(arrayOne);
+	print("");
 	printArray(arrayTwo);
 	
 	return 0;
