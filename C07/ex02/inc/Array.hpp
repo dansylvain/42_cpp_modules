@@ -1,6 +1,11 @@
 #pragma once
 #include <stdexcept>
 #include <cstdlib>
+
+/**========================================================================
+ *                           ARRAY
+ *? use try/catch whenever you use [] operator 
+ *========================================================================**/
 template <typename T>
 class Array
 {
