@@ -4,5 +4,6 @@
 
 void	print(std::string str);
 void	printB(std::string str);
-void	pause();
+void	myPause();
 void	printTab(std::vector<int> tab);
+void	saveVectorToFile(std::vector<int> tab, std::string filename);
