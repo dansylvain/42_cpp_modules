@@ -16,4 +16,4 @@ typename Container::iterator easyfind(Container& container, int n)
 
 void	print(std::string str);
 void	printB(std::string str);
-void	pause();
+void	myPause();
