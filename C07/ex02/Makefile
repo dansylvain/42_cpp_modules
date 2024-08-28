@@ -6,6 +6,7 @@ RM = rm -rf
 OBJDIR = obj
 
 SRC = 	src/main.cpp
+#SRC = 	src/testMain.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
