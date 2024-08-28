@@ -20,6 +20,10 @@ class Span
 
 		std::vector<int> getValuesTab() const;
 		void	addNumber(int nbr);
+		template <typename InputIterator>
+        void addNumbers(InputIterator first, InputIterator last);
 		int		shortestSpan() const;
 		int		longestSpan() const;
 };
+
+#include "Span.tpp"

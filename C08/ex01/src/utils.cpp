@@ -63,6 +63,8 @@ void printTab(std::vector<int> tab)
 			if (i != tab.size() - 1)
 				std::cout << ", ";
 		}
+		std::cout << "\033[36;1m" << "\nOpen file \"largeVector\" to see complete vector content)" << "\033[0m" << std::endl;
 	}
 	std::cout << std::endl;
+
 }
