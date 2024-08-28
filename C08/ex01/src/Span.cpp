@@ -1,17 +1,46 @@
 #include "Span.hpp"
-#include <stdexcept>
-#include <iostream>
-#include <algorithm>
-#include <limits>
-Span::Span(unsigned int N) : _maxSize(N)
+
+/**========================================================================
+ *                           COPLIEN
+ *========================================================================**/
+Span::Span() : _maxSize(0)
 {
+}
+
+Span::Span(unsigned int N)  : _maxSize(N)
+{
+}
+
+
+Span::Span(const Span& other) : _valuesTab(other._valuesTab), _maxSize(other._maxSize)
+{
+}
+
+const Span& Span::operator=(const Span& rhs)
+{
+	if (this != &rhs)
+	{
+		_valuesTab = rhs._valuesTab;
+		_maxSize = rhs._maxSize;
+	}
+	return *this;
 }
 
 Span::~Span()
 {
 }
 
+/**========================================================================
+ *                           GETTERS / SETTERS
+ *========================================================================**/
+std::vector<int> Span::getValuesTab() const
+{
+	return (_valuesTab);
+}
 
+/**========================================================================
+ *                           ACTION METHODS
+ *========================================================================**/
 void	Span::addNumber(int nbr)
 {
 	if (_valuesTab.size() >= _maxSize)
@@ -21,13 +50,13 @@ void	Span::addNumber(int nbr)
 
 int		Span::shortestSpan() const
 {
-	int minSpan = std::numeric_limits<int>::max();
 
 	if (_valuesTab.size() < 2)
 		throw std::logic_error("Too few elements");
 	std::vector<int> sortedTab = _valuesTab;
 	std::sort(sortedTab.begin(), sortedTab.end());
 
+	int minSpan = std::numeric_limits<int>::max();
 	for (long unsigned int i = 1; i < sortedTab.size(); i++)
 	{
 		int span = sortedTab[i] - sortedTab[i - 1];
@@ -39,7 +68,12 @@ int		Span::shortestSpan() const
 
 int		Span::longestSpan() const
 {
+	std::vector<int>::const_iterator minIt;
+	std::vector<int>::const_iterator maxIt;
 	if (_valuesTab.size() < 2)
 		throw std::logic_error("Too few elements");
-	return 42;
+	minIt = std::min_element(_valuesTab.begin(), _valuesTab.end());
+	maxIt = std::max_element(_valuesTab.begin(), _valuesTab.end());
+	return *maxIt - *minIt;
 }
+

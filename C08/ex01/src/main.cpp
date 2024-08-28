@@ -1,28 +1,17 @@
 #include "main.hpp"
 #include "Span.hpp"
 
+
+
 int main()
 {
-	std::cout << "Welcome to the jungle" << std::endl;
-	Span newSpan(5);
-
-	try
-	{
-		newSpan.addNumber(40);
-		newSpan.addNumber(47);
-		newSpan.addNumber(553);
-		newSpan.addNumber(42);
-		newSpan.addNumber(49);
-		newSpan.addNumber(10);
-		newSpan.addNumber(2);
-		newSpan.addNumber(-42);
-		newSpan.addNumber(42);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "minSpan :" << newSpan.shortestSpan() << std::endl;
-	
-	return (0);
+Span sp = Span(5);
+sp.addNumber(6);
+sp.addNumber(3);
+sp.addNumber(17);
+sp.addNumber(9);
+sp.addNumber(11);
+std::cout << sp.shortestSpan() << std::endl;
+std::cout << sp.longestSpan() << std::endl;
+return 0;
 }

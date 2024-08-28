@@ -16,3 +16,10 @@ void	pause()
 	std::cout << "Press Enter to continue..." << std::endl;
 	std::cin.get();
 }
+
+void	printTab(std::vector<int> tab)
+{
+	printB("Tab content:");
+	for (long unsigned int i = 0; i < tab.size(); i++)
+		std::cout << tab[i] << std::endl;
+}
