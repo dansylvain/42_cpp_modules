@@ -33,6 +33,8 @@ void saveVectorToFile(std::vector<int> tab, std::string filename)
 			outFile << ", ";
 	}
 	outFile.close();
+	std::cout << "\033[36;1m" << "Open file \"" << filename << "\" to see complete vector content)" << "\033[0m" << std::endl;
+
 }
 
 void printTab(std::vector<int> tab)
@@ -63,7 +65,6 @@ void printTab(std::vector<int> tab)
 			if (i != tab.size() - 1)
 				std::cout << ", ";
 		}
-		std::cout << "\033[36;1m" << "\nOpen file \"largeVector\" to see complete vector content)" << "\033[0m" << std::endl;
 	}
 	std::cout << std::endl;
 
