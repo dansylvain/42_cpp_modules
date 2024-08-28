@@ -26,19 +26,19 @@ int main()
 		myNameSpace::swap(x, y);
 		std::cout << "After  swap: x = " << x << ", y = " << y << std::endl;
 		
-		std::cout << "Min of 10 and 20: " << myNameSpace::min(x, y) << std::endl;
-		std::cout << "Max of 10 and 20: " << myNameSpace::max(x, y) << std::endl;
+		std::cout << "Min of " << x << " and " << y << ": " << myNameSpace::min(x, y) << std::endl;
+		std::cout << "Max of " << x << " and " << y << ": " << myNameSpace::max(x, y) << std::endl;
 	}
 	pause();
 	{
 		printB("Test with type <double>");
-		double x = 15.5, y = 10.5;
+		double x = 10.5, y = 10.5;
 		std::cout << "x = " << x << ", y = " << y << std::endl;
 		std::cout << "before swap: x = " << x << ", y = " << y << std::endl;
 		myNameSpace::swap(x, y);
 		std::cout << "After  swap: x = " << x << ", y = " << y << std::endl;
-		std::cout << "Min of 15.5 and 10.5: " << myNameSpace::min(x, y) << std::endl;
-		std::cout << "Max of 15.5 and 10.5: " << myNameSpace::max(x, y) << std::endl;
+		std::cout << "Min of " << x << " and 10.5: " << myNameSpace::min(x, y) << std::endl;
+		std::cout << "Max of " << x << " and 10.5: " << myNameSpace::max(x, y) << std::endl;
 	}
 	pause();
 	{
