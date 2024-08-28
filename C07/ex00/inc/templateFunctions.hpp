@@ -18,5 +18,8 @@ T min(const T& a, const T& b)
 template <typename T>
 T max(const T& a, const T& b)
 {
-	return (b < a) ? b : a;
+	return (a >= b) ? a : b;
 }
+
+void	pause();
+void	printB(std::string str);

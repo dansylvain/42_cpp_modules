@@ -1,12 +1,11 @@
 NAME = iter
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 RM = rm -rf
 
 OBJDIR = obj
 
 SRC = 	src/main.cpp \
-		src/utils.cpp
 
 OBJS = $(patsubst src/%, $(OBJDIR)/%, $(SRC:.cpp=.o))
 
