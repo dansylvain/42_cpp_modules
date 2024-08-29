@@ -37,26 +37,26 @@ void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map,
 	std::string line;
 	while (std::getline(inputFile, line))
 	{
-		double bitcoinRate;
+		std::pair<std::string, double> newPair;
 		char c;
+
 		if (map)
 			c = ',';
 		else
 			c = '|';
 		std::string::size_type pos = line.find(c);
-		std::string date = trim(line.substr(0, pos));
+		newPair.first = trim(line.substr(0, pos));
 		std::string bitcoinRateStr;
 		if (pos != std::string::npos)
 			bitcoinRateStr = line.substr(pos + 1);
 		std::stringstream ss(bitcoinRateStr);
-		ss >> bitcoinRate;
+		ss >> newPair.second;
 		if (map)
 		{
-			std::pair<std::string, double> newPair(date, bitcoinRate);
 			(*map).insert(newPair);
 		}
 		else
-			std::cout << trim(date) << " <=> " << bitcoinRate << std::endl;
+			std::cout << trim(newPair.first) << " <=> " << newPair.second << std::endl;
 	}
 }
 
