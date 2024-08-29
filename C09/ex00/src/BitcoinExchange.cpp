@@ -8,13 +8,31 @@ std::map<std::string, double>& BitcoinExchange::get_bitcoinRateByDate()
 	return (BitcoinExchange::_bitcoinRateByDate);
 }
 
+void BitcoinExchange::displayMapContent()
+{
+	std::map<std::string, double>::const_iterator it;
+	for (it = BitcoinExchange::get_bitcoinRateByDate().begin(); it != get_bitcoinRateByDate().end(); it++)
+		std::cout << it->first << " <=> " << it->second << std::endl;
+}
+
+void BitcoinExchange::openDataFile(std::ifstream& inputFile)
+{
+	inputFile.open("data.csv");
+	if (!inputFile)
+		throw std::logic_error(".csv File error");
+}
+
 void BitcoinExchange::extractDataFromCsvFile()
 {
 	std::ifstream inputFile;
-
-	inputFile.open("data.csv");
-	if (!inputFile)
-		throw std::logic_error("File error");
+	try
+	{
+		BitcoinExchange::openDataFile(inputFile);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
 	std::string line;
 	while (std::getline(inputFile, line))
@@ -28,7 +46,4 @@ void BitcoinExchange::extractDataFromCsvFile()
 		std::pair<std::string, double> newPair(date, bitcoinRate);
 		BitcoinExchange::get_bitcoinRateByDate().insert(newPair);
 	}
-	std::map<std::string, double>::const_iterator it;
-	for (it = BitcoinExchange::get_bitcoinRateByDate().begin(); it != get_bitcoinRateByDate().end(); it++)
-		std::cout << it->first << " <=> " << it->second << std::endl;
 }

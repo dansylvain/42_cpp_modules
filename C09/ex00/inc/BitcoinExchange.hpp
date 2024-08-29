@@ -18,5 +18,8 @@ class BitcoinExchange
 	public:
 		static void	extractDataFromCsvFile();
 		static std::map<std::string, double>& get_bitcoinRateByDate();
+		static void displayMapContent();
+		static void openDataFile(std::ifstream&);
+
 
 };

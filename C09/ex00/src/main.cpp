@@ -8,12 +8,12 @@
 
 int main(int argc, char **argv)
 {
-	static	std::map<std::string, double> bitcoinRateByDate;
 	if (argc != 2)
-	return (print("Error: wrong arg number"), 0);
-
-	std::cout << "Welcome to the jugle" << std::endl;
+		return (print("Error: wrong arg number"), 0);
 	BitcoinExchange::extractDataFromCsvFile();
+	BitcoinExchange::displayMapContent();
 	return (0);
+
+
 	(void)argv;
 }
