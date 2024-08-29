@@ -16,7 +16,11 @@ int main(int argc, char **argv)
 	std::string line;
 	while (std::getline(inputFile, line))
 	{
-		std::cout << line << std::endl;
+		std::string::size_type pos = line.find(',');
+		std::string date = line.substr(0, pos);
+		std::string bitcoinRate = line.substr(pos + 1);
+
+		std::cout << line << " => " << date << " <=> " << bitcoinRate << std::endl;
 	}
 	return (0);
 	(void)argv;
