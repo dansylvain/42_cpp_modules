@@ -36,12 +36,22 @@ void	BitcoinExchange::handleLine(std::pair<std::string, double>& newPair)
 {
 	try
 	{
-		if (!newPair.second || newPair.first.empty())
-			return ;;
-		if (newPair.second > 1000 || newPair.second < 0)
-			return ;;
-		if (!isValidDateFormat(newPair.first))
-			return ;;
+		if (!newPair.second && trim(newPair.first) != "date")
+		{
+			std:: cout << "Error: bad input => " << newPair.first << std::endl;
+			return;
+		}
+		if (newPair.first.empty())
+		{
+			std:: cout << "Error: bad input => " << newPair.second << std::endl;
+			return;
+		}
+		if (newPair.second < 0)
+			throw std::runtime_error("Error: not a positive number.") ;;
+		if (newPair.second > 1000)
+			throw std::runtime_error("Error: too large a number.") ;;
+		if (!isValidDateFormat(newPair.first) && trim(newPair.first) != "date")
+			throw std::runtime_error("Error: invalid input.") ;;
 		
 		std::map<std::string, double>::reverse_iterator i = _bitcoinRateByDate.rbegin();
 		while(i != _bitcoinRateByDate.rend())
