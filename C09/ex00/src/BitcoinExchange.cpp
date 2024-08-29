@@ -15,19 +15,19 @@ void BitcoinExchange::displayMapContent()
 		std::cout << it->first << " <=> " << it->second << std::endl;
 }
 
-void BitcoinExchange::openDataFile(std::ifstream& inputFile)
+void BitcoinExchange::openFile(std::ifstream& inputFile, std::string fileName)
 {
-	inputFile.open("data.csv");
+	inputFile.open(fileName.c_str());
 	if (!inputFile)
 		throw std::logic_error(".csv File error");
 }
 
-void BitcoinExchange::extractDataFromCsvFile()
+void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map, std::string fileName)
 {
 	std::ifstream inputFile;
 	try
 	{
-		BitcoinExchange::openDataFile(inputFile);
+		BitcoinExchange::openFile(inputFile, fileName);
 	}
 	catch(const std::exception& e)
 	{
@@ -43,7 +43,10 @@ void BitcoinExchange::extractDataFromCsvFile()
 		std::string bitcoinRateStr = line.substr(pos + 1);
 		std::stringstream ss(bitcoinRateStr);
 		ss >> bitcoinRate;
-		std::pair<std::string, double> newPair(date, bitcoinRate);
-		BitcoinExchange::get_bitcoinRateByDate().insert(newPair);
+		if (map)
+		{
+			std::pair<std::string, double> newPair(date, bitcoinRate);
+			(*map).insert(newPair);
+		}
 	}
 }
