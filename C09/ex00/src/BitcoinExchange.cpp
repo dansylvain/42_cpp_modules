@@ -37,13 +37,22 @@ void	BitcoinExchange::handleLine(std::pair<std::string, double>& newPair)
 	try
 	{
 		if (!newPair.second || newPair.first.empty())
-			throw std::runtime_error("Empty data");
+			return ;;
 		if (newPair.second > 1000 || newPair.second < 0)
-			throw std::runtime_error("incorrect value");
+			return ;;
 		if (!isValidDateFormat(newPair.first))
-			throw std::runtime_error("invalid date format");
-		if (_bitcoinRateByDate.find(newPair.first) == _bitcoinRateByDate.end())
-			throw std::runtime_error("date not found");
+			return ;;
+		
+		std::map<std::string, double>::reverse_iterator i = _bitcoinRateByDate.rbegin();
+		while(i != _bitcoinRateByDate.rend())
+		{
+			if (i->first <=  newPair.first)
+			{
+				std::cout << i->first << " | " << i->second * newPair.second << std::endl;
+				return ;
+			}
+			i++;
+		}
 
 		std::cout << trim(newPair.first) << " <=> " << newPair.second << std::endl;
 	}
