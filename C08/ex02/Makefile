@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-
+ 
 $(OBJDIR)/%.o: src/%.cpp $(DEPDIR)/%.d
 	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
