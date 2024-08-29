@@ -38,9 +38,16 @@ void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map,
 	while (std::getline(inputFile, line))
 	{
 		double bitcoinRate;
-		std::string::size_type pos = line.find(',');
-		std::string date = line.substr(0, pos);
-		std::string bitcoinRateStr = line.substr(pos + 1);
+		char c;
+		if (map)
+			c = ',';
+		else
+			c = '|';
+		std::string::size_type pos = line.find(c);
+		std::string date = trim(line.substr(0, pos));
+		std::string bitcoinRateStr;
+		if (pos != std::string::npos)
+			bitcoinRateStr = line.substr(pos + 1);
 		std::stringstream ss(bitcoinRateStr);
 		ss >> bitcoinRate;
 		if (map)
@@ -49,6 +56,30 @@ void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map,
 			(*map).insert(newPair);
 		}
 		else
-			std::cout << date << " <=> " << bitcoinRate << std::endl;
+			std::cout << trim(date) << " <=> " << bitcoinRate << std::endl;
 	}
+}
+
+
+std::string BitcoinExchange::ltrim(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isspace(*it)) {
+        ++it;
+    }
+    return std::string(it, s.end());
+}
+
+std::string BitcoinExchange::rtrim(const std::string& s)
+{
+    std::string::const_reverse_iterator rit = s.rbegin();
+    while (rit != s.rend() && std::isspace(*rit)) {
+        ++rit;
+    }
+    return std::string(s.begin(), rit.base());
+}
+
+std::string BitcoinExchange::trim(const std::string& s)
+{
+    return ltrim(rtrim(s));
 }

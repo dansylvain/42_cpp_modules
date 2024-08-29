@@ -20,6 +20,7 @@ class BitcoinExchange
 		static std::map<std::string, double>& get_bitcoinRateByDate();
 		static void displayMapContent();
 		static void openFile(std::ifstream&, std::string fileName);
-
-
+		static std::string ltrim(const std::string& s);
+		static std::string rtrim(const std::string& s);
+		static std::string trim(const std::string& s);
 };
