@@ -19,7 +19,7 @@ void BitcoinExchange::openFile(std::ifstream& inputFile, std::string fileName)
 {
 	inputFile.open(fileName.c_str());
 	if (!inputFile)
-		throw std::logic_error(".csv File error");
+		throw std::logic_error( "\"" + fileName + "\" : couldn't open file");
 }
 
 void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map, std::string fileName)
@@ -48,5 +48,7 @@ void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map,
 			std::pair<std::string, double> newPair(date, bitcoinRate);
 			(*map).insert(newPair);
 		}
+		else
+			std::cout << date << " <=> " << bitcoinRate << std::endl;
 	}
 }
