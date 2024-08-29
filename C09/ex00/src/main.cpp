@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	std::cout << "Welcome to the jugle" << std::endl;
 	std::ifstream inputFile;
 
-	inputFile.open(argv[1]);
+	inputFile.open("data.csv");
 	if (!inputFile)
 		return (std::cout << "File error" << std::endl, 2);
 	
@@ -19,4 +19,5 @@ int main(int argc, char **argv)
 		std::cout << line << std::endl;
 	}
 	return (0);
+	(void)argv;
 }
