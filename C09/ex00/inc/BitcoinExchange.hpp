@@ -23,6 +23,8 @@ class BitcoinExchange
 		static void	handleLine(std::pair<std::string, double>& newPair);
 		static void	checkValidity(std::pair<std::string, double>& newPair);
 		static bool isValidDateFormat(const std::string& date);
+		static bool isLeapYear(int year);
+		static bool isValidDate(const std::string& date);
 
 		static std::string ltrim(const std::string& s);
 		static std::string rtrim(const std::string& s);
