@@ -18,4 +18,12 @@ class RPN
 		bool checkInput(const std::string& input) const;
 		double stringToInt(const std::string& str) const;
 		std::string intToString(double number) const;
+		typedef double (*OperationFunc)(double, double);
+		void applyOperation(OperationFunc op);
+		static double add(double a, double b) { return a + b; }
+		static double subtract(double a, double b) { return a - b; }
+		static double multiply(double a, double b) { return a * b; }
+		static double divide(double a, double b) { return a / b; }
+
+
 };

@@ -32,6 +32,15 @@ std::string RPN::intToString(double number) const
     return ss.str();
 }
 
+void RPN::applyOperation(OperationFunc op)
+{
+	double op1 = stringToInt(_stack.top());
+	_stack.pop();
+	double op2 = stringToInt(_stack.top());
+	_stack.pop();
+	_stack.push(intToString(op(op2, op1)));
+}
+
 void	RPN::createStack(const std::string& input)
 {
 	std::istringstream iss(input);
@@ -40,48 +49,19 @@ void	RPN::createStack(const std::string& input)
 	while (iss >> token)
 	{
 		if (token == "+")
-		{
-			double op1 = stringToInt(_stack.top());
-			_stack.pop();
-			double op2 = stringToInt(_stack.top());
-			_stack.pop();
-			_stack.push(intToString(op1 + op2));
-			// std::cout << "addition: " << op2 + op1  << std::endl;
-		}
+			applyOperation(add);
 		else if (token == "-")
-		{
-			double op1 = stringToInt(_stack.top());
-			_stack.pop();
-			double op2 = stringToInt(_stack.top());
-			_stack.pop();
-			_stack.push(intToString(op2 - op1));
-			// std::cout << "soustraction: " << op2 - op1 << std::endl;
-		}
+			applyOperation(subtract);
 		else if (token == "*")
-		{
-			double op1 = stringToInt(_stack.top());
-			_stack.pop();
-			double op2 = stringToInt(_stack.top());
-			_stack.pop();
-			_stack.push(intToString(op2 * op1));
-			// std::cout << "multiplicaiton: " << op2 * op1 << std::endl;
-		}
+			applyOperation(multiply);
 		else if (token == "/")
-		{
-						double op1 = stringToInt(_stack.top());
-			_stack.pop();
-			double op2 = stringToInt(_stack.top());
-			_stack.pop();
-			_stack.push(intToString(op2 / op1));
-			// std::cout << "division: " << op2 / op1 << std::endl;
-		}
+			applyOperation(divide);
 		else _stack.push(token);
 	}
 }
 
 void RPN::displayStack()
 {
-	// std::cout << "Contenu de la pile :" << std::endl;
 	while (!_stack.empty())
 	{
 		std::cout << _stack.top() << ' ';
@@ -107,17 +87,17 @@ bool RPN::checkInput(const std::string& input) const
 			operandCount++;
 			nbrCount++;
 			if (number > 9 || number < 0)
-				return false;
+				return (std::cout << "Number greater than 10: " << std::flush, false);
 			if (number == 0)
 				zeroFlag = true;
 		}
 		else if (token == "+" || token == "-" || token == "*" || token == "/")
 		{
 			if (operandCount < 2)
-				return(false);
+				return (std::cout << "Less than two operands: " << std::flush, false);
 			operandCount--;
 			if (zeroFlag && token == "/")
-				return false;
+				return (std::cout << "Divide by zero: " << std::flush, false);
 			zeroFlag = false;
 		}
 		else
@@ -125,3 +105,7 @@ bool RPN::checkInput(const std::string& input) const
 	}
 	return (operandCount == 1 && nbrCount <= 10);
 }
+
+
+
+
