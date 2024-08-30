@@ -13,7 +13,9 @@ class RPN
 		RPN();
 		~RPN();
 		void	createStack(const std::string& input);
-		int	calculate(const std::string& input) const;
+		double	calculate(const std::string& input) const;
 		void displayStack();
 		bool checkInput(const std::string& input) const;
+		double stringToInt(const std::string& str) const;
+		std::string intToString(double number) const;
 };

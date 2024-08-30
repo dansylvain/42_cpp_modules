@@ -1,5 +1,6 @@
 #include "RPN.hpp"
 #include <sstream>
+#include "main.hpp"
 
 RPN::RPN()
 {
@@ -9,10 +10,26 @@ RPN::~RPN()
 {
 }
 
-int	RPN::calculate(const std::string& input) const
+double	RPN::calculate(const std::string& input) const
 {
 	(void)input;
 	return 0;
+}
+
+double RPN::stringToInt(const std::string& str) const
+{
+	double nbr;
+
+	std::stringstream ss(str);
+	ss >> nbr;
+	return (nbr);
+}
+
+std::string RPN::intToString(double number) const
+{
+    std::stringstream ss;
+    ss << number;
+    return ss.str();
 }
 
 void	RPN::createStack(const std::string& input)
@@ -22,13 +39,49 @@ void	RPN::createStack(const std::string& input)
 
 	while (iss >> token)
 	{
-		_stack.push(token);
+		if (token == "+")
+		{
+			double op1 = stringToInt(_stack.top());
+			_stack.pop();
+			double op2 = stringToInt(_stack.top());
+			_stack.pop();
+			_stack.push(intToString(op1 + op2));
+			// std::cout << "addition: " << op2 + op1  << std::endl;
+		}
+		else if (token == "-")
+		{
+			double op1 = stringToInt(_stack.top());
+			_stack.pop();
+			double op2 = stringToInt(_stack.top());
+			_stack.pop();
+			_stack.push(intToString(op2 - op1));
+			// std::cout << "soustraction: " << op2 - op1 << std::endl;
+		}
+		else if (token == "*")
+		{
+			double op1 = stringToInt(_stack.top());
+			_stack.pop();
+			double op2 = stringToInt(_stack.top());
+			_stack.pop();
+			_stack.push(intToString(op2 * op1));
+			// std::cout << "multiplicaiton: " << op2 * op1 << std::endl;
+		}
+		else if (token == "/")
+		{
+						double op1 = stringToInt(_stack.top());
+			_stack.pop();
+			double op2 = stringToInt(_stack.top());
+			_stack.pop();
+			_stack.push(intToString(op2 / op1));
+			// std::cout << "division: " << op2 / op1 << std::endl;
+		}
+		else _stack.push(token);
 	}
 }
 
 void RPN::displayStack()
 {
-	std::cout << "Contenu de la pile :" << std::endl;
+	// std::cout << "Contenu de la pile :" << std::endl;
 	while (!_stack.empty())
 	{
 		std::cout << _stack.top() << ' ';
@@ -41,14 +94,14 @@ bool RPN::checkInput(const std::string& input) const
 {
 	std::istringstream iss(input);
 	std::string token;
-	int operandCount = 0;
-	int nbrCount = 0;
+	double operandCount = 0;
+	double nbrCount = 0;
 	bool zeroFlag = false;
 
 	while (iss >> token)
 	{
 		std::istringstream tokenStream(token);
-		int number;
+		double number;
 		if (tokenStream >> number)
 		{
 			operandCount++;
