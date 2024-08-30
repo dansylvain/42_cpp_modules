@@ -2,7 +2,6 @@
 #include <exception>
 #include <cstdlib>
 
-std::map<std::string, double> BitcoinExchange::_bitcoinRateByDate;
 
 std::map<std::string, double>& BitcoinExchange::get_bitcoinRateByDate()
 {

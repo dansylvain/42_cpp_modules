@@ -1,23 +1,12 @@
-#include "BitcoinExchange.hpp"
 #include "main.hpp"
-#include <sstream>
-#include <fstream>
-#include <map>
-#include <utility>
-#include <string>
-
-typedef BitcoinExchange BE;
+#include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv)
 {
+	BitcoinExchange obj;
 	if (argc == 1)
 		return (print("Error: couldn't open file"), 0);
-	
-	BE::extractDataFromFile(&BE::get_bitcoinRateByDate(), "data.csv");
-	// BE::displayMapContent();
-
-	BE::extractDataFromFile(NULL, argv[1]);
-
+	obj.extractDataFromFile(&obj.get_bitcoinRateByDate(), "data.csv");
+	obj.extractDataFromFile(NULL, argv[1]);
 	return (0);
-	(void)argv;
 }
