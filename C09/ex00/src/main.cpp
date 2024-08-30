@@ -10,8 +10,9 @@ typedef BitcoinExchange BE;
 
 int main(int argc, char **argv)
 {
-	if (argc != 2)
-		return (print("Error: wrong arg number"), 0);
+	if (argc == 1)
+		return (print("Error: couldn't open file"), 0);
+	
 	BE::extractDataFromCsvFile(&BE::get_bitcoinRateByDate(), "data.csv");
 	// BE::displayMapContent();
 
