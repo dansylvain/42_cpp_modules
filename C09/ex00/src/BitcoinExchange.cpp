@@ -34,58 +34,47 @@ bool BitcoinExchange::isValidDateFormat(const std::string& date)
 
 void	BitcoinExchange::handleLine(std::pair<std::string, double>& newPair)
 {
-	try
+	if (!newPair.second && trim(newPair.first) != "date")
 	{
-		if (!newPair.second && trim(newPair.first) != "date")
-		{
-			std:: cout << "Error: bad input => " << newPair.first << std::endl;
-			return;
-		}
-		if (newPair.first.empty())
-		{
-			std:: cout << "Error: bad input => " << newPair.second << std::endl;
-			return;
-		}
-		if (newPair.second < 0)
-			throw std::runtime_error("Error: not a positive number.") ;;
-		if (newPair.second > 1000)
-			throw std::runtime_error("Error: too large a number.") ;;
-		if (!isValidDateFormat(newPair.first) && trim(newPair.first) != "date")
-			throw std::runtime_error("Error: invalid input.") ;;
-		
-		std::map<std::string, double>::reverse_iterator i = _bitcoinRateByDate.rbegin();
-		while(i != _bitcoinRateByDate.rend())
-		{
-			if (i->first <=  newPair.first)
-			{
-				std::cout << i->first << " | " << i->second * newPair.second << std::endl;
-				return ;
-			}
-			i++;
-		}
-
-		std::cout << trim(newPair.first) << " <=> " << newPair.second << std::endl;
+		std:: cout << "Error: bad input => " << newPair.first << std::endl;
+		return;
 	}
-	catch(const std::exception& e)
+	if (newPair.first.empty())
 	{
-		std::cerr << e.what() << '\n';
+		std:: cout << "Error: bad input => " << newPair.second << std::endl;
+		return;
 	}
+	if (newPair.second < 0)
+		throw std::runtime_error("Error: not a positive number.") ;;
+	if (newPair.second > 1000)
+		throw std::runtime_error("Error: too large a number.") ;;
+	if (!isValidDateFormat(newPair.first) && trim(newPair.first) != "date")
+		throw std::runtime_error("Error: invalid input.") ;;
 	
+	std::map<std::string, double>::reverse_iterator i = _bitcoinRateByDate.rbegin();
+	while(i != _bitcoinRateByDate.rend())
+	{
+		if (i->first <=  newPair.first)
+		{
+			std::cout << i->first << " => "  << newPair.second << " = " << i->second * newPair.second << std::endl;
+			return ;
+		}
+		i++;
+	}
+	std::cout << trim(newPair.first) << " <=> " << newPair.second << std::endl;
 }
 
-void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map, std::string fileName)
+void BitcoinExchange::extractDataFromFile(std::map<std::string, double>* map, std::string fileName)
 {
+	// open file
 	std::ifstream inputFile;
 	try
-	{
-		BitcoinExchange::openFile(inputFile, fileName);
-	}
+		{BitcoinExchange::openFile(inputFile, fileName);}
 	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+		{std::cerr << e.what() << '\n';}
 	
 	std::string line;
+	int i = 0;
 	while (std::getline(inputFile, line))
 	{
 		std::pair<std::string, double> newPair;
@@ -102,10 +91,15 @@ void BitcoinExchange::extractDataFromCsvFile(std::map<std::string, double>* map,
 			bitcoinRateStr = line.substr(pos + 1);
 		std::stringstream ss(bitcoinRateStr);
 		ss >> newPair.second;
+
+
 		if (map)
 			(*map).insert(newPair);
-		else
-			handleLine(newPair);
+		else if (i++ != 0)	
+			try
+				{handleLine(newPair);}
+			catch(const std::exception& e)
+				{std::cerr << e.what() << '\n';}
 	}
 }
 

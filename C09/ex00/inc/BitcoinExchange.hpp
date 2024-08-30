@@ -16,7 +16,7 @@ class BitcoinExchange
 		const BitcoinExchange& operator=(const BitcoinExchange&);
 		~BitcoinExchange();
 	public:
-		static void	extractDataFromCsvFile(std::map<std::string, double>* map, std::string file);
+		static void	extractDataFromFile(std::map<std::string, double>* map, std::string file);
 		static std::map<std::string, double>& get_bitcoinRateByDate();
 		static void displayMapContent();
 		static void openFile(std::ifstream&, std::string fileName);
