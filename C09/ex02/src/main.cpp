@@ -22,17 +22,19 @@ int stringToInt(const std::string& str)
 	return (nbr);
 }
 
-bool isInteger(const std::string& str)
+bool isPositivInteger(const std::string& str)
 {
 	std::istringstream iss(str);
 	int number;
 	char c;
 	if (!(iss >> number) || (iss >> c))
 		return false;
+	if (number < 0)
+		return false;
 	return true;
 }
 
-std::vector<int>* convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCount)
+bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCount)
 {
 	
 	for (int i = 1; i < argc; i++)
@@ -41,30 +43,33 @@ std::vector<int>* convertInput(int argc, char** argv, std::vector<int>* inputPtr
 		std::string token;
 		while (iss >> token)
 		{
-			if (!isInteger(token))
-			{
-				std::cout << "NO GOOD" << std::endl;
-				return NULL;
-			}
+			if (!isPositivInteger(token))
+				return false;
 			std::istringstream tokenStream(token);
 			int number;
-			if (tokenStream >> number)
-			{
-				inputPtr->push_back(number);
-				(*intCount)++;
-			}
-			else
-			{
-				std::cout << "hey Houston, we have a problem" << std::endl;
-			}
+			tokenStream >> number;
+			inputPtr->push_back(number);
+			(*intCount)++;
 		}
 	}
-	return inputPtr;
+	return true;
 }
 
 void	cleanRessources(int *input)
 {
 	(void)input;
+}
+
+void	displayInputTab(int intCount, std::vector<int>& input)
+{
+	for (int i = 0; i < intCount; i++)
+	{
+		std::cout << input[i] << std::flush;
+		if (i != intCount - 1)
+			std::cout << ", " << std::flush;
+		else
+			std::cout << std::endl;
+	}
 }
 
 
@@ -79,16 +84,11 @@ int main(int argc, char **argv)
 
 	//! COMMON FUNCS
 	if(!convertInput(argc, argv, inputPtr, &intCount))
-		return (std::cout << "Game over" << std::endl, 1);
+		return (print("Error: invalid input"), 1);
 	
-	for (int i = 0; i < intCount; i++)
-	{
-		std::cout << input[i] << std::flush;
-		if (i != intCount - 1)
-			std::cout << ", " << std::flush;
-		else
-			std::cout << std::endl;
-	}
+	displayInputTab(intCount, input);
+	
+	
 
 
 
