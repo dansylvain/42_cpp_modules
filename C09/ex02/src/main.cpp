@@ -21,12 +21,16 @@
 
 int *convertInput(int argc, char** argv, int *intCount)
 {
+	(void)argv;
+	(void)intCount;
+	(void)argc;
+	return intCount;
 
 }
 
 void	cleanRessources(int *input)
 {
-	
+	(void)input;
 }
 
 

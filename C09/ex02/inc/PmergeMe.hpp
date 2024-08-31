@@ -7,6 +7,12 @@ class PmergeMe
 	public:
 		std::vector<int> _vector;
 		std::deque<int> _deque;
+
+		PmergeMe();
+		PmergeMe(const PmergeMe&);
+		const PmergeMe& operator=(const PmergeMe&);
+		~PmergeMe();
+
 		void	validateInput(const int* input) const;
 		void	createJacobstahlSequence(const int& intCount);
 	
