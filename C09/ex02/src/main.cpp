@@ -22,16 +22,39 @@ int stringToInt(const std::string& str)
 	return (nbr);
 }
 
+bool isInteger(const std::string& str)
+{
+	std::istringstream iss(str);
+	int number;
+	char c;
+	if (!(iss >> number) || (iss >> c))
+		return false;
+	return true;
+}
+
 std::vector<int>& convertInput(int argc, char** argv, std::vector<int>& input, int *intCount)
 {
+	
 	for (int i = 1; i < argc; i++)
 	{
-		input.push_back(stringToInt(argv[i]));
-		std::cout << argv[i] << std::endl;
-		(*intCount)++;
+		std::istringstream iss(argv[i]);
+		std::string token;
+		while (iss >> token)
+		{
+			std::istringstream tokenStream(token);
+			int number;
+			if (tokenStream >> number)
+			{
+				input.push_back(number);
+				(*intCount)++;
+			}
+			else
+			{
+				std::cout << "hey Houston, we have a problem" << std::endl;
+			}
+		}
 	}
 	return input;
-
 }
 
 void	cleanRessources(int *input)
