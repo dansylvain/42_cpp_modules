@@ -46,9 +46,19 @@ void	PmergeMe::getInputVector(std::vector<int>& input)
 		_vector.push_back(input[i]);
 }
 
-void	PmergeMe::createFirstSortedPairing(std::vector<int>& _vector)
+void PmergeMe::createFirstSortedPairing(std::vector<int>& inputVector)
 {
-	(void)_vector;
+	int tmp;
+
+	for (unsigned long i = 1; i < inputVector.size(); i += 2)
+	{
+		if (inputVector[i - 1] > inputVector[i])
+		{
+			tmp = inputVector[i - 1];
+			inputVector[i - 1] = inputVector[i];
+			inputVector[i] = tmp;
+		}
+	}
 }
 
 void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<int>& _vector)

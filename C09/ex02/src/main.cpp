@@ -93,14 +93,22 @@ int main(int argc, char **argv)
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
 	
-
-
-
-
-
-
 	//! VECTOR FUNCS
 	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
+	printB("\nDisplay Tab after initial sorting:");
+	displayInputTab(intCount, PmergeMe._vector);
+	
+
+
+
+
+
+
+	
+	
+	
+	
+	
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
 	PmergeMe.insertStraggler(PmergeMe._vector, input[intCount]);
