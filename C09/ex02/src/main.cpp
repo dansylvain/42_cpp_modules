@@ -88,14 +88,14 @@ int main(int argc, char **argv)
 	printB("\nDisplay Input Tab:");
 	displayInputTab(intCount, input);
 	
-	PmergeMe.validateInput(input);
+	PmergeMe.getInputVector(input);
+	PmergeMe.createJacobstahlSequence(intCount);
 	
 
 
 
 
 
-	PmergeMe.createJacobstahlSequence(intCount);
 
 	//! VECTOR FUNCS
 	PmergeMe.createFirstSortedPairing(input, PmergeMe._vector);

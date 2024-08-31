@@ -15,10 +15,10 @@ class PmergeMe
 		~PmergeMe();
 
 		// common funcs
-		void	validateInput(std::vector<int>& input) const;
 		void	createJacobstahlSequence(const int& intCount);
 	
 		// vector
+		void	getInputVector(std::vector<int>& input);
 		void	createFirstSortedPairing(std::vector<int> input, std::vector<int>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<int>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::vector<int>& _vector);
@@ -26,6 +26,7 @@ class PmergeMe
 		void	displayResults(std::vector<int>& _vector) const;
 
 		// deque
+		void	getInputDeque(std::vector<int>& input);
 		void	createFirstSortedPairing(std::vector<int> input, std::deque<int>& _vector);
 		void	sortPairsByMainChainHighestValue(std::deque<int>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::deque<int>& _vector);
