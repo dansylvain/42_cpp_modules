@@ -7,6 +7,7 @@ class PmergeMe
 	public:
 		std::vector<int> _vector;
 		std::deque<int> _deque;
+		std::vector<int> _jacobstahlSequence;
 
 		//coplien
 		PmergeMe();
@@ -15,6 +16,7 @@ class PmergeMe
 		~PmergeMe();
 
 		// common funcs
+		void	generateJacobstahlSequence(const int& intCount);
 		void	createJacobstahlSequence(const int& intCount);
 	
 		// vector

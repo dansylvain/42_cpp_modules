@@ -19,7 +19,30 @@ PmergeMe::~PmergeMe()
  *========================================================================**/
 void	PmergeMe::createJacobstahlSequence(const int& intCount)
 {
+
 	(void)intCount;
+}
+
+
+
+
+void	PmergeMe::generateJacobstahlSequence(const int& intCount)
+{
+	int j0 = 0;
+	int j1 = 1;
+	
+	if (intCount < 1)
+		return;
+	_jacobstahlSequence.push_back(j1);
+	while (true)
+	{
+		int nextJacobstahl = j1 + 2 * j0;
+		if (nextJacobstahl > intCount)
+			break;
+		_jacobstahlSequence.push_back(nextJacobstahl);
+		j0 = j1;
+		j1 = nextJacobstahl;
+	}
 }
 
 /**========================================================================

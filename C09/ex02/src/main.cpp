@@ -87,9 +87,11 @@ int main(int argc, char **argv)
 		return (print("Error: invalid input"), 1);
 	printB("\nDisplay Input Tab:");
 	displayInputTab(intCount, input);
-	
 	PmergeMe.getInputVector(input);
-	PmergeMe.createJacobstahlSequence(intCount);
+	
+	PmergeMe.generateJacobstahlSequence(intCount);
+	printB("\nDisplay JacobsDingsdaBumsda Tab:");
+	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
 	
 
 
