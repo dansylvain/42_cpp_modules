@@ -102,7 +102,15 @@ int main(int argc, char **argv)
 	displayInputTab(intCount, PmergeMe._vector);
 	
 
+	/*
+		refactorisation de la logique:
+		je vais devoir repenser mon vector. au lieu d'entiers,
+		je dois mettre des structures comprenant deux entiers,
+		ainsi je pourrai les trier plus simplement.
 
+		pour cela je dois adapter toutes les fonctions ou j'utilise vector.
+	
+	*/
 
 
 
