@@ -12,12 +12,12 @@
 	Time to process a range of 5 elements with std::[..] : 0.00014 us
 	*/
 
-int *convertInput(int argc, char** argv, int *intCount)
+std::vector<int>& convertInput(int argc, char** argv, std::vector<int>& input, int *intCount)
 {
 	(void)argv;
 	(void)intCount;
 	(void)argc;
-	return intCount;
+	return input;
 
 }
 
@@ -31,7 +31,8 @@ int main(int argc, char **argv)
 {
 	int intCount;
 	PmergeMe PmergeMe;
-	int *input = convertInput(argc, argv, &intCount);
+	std::vector<int> input;
+	input = convertInput(argc, argv, input, &intCount);
 
 	//! COMMON FUNCS
 	PmergeMe.validateInput(input);
@@ -51,7 +52,7 @@ int main(int argc, char **argv)
 	PmergeMe.insertStraggler(PmergeMe._deque, input[intCount]);
 	PmergeMe.displayResults(PmergeMe._deque);
 	
-	cleanRessources(input);
+	// cleanRessources(input);
 	print("Welcome to the jungle");
 	return(0);
 }

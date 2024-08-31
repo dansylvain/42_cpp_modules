@@ -15,18 +15,18 @@ class PmergeMe
 		~PmergeMe();
 
 		// common funcs
-		void	validateInput(const int* input) const;
+		void	validateInput(std::vector<int>& input) const;
 		void	createJacobstahlSequence(const int& intCount);
 	
 		// vector
-		void	createFirstSortedPairing(int* input, std::vector<int>& _vector);
+		void	createFirstSortedPairing(std::vector<int> input, std::vector<int>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<int>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::vector<int>& _vector);
 		void	insertStraggler(std::vector<int>& _vector, const int& staggler);
 		void	displayResults(std::vector<int>& _vector) const;
 
 		// deque
-		void	createFirstSortedPairing(int* input, std::deque<int>& _vector);
+		void	createFirstSortedPairing(std::vector<int> input, std::deque<int>& _vector);
 		void	sortPairsByMainChainHighestValue(std::deque<int>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::deque<int>& _vector);
 		void	insertStraggler(std::deque<int>& _vector, const int& staggler);

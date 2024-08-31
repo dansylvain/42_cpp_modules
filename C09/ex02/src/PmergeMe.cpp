@@ -17,7 +17,7 @@ PmergeMe::~PmergeMe()
 /**========================================================================
  *                           COMMON FUNCTIONS
  *========================================================================**/
-void	PmergeMe::validateInput(const int* input) const
+void	PmergeMe::validateInput(std::vector<int>& input) const
 {
 	(void)input;
 }
@@ -30,7 +30,7 @@ void	PmergeMe::createJacobstahlSequence(const int& intCount)
 /**========================================================================
  *                           VECTOR
  *========================================================================**/
-void	PmergeMe::createFirstSortedPairing(int* input, std::vector<int>& _vector)
+void	PmergeMe::createFirstSortedPairing(std::vector<int>  input, std::vector<int>& _vector)
 {
 	(void)input;
 	(void)_vector;
@@ -63,7 +63,7 @@ void	PmergeMe::displayResults(std::vector<int>& _vector) const
 /**========================================================================
  *                           DEQUE
  *========================================================================**/
-void	PmergeMe::createFirstSortedPairing(int* input, std::deque<int>& _vector)
+void	PmergeMe::createFirstSortedPairing(std::vector<int> input, std::deque<int>& _vector)
 {
 	(void)_vector;
 	(void)input;
