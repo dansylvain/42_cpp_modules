@@ -1,6 +1,9 @@
 #include "main.hpp"
 #include "BitcoinExchange.hpp"
 
+/**========================================================================
+ *!                           ALGORITHM SORT TO BE ADDED?
+ *========================================================================**/
 int main(int argc, char **argv)
 {
 	BitcoinExchange obj;
