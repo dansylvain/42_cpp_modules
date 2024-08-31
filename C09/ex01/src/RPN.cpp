@@ -10,10 +10,15 @@ RPN::~RPN()
 {
 }
 
-double	RPN::calculate(const std::string& input) const
+void	RPN::calculate(const std::string& input)
 {
-	(void)input;
-	return 0;
+	if (!checkInput(input))
+	{
+		(std::cout << "invalid input." << std::endl);
+		return;
+	}
+	createStack(input);
+	displayStack();
 }
 
 double RPN::stringToInt(const std::string& str) const
@@ -106,6 +111,10 @@ bool RPN::checkInput(const std::string& input) const
 	return (operandCount == 1 && nbrCount <= 10);
 }
 
+double RPN::add(double a, double b) { return a + b; }
+double RPN::subtract(double a, double b) { return a - b; }
+double RPN::multiply(double a, double b) { return a * b; }
+double RPN::divide(double a, double b) { return a / b; }
 
 
 
