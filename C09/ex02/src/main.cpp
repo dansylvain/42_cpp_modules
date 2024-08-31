@@ -32,7 +32,7 @@ bool isInteger(const std::string& str)
 	return true;
 }
 
-std::vector<int>& convertInput(int argc, char** argv, std::vector<int>& input, int *intCount)
+std::vector<int>* convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCount)
 {
 	
 	for (int i = 1; i < argc; i++)
@@ -41,11 +41,16 @@ std::vector<int>& convertInput(int argc, char** argv, std::vector<int>& input, i
 		std::string token;
 		while (iss >> token)
 		{
+			if (!isInteger(token))
+			{
+				std::cout << "NO GOOD" << std::endl;
+				return NULL;
+			}
 			std::istringstream tokenStream(token);
 			int number;
 			if (tokenStream >> number)
 			{
-				input.push_back(number);
+				inputPtr->push_back(number);
 				(*intCount)++;
 			}
 			else
@@ -54,7 +59,7 @@ std::vector<int>& convertInput(int argc, char** argv, std::vector<int>& input, i
 			}
 		}
 	}
-	return input;
+	return inputPtr;
 }
 
 void	cleanRessources(int *input)
@@ -68,10 +73,14 @@ int main(int argc, char **argv)
 	int intCount = 0;
 	PmergeMe PmergeMe;
 	std::vector<int> input;
+	std::vector<int>* inputPtr;
+	inputPtr = & input;
+	
 
 	//! COMMON FUNCS
-	input = convertInput(argc, argv, input, &intCount);
-
+	if(!convertInput(argc, argv, inputPtr, &intCount))
+		return (std::cout << "Game over" << std::endl, 1);
+	
 	for (int i = 0; i < intCount; i++)
 	{
 		std::cout << input[i] << std::flush;
