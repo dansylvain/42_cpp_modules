@@ -85,16 +85,16 @@ int main(int argc, char **argv)
 	//! COMMON FUNCS
 	if(!convertInput(argc, argv, inputPtr, &intCount))
 		return (print("Error: invalid input"), 1);
-	
+	printB("\nDisplay Input Tab:");
 	displayInputTab(intCount, input);
 	
+	PmergeMe.validateInput(input);
 	
 
 
 
 
 
-	PmergeMe.validateInput(input);
 	PmergeMe.createJacobstahlSequence(intCount);
 
 	//! VECTOR FUNCS
@@ -112,6 +112,6 @@ int main(int argc, char **argv)
 	PmergeMe.displayResults(PmergeMe._deque);
 	
 	// cleanRessources(input);
-	print("Welcome to the jungle");
+	print("");
 	return(0);
 }
