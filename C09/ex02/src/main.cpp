@@ -1,6 +1,7 @@
 #include "main.hpp"
 #include <PmergeMe.hpp>
-	
+#include <sstream>
+
 	// tests to be made with at least 3000 different integers
 
 	/* EXEMPLE OUTPUT:
@@ -12,11 +13,23 @@
 	Time to process a range of 5 elements with std::[..] : 0.00014 us
 	*/
 
+int stringToInt(const std::string& str)
+{
+	int nbr;
+
+	std::stringstream ss(str);
+	ss >> nbr;
+	return (nbr);
+}
+
 std::vector<int>& convertInput(int argc, char** argv, std::vector<int>& input, int *intCount)
 {
-	(void)argv;
-	(void)intCount;
-	(void)argc;
+	for (int i = 1; i < argc; i++)
+	{
+		input.push_back(stringToInt(argv[i]));
+		std::cout << argv[i] << std::endl;
+		(*intCount)++;
+	}
 	return input;
 
 }
@@ -29,12 +42,26 @@ void	cleanRessources(int *input)
 
 int main(int argc, char **argv)
 {
-	int intCount;
+	int intCount = 0;
 	PmergeMe PmergeMe;
 	std::vector<int> input;
-	input = convertInput(argc, argv, input, &intCount);
 
 	//! COMMON FUNCS
+	input = convertInput(argc, argv, input, &intCount);
+
+	for (int i = 0; i < intCount; i++)
+	{
+		std::cout << input[i] << std::flush;
+		if (i != intCount - 1)
+			std::cout << ", " << std::flush;
+		else
+			std::cout << std::endl;
+	}
+
+
+
+
+
 	PmergeMe.validateInput(input);
 	PmergeMe.createJacobstahlSequence(intCount);
 
