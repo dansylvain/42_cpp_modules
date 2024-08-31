@@ -1,6 +1,9 @@
 #include "PmergeMe.hpp"
 #include "main.hpp"
 
+/**========================================================================
+ *                           COPLIEN
+ *========================================================================**/
 PmergeMe::PmergeMe()
 {
 	print("PmergeMe instanciated");
@@ -11,6 +14,9 @@ PmergeMe::~PmergeMe()
 	print("PmergeMe destroyed");
 }
 
+/**========================================================================
+ *                           COMMON FUNCTIONS
+ *========================================================================**/
 void	PmergeMe::validateInput(const int* input) const
 {
 	(void)input;
@@ -21,6 +27,9 @@ void	PmergeMe::createJacobstahlSequence(const int& intCount)
 	(void)intCount;
 }
 
+/**========================================================================
+ *                           VECTOR
+ *========================================================================**/
 void	PmergeMe::createFirstSortedPairing(int* input, std::vector<int>& _vector)
 {
 	(void)input;
@@ -51,6 +60,9 @@ void	PmergeMe::displayResults(std::vector<int>& _vector) const
 
 }
 
+/**========================================================================
+ *                           DEQUE
+ *========================================================================**/
 void	PmergeMe::createFirstSortedPairing(int* input, std::deque<int>& _vector)
 {
 	(void)_vector;
