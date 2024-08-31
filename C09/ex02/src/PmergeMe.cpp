@@ -17,15 +17,6 @@ PmergeMe::~PmergeMe()
 /**========================================================================
  *                           COMMON FUNCTIONS
  *========================================================================**/
-void	PmergeMe::createJacobstahlSequence(const int& intCount)
-{
-
-	(void)intCount;
-}
-
-
-
-
 void	PmergeMe::generateJacobstahlSequence(const int& intCount)
 {
 	int j0 = 0;
@@ -55,9 +46,8 @@ void	PmergeMe::getInputVector(std::vector<int>& input)
 		_vector.push_back(input[i]);
 }
 
-void	PmergeMe::createFirstSortedPairing(std::vector<int>  input, std::vector<int>& _vector)
+void	PmergeMe::createFirstSortedPairing(std::vector<int>& _vector)
 {
-	(void)input;
 	(void)_vector;
 }
 
@@ -93,10 +83,10 @@ void	PmergeMe::getInputDeque(std::vector<int>& input)
 	(void)input;
 }
 
-void	PmergeMe::createFirstSortedPairing(std::vector<int> input, std::deque<int>& _vector)
+void	PmergeMe::createFirstSortedPairing(std::deque<int>& _vector)
 {
 	(void)_vector;
-	(void)input;
+
 }
 
 void	PmergeMe::sortPairsByMainChainHighestValue(std::deque<int>& _vector)

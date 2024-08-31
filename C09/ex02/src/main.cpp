@@ -100,14 +100,14 @@ int main(int argc, char **argv)
 
 
 	//! VECTOR FUNCS
-	PmergeMe.createFirstSortedPairing(input, PmergeMe._vector);
+	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
 	PmergeMe.insertStraggler(PmergeMe._vector, input[intCount]);
 	PmergeMe.displayResults(PmergeMe._vector);
 
 	//! DEQUE FUNCS
-	PmergeMe.createFirstSortedPairing(input, PmergeMe._deque);
+	PmergeMe.createFirstSortedPairing(PmergeMe._deque);
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._deque);
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._deque);
 	PmergeMe.insertStraggler(PmergeMe._deque, input[intCount]);
