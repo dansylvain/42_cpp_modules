@@ -87,7 +87,10 @@ int main(int argc, char **argv)
 		return (print("Error: invalid input"), 1);
 	printB("\nDisplay Input Tab:");
 	displayInputTab(intCount, input);
+
+	std::cout << "isOdd before: " << PmergeMe._isOdd << std::endl;
 	PmergeMe.getInputVector(input);
+	std::cout << "isOdd after: " << PmergeMe._isOdd << std::endl;
 	
 	PmergeMe.generateJacobstahlSequence(intCount);
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
@@ -111,14 +114,14 @@ int main(int argc, char **argv)
 	
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
-	PmergeMe.insertStraggler(PmergeMe._vector, input[intCount]);
+	PmergeMe.insertStraggler(PmergeMe._vector);
 	PmergeMe.displayResults(PmergeMe._vector);
 
 	//! DEQUE FUNCS
 	PmergeMe.createFirstSortedPairing(PmergeMe._deque);
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._deque);
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._deque);
-	PmergeMe.insertStraggler(PmergeMe._deque, input[intCount]);
+	PmergeMe.insertStraggler(PmergeMe._deque);
 	PmergeMe.displayResults(PmergeMe._deque);
 	
 	// cleanRessources(input);

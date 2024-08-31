@@ -1,10 +1,11 @@
 #include "PmergeMe.hpp"
 #include "main.hpp"
+#include <limits>
 
 /**========================================================================
  *                           COPLIEN
  *========================================================================**/
-PmergeMe::PmergeMe()
+PmergeMe::PmergeMe() : _isOdd(false), _straggler(std::numeric_limits<double>::max())
 {
 	print("PmergeMe instanciated");
 }
@@ -42,8 +43,15 @@ void	PmergeMe::generateJacobstahlSequence(const int& intCount)
 void	PmergeMe::getInputVector(std::vector<int>& input)
 {
 	_vector.clear();
-	for (unsigned long i = 0; i < input.size(); i++)
+	unsigned long i = 0;
+	for (; i < input.size(); i++)
 		_vector.push_back(input[i]);
+	if (i % 2 != 0)
+	{
+		_isOdd = true;
+		_straggler = input[i - 1];
+	}
+	std::cout << "value of i: " << i << ", " << _straggler << std::endl;
 }
 
 void PmergeMe::createFirstSortedPairing(std::vector<int>& inputVector)
@@ -73,10 +81,9 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<int>& _vector)
 
 }
 
-void	PmergeMe::insertStraggler(std::vector<int>& _vector, const int& staggler)
+void	PmergeMe::insertStraggler(std::vector<int>& _vector)
 {
 	(void)_vector;
-	(void)staggler;
 }
 
 void	PmergeMe::displayResults(std::vector<int>& _vector) const
@@ -111,10 +118,9 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::deque<int>& _vector)
 	(void)_vector;
 }
 
-void	PmergeMe::insertStraggler(std::deque<int>& _vector, const int& staggler)
+void	PmergeMe::insertStraggler(std::deque<int>& _vector)
 {
 	(void)_vector;
-	(void)staggler;
 }
 
 void	PmergeMe::displayResults(std::deque<int>& _vector) const

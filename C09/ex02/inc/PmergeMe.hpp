@@ -5,9 +5,11 @@ class PmergeMe
 {
 	private:
 	public:
-		std::vector<int> _vector;
-		std::deque<int> _deque;
-		std::vector<int> _jacobstahlSequence;
+		std::vector<int>	_vector;
+		std::deque<int>		_deque;
+		std::vector<int> 	_jacobstahlSequence;
+		bool				_isOdd;
+		double				_straggler;
 
 		//coplien
 		PmergeMe();
@@ -24,7 +26,7 @@ class PmergeMe
 		void	createFirstSortedPairing(std::vector<int>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<int>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::vector<int>& _vector);
-		void	insertStraggler(std::vector<int>& _vector, const int& staggler);
+		void	insertStraggler(std::vector<int>& _vector);
 		void	displayResults(std::vector<int>& _vector) const;
 
 		// deque
@@ -32,7 +34,7 @@ class PmergeMe
 		void	createFirstSortedPairing(std::deque<int>& _vector);
 		void	sortPairsByMainChainHighestValue(std::deque<int>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::deque<int>& _vector);
-		void	insertStraggler(std::deque<int>& _vector, const int& staggler);
+		void	insertStraggler(std::deque<int>& _vector);
 		void	displayResults(std::deque<int>& _vector) const;
 		
 };
