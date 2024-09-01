@@ -96,10 +96,10 @@ int main(int argc, char **argv)
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
 	
-	// //! VECTOR FUNCS
-	// PmergeMe.createFirstSortedPairing(PmergeMe._vector);
-	// printB("\nDisplay Tab after initial sorting:");
-	// displayInputTab(intCount, PmergeMe._vector);
+	//! VECTOR FUNCS
+	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
+	printB("\nDisplay Tab after initial sorting:");
+	displayInputTab(intCount, PmergeMe._vector);
 	
 
 	/*

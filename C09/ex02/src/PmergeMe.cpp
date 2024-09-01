@@ -45,7 +45,14 @@ void	PmergeMe::getInputVector(std::vector<int>& input)
 	_vector.clear();
 	unsigned long i = 0;
 	for (; i < input.size(); i++)
-		_vector.push_back(input[i]);
+	{
+		Pair pair;
+		if (i % 2 == 0)
+			pair.main = input[i];
+		else
+			pair.pendant = input[i];
+		_vector.push_back(pair);
+	}
 	if (i % 2 != 0)
 	{
 		_isOdd = true;
@@ -54,17 +61,17 @@ void	PmergeMe::getInputVector(std::vector<int>& input)
 	std::cout << "value of i: " << i << ", " << _straggler << std::endl;
 }
 
-void PmergeMe::createFirstSortedPairing(std::vector<int>& inputVector)
+void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
 {
 	int tmp;
 
-	for (unsigned long i = 1; i < inputVector.size(); i += 2)
+	for (unsigned long i = 1; i < _vector.size(); i += 2)
 	{
-		if (inputVector[i - 1] > inputVector[i])
+		if (_vector[i].main > _vector[i].pendant)
 		{
-			tmp = inputVector[i - 1];
-			inputVector[i - 1] = inputVector[i];
-			inputVector[i] = tmp;
+			tmp = _vector[i].main;
+			_vector[i].pendant = _vector[i].main;
+			_vector[i].main = tmp;
 		}
 	}
 }
