@@ -44,5 +44,8 @@ class PmergeMe
 		void	insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque);
 		void	insertStraggler(std::deque<Pair>& _deque);
 		void	displayResults(std::deque<Pair>& _deque) const;
-		
+
+
+		void	displayVector(int intCount, std::vector<Pair>& input);
+
 };

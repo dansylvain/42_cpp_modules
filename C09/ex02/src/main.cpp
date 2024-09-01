@@ -72,7 +72,6 @@ void	displayInputTab(int intCount, std::vector<int>& input)
 	}
 }
 
-
 int main(int argc, char **argv)
 {
 	int intCount = 0;
@@ -92,6 +91,10 @@ int main(int argc, char **argv)
 	PmergeMe.getInputVector(input);
 	std::cout << "isOdd after: " << PmergeMe._isOdd << std::endl;
 	
+	printB("\nDisplay Tab upon creation:");
+	PmergeMe.displayVector(intCount, PmergeMe._vector);
+
+
 	PmergeMe.generateJacobstahlSequence(intCount);
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
@@ -99,7 +102,7 @@ int main(int argc, char **argv)
 	//! VECTOR FUNCS
 	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
 	printB("\nDisplay Tab after initial sorting:");
-	displayInputTab(intCount, PmergeMe._vector);
+	PmergeMe.displayVector(intCount, PmergeMe._vector);
 	
 
 	/*

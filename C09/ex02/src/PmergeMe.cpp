@@ -40,38 +40,44 @@ void	PmergeMe::generateJacobstahlSequence(const int& intCount)
 /**========================================================================
  *                           VECTOR
  *========================================================================**/
-void	PmergeMe::getInputVector(std::vector<int>& input)
+void PmergeMe::getInputVector(std::vector<int>& input)
 {
 	_vector.clear();
-	unsigned long i = 0;
-	for (; i < input.size(); i++)
+	_isOdd = false;
+
+	for (unsigned long i = 0; i < input.size(); i += 2)
 	{
 		Pair pair;
-		if (i % 2 == 0)
-			pair.main = input[i];
+		pair.main = input[i];
+
+		if (i + 1 < input.size())
+		{
+			pair.pendant = input[i + 1];
+			_vector.push_back(pair);
+		}
 		else
-			pair.pendant = input[i];
-		_vector.push_back(pair);
+		{
+			_isOdd = true;
+			_straggler = input[i];
+		}
 	}
-	if (i % 2 != 0)
-	{
-		_isOdd = true;
-		_straggler = input[i - 1];
-	}
-	std::cout << "value of i: " << i << ", " << _straggler << std::endl;
+	std::cout << "value of i: " << input.size() << ", straggler: " << _straggler << std::endl;
 }
+
 
 void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
 {
-	int tmp;
+	int tmp = 0;
 
 	for (unsigned long i = 1; i < _vector.size(); i += 2)
 	{
 		if (_vector[i].main > _vector[i].pendant)
 		{
+			std::cout << "before: " << _vector[i].main << ", " << _vector[i].pendant << std::endl;
 			tmp = _vector[i].main;
-			_vector[i].pendant = _vector[i].main;
-			_vector[i].main = tmp;
+			_vector[i].main = _vector[i].pendant;
+			_vector[i].pendant = tmp;
+			std::cout << "after: " << _vector[i].main << ", " << _vector[i].pendant << std::endl;
 		}
 	}
 }
@@ -134,4 +140,23 @@ void	PmergeMe::displayResults(std::deque<Pair>& _deque) const
 {
 	(void)_deque;
 
+}
+
+
+/**========================================================================
+ *                           DISPLAY
+ *========================================================================**/
+
+void	PmergeMe::displayVector(int intCount, std::vector<Pair>& input)
+{
+	for (int i = 0; i < intCount / 2; i++)
+	{
+		std::cout << input[i].main << ", " << input[i].pendant << std::flush;
+		if (i != intCount - 1 && _isOdd == false)
+			std::cout << ", " << std::flush;
+		else if (i != intCount - 1 && _isOdd)
+			std::cout << ", " << _straggler << std::flush;
+		else
+			std::cout << std::endl;
+	}
 }
