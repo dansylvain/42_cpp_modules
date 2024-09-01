@@ -110,29 +110,13 @@ void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVect
 	while(l < leftSize && r < rightSize)
 	{
 		if(leftVector[l].main < rightVector[r].main)
-		{
-			_vector[i] = leftVector[l];
-			i++;
-			l++;
-		}
+			_vector[i++] = leftVector[l++];
 		else
-		{
-			_vector[i] = rightVector[r];
-			i++;
-			r++;
-		}
+			_vector[i++] = rightVector[r++];
 		while (l < leftSize)
-		{
-			_vector[i] = leftVector[l];
-			i++;
-			l++;
-		}
+			_vector[i++] = leftVector[l++];
 		while (r < rightSize)
-		{
-			_vector[i] = rightVector[r];
-			i++;
-			r++;
-		}
+			_vector[i++] = rightVector[r++];
 	}
 }
 
