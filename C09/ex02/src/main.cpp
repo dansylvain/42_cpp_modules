@@ -104,12 +104,12 @@ int main(int argc, char **argv)
 	PmergeMe.displayVector(PmergeMe._vector);
 	
 
-	
-	
-	
-	
-	
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
+	
+	
+	
+	
+	
 	PmergeMe.insertStraggler(PmergeMe._vector);
 	PmergeMe.displayResults(PmergeMe._vector);
 

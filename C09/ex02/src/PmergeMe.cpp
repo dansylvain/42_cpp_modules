@@ -19,6 +19,7 @@ PmergeMe::~PmergeMe()
  *========================================================================**/
 void	PmergeMe::generateJacobstahlSequence()
 {
+	_jacobstahlSequence.clear();
 	int j0 = 0;
 	int j1 = 1;
 	
@@ -43,7 +44,7 @@ void PmergeMe::getInputVector(std::vector<int>& input)
 {
 	_intCount = input.size();
 	_vector.clear();
-	_vector.reserve(_intCount / 2); //? specific to vector
+	_vector.reserve(_intCount); //? specific to vector
 	_isOdd = false;
 
 	for (unsigned long i = 0; i < input.size(); i++)
@@ -124,7 +125,20 @@ void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVect
 void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector)
 {
 	(void)_vector;
+	long unsigned int i = 0;
+	if (_pairCount < 1)
+		return;
+	displayJacobstahlSequence(_jacobstahlSequence.size(), _jacobstahlSequence);
+	for (; i < _jacobstahlSequence.size(); i++)
+	{
+		int pendant = _vector[_jacobstahlSequence[i] - 1].pendant;
+		std::cout << "pendant: " << pendant << std::endl;
+		(void)pendant;
+	}
+	_pairCount -= i;
 
+	generateJacobstahlSequence();
+	insertPendantValuesThroughBinarySearch(_vector);
 }
 
 void	PmergeMe::insertStraggler(std::vector<Pair>& _vector)
@@ -193,3 +207,14 @@ void	PmergeMe::displayVector(std::vector<Pair>& input)
 	print("");
 }
 
+void	PmergeMe::displayJacobstahlSequence(int inputIntCount, std::vector<int>& input)
+{
+	for (int i = 0; i < inputIntCount; i++)
+	{
+		std::cout << input[i] << std::flush;
+		if (i != inputIntCount - 1)
+			std::cout << ", " << std::flush;
+		else
+			std::cout << std::endl;
+	}
+}

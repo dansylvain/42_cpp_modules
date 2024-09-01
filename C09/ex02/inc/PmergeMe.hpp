@@ -50,5 +50,6 @@ class PmergeMe
 
 
 		void	displayVector(std::vector<Pair>& input);
+		void	displayJacobstahlSequence(int inputIntCount, std::vector<int>& input);
 
 };
