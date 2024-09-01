@@ -25,7 +25,8 @@ class PmergeMe
 		int					_pairCount;
 		int					_comparisonCount;
 		int					_currentFinalVectorSize;
-		double				_timeSpent;
+		double				_timeSpentVector;
+		double				_timeSpentDeque;
 
 		//coplien
 		PmergeMe();

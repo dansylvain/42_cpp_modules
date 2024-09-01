@@ -53,7 +53,7 @@ void	PmergeMe::vectorSort(std::vector<int> input)
 	insertPendantValuesThroughBinarySearch(_vector);
 	if (_isOdd)
 		insertValueThroughBinarySearch(_straggler);
-	_timeSpent = stopTimer(timer);
+	_timeSpentVector = stopTimer(timer);
 }
 
 void PmergeMe::getInputVector(std::vector<int>& input)
@@ -203,9 +203,9 @@ void	PmergeMe::displayResults(std::vector<Pair>& _vector)
 	displayIntVector(_finalVector);
 	
 	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : "
-	<< std::fixed << std::setprecision(5) << _timeSpent << " us" << std::endl;
+	<< std::fixed << std::setprecision(5) << _timeSpentVector << " us" << std::endl;
 	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : "
-	<< std::fixed << std::setprecision(5) << _timeSpent << " us" << std::endl;
+	<< std::fixed << std::setprecision(5) << _timeSpentVector << " us" << std::endl;
 	std::cout << "Comparison total: " << _comparisonCount << std::endl;
 	std::cout <<
 	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
