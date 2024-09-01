@@ -55,10 +55,7 @@ bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCou
 	return true;
 }
 
-void	cleanRessources(int *input)
-{
-	(void)input;
-}
+
 
 void	displayInputTab(int intCount, std::vector<int>& input)
 {
@@ -105,37 +102,24 @@ int main(int argc, char **argv)
 	PmergeMe.displayVector(intCount, PmergeMe._vector);
 	
 
-	/*
-		refactorisation de la logique:
-		je vais devoir repenser mon vector. au lieu d'entiers,
-		je dois mettre des structures comprenant deux entiers,
-		ainsi je pourrai les trier plus simplement.
-
-		pour cela je dois adapter toutes les fonctions ou j'utilise vector.
-	
-	*/
-
-
-
 
 	
 	
 	
 	
 	
-	// PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
-	// PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
-	// PmergeMe.insertStraggler(PmergeMe._vector);
-	// PmergeMe.displayResults(PmergeMe._vector);
+	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
+	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
+	PmergeMe.insertStraggler(PmergeMe._vector);
+	PmergeMe.displayResults(PmergeMe._vector);
 
-	// //! DEQUE FUNCS
-	// PmergeMe.createFirstSortedPairing(PmergeMe._deque);
-	// PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._deque);
-	// PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._deque);
-	// PmergeMe.insertStraggler(PmergeMe._deque);
-	// PmergeMe.displayResults(PmergeMe._deque);
+	//! DEQUE FUNCS
+	PmergeMe.createFirstSortedPairing(PmergeMe._deque);
+	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._deque);
+	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._deque);
+	PmergeMe.insertStraggler(PmergeMe._deque);
+	PmergeMe.displayResults(PmergeMe._deque);
 	
-	// cleanRessources(input);
 	print("");
 	return(0);
 }

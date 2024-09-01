@@ -14,7 +14,7 @@ class PmergeMe
 		} Pair;
 
 		std::vector<pair>	_vector;
-		std::deque<int>		_deque;
+		std::deque<Pair>	_deque;
 		std::vector<int> 	_jacobstahlSequence;
 		bool				_isOdd;
 		double				_straggler;
