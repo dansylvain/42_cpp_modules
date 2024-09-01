@@ -143,7 +143,7 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 	}
 	_pairCount -= i;
 
-	// displayIntVector(_jacobstahlSequence);
+	displayJacobstahlVector(_jacobstahlSequence);
 	generateJacobstahlSequence();
 	insertPendantValuesThroughBinarySearch(_vector);
 }
@@ -200,6 +200,19 @@ void	PmergeMe::displayResults(std::deque<Pair>& _deque) const
 /**========================================================================
  *                           DISPLAY
  *========================================================================**/
+
+void	PmergeMe::displayJacobstahlVector(std::vector<int>& vector)
+{
+	int inputIntCount = vector.size();
+	
+	for (int i = 0; i < inputIntCount; i++)
+	{
+		std::cout << vector[i] << std::flush;
+		if (i != inputIntCount - 1)
+			std::cout << " | " << std::flush;
+	}
+	print("");
+}
 
 void	PmergeMe::displayPairVector(std::vector<Pair>& vector)
 {

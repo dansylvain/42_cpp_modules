@@ -36,7 +36,8 @@ class PmergeMe
 		void	getInputVector(std::vector<int>& input);
 		void	createFirstSortedPairing(std::vector<Pair>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
-		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector);
+		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
+				std::vector<Pair>& _vector);
 		void	createFinalVector();
 		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
 		void	insertStraggler(std::vector<Pair>& _vector);
@@ -53,5 +54,7 @@ class PmergeMe
 
 		void	displayPairVector(std::vector<Pair>& input);
 		void	displayIntVector(std::vector<int>& input);
+		void	displayJacobstahlVector(std::vector<int>& vector);
+
 
 };
