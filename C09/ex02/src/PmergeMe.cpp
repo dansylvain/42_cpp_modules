@@ -22,15 +22,13 @@ void	PmergeMe::generateJacobstahlSequence()
 	int j0 = 0;
 	int j1 = 1;
 	
-	if (_intCount < 1)
+	if (_pairCount < 1)
 		return;
-	if (_isOdd)
-		_intCount--;
 	_jacobstahlSequence.push_back(j1);
 	while (true)
 	{
 		int nextJacobstahl = j1 + 2 * j0;
-		if (nextJacobstahl > _intCount / 2)
+		if (nextJacobstahl > _pairCount)
 			break;
 		_jacobstahlSequence.push_back(nextJacobstahl);
 		j0 = j1;
@@ -156,5 +154,7 @@ void	PmergeMe::displayVector(std::vector<Pair>& input)
 		std::cout << input[i].main << ", " << input[i].pendant << std::flush;
 		if (i != _pairCount - 1)
 			std::cout << ", " << std::flush;
+		else if (_isOdd)
+			std::cout << ", " << _straggler << std::endl;
 	}
 }

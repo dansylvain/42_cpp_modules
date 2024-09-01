@@ -34,7 +34,7 @@ bool isPositivInteger(const std::string& str)
 	return true;
 }
 
-bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCount)
+bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *inputIntCount)
 {
 	
 	for (int i = 1; i < argc; i++)
@@ -49,7 +49,7 @@ bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCou
 			int number;
 			tokenStream >> number;
 			inputPtr->push_back(number);
-			(*intCount)++;
+			(*inputIntCount)++;
 		}
 	}
 	return true;
@@ -57,12 +57,12 @@ bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *intCou
 
 
 
-void	displayInputTab(int intCount, std::vector<int>& input)
+void	displayInputTab(int inputIntCount, std::vector<int>& input)
 {
-	for (int i = 0; i < intCount; i++)
+	for (int i = 0; i < inputIntCount; i++)
 	{
 		std::cout << input[i] << std::flush;
-		if (i != intCount - 1)
+		if (i != inputIntCount - 1)
 			std::cout << ", " << std::flush;
 		else
 			std::cout << std::endl;
@@ -71,7 +71,7 @@ void	displayInputTab(int intCount, std::vector<int>& input)
 
 int main(int argc, char **argv)
 {
-	int intCount = 0;
+	int inputIntCount = 0;
 	PmergeMe PmergeMe;
 	std::vector<int> input;
 	std::vector<int>* inputPtr;
@@ -79,10 +79,10 @@ int main(int argc, char **argv)
 	
 
 	//! COMMON FUNCS
-	if(!convertInput(argc, argv, inputPtr, &intCount))
+	if(!convertInput(argc, argv, inputPtr, &inputIntCount))
 		return (print("Error: invalid input"), 1);
 	printB("\nDisplay Input Tab:");
-	displayInputTab(intCount, input);
+	displayInputTab(inputIntCount, input);
 
 	std::cout << "isOdd before: " << PmergeMe._isOdd << std::endl;
 	PmergeMe.getInputVector(input);
