@@ -22,6 +22,7 @@ class PmergeMe
 		int					_intCount;
 		int					_pairCount;
 		int					_comparisonCount;
+		int					_currentFinalVectorSize;
 
 		//coplien
 		PmergeMe();

@@ -6,7 +6,8 @@
  *                           COPLIEN
  *========================================================================**/
 PmergeMe::PmergeMe() : 	_isOdd(false), _straggler(std::numeric_limits<double>::max()),
-						_intCount(0), _pairCount(0), _comparisonCount(0)
+						_intCount(0), _pairCount(0), _comparisonCount(0),
+						_currentFinalVectorSize(0)
 {
 }
 
@@ -128,6 +129,7 @@ void	PmergeMe::createFinalVector()
 	for (int i = 0; i < _pairCount; i++)
 	{
 		_finalVector.push_back(_vector[i].main);
+		_currentFinalVectorSize++;
 	}
 }
 
@@ -154,11 +156,35 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 	insertPendantValuesThroughBinarySearch(_vector);
 }
 
-void	PmergeMe::insertValueThroughBinarySearch(int val)
+void PmergeMe::insertValueThroughBinarySearch(int val)
 {
-	std::cout << "insert value " << val << std::endl;
+    int low = 0;
+    int high = _currentFinalVectorSize - 1;
 
+    // Utiliser la recherche binaire pour trouver l'emplacement d'insertion
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+
+        if (_finalVector[mid] > val)
+        {
+            low = mid + 1; // Recherche dans la partie droite
+        }
+        else
+        {
+            high = mid - 1; // Recherche dans la partie gauche
+        }
+    }
+
+    // Insérer la valeur à la position correcte trouvée par la recherche binaire
+    _finalVector.insert(_finalVector.begin() + low, val);
+	_currentFinalVectorSize++;
+    // Debug: Afficher le vecteur après insertion
+    std::cout << "Inserted " << val << " at index " << low << std::endl;
 }
+
+
+
 
 void	PmergeMe::insertStraggler(std::vector<Pair>& _vector)
 {

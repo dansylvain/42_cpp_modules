@@ -109,7 +109,8 @@ int main(int argc, char **argv)
 
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
 	
-	
+	printB("\nDisplay finalTab after final instert:");
+	PmergeMe.displayIntVector(PmergeMe._finalVector);
 	
 	
 	
