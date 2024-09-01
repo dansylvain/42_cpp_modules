@@ -103,13 +103,37 @@ void	PmergeMe::mergeSort(std::vector<Pair>& _vector)
 
 void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector)
 {
-	print("leftVector:");
-	displayVector(leftVector);
-	print("rightVector:");
-	displayVector(rightVector);
-	(void)leftVector;
-	(void)rightVector;
-	(void)_vector;
+	int leftSize = _vector.size() / 2;
+	int rightSize = _vector.size() - leftSize;
+	int i = 0, l = 0, r = 0;
+
+	while(l < leftSize && r < rightSize)
+	{
+		if(leftVector[l].main < rightVector[r].main)
+		{
+			_vector[i] = leftVector[l];
+			i++;
+			l++;
+		}
+		else
+		{
+			_vector[i] = rightVector[r];
+			i++;
+			r++;
+		}
+		while (l < leftSize)
+		{
+			_vector[i] = leftVector[l];
+			i++;
+			l++;
+		}
+		while (r < rightSize)
+		{
+			_vector[i] = rightVector[r];
+			i++;
+			r++;
+		}
+	}
 }
 
 void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector)

@@ -99,14 +99,16 @@ int main(int argc, char **argv)
 	printB("\nDisplay Tab after initial sorting:");
 	PmergeMe.displayVector(PmergeMe._vector);
 	
-
-
-	
-	
-	
-	
-	
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
+	printB("\nDisplay Tab after merge sorting:");
+	PmergeMe.displayVector(PmergeMe._vector);
+	
+
+	
+	
+	
+	
+	
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
 	PmergeMe.insertStraggler(PmergeMe._vector);
 	PmergeMe.displayResults(PmergeMe._vector);
