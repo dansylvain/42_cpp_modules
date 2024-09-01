@@ -40,6 +40,7 @@ class PmergeMe
 				std::vector<Pair>& _vector);
 		void	createFinalVector();
 		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
+		void	insertValueThroughBinarySearch(int val);
 		void	insertStraggler(std::vector<Pair>& _vector);
 		void	displayResults(std::vector<Pair>& _vector) const;
 

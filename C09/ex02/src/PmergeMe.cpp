@@ -138,14 +138,34 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 		return;
 	for (; i < _jacobstahlSequence.size(); i++)
 	{
-		int pendant = _vector[_jacobstahlSequence[i] - 1].pendant;
-		(void)pendant;
+		unsigned long int index = _jacobstahlSequence[i] - 1;
+
+		if (index >= _vector.size())
+			break;
+
+		// int val = _vector[index].pendant;
+		
+		// std::cout << "val: " << val << std::endl;
 	}
 	_pairCount -= i;
+	for (;i > 0; i--)
+	{
+		unsigned long int index = _jacobstahlSequence[i - 1];
+		// std::cout << "erase: " << _vector[index - 1].pendant << std::endl;
+		// std::cout << "changed i: " << i - 1<< "index: " << index - 1<< std::endl;
+		_vector.erase(_vector.begin() + index - 1);
+	}
 
-	displayJacobstahlVector(_jacobstahlSequence);
+
+	// printB("JacobsDingsDa: ");
+	// displayJacobstahlVector(_jacobstahlSequence);
 	generateJacobstahlSequence();
 	insertPendantValuesThroughBinarySearch(_vector);
+}
+
+void	PmergeMe::insertValueThroughBinarySearch(int i)
+{
+	(void)i;
 }
 
 void	PmergeMe::insertStraggler(std::vector<Pair>& _vector)
@@ -208,7 +228,7 @@ void	PmergeMe::displayJacobstahlVector(std::vector<int>& vector)
 	for (int i = 0; i < inputIntCount; i++)
 	{
 		std::cout << vector[i] << std::flush;
-		if (i != inputIntCount - 1)
+		if (i != inputIntCount - 1)	
 			std::cout << " | " << std::flush;
 	}
 	print("");
