@@ -69,24 +69,24 @@ void PmergeMe::createFirstSortedPairing(std::vector<int>& inputVector)
 	}
 }
 
-void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<int>& _vector)
+void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<Pair>& _vector)
 {
 	(void)_vector;
 
 }
 
-void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<int>& _vector)
+void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector)
 {
 	(void)_vector;
 
 }
 
-void	PmergeMe::insertStraggler(std::vector<int>& _vector)
+void	PmergeMe::insertStraggler(std::vector<Pair>& _vector)
 {
 	(void)_vector;
 }
 
-void	PmergeMe::displayResults(std::vector<int>& _vector) const
+void	PmergeMe::displayResults(std::vector<Pair>& _vector) const
 {
 	(void)_vector;
 
@@ -100,31 +100,31 @@ void	PmergeMe::getInputDeque(std::vector<int>& input)
 	(void)input;
 }
 
-void	PmergeMe::createFirstSortedPairing(std::deque<int>& _vector)
+void	PmergeMe::createFirstSortedPairing(std::deque<Pair>& _deque)
 {
-	(void)_vector;
+	(void)_deque;
 
 }
 
-void	PmergeMe::sortPairsByMainChainHighestValue(std::deque<int>& _vector)
+void	PmergeMe::sortPairsByMainChainHighestValue(std::deque<Pair>& _deque)
 {
-	(void)_vector;
+	(void)_deque;
 
 }
 
-void	PmergeMe::insertPendantValuesThroughBinarySearch(std::deque<int>& _vector)
+void	PmergeMe::insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque)
 {
 
-	(void)_vector;
+	(void)_deque;
 }
 
-void	PmergeMe::insertStraggler(std::deque<int>& _vector)
+void	PmergeMe::insertStraggler(std::deque<Pair>& _deque)
 {
-	(void)_vector;
+	(void)_deque;
 }
 
-void	PmergeMe::displayResults(std::deque<int>& _vector) const
+void	PmergeMe::displayResults(std::deque<Pair>& _deque) const
 {
-	(void)_vector;
+	(void)_deque;
 
 }

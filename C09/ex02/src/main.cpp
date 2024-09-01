@@ -96,10 +96,10 @@ int main(int argc, char **argv)
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
 	
-	//! VECTOR FUNCS
-	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
-	printB("\nDisplay Tab after initial sorting:");
-	displayInputTab(intCount, PmergeMe._vector);
+	// //! VECTOR FUNCS
+	// PmergeMe.createFirstSortedPairing(PmergeMe._vector);
+	// printB("\nDisplay Tab after initial sorting:");
+	// displayInputTab(intCount, PmergeMe._vector);
 	
 
 	/*
@@ -120,17 +120,17 @@ int main(int argc, char **argv)
 	
 	
 	
-	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
-	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
-	PmergeMe.insertStraggler(PmergeMe._vector);
-	PmergeMe.displayResults(PmergeMe._vector);
+	// PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
+	// PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
+	// PmergeMe.insertStraggler(PmergeMe._vector);
+	// PmergeMe.displayResults(PmergeMe._vector);
 
-	//! DEQUE FUNCS
-	PmergeMe.createFirstSortedPairing(PmergeMe._deque);
-	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._deque);
-	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._deque);
-	PmergeMe.insertStraggler(PmergeMe._deque);
-	PmergeMe.displayResults(PmergeMe._deque);
+	// //! DEQUE FUNCS
+	// PmergeMe.createFirstSortedPairing(PmergeMe._deque);
+	// PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._deque);
+	// PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._deque);
+	// PmergeMe.insertStraggler(PmergeMe._deque);
+	// PmergeMe.displayResults(PmergeMe._deque);
 	
 	// cleanRessources(input);
 	print("");
