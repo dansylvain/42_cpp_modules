@@ -82,8 +82,33 @@ void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
 
 void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<Pair>& _vector)
 {
+	mergeSort(_vector);
 	(void)_vector;
 
+}
+
+void	PmergeMe::mergeSort(std::vector<Pair>& _vector)
+{
+	int len = _pairCount;
+	if (len <= 1) return; //base case
+
+	int middle = len / 2;
+	std::vector<Pair> leftVector(_vector.begin(), _vector.begin() + middle);
+	std::vector<Pair> rightVector(_vector.begin() + middle, _vector.end());
+
+	merge(leftVector, rightVector, _vector);
+	
+}
+
+void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector)
+{
+	print("leftVector:");
+	displayVector(leftVector);
+	print("rightVector:");
+	displayVector(rightVector);
+	(void)leftVector;
+	(void)rightVector;
+	(void)_vector;
 }
 
 void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector)
@@ -157,3 +182,4 @@ void	PmergeMe::displayVector(std::vector<Pair>& input)
 	}
 	print("");
 }
+
