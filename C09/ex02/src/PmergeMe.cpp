@@ -43,6 +43,7 @@ void	PmergeMe::generateJacobstahlSequence()
  *========================================================================**/
 void PmergeMe::getInputVector(std::vector<int>& input)
 {
+	_initialVector = input;
 	_intCount = input.size();
 	_vector.clear();
 	_vector.reserve(_intCount); //? specific to vector
@@ -174,9 +175,17 @@ void PmergeMe::insertValueThroughBinarySearch(int val)
 	_currentFinalVectorSize++;
 }
 
-void	PmergeMe::displayResults(std::vector<Pair>& _vector) const
+void	PmergeMe::displayResults(std::vector<Pair>& _vector)
 {
-	printB("FINAL RESULT:");
+/* 		$> ./PmergeMe 3 5 9 7 4
+	Before: 3 5 9 7 4
+	After:
+	3 4 5 7 9
+	Time to process a range of 5 elements with std::[..] : 0.00031 us
+	Time to process a range of 5 elements with std::[..] : 0.00014 us */
+	std::cout << "Before: " << std::flush;
+	displayIntVector(_initialVector);
+	std::cout << "After:  " << std::flush;
 	for (int i = _intCount - 1; i >=0 ; i--)
 		std::cout << _finalVector[i] << " | " << std::flush;
 	
@@ -215,7 +224,7 @@ void	PmergeMe::insertStraggler(std::deque<Pair>& _deque)
 	(void)_deque;
 }
 
-void	PmergeMe::displayResults(std::deque<Pair>& _deque) const
+void	PmergeMe::displayResults(std::deque<Pair>& _deque)
 {
 	(void)_deque;
 
@@ -260,9 +269,7 @@ void	PmergeMe::displayIntVector(std::vector<int>& vector)
 	{
 		std::cout << vector[i] << std::flush;
 		if (i != inputIntCount - 1)
-			std::cout << " | " << std::flush;
-		else if (_isOdd)
-			std::cout << " | 🪁" << _straggler << "🪁 " << std::endl;
+			std::cout << " " << std::flush;
 	}
 	print("");
 }

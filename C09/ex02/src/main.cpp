@@ -83,37 +83,10 @@ int main(int argc, char **argv)
 		return (print("Error: invalid input"), 1);
 	PmergeMe.getInputVector(input);
 	PmergeMe.generateJacobstahlSequence();
-	
-	
-	printB("\nDisplay Input Tab:");
-	displayInputTab(inputIntCount, input);
-
-	printB("\nDisplay Tab upon creation:");
-	PmergeMe.displayPairVector(PmergeMe._vector);
-
-	printB("\nDisplay JacobsDingsdaBumsda Tab:");
-	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
-	
-	//! VECTOR FUNCS
 	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
-	printB("\nDisplay Tab after initial sorting:");
-	PmergeMe.displayPairVector(PmergeMe._vector);
-	
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
-	printB("\nDisplay Tab after merge sorting:");
-	PmergeMe.displayPairVector(PmergeMe._vector);
-	
 	PmergeMe.createFinalVector();
-	printB("\nDisplay finalTab after cration:");
-	PmergeMe.displayIntVector(PmergeMe._finalVector);
-
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
-	
-	printB("\nDisplay finalTab after final instert:");
-	PmergeMe.displayIntVector(PmergeMe._finalVector);
-	
-	
-	
 	PmergeMe.insertValueThroughBinarySearch(PmergeMe._straggler);
 	PmergeMe.displayResults(PmergeMe._vector);
 

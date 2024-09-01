@@ -15,6 +15,7 @@ class PmergeMe
 
 		std::vector<pair>	_vector;
 		std::vector<int>	_finalVector;
+		std::vector<int>	_initialVector;
 		std::deque<Pair>	_deque;
 		std::vector<int> 	_jacobstahlSequence;
 		bool				_isOdd;
@@ -42,7 +43,7 @@ class PmergeMe
 		void	createFinalVector();
 		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
 		void	insertValueThroughBinarySearch(int val);
-		void	displayResults(std::vector<Pair>& _vector) const;
+		void	displayResults(std::vector<Pair>& _vector);
 
 		// deque
 		void	getInputDeque(std::vector<int>& input);
@@ -50,7 +51,7 @@ class PmergeMe
 		void	sortPairsByMainChainHighestValue(std::deque<Pair>& _deque);
 		void	insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque);
 		void	insertStraggler(std::deque<Pair>& _deque);
-		void	displayResults(std::deque<Pair>& _deque) const;
+		void	displayResults(std::deque<Pair>& _deque);
 
 
 		void	displayPairVector(std::vector<Pair>& input);
