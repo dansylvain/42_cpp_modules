@@ -178,18 +178,17 @@ void PmergeMe::insertValueThroughBinarySearch(int val)
 void	PmergeMe::displayResults(std::vector<Pair>& _vector)
 {
 /* 		$> ./PmergeMe 3 5 9 7 4
-	Before: 3 5 9 7 4
-	After:
-	3 4 5 7 9
+
 	Time to process a range of 5 elements with std::[..] : 0.00031 us
 	Time to process a range of 5 elements with std::[..] : 0.00014 us */
 	std::cout << "Before: " << std::flush;
 	displayIntVector(_initialVector);
 	std::cout << "After:  " << std::flush;
-	for (int i = _intCount - 1; i >=0 ; i--)
-		std::cout << _finalVector[i] << " | " << std::flush;
+	displayIntVector(_finalVector);
 	
-	std::cout << "\nComparison total: " << _comparisonCount << std::endl;
+	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : " << std::endl;
+	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : " << std::endl;
+	std::cout << "Comparison total: " << _comparisonCount << std::endl;
 	(void)_vector;
 }
 

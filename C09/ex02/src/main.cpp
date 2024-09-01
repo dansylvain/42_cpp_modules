@@ -87,7 +87,8 @@ int main(int argc, char **argv)
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
 	PmergeMe.createFinalVector();
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
-	PmergeMe.insertValueThroughBinarySearch(PmergeMe._straggler);
+	if (PmergeMe._isOdd)
+		PmergeMe.insertValueThroughBinarySearch(PmergeMe._straggler);
 	PmergeMe.displayResults(PmergeMe._vector);
 
 	//! DEQUE FUNCS
