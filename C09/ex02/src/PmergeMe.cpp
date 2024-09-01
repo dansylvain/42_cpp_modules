@@ -143,8 +143,8 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 		if (index >= _vector.size())
 			break;
 
-		// int val = _vector[index].pendant;
-		
+		int val = _vector[index].pendant;
+		insertValueThroughBinarySearch(val);
 		// std::cout << "val: " << val << std::endl;
 	}
 	_pairCount -= i;
@@ -163,9 +163,10 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 	insertPendantValuesThroughBinarySearch(_vector);
 }
 
-void	PmergeMe::insertValueThroughBinarySearch(int i)
+void	PmergeMe::insertValueThroughBinarySearch(int val)
 {
-	(void)i;
+
+	std::cout << "insert value " << val << std::endl;
 }
 
 void	PmergeMe::insertStraggler(std::vector<Pair>& _vector)
