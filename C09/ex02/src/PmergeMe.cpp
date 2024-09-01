@@ -1,6 +1,7 @@
 #include "PmergeMe.hpp"
 #include "main.hpp"
 #include <limits>
+#include <iomanip>
 
 /**========================================================================
  *                           COPLIEN
@@ -43,6 +44,7 @@ void	PmergeMe::generateJacobstahlSequence()
  *========================================================================**/
 void	PmergeMe::vectorSort(std::vector<int> input)
 {
+	clock_t timer = startTimer();
 	getInputVector(input);
 	generateJacobstahlSequence();
 	createFirstSortedPairing(_vector);
@@ -51,6 +53,7 @@ void	PmergeMe::vectorSort(std::vector<int> input)
 	insertPendantValuesThroughBinarySearch(_vector);
 	if (_isOdd)
 		insertValueThroughBinarySearch(_straggler);
+	_timeSpent = stopTimer(timer);
 }
 
 void PmergeMe::getInputVector(std::vector<int>& input)
@@ -116,7 +119,8 @@ void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<Pair>& _vector)
 	merge(leftVector, rightVector, _vector);
 }
 
-void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector)
+void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
+		std::vector<Pair>& _vector)
 {
 	int leftSize = leftVector.size();
 	int rightSize = rightVector.size();
@@ -124,7 +128,7 @@ void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVect
 
 	while(l < leftSize && r < rightSize)
 	{
-		if(leftVector[l].main > rightVector[r].main)
+		if(leftVector[l].main < rightVector[r].main)
 			_vector[i++] = leftVector[l++];
 		else
 			_vector[i++] = rightVector[r++];
@@ -177,7 +181,7 @@ void PmergeMe::insertValueThroughBinarySearch(int val)
 	while (low <= high)
 	{
 		int mid = low + (high - low) / 2;
-		if (_finalVector[mid] > val)
+		if (_finalVector[mid] < val)
 			low = mid + 1;
 		else
 			high = mid - 1;
@@ -198,9 +202,14 @@ void	PmergeMe::displayResults(std::vector<Pair>& _vector)
 	std::cout << "After:  " << std::flush;
 	displayIntVector(_finalVector);
 	
-	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : " << std::endl;
-	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : " << std::endl;
+	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : "
+	<< std::fixed << std::setprecision(5) << _timeSpent << " us" << std::endl;
+	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : "
+	<< std::fixed << std::setprecision(5) << _timeSpent << " us" << std::endl;
 	std::cout << "Comparison total: " << _comparisonCount << std::endl;
+	std::cout <<
+	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
+	<< std::endl;
 	(void)_vector;
 }
 
@@ -248,12 +257,12 @@ void	PmergeMe::displayResults(std::deque<Pair>& _deque)
 
 void	PmergeMe::displayJacobstahlVector(std::vector<int>& vector)
 {
-	int inputIntCount = vector.size();
+	int intCount = vector.size();
 	
-	for (int i = 0; i < inputIntCount; i++)
+	for (int i = 0; i < intCount; i++)
 	{
 		std::cout << vector[i] << std::flush;
-		if (i != inputIntCount - 1)	
+		if (i != intCount - 1)	
 			std::cout << " | " << std::flush;
 	}
 	print("");
@@ -274,13 +283,39 @@ void	PmergeMe::displayPairVector(std::vector<Pair>& vector)
 
 void	PmergeMe::displayIntVector(std::vector<int>& vector)
 {
-	int inputIntCount = vector.size();
+	int intCount = vector.size();
 	
-	for (int i = 0; i < inputIntCount; i++)
+	if (intCount > 10)
 	{
-		std::cout << vector[i] << std::flush;
-		if (i != inputIntCount - 1)
-			std::cout << " " << std::flush;
+		for (int i = 0; i < 4; i++)
+		{
+			std::cout << vector[i] << std::flush;
+			if (i != intCount - 1)
+				std::cout << " " << std::flush;
+		}
+		std::cout << " [...]" << std::flush;
+		
+	}
+	else
+	{
+		for (int i = 0; i < intCount; i++)
+		{
+			std::cout << vector[i] << std::flush;
+			if (i != intCount - 1)
+				std::cout << " " << std::flush;
+		}
 	}
 	print("");
+}
+
+clock_t PmergeMe::startTimer()
+{
+	return clock();
+}
+
+double PmergeMe::stopTimer(clock_t start)
+{
+	clock_t end = clock();
+	return static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+
 }

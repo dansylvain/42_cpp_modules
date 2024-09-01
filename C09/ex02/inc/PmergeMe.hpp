@@ -1,5 +1,6 @@
 #include <vector>
 #include <deque>
+#include <ctime>
 
 class PmergeMe
 {
@@ -24,6 +25,7 @@ class PmergeMe
 		int					_pairCount;
 		int					_comparisonCount;
 		int					_currentFinalVectorSize;
+		double				_timeSpent;
 
 		//coplien
 		PmergeMe();
@@ -60,5 +62,6 @@ class PmergeMe
 		void	displayIntVector(std::vector<int>& input);
 		void	displayJacobstahlVector(std::vector<int>& vector);
 
-
+		clock_t	startTimer();
+		double	stopTimer(clock_t start);
 };

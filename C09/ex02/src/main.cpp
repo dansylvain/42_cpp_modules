@@ -1,18 +1,8 @@
 #include "main.hpp"
 #include <PmergeMe.hpp>
 #include <sstream>
-#include <ctime>
 
-clock_t startTimer()
-{
-    return clock();
-}
 
-double stopTimer(clock_t start)
-{
-    clock_t end = clock();
-    return static_cast<double>(end - start) / CLOCKS_PER_SEC;
-}
 
 
 int stringToInt(const std::string& str)
