@@ -5,31 +5,32 @@
 /**========================================================================
  *                           COPLIEN
  *========================================================================**/
-PmergeMe::PmergeMe() : _isOdd(false), _straggler(std::numeric_limits<double>::max())
+PmergeMe::PmergeMe() : 	_isOdd(false), _straggler(std::numeric_limits<double>::max()),
+						_intCount(0), _pairCount(0)
 {
-	print("PmergeMe instanciated");
 }
 
 PmergeMe::~PmergeMe()
 {
-	print("PmergeMe destroyed");
 }
 
 /**========================================================================
  *                           COMMON FUNCTIONS
  *========================================================================**/
-void	PmergeMe::generateJacobstahlSequence(const int& intCount)
+void	PmergeMe::generateJacobstahlSequence()
 {
 	int j0 = 0;
 	int j1 = 1;
 	
-	if (intCount < 1)
+	if (_intCount < 1)
 		return;
+	if (_isOdd)
+		_intCount--;
 	_jacobstahlSequence.push_back(j1);
 	while (true)
 	{
 		int nextJacobstahl = j1 + 2 * j0;
-		if (nextJacobstahl > intCount)
+		if (nextJacobstahl > _intCount / 2)
 			break;
 		_jacobstahlSequence.push_back(nextJacobstahl);
 		j0 = j1;
@@ -44,8 +45,9 @@ void PmergeMe::getInputVector(std::vector<int>& input)
 {
 	_vector.clear();
 	_isOdd = false;
+	_intCount = input.size();
 
-	for (unsigned long i = 0; i < input.size(); i += 2)
+	for (unsigned long i = 0; i < input.size(); i++)
 	{
 		Pair pair;
 		pair.main = input[i];
@@ -54,6 +56,8 @@ void PmergeMe::getInputVector(std::vector<int>& input)
 		{
 			pair.pendant = input[i + 1];
 			_vector.push_back(pair);
+			_pairCount++;
+			i++;
 		}
 		else
 		{
@@ -69,15 +73,13 @@ void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
 {
 	int tmp = 0;
 
-	for (unsigned long i = 1; i < _vector.size(); i += 2)
+	for (unsigned long i = 1; i < _vector.size(); i++)
 	{
 		if (_vector[i].main > _vector[i].pendant)
 		{
-			std::cout << "before: " << _vector[i].main << ", " << _vector[i].pendant << std::endl;
 			tmp = _vector[i].main;
 			_vector[i].main = _vector[i].pendant;
 			_vector[i].pendant = tmp;
-			std::cout << "after: " << _vector[i].main << ", " << _vector[i].pendant << std::endl;
 		}
 	}
 }
@@ -147,16 +149,12 @@ void	PmergeMe::displayResults(std::deque<Pair>& _deque) const
  *                           DISPLAY
  *========================================================================**/
 
-void	PmergeMe::displayVector(int intCount, std::vector<Pair>& input)
+void	PmergeMe::displayVector(std::vector<Pair>& input)
 {
-	for (int i = 0; i < intCount / 2; i++)
+	for (int i = 0; i < _pairCount; i++)
 	{
 		std::cout << input[i].main << ", " << input[i].pendant << std::flush;
-		if (i != intCount - 1 && _isOdd == false)
+		if (i != _pairCount - 1)
 			std::cout << ", " << std::flush;
-		else if (i != intCount - 1 && _isOdd)
-			std::cout << ", " << _straggler << std::flush;
-		else
-			std::cout << std::endl;
 	}
 }

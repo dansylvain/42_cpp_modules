@@ -18,6 +18,8 @@ class PmergeMe
 		std::vector<int> 	_jacobstahlSequence;
 		bool				_isOdd;
 		double				_straggler;
+		int					_intCount;
+		int					_pairCount;
 
 		//coplien
 		PmergeMe();
@@ -26,8 +28,7 @@ class PmergeMe
 		~PmergeMe();
 
 		// common funcs
-		void	generateJacobstahlSequence(const int& intCount);
-		void	createJacobstahlSequence(const int& intCount);
+		void	generateJacobstahlSequence();
 	
 		// vector
 		void	getInputVector(std::vector<int>& input);
@@ -46,6 +47,6 @@ class PmergeMe
 		void	displayResults(std::deque<Pair>& _deque) const;
 
 
-		void	displayVector(int intCount, std::vector<Pair>& input);
+		void	displayVector(std::vector<Pair>& input);
 
 };

@@ -89,17 +89,17 @@ int main(int argc, char **argv)
 	std::cout << "isOdd after: " << PmergeMe._isOdd << std::endl;
 	
 	printB("\nDisplay Tab upon creation:");
-	PmergeMe.displayVector(intCount, PmergeMe._vector);
+	PmergeMe.displayVector(PmergeMe._vector);
 
 
-	PmergeMe.generateJacobstahlSequence(intCount);
+	PmergeMe.generateJacobstahlSequence();
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
 	
 	//! VECTOR FUNCS
 	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
 	printB("\nDisplay Tab after initial sorting:");
-	PmergeMe.displayVector(intCount, PmergeMe._vector);
+	PmergeMe.displayVector(PmergeMe._vector);
 	
 
 
