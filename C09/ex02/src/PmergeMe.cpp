@@ -6,7 +6,7 @@
  *                           COPLIEN
  *========================================================================**/
 PmergeMe::PmergeMe() : 	_isOdd(false), _straggler(std::numeric_limits<double>::max()),
-						_intCount(0), _pairCount(0)
+						_intCount(0), _pairCount(0), _comparisonCount(0)
 {
 }
 
@@ -37,12 +37,14 @@ void	PmergeMe::generateJacobstahlSequence()
 
 /**========================================================================
  *                           VECTOR
+ * reserve method used to pre allocate memory size for vector
  *========================================================================**/
 void PmergeMe::getInputVector(std::vector<int>& input)
 {
-	_vector.clear();
-	_isOdd = false;
 	_intCount = input.size();
+	_vector.clear();
+	_vector.reserve(_intCount / 2); //? specific to vector
+	_isOdd = false;
 
 	for (unsigned long i = 0; i < input.size(); i++)
 	{
@@ -76,28 +78,26 @@ void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
 			tmp = _vector[i].main;
 			_vector[i].main = _vector[i].pendant;
 			_vector[i].pendant = tmp;
+			_comparisonCount++;
 		}
 	}
 }
 
+/**========================================================================
+ *                         SORTPAIRSBYMAINCHAINHIGHESTVALUE
+ * this function is a merge sort algorithm. uses helper function merge (see below)
+ *========================================================================**/
 void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<Pair>& _vector)
 {
-	mergeSort(_vector);
-	(void)_vector;
-
-}
-
-void	PmergeMe::mergeSort(std::vector<Pair>& _vector)
-{
 	int len = _vector.size();
-	if (len <= 1) return; //base case
+	if (len <= 1) return;
 
 	int middle = len / 2;
 	std::vector<Pair> leftVector(_vector.begin(), _vector.begin() + middle);
 	std::vector<Pair> rightVector(_vector.begin() + middle, _vector.end());
 
-	mergeSort(leftVector);
-	mergeSort(rightVector);
+	sortPairsByMainChainHighestValue(leftVector);
+	sortPairsByMainChainHighestValue(rightVector);
 	merge(leftVector, rightVector, _vector);
 }
 
@@ -113,6 +113,7 @@ void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVect
 			_vector[i++] = leftVector[l++];
 		else
 			_vector[i++] = rightVector[r++];
+		_comparisonCount++;
 	}
 	while (l < leftSize)
 		_vector[i++] = leftVector[l++];

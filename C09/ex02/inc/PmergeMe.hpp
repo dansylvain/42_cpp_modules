@@ -20,6 +20,7 @@ class PmergeMe
 		double				_straggler;
 		int					_intCount;
 		int					_pairCount;
+		int					_comparisonCount;
 
 		//coplien
 		PmergeMe();
@@ -34,7 +35,6 @@ class PmergeMe
 		void	getInputVector(std::vector<int>& input);
 		void	createFirstSortedPairing(std::vector<Pair>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
-		void	mergeSort(std::vector<Pair>& _vector);
 		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector);
 		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
 		void	insertStraggler(std::vector<Pair>& _vector);
