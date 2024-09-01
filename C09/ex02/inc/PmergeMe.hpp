@@ -35,6 +35,8 @@ class PmergeMe
 		void	generateJacobstahlSequence();
 	
 		// vector
+		void	vectorSort(std::vector<int> _initialVector);
+
 		void	getInputVector(std::vector<int>& input);
 		void	createFirstSortedPairing(std::vector<Pair>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);

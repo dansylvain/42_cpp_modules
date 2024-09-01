@@ -1,17 +1,19 @@
 #include "main.hpp"
 #include <PmergeMe.hpp>
 #include <sstream>
+#include <ctime>
 
-	// tests to be made with at least 3000 different integers
+clock_t startTimer()
+{
+    return clock();
+}
 
-	/* EXEMPLE OUTPUT:
-	$> ./PmergeMe 3 5 9 7 4
-	Before: 3 5 9 7 4
-	After:
-	3 4 5 7 9
-	Time to process a range of 5 elements with std::[..] : 0.00031 us
-	Time to process a range of 5 elements with std::[..] : 0.00014 us
-	*/
+double stopTimer(clock_t start)
+{
+    clock_t end = clock();
+    return static_cast<double>(end - start) / CLOCKS_PER_SEC;
+}
+
 
 int stringToInt(const std::string& str)
 {
@@ -34,7 +36,7 @@ bool isPositivInteger(const std::string& str)
 	return true;
 }
 
-bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *inputIntCount)
+bool convertInput(int argc, char** argv, std::vector<int>* input)
 {
 	
 	for (int i = 1; i < argc; i++)
@@ -48,8 +50,7 @@ bool convertInput(int argc, char** argv, std::vector<int>* inputPtr, int *inputI
 			std::istringstream tokenStream(token);
 			int number;
 			tokenStream >> number;
-			inputPtr->push_back(number);
-			(*inputIntCount)++;
+			input->push_back(number);
 		}
 	}
 	return true;
@@ -71,24 +72,12 @@ void	displayInputTab(int inputIntCount, std::vector<int>& input)
 
 int main(int argc, char **argv)
 {
-	int inputIntCount = 0;
 	PmergeMe PmergeMe;
-	std::vector<int> input;
-	std::vector<int>* inputPtr;
-	inputPtr = & input;
-	
+	std::vector<int> input;	
 
-	//! COMMON FUNCS
-	if(!convertInput(argc, argv, inputPtr, &inputIntCount))
+	if(!convertInput(argc, argv, &input))
 		return (print("Error: invalid input"), 1);
-	PmergeMe.getInputVector(input);
-	PmergeMe.generateJacobstahlSequence();
-	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
-	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
-	PmergeMe.createFinalVector();
-	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
-	if (PmergeMe._isOdd)
-		PmergeMe.insertValueThroughBinarySearch(PmergeMe._straggler);
+	PmergeMe.vectorSort(input);	
 	PmergeMe.displayResults(PmergeMe._vector);
 
 	//! DEQUE FUNCS

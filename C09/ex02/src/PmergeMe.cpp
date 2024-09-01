@@ -41,6 +41,18 @@ void	PmergeMe::generateJacobstahlSequence()
  *                           VECTOR
  * reserve method used to pre allocate memory size for vector
  *========================================================================**/
+void	PmergeMe::vectorSort(std::vector<int> input)
+{
+	getInputVector(input);
+	generateJacobstahlSequence();
+	createFirstSortedPairing(_vector);
+	sortPairsByMainChainHighestValue(_vector);
+	createFinalVector();
+	insertPendantValuesThroughBinarySearch(_vector);
+	if (_isOdd)
+		insertValueThroughBinarySearch(_straggler);
+}
+
 void PmergeMe::getInputVector(std::vector<int>& input)
 {
 	_initialVector = input;
