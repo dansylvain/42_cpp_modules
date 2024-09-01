@@ -89,15 +89,16 @@ void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<Pair>& _vector)
 
 void	PmergeMe::mergeSort(std::vector<Pair>& _vector)
 {
-	int len = _pairCount;
+	int len = _vector.size();
 	if (len <= 1) return; //base case
 
 	int middle = len / 2;
 	std::vector<Pair> leftVector(_vector.begin(), _vector.begin() + middle);
 	std::vector<Pair> rightVector(_vector.begin() + middle, _vector.end());
 
+	mergeSort(leftVector);
+	mergeSort(rightVector);
 	merge(leftVector, rightVector, _vector);
-	
 }
 
 void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector)
