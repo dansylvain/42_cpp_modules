@@ -110,7 +110,7 @@ void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVect
 
 	while(l < leftSize && r < rightSize)
 	{
-		if(leftVector[l].main < rightVector[r].main)
+		if(leftVector[l].main > rightVector[r].main)
 			_vector[i++] = leftVector[l++];
 		else
 			_vector[i++] = rightVector[r++];
@@ -122,22 +122,29 @@ void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVect
 		_vector[i++] = rightVector[r++];
 }
 
+void	PmergeMe::createFinalVector()
+{
+	_finalVector.reserve(_intCount);
+	for (int i = 0; i < _pairCount; i++)
+	{
+		_finalVector.push_back(_vector[i].main);
+	}
+}
+
 void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector)
 {
-	(void)_vector;
 	long unsigned int i = 0;
 	if (_pairCount < 1)
 		return;
-	displayJacobstahlSequence(_jacobstahlSequence.size(), _jacobstahlSequence);
 	for (; i < _jacobstahlSequence.size(); i++)
 	{
 		int pendant = _vector[_jacobstahlSequence[i] - 1].pendant;
-		std::cout << "pendant: " << pendant << std::endl;
 		(void)pendant;
 	}
 	_pairCount -= i;
 
 	generateJacobstahlSequence();
+	displayIntVector(_jacobstahlSequence);
 	insertPendantValuesThroughBinarySearch(_vector);
 }
 
@@ -194,11 +201,11 @@ void	PmergeMe::displayResults(std::deque<Pair>& _deque) const
  *                           DISPLAY
  *========================================================================**/
 
-void	PmergeMe::displayVector(std::vector<Pair>& input)
+void	PmergeMe::displayPairVector(std::vector<Pair>& vector)
 {
 	for (int i = 0; i < _pairCount; i++)
 	{
-		std::cout << input[i].main << ", " << input[i].pendant << std::flush;
+		std::cout << vector[i].main << ", " << vector[i].pendant << std::flush;
 		if (i != _pairCount - 1)
 			std::cout << " | " << std::flush;
 		else if (_isOdd)
@@ -207,14 +214,17 @@ void	PmergeMe::displayVector(std::vector<Pair>& input)
 	print("");
 }
 
-void	PmergeMe::displayJacobstahlSequence(int inputIntCount, std::vector<int>& input)
+void	PmergeMe::displayIntVector(std::vector<int>& vector)
 {
+	int inputIntCount = vector.size();
+	
 	for (int i = 0; i < inputIntCount; i++)
 	{
-		std::cout << input[i] << std::flush;
+		std::cout << vector[i] << std::flush;
 		if (i != inputIntCount - 1)
-			std::cout << ", " << std::flush;
-		else
-			std::cout << std::endl;
+			std::cout << " | " << std::flush;
+		else if (_isOdd)
+			std::cout << " | 🪁" << _straggler << "🪁 " << std::endl;
 	}
+	print("");
 }

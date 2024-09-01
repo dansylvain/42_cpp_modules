@@ -89,7 +89,7 @@ int main(int argc, char **argv)
 	displayInputTab(inputIntCount, input);
 
 	printB("\nDisplay Tab upon creation:");
-	PmergeMe.displayVector(PmergeMe._vector);
+	PmergeMe.displayPairVector(PmergeMe._vector);
 
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
@@ -97,12 +97,14 @@ int main(int argc, char **argv)
 	//! VECTOR FUNCS
 	PmergeMe.createFirstSortedPairing(PmergeMe._vector);
 	printB("\nDisplay Tab after initial sorting:");
-	PmergeMe.displayVector(PmergeMe._vector);
+	PmergeMe.displayPairVector(PmergeMe._vector);
 	
 	PmergeMe.sortPairsByMainChainHighestValue(PmergeMe._vector);
 	printB("\nDisplay Tab after merge sorting:");
-	PmergeMe.displayVector(PmergeMe._vector);
+	PmergeMe.displayPairVector(PmergeMe._vector);
 	
+	PmergeMe.createFinalVector();
+	PmergeMe.displayIntVector(PmergeMe._finalVector);
 
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
 	

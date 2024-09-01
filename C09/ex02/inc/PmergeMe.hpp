@@ -14,6 +14,7 @@ class PmergeMe
 		} Pair;
 
 		std::vector<pair>	_vector;
+		std::vector<int>	_finalVector;
 		std::deque<Pair>	_deque;
 		std::vector<int> 	_jacobstahlSequence;
 		bool				_isOdd;
@@ -36,6 +37,7 @@ class PmergeMe
 		void	createFirstSortedPairing(std::vector<Pair>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
 		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector, std::vector<Pair>& _vector);
+		void	createFinalVector();
 		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
 		void	insertStraggler(std::vector<Pair>& _vector);
 		void	displayResults(std::vector<Pair>& _vector) const;
@@ -49,7 +51,7 @@ class PmergeMe
 		void	displayResults(std::deque<Pair>& _deque) const;
 
 
-		void	displayVector(std::vector<Pair>& input);
-		void	displayJacobstahlSequence(int inputIntCount, std::vector<int>& input);
+		void	displayPairVector(std::vector<Pair>& input);
+		void	displayIntVector(std::vector<int>& input);
 
 };
