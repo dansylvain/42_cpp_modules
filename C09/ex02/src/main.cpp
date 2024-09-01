@@ -81,18 +81,16 @@ int main(int argc, char **argv)
 	//! COMMON FUNCS
 	if(!convertInput(argc, argv, inputPtr, &inputIntCount))
 		return (print("Error: invalid input"), 1);
+	PmergeMe.getInputVector(input);
+	PmergeMe.generateJacobstahlSequence();
+	
+	
 	printB("\nDisplay Input Tab:");
 	displayInputTab(inputIntCount, input);
 
-	std::cout << "isOdd before: " << PmergeMe._isOdd << std::endl;
-	PmergeMe.getInputVector(input);
-	std::cout << "isOdd after: " << PmergeMe._isOdd << std::endl;
-	
 	printB("\nDisplay Tab upon creation:");
 	PmergeMe.displayVector(PmergeMe._vector);
 
-
-	PmergeMe.generateJacobstahlSequence();
 	printB("\nDisplay JacobsDingsdaBumsda Tab:");
 	displayInputTab(PmergeMe._jacobstahlSequence.size(), PmergeMe._jacobstahlSequence);
 	

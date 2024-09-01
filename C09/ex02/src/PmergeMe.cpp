@@ -24,7 +24,6 @@ void	PmergeMe::generateJacobstahlSequence()
 	
 	if (_pairCount < 1)
 		return;
-	_jacobstahlSequence.push_back(j1);
 	while (true)
 	{
 		int nextJacobstahl = j1 + 2 * j0;
@@ -63,7 +62,6 @@ void PmergeMe::getInputVector(std::vector<int>& input)
 			_straggler = input[i];
 		}
 	}
-	std::cout << "value of i: " << input.size() << ", straggler: " << _straggler << std::endl;
 }
 
 
@@ -153,8 +151,9 @@ void	PmergeMe::displayVector(std::vector<Pair>& input)
 	{
 		std::cout << input[i].main << ", " << input[i].pendant << std::flush;
 		if (i != _pairCount - 1)
-			std::cout << ", " << std::flush;
+			std::cout << " | " << std::flush;
 		else if (_isOdd)
-			std::cout << ", " << _straggler << std::endl;
+			std::cout << " | 🪁" << _straggler << "🪁 " << std::endl;
 	}
+	print("");
 }
