@@ -104,7 +104,7 @@ int main(int argc, char **argv)
 	PmergeMe.displayPairVector(PmergeMe._vector);
 	
 	PmergeMe.createFinalVector();
-	PmergeMe.displayIntVector(PmergeMe._finalVector);
+	// PmergeMe.displayIntVector(PmergeMe._finalVector);
 
 	PmergeMe.insertPendantValuesThroughBinarySearch(PmergeMe._vector);
 	

@@ -143,8 +143,8 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 	}
 	_pairCount -= i;
 
+	// displayIntVector(_jacobstahlSequence);
 	generateJacobstahlSequence();
-	displayIntVector(_jacobstahlSequence);
 	insertPendantValuesThroughBinarySearch(_vector);
 }
 
