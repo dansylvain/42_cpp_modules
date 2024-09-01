@@ -5,7 +5,15 @@ class PmergeMe
 {
 	private:
 	public:
-		std::vector<int>	_vector;
+
+
+		typedef struct pair
+		{
+			int main;
+			int pendant;
+		};
+
+		std::vector<pair>	_vector;
 		std::deque<int>		_deque;
 		std::vector<int> 	_jacobstahlSequence;
 		bool				_isOdd;
