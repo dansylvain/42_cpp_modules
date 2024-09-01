@@ -158,43 +158,30 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector
 
 void PmergeMe::insertValueThroughBinarySearch(int val)
 {
-    int low = 0;
-    int high = _currentFinalVectorSize - 1;
+	int low = 0;
+	int high = _currentFinalVectorSize - 1;
 
-    // Utiliser la recherche binaire pour trouver l'emplacement d'insertion
-    while (low <= high)
-    {
-        int mid = low + (high - low) / 2;
-
-        if (_finalVector[mid] > val)
-        {
-            low = mid + 1; // Recherche dans la partie droite
-        }
-        else
-        {
-            high = mid - 1; // Recherche dans la partie gauche
-        }
-    }
-
-    // Insérer la valeur à la position correcte trouvée par la recherche binaire
-    _finalVector.insert(_finalVector.begin() + low, val);
+	while (low <= high)
+	{
+		int mid = low + (high - low) / 2;
+		if (_finalVector[mid] > val)
+			low = mid + 1;
+		else
+			high = mid - 1;
+		_comparisonCount++;
+	}
+	_finalVector.insert(_finalVector.begin() + low, val);
 	_currentFinalVectorSize++;
-    // Debug: Afficher le vecteur après insertion
-    std::cout << "Inserted " << val << " at index " << low << std::endl;
-}
-
-
-
-
-void	PmergeMe::insertStraggler(std::vector<Pair>& _vector)
-{
-	(void)_vector;
 }
 
 void	PmergeMe::displayResults(std::vector<Pair>& _vector) const
 {
+	printB("FINAL RESULT:");
+	for (int i = _intCount - 1; i >=0 ; i--)
+		std::cout << _finalVector[i] << " | " << std::flush;
+	
+	std::cout << "\nComparison total: " << _comparisonCount << std::endl;
 	(void)_vector;
-
 }
 
 /**========================================================================

@@ -114,7 +114,7 @@ int main(int argc, char **argv)
 	
 	
 	
-	PmergeMe.insertStraggler(PmergeMe._vector);
+	PmergeMe.insertValueThroughBinarySearch(PmergeMe._straggler);
 	PmergeMe.displayResults(PmergeMe._vector);
 
 	//! DEQUE FUNCS
