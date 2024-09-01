@@ -69,7 +69,7 @@ void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
 {
 	int tmp = 0;
 
-	for (unsigned long i = 1; i < _vector.size(); i++)
+	for (unsigned long i = 0; i < _vector.size(); i++)
 	{
 		if (_vector[i].main > _vector[i].pendant)
 		{
