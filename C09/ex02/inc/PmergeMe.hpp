@@ -45,6 +45,12 @@ class PmergeMe
 		template<typename InputContainer, typename Container>
 		void	vectorSort(InputContainer& _initialVector, Container&);
 
+		template <typename Container>
+		void reserve_space(Container& container, typename Container::size_type size);
+
+
+
+
 		template<typename InputContainer, typename Container>
 		void	getInputVector(InputContainer& input, Container& _vector);
 
@@ -87,5 +93,7 @@ class PmergeMe
 		double	stopTimer(clock_t start);
 };
 
+		template <>
+	    void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size);
 #include "PmergeMe.tpp"
 

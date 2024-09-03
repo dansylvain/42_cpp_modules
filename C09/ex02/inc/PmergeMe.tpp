@@ -15,13 +15,25 @@ void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
 	_timeSpentVector = stopTimer(timer);
 }
 
+template <typename Container>
+void PmergeMe::reserve_space(Container&, typename Container::size_type) {
+    // Fonction template générique (peut être vide ou avoir une logique par défaut)
+}
+
+// Spécialisation pour std::vector
+template <>
+inline void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size)
+{
+    container.reserve(size);
+}
+
 template <typename InputContainer, typename Container>
 void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
 {
 	_initialVector = input;
 	_intCount = input.size();
 	_vector.clear();
-	_vector.reserve(_intCount); //? specific to vector
+	reserve_space(_vector, _intCount); //? specific to vector
 	_isOdd = false;
 
 	for (unsigned long i = 0; i < input.size(); i++)
@@ -145,7 +157,7 @@ void PmergeMe::insertValueThroughBinarySearch(Container&, int val)
 template<typename Container>
 void	PmergeMe::createFinalVector(Container& _vector)
 {
-	_finalVector.reserve(_intCount);
+	reserve_space(_finalVector, _intCount);
 	for (int i = 0; i < _pairCount; i++)
 	{
 		_finalVector.push_back(_vector[i].main);
