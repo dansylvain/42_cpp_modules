@@ -96,7 +96,7 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(Container& _vector)
 		if (index >= _vector.size())
 			break;
 		int val = _vector[index].pendant;
-		insertValueThroughBinarySearch(val);
+		insertValueThroughBinarySearch(_vector, val);
 	}
 	_pairCount -= i;
 	for (;i > 0; i--)
@@ -108,7 +108,24 @@ void	PmergeMe::insertPendantValuesThroughBinarySearch(Container& _vector)
 	insertPendantValuesThroughBinarySearch(_vector);
 }
 
+template<typename Container>
+void PmergeMe::insertValueThroughBinarySearch(Container&, int val)
+{
+	int low = 0;
+	int high = _currentFinalVectorSize - 1;
 
+	while (low <= high)
+	{
+		int mid = low + (high - low) / 2;
+		if (_finalVector[mid] < val)
+			low = mid + 1;
+		else
+			high = mid - 1;
+		_comparisonCount++;
+	}
+	_finalVector.insert(_finalVector.begin() + low, val);
+	_currentFinalVectorSize++;
+}
 
 
 

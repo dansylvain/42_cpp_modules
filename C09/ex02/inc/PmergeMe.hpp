@@ -61,7 +61,9 @@ class PmergeMe
 		template<typename Container>
 		void	insertPendantValuesThroughBinarySearch(Container& _vector);
 
-		void	insertValueThroughBinarySearch(int val);
+		
+		template<typename Container>
+		void	insertValueThroughBinarySearch(Container&, int val);
 
 		template<typename Container>
 		void	displayResults(Container& _vector);

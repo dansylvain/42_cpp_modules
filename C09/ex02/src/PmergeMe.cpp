@@ -52,7 +52,7 @@ void	PmergeMe::vectorSort(std::vector<int> input)
 	createFinalVector();
 	insertPendantValuesThroughBinarySearch(_vector);
 	if (_isOdd)
-		insertValueThroughBinarySearch(_straggler);
+		insertValueThroughBinarySearch(_vector, _straggler);
 	_timeSpentVector = stopTimer(timer);
 }
 
@@ -76,23 +76,7 @@ void	PmergeMe::createFinalVector()
 
 
 
-void PmergeMe::insertValueThroughBinarySearch(int val)
-{
-	int low = 0;
-	int high = _currentFinalVectorSize - 1;
 
-	while (low <= high)
-	{
-		int mid = low + (high - low) / 2;
-		if (_finalVector[mid] < val)
-			low = mid + 1;
-		else
-			high = mid - 1;
-		_comparisonCount++;
-	}
-	_finalVector.insert(_finalVector.begin() + low, val);
-	_currentFinalVectorSize++;
-}
 
 
 
