@@ -60,42 +60,42 @@ void	PmergeMe::generateJacobstahlSequence()
 
 
 
-/**========================================================================
- *                           DEQUE
- *========================================================================**/
-void	PmergeMe::getInputDeque(std::vector<int>& input)
-{
-	(void)input;
-}
+// /**========================================================================
+//  *                           DEQUE
+//  *========================================================================**/
+// void	PmergeMe::getInputDeque(std::vector<int>& input)
+// {
+// 	(void)input;
+// }
 
-void	PmergeMe::createFirstSortedPairing(std::deque<Pair>& _deque)
-{
-	(void)_deque;
+// void	PmergeMe::createFirstSortedPairing(std::deque<Pair>& _deque)
+// {
+// 	(void)_deque;
 
-}
+// }
 
-void	PmergeMe::sortPairsByMainChainHighestValue(std::deque<Pair>& _deque)
-{
-	(void)_deque;
+// void	PmergeMe::sortPairsByMainChainHighestValue(std::deque<Pair>& _deque)
+// {
+// 	(void)_deque;
 
-}
+// }
 
-void	PmergeMe::insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque)
-{
+// void	PmergeMe::insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque)
+// {
 
-	(void)_deque;
-}
+// 	(void)_deque;
+// }
 
-void	PmergeMe::insertStraggler(std::deque<Pair>& _deque)
-{
-	(void)_deque;
-}
+// void	PmergeMe::insertStraggler(std::deque<Pair>& _deque)
+// {
+// 	(void)_deque;
+// }
 
-void	PmergeMe::displayResults(std::deque<Pair>& _deque)
-{
-	(void)_deque;
+// void	PmergeMe::displayResults(std::deque<Pair>& _deque)
+// {
+// 	(void)_deque;
 
-}
+// }
 
 
 /**========================================================================

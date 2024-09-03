@@ -80,8 +80,8 @@ void	PmergeMe::sortPairsByMainChainHighestValue(Container& _vector)
 	if (len <= 1) return;
 
 	int middle = len / 2;
-	std::vector<Pair> leftVector(_vector.begin(), _vector.begin() + middle);
-	std::vector<Pair> rightVector(_vector.begin() + middle, _vector.end());
+	Container leftVector(_vector.begin(), _vector.begin() + middle);
+	Container rightVector(_vector.begin() + middle, _vector.end());
 
 	sortPairsByMainChainHighestValue(leftVector);
 	sortPairsByMainChainHighestValue(rightVector);

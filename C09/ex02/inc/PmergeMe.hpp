@@ -77,12 +77,12 @@ class PmergeMe
 		void	displayResults(Container& _vector);
 
 		// deque
-		void	getInputDeque(std::vector<int>& input);
-		void	createFirstSortedPairing(std::deque<Pair>& _deque);
-		void	sortPairsByMainChainHighestValue(std::deque<Pair>& _deque);
-		void	insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque);
-		void	insertStraggler(std::deque<Pair>& _deque);
-		void	displayResults(std::deque<Pair>& _deque);
+		// void	getInputDeque(std::vector<int>& input);
+		// void	createFirstSortedPairing(std::deque<Pair>& _deque);
+		// void	sortPairsByMainChainHighestValue(std::deque<Pair>& _deque);
+		// void	insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque);
+		// void	insertStraggler(std::deque<Pair>& _deque);
+		// void	displayResults(std::deque<Pair>& _deque);
 
 
 		void	displayPairVector(std::vector<Pair>& input);
