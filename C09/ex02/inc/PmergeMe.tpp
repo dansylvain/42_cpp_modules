@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:21:20 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:25:00 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,26 +175,6 @@ void	PmergeMe::createFinalVector(Container& _vector)
 		_finalVector.push_back(_vector[i].main);
 		_currentFinalVectorSize++;
 	}
-}
-
-
-template<typename Container>
-void	PmergeMe::displayResults(Container& _vector)
-{
-	std::cout << "Before: " << std::flush;
-	displayIntVector(_initialVector);
-	std::cout << "After:  " << std::flush;
-	displayIntVector(_finalVector);
-	
-	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : "
-	<< _timeSpentVector << " us" << std::endl;
-	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : "
-	<< _timeSpentDeque << " us" << std::endl;
-	std::cout << "Comparison total: " << _comparisonCount << std::endl;
-	std::cout <<
-	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
-	<< std::endl;
-	(void)_vector;
 }
 
 template<typename Container>

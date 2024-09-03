@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:30 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:20:02 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:24:39 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ class PmergeMe
 		template<typename Container>
 		void	insertValueThroughBinarySearch(Container&, int val);
 
-		template<typename Container>
-		void	displayResults(Container& _vector);
+		void	displayResults();
 
 		void	displayPairVector(std::vector<Pair>& input);
 		void	displayIntVector(std::vector<int>& input);
