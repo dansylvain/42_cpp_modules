@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:30 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 09:53:38 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:12:47 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ class PmergeMe
 		void	displayJacobstahlVector(std::vector<int>& vector);
 
 		clock_t	startTimer();
-		double	stopTimer(clock_t start);
+		template<typename Container>
+		double	stopTimer(Container&, clock_t start);
 };
 
 template <>

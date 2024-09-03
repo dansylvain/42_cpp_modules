@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:06 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 09:49:06 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:13:06 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,6 @@ clock_t PmergeMe::startTimer()
 	return clock();
 }
 
-double PmergeMe::stopTimer(clock_t start)
-{
-	clock_t end = clock();
-	return static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
-
-}
 
 /**========================================================================
  *                           DISPLAY

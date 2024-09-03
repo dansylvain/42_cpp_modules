@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 09:50:36 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:14:20 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
 	insertPendantValuesThroughBinarySearch(_vector);
 	if (_isOdd)
 		insertValueThroughBinarySearch(_vector, _straggler);
-	_timeSpentVector = stopTimer(timer);
+	_timeSpentVector = stopTimer(_vector, timer);
 }
 
 template <typename Container>
@@ -195,4 +195,12 @@ void	PmergeMe::displayResults(Container& _vector)
 	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
 	<< std::endl;
 	(void)_vector;
+}
+
+template<typename Container>
+double PmergeMe::stopTimer(Container&, clock_t start)
+{
+	clock_t end = clock();
+	return static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+
 }
