@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.tpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/09/03 09:50:36 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 template<typename InputContainer, typename Container>
@@ -16,11 +28,11 @@ void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
 }
 
 template <typename Container>
-void PmergeMe::reserve_space(Container&, typename Container::size_type) {
-    // Fonction template générique (peut être vide ou avoir une logique par défaut)
+void PmergeMe::reserve_space(Container&, typename Container::size_type)
+{
+	// Nothing. Void. NADA-ZERO.
 }
 
-// Spécialisation pour std::vector
 template <>
 inline void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size)
 {
@@ -169,10 +181,6 @@ void	PmergeMe::createFinalVector(Container& _vector)
 template<typename Container>
 void	PmergeMe::displayResults(Container& _vector)
 {
-/* 		$> ./PmergeMe 3 5 9 7 4
-
-	Time to process a range of 5 elements with std::[..] : 0.00031 us
-	Time to process a range of 5 elements with std::[..] : 0.00014 us */
 	std::cout << "Before: " << std::flush;
 	displayIntVector(_initialVector);
 	std::cout << "After:  " << std::flush;

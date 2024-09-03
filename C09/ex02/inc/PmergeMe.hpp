@@ -1,9 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/03 09:49:30 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/09/03 09:53:38 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
+#include <limits>
+#include <iomanip>
 #include <vector>
 #include <deque>
 #include <ctime>
 #include <iostream>
 #include <string>
+#include "main.hpp"
 
 class PmergeMe
 {
@@ -40,16 +55,11 @@ class PmergeMe
 		// common funcs
 		void	generateJacobstahlSequence();
 	
-		// vector
-
 		template<typename InputContainer, typename Container>
 		void	vectorSort(InputContainer& _initialVector, Container&);
 
 		template <typename Container>
 		void reserve_space(Container& container, typename Container::size_type size);
-
-
-
 
 		template<typename InputContainer, typename Container>
 		void	getInputVector(InputContainer& input, Container& _vector);
@@ -76,15 +86,6 @@ class PmergeMe
 		template<typename Container>
 		void	displayResults(Container& _vector);
 
-		// deque
-		// void	getInputDeque(std::vector<int>& input);
-		// void	createFirstSortedPairing(std::deque<Pair>& _deque);
-		// void	sortPairsByMainChainHighestValue(std::deque<Pair>& _deque);
-		// void	insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque);
-		// void	insertStraggler(std::deque<Pair>& _deque);
-		// void	displayResults(std::deque<Pair>& _deque);
-
-
 		void	displayPairVector(std::vector<Pair>& input);
 		void	displayIntVector(std::vector<int>& input);
 		void	displayJacobstahlVector(std::vector<int>& vector);
@@ -93,7 +94,8 @@ class PmergeMe
 		double	stopTimer(clock_t start);
 };
 
-		template <>
-	    void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size);
+template <>
+void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size);
+
 #include "PmergeMe.tpp"
 

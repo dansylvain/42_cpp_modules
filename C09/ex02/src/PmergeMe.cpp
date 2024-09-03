@@ -1,7 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/03 09:49:06 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/09/03 09:49:06 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
-#include "main.hpp"
-#include <limits>
-#include <iomanip>
 
 /**========================================================================
  *                           COPLIEN
@@ -38,65 +47,17 @@ void	PmergeMe::generateJacobstahlSequence()
 	}
 }
 
-/**========================================================================
- *                           VECTOR
- * reserve method used to pre allocate memory size for vector
- *========================================================================**/
+clock_t PmergeMe::startTimer()
+{
+	return clock();
+}
 
+double PmergeMe::stopTimer(clock_t start)
+{
+	clock_t end = clock();
+	return static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
 
-/**========================================================================
- *                         SORTPAIRSBYMAINCHAINHIGHESTVALUE
- * this function is a merge sort algorithm. uses helper function merge (see below)
- *========================================================================**/
-
-
-
-
-
-
-
-
-
-
-
-
-// /**========================================================================
-//  *                           DEQUE
-//  *========================================================================**/
-// void	PmergeMe::getInputDeque(std::vector<int>& input)
-// {
-// 	(void)input;
-// }
-
-// void	PmergeMe::createFirstSortedPairing(std::deque<Pair>& _deque)
-// {
-// 	(void)_deque;
-
-// }
-
-// void	PmergeMe::sortPairsByMainChainHighestValue(std::deque<Pair>& _deque)
-// {
-// 	(void)_deque;
-
-// }
-
-// void	PmergeMe::insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque)
-// {
-
-// 	(void)_deque;
-// }
-
-// void	PmergeMe::insertStraggler(std::deque<Pair>& _deque)
-// {
-// 	(void)_deque;
-// }
-
-// void	PmergeMe::displayResults(std::deque<Pair>& _deque)
-// {
-// 	(void)_deque;
-
-// }
-
+}
 
 /**========================================================================
  *                           DISPLAY
@@ -155,14 +116,3 @@ void	PmergeMe::displayIntVector(std::vector<int>& vector)
 	print("");
 }
 
-clock_t PmergeMe::startTimer()
-{
-	return clock();
-}
-
-double PmergeMe::stopTimer(clock_t start)
-{
-	clock_t end = clock();
-	return static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
-
-}
