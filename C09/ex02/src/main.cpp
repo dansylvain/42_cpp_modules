@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 
 	if(!convertInput(argc, argv, &input))
 		return (print("Error: invalid input"), 1);
-	PmergeMe.vectorSort(input);	
+	PmergeMe.vectorSort(input, PmergeMe._vector);	
 	PmergeMe.displayResults(PmergeMe._vector);
 
 	//! DEQUE FUNCS

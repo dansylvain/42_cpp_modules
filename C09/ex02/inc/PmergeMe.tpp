@@ -1,5 +1,19 @@
 #include "PmergeMe.hpp"
 
+template<typename InputContainer, typename Container>
+void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
+{
+	clock_t timer = startTimer();
+	getInputVector(input, _vector);
+	generateJacobstahlSequence();
+	createFirstSortedPairing(_vector);
+	sortPairsByMainChainHighestValue(_vector);
+	createFinalVector();
+	insertPendantValuesThroughBinarySearch(_vector);
+	if (_isOdd)
+		insertValueThroughBinarySearch(_vector, _straggler);
+	_timeSpentVector = stopTimer(timer);
+}
 
 template <typename InputContainer, typename Container>
 void PmergeMe::getInputVector(InputContainer& input, Container& _vector)

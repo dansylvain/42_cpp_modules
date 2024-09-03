@@ -41,7 +41,9 @@ class PmergeMe
 		void	generateJacobstahlSequence();
 	
 		// vector
-		void	vectorSort(std::vector<int> _initialVector);
+
+		template<typename InputContainer, typename Container>
+		void	vectorSort(InputContainer& _initialVector, Container&);
 
 		template<typename InputContainer, typename Container>
 		void	getInputVector(InputContainer& input, Container& _vector);
