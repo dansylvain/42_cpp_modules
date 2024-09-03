@@ -3,3 +3,8 @@ https://github.com/Czarslayer/Ford-Johnson-algo-cpp
 1 Bitcoin exchange: 		std::map
 2 reverse polish notation: 	std::stack avc std::list
 3 PmergeMe			std::vector && std::deque
+
+
+REGARDING PMERGEME:
+tempalting is cmplete and is working.
+What remains is the clearing of the final container between the function calls...
