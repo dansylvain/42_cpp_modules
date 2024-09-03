@@ -40,7 +40,9 @@ class PmergeMe
 		// vector
 		void	vectorSort(std::vector<int> _initialVector);
 
-		void	getInputVector(std::vector<int>& input);
+		template<typename InputContainer, typename Container>
+		void	getInputVector(InputContainer& input, Container& _vector);
+
 		void	createFirstSortedPairing(std::vector<Pair>& _vector);
 		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
 		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
@@ -66,3 +68,6 @@ class PmergeMe
 		clock_t	startTimer();
 		double	stopTimer(clock_t start);
 };
+
+#include "PmergeMe.tpp"
+
