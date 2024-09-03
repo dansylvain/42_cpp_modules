@@ -47,7 +47,10 @@ class PmergeMe
 		template<typename Container>
 		void	createFirstSortedPairing(Container& _vector);
 
-		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
+		template<typename Container>
+		void	sortPairsByMainChainHighestValue(Container&);
+
+
 		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
 				std::vector<Pair>& _vector);
 		void	createFinalVector();

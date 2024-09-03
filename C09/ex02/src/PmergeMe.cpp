@@ -60,19 +60,7 @@ void	PmergeMe::vectorSort(std::vector<int> input)
  *                         SORTPAIRSBYMAINCHAINHIGHESTVALUE
  * this function is a merge sort algorithm. uses helper function merge (see below)
  *========================================================================**/
-void	PmergeMe::sortPairsByMainChainHighestValue(std::vector<Pair>& _vector)
-{
-	int len = _vector.size();
-	if (len <= 1) return;
 
-	int middle = len / 2;
-	std::vector<Pair> leftVector(_vector.begin(), _vector.begin() + middle);
-	std::vector<Pair> rightVector(_vector.begin() + middle, _vector.end());
-
-	sortPairsByMainChainHighestValue(leftVector);
-	sortPairsByMainChainHighestValue(rightVector);
-	merge(leftVector, rightVector, _vector);
-}
 
 void	PmergeMe::merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
 		std::vector<Pair>& _vector)
