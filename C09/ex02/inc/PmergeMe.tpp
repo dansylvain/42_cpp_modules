@@ -1,7 +1,7 @@
-
+#include "PmergeMe.hpp"
 
 template <typename InputContainer, typename Container>
-inline void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
+void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
 {
 	_initialVector = input;
 	_intCount = input.size();
@@ -25,6 +25,23 @@ inline void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
 		{
 			_isOdd = true;
 			_straggler = input[i];
+		}
+	}
+}
+
+template<typename Container>
+void	PmergeMe::createFirstSortedPairing(Container& _vector)
+{
+	int tmp = 0;
+
+	for (unsigned long i = 0; i < _vector.size(); i++)
+	{
+		if (_vector[i].main > _vector[i].pendant)
+		{
+			tmp = _vector[i].main;
+			_vector[i].main = _vector[i].pendant;
+			_vector[i].pendant = tmp;
+			_comparisonCount++;
 		}
 	}
 }

@@ -56,28 +56,6 @@ void	PmergeMe::vectorSort(std::vector<int> input)
 	_timeSpentVector = stopTimer(timer);
 }
 
-// void PmergeMe::getInputVector(std::vector<int>& input, std::vector<Pair>& _vector)
-// {
-	
-// }
-
-
-void PmergeMe::createFirstSortedPairing(std::vector<Pair>& _vector)
-{
-	int tmp = 0;
-
-	for (unsigned long i = 0; i < _vector.size(); i++)
-	{
-		if (_vector[i].main > _vector[i].pendant)
-		{
-			tmp = _vector[i].main;
-			_vector[i].main = _vector[i].pendant;
-			_vector[i].pendant = tmp;
-			_comparisonCount++;
-		}
-	}
-}
-
 /**========================================================================
  *                         SORTPAIRSBYMAINCHAINHIGHESTVALUE
  * this function is a merge sort algorithm. uses helper function merge (see below)

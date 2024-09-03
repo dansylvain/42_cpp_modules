@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include <deque>
 #include <ctime>
@@ -43,7 +44,9 @@ class PmergeMe
 		template<typename InputContainer, typename Container>
 		void	getInputVector(InputContainer& input, Container& _vector);
 
-		void	createFirstSortedPairing(std::vector<Pair>& _vector);
+		template<typename Container>
+		void	createFirstSortedPairing(Container& _vector);
+
 		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
 		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
 				std::vector<Pair>& _vector);
