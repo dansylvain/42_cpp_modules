@@ -2,6 +2,8 @@
 #include <vector>
 #include <deque>
 #include <ctime>
+#include <iostream>
+#include <string>
 
 class PmergeMe
 {
@@ -53,10 +55,16 @@ class PmergeMe
 		template<typename Container>
 		void	merge(Container& leftVector, Container& rightVector,
 				Container& _vector);
+
 		void	createFinalVector();
-		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
+
+		template<typename Container>
+		void	insertPendantValuesThroughBinarySearch(Container& _vector);
+
 		void	insertValueThroughBinarySearch(int val);
-		void	displayResults(std::vector<Pair>& _vector);
+
+		template<typename Container>
+		void	displayResults(Container& _vector);
 
 		// deque
 		void	getInputDeque(std::vector<int>& input);

@@ -74,28 +74,7 @@ void	PmergeMe::createFinalVector()
 	}
 }
 
-void	PmergeMe::insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector)
-{
-	long unsigned int i = 0;
-	if (_pairCount < 1)
-		return;
-	for (; i < _jacobstahlSequence.size(); i++)
-	{
-		unsigned long int index = _jacobstahlSequence[i] - 1;
-		if (index >= _vector.size())
-			break;
-		int val = _vector[index].pendant;
-		insertValueThroughBinarySearch(val);
-	}
-	_pairCount -= i;
-	for (;i > 0; i--)
-	{
-		unsigned long int index = _jacobstahlSequence[i - 1];
-		_vector.erase(_vector.begin() + index - 1);
-	}
-	generateJacobstahlSequence();
-	insertPendantValuesThroughBinarySearch(_vector);
-}
+
 
 void PmergeMe::insertValueThroughBinarySearch(int val)
 {
@@ -115,27 +94,7 @@ void PmergeMe::insertValueThroughBinarySearch(int val)
 	_currentFinalVectorSize++;
 }
 
-void	PmergeMe::displayResults(std::vector<Pair>& _vector)
-{
-/* 		$> ./PmergeMe 3 5 9 7 4
 
-	Time to process a range of 5 elements with std::[..] : 0.00031 us
-	Time to process a range of 5 elements with std::[..] : 0.00014 us */
-	std::cout << "Before: " << std::flush;
-	displayIntVector(_initialVector);
-	std::cout << "After:  " << std::flush;
-	displayIntVector(_finalVector);
-	
-	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : "
-	<< _timeSpentVector << " us" << std::endl;
-	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : "
-	<< _timeSpentVector << " us" << std::endl;
-	std::cout << "Comparison total: " << _comparisonCount << std::endl;
-	std::cout <<
-	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
-	<< std::endl;
-	(void)_vector;
-}
 
 /**========================================================================
  *                           DEQUE
