@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:30 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:12:47 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:20:02 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,17 @@ class PmergeMe
 
 		clock_t	startTimer();
 		template<typename Container>
-		double	stopTimer(Container&, clock_t start);
+		void	stopTimer(Container&, clock_t start);
 };
 
 template <>
 void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size);
+
+template<>
+void	PmergeMe::stopTimer(std::vector<Pair>&, clock_t start);
+
+template<>
+void	PmergeMe::stopTimer(std::deque<Pair>&, clock_t start);
 
 #include "PmergeMe.tpp"
 

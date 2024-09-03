@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:14:20 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:21:20 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
 	insertPendantValuesThroughBinarySearch(_vector);
 	if (_isOdd)
 		insertValueThroughBinarySearch(_vector, _straggler);
-	_timeSpentVector = stopTimer(_vector, timer);
+	stopTimer(_vector, timer);
 }
 
 template <typename Container>
@@ -189,7 +189,7 @@ void	PmergeMe::displayResults(Container& _vector)
 	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : "
 	<< _timeSpentVector << " us" << std::endl;
 	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : "
-	<< _timeSpentVector << " us" << std::endl;
+	<< _timeSpentDeque << " us" << std::endl;
 	std::cout << "Comparison total: " << _comparisonCount << std::endl;
 	std::cout <<
 	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
@@ -198,9 +198,22 @@ void	PmergeMe::displayResults(Container& _vector)
 }
 
 template<typename Container>
-double PmergeMe::stopTimer(Container&, clock_t start)
+void PmergeMe::stopTimer(Container&, clock_t start)
+{
+	(void)start;
+	
+}
+
+template<>
+inline void	PmergeMe::stopTimer(std::vector<Pair>&, clock_t start)
 {
 	clock_t end = clock();
-	return static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+	_timeSpentVector = static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+}
 
+template<>
+inline void	PmergeMe::stopTimer(std::deque<Pair>&, clock_t start)
+{
+	clock_t end = clock();
+	_timeSpentDeque = static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
 }
