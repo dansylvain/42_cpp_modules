@@ -52,15 +52,7 @@ void	PmergeMe::generateJacobstahlSequence()
 
 
 
-void	PmergeMe::createFinalVector()
-{
-	_finalVector.reserve(_intCount);
-	for (int i = 0; i < _pairCount; i++)
-	{
-		_finalVector.push_back(_vector[i].main);
-		_currentFinalVectorSize++;
-	}
-}
+
 
 
 

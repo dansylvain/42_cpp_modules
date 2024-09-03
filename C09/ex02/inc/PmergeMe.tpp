@@ -8,7 +8,7 @@ void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
 	generateJacobstahlSequence();
 	createFirstSortedPairing(_vector);
 	sortPairsByMainChainHighestValue(_vector);
-	createFinalVector();
+	createFinalVector(_vector);
 	insertPendantValuesThroughBinarySearch(_vector);
 	if (_isOdd)
 		insertValueThroughBinarySearch(_vector, _straggler);
@@ -142,7 +142,16 @@ void PmergeMe::insertValueThroughBinarySearch(Container&, int val)
 }
 
 
-
+template<typename Container>
+void	PmergeMe::createFinalVector(Container& _vector)
+{
+	_finalVector.reserve(_intCount);
+	for (int i = 0; i < _pairCount; i++)
+	{
+		_finalVector.push_back(_vector[i].main);
+		_currentFinalVectorSize++;
+	}
+}
 
 
 template<typename Container>

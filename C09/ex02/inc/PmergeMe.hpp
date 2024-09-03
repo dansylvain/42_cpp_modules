@@ -58,11 +58,11 @@ class PmergeMe
 		void	merge(Container& leftVector, Container& rightVector,
 				Container& _vector);
 
-		void	createFinalVector();
+		template<typename Container>
+		void	createFinalVector(Container&);
 
 		template<typename Container>
 		void	insertPendantValuesThroughBinarySearch(Container& _vector);
-
 		
 		template<typename Container>
 		void	insertValueThroughBinarySearch(Container&, int val);
