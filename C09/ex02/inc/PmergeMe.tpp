@@ -60,3 +60,25 @@ void	PmergeMe::sortPairsByMainChainHighestValue(Container& _vector)
 	sortPairsByMainChainHighestValue(rightVector);
 	merge(leftVector, rightVector, _vector);
 }
+
+template<typename Container>
+void	PmergeMe::merge(Container& leftVector, Container& rightVector,
+		Container& _vector)
+{
+	int leftSize = leftVector.size();
+	int rightSize = rightVector.size();
+	int i = 0, l = 0, r = 0;
+
+	while(l < leftSize && r < rightSize)
+	{
+		if(leftVector[l].main < rightVector[r].main)
+			_vector[i++] = leftVector[l++];
+		else
+			_vector[i++] = rightVector[r++];
+		_comparisonCount++;
+	}
+	while (l < leftSize)
+		_vector[i++] = leftVector[l++];
+	while (r < rightSize)
+		_vector[i++] = rightVector[r++];
+}
