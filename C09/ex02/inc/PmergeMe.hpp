@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:30 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:24:39 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/04 06:44:13 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,9 @@ class PmergeMe
 		clock_t	startTimer();
 		template<typename Container>
 		void	stopTimer(Container&, clock_t start);
+		
+		void displayGraph() const;
+
 };
 
 template <>

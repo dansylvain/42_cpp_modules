@@ -6,11 +6,12 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:06 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:25:30 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/04 06:53:35 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <fstream>
 
 /**========================================================================
  *                           COPLIEN
@@ -56,6 +57,34 @@ clock_t PmergeMe::startTimer()
 /**========================================================================
  *                           DISPLAY
  *========================================================================**/
+void PmergeMe::displayGraph() const
+{
+	std::string filename = "completeOutput";
+	std::ofstream file(filename.c_str());
+	if (!file.is_open())
+		throw std::runtime_error("Could not open file for writing");
+
+	file << "***********************\nUnsorted list:\n***********************\n";
+	for (int i = 0; i < _intCount; i++)
+	{
+		std::ostringstream oss;
+		oss << _initialVector[i];
+		file << oss.str() + " ";
+	}
+	file << "\n***********************\nSorted list:\n***********************\n";
+	for (int i = 0; i < _intCount; i++)
+	{
+		std::ostringstream oss;
+		oss << _finalVector[i];
+		file << oss.str() + " ";
+	}
+	file.close();
+}
+
+
+
+
+
 void	PmergeMe::displayResults()
 {
 	std::cout << "Before: " << std::flush;
@@ -71,6 +100,7 @@ void	PmergeMe::displayResults()
 	std::cout <<
 	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
 	<< std::endl;
+	displayGraph();
 }
 
 void	PmergeMe::displayJacobstahlVector(std::vector<int>& vector)

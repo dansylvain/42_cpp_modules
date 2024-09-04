@@ -32,7 +32,7 @@ wno: CFLAGS = -std=c++98 -Iinc -g
 wno: $(NAME)
 
 clean:
-	$(RM) $(OBJDIR) $(DEPDIR) largeVector smallVector
+	$(RM) $(OBJDIR) $(DEPDIR) completeOutput
 
 fclean: clean
 	$(RM) $(NAME)
