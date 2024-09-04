@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/04 07:07:01 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/04 07:38:42 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
 {
 	clock_t timer = startTimer();
 	getInputVector(input, _vector);
+	displayListStateGraph(_vector);
 	generateJacobstahlSequence();
 	createFirstSortedPairing(_vector);
 	sortPairsByMainChainHighestValue(_vector);
@@ -199,4 +200,23 @@ inline void	PmergeMe::stopTimer(std::deque<Pair>&, clock_t start)
 	clock_t end = clock();
 	_timeSpentDeque = static_cast<double>(end - start)
 		* 1000000.0 / CLOCKS_PER_SEC;
+}
+
+
+template<typename Container>
+void	PmergeMe::displayListStateGraph(Container& _vector) const
+{
+	(void)_vector;
+}
+
+
+template<>
+inline void	PmergeMe::displayListStateGraph(std::vector<Pair>& _vector) const
+{
+	
+	for (int i = 0; i < _pairCount; i++)
+	{
+		std::cout << _vector[i].main << " " << _vector[i].pendant << " " << std::flush;
+	}
+	print("");
 }

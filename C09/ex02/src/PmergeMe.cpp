@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:06 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/04 07:10:33 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/04 07:34:52 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ clock_t PmergeMe::startTimer()
 /**========================================================================
  *                           DISPLAY
  *========================================================================**/
-void PmergeMe::fillOutputFile() const
+void	PmergeMe::fillOutputFile() const
 {
 	std::string filename = "completeOutput";
 	std::ofstream file(filename.c_str());
