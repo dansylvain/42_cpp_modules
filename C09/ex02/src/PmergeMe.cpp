@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:06 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/04 06:59:24 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/04 07:03:46 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ clock_t PmergeMe::startTimer()
 /**========================================================================
  *                           DISPLAY
  *========================================================================**/
-void PmergeMe::displayGraph() const
+void PmergeMe::fillOutputFile() const
 {
 	std::string filename = "completeOutput";
 	std::ofstream file(filename.c_str());
@@ -81,10 +81,6 @@ void PmergeMe::displayGraph() const
 	file.close();
 }
 
-
-
-
-
 void	PmergeMe::displayResults()
 {
 	std::cout << "Before: " << std::flush;
@@ -92,17 +88,17 @@ void	PmergeMe::displayResults()
 	std::cout << "After:  " << std::flush;
 	displayIntVector(_finalVector);
 	
-	std::cout << "Time to process a range of " << _intCount << " elements with std::vector : "
+	std::cout << "\nTime to process a range of " << _intCount << " elements with std::vector : "
 	<< _timeSpentVector << " us" << std::endl;
 	std::cout << "Time to process a range of " << _intCount << " elements with std::deque  : "
 	<< _timeSpentDeque << " us" << std::endl;
-	std::cout << "Comparison total: " << _comparisonCount << std::endl;
+	std::cout << "\nComparison total: " << _comparisonCount << std::endl;
 	if (_intCount > 10)
-		std::cout << "\nCOMPLETE OUTPUT IN FILE \"completeOutput\" !!!\n";
+		std::cout << "\n********** COMPLETE OUTPUT IN FILE \"completeOutput\" !!! **********\n";
 	std::cout <<
 	"\nTry this for random values:\n	./PmergeMe $(shuf -i 1-100000 -n 3000 | tr '\\n' ' ')"
 	<< std::endl;
-	displayGraph();
+	fillOutputFile();
 }
 
 void	PmergeMe::displayJacobstahlVector(std::vector<int>& vector)
