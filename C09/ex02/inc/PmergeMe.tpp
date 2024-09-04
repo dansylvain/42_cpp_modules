@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:25:00 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/04 07:07:01 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void PmergeMe::reserve_space(Container&, typename Container::size_type)
 }
 
 template <>
-inline void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size)
+inline void PmergeMe::reserve_space(std::vector<int>& container,
+std::vector<int>::size_type size)
 {
     container.reserve(size);
 }
@@ -188,12 +189,14 @@ template<>
 inline void	PmergeMe::stopTimer(std::vector<Pair>&, clock_t start)
 {
 	clock_t end = clock();
-	_timeSpentVector = static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+	_timeSpentVector = static_cast<double>(end - start)
+		* 1000000.0 / CLOCKS_PER_SEC;
 }
 
 template<>
 inline void	PmergeMe::stopTimer(std::deque<Pair>&, clock_t start)
 {
 	clock_t end = clock();
-	_timeSpentDeque = static_cast<double>(end - start) * 1000000.0 / CLOCKS_PER_SEC;
+	_timeSpentDeque = static_cast<double>(end - start)
+		* 1000000.0 / CLOCKS_PER_SEC;
 }
