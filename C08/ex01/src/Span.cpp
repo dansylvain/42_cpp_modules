@@ -18,8 +18,10 @@ Span::Span(const Span& other) : _valuesTab(other._valuesTab), _maxSize(other._ma
 
 const Span& Span::operator=(const Span& rhs)
 {
+
 	if (this != &rhs)
 	{
+		_valuesTab.clear();
 		_valuesTab = rhs._valuesTab;
 		_maxSize = rhs._maxSize;
 	}
@@ -53,6 +55,7 @@ int		Span::shortestSpan() const
 
 	if (_valuesTab.size() < 2)
 		throw std::logic_error("Too few elements");
+		
 	std::vector<int> sortedTab = _valuesTab;
 	std::sort(sortedTab.begin(), sortedTab.end());
 

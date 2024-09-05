@@ -88,13 +88,13 @@ int main(void)
 	printB("Test method adNumbers:");
 	try
 	{
-	Span sp(20);
-	std::vector<int> data;
-	for (int i = 1; i <= 10; ++i)
-		data.push_back(i);
-	sp.addNumbers(data.begin(), data.end());
-	std::cout << "Test 1: ";
-	printTab(sp.getValuesTab());
+		Span sp(20);
+		std::vector<int> data;
+		for (int i = 1; i <= 10; ++i)
+			data.push_back(i);
+		sp.addNumbers(data.begin(), data.end());
+		std::cout << "Test 1: ";
+		printTab(sp.getValuesTab());
 	}
 	catch (const std::exception &e)
 	{
@@ -102,17 +102,17 @@ int main(void)
 	}
 	try
 	{
-	Span sp(10);
-	std::vector<int> data;
-	for (int i = 1; i <= 10; ++i)
-		data.push_back(i);
-	sp.addNumbers(data.begin(), data.end());
-	std::vector<int> moreData;
-	for (int i = 11; i <= 13; ++i)
-		moreData.push_back(i);
-	sp.addNumbers(moreData.begin(), moreData.end());
-	std::cout << "Test 2: ";
-	printTab(sp.getValuesTab());
+		Span sp(10);
+		std::vector<int> data;
+		for (int i = 1; i <= 10; ++i)
+			data.push_back(i);
+		sp.addNumbers(data.begin(), data.end());
+		std::vector<int> moreData;
+		for (int i = 11; i <= 13; ++i)
+			moreData.push_back(i);
+		sp.addNumbers(moreData.begin(), moreData.end());
+		std::cout << "Test 2: ";
+		printTab(sp.getValuesTab());
 	}
 	catch (const std::exception &e)
 	{
@@ -120,16 +120,16 @@ int main(void)
 	}
 	try
 	{
-	Span sp(15);
-	std::vector<int> data;
-	for (int i = 1; i <= 15; ++i)
-		data.push_back(i);
-	sp.addNumbers(data.begin(), data.begin() + 10);
-	sp.addNumber(16);
-	sp.addNumber(17);
-	std::cout << "Test 3: ";
-	printTab(sp.getValuesTab());
-	saveVectorToFile(sp.getValuesTab(), "smallVector");
+		Span sp(15);
+		std::vector<int> data;
+		for (int i = 1; i <= 15; ++i)
+			data.push_back(i);
+		sp.addNumbers(data.begin(), data.begin() + 10);
+		sp.addNumber(16);
+		sp.addNumber(17);
+		std::cout << "Test 3: ";
+		printTab(sp.getValuesTab());
+		saveVectorToFile(sp.getValuesTab(), "smallVector");
 	}
 	catch (const std::exception &e)
 	{

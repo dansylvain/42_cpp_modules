@@ -11,8 +11,8 @@ class Span
 		std::vector<int> _valuesTab;
 		unsigned long int _maxSize;
 
-	public:
 		Span();
+	public:
 		Span(const Span&);
 		const Span& operator=(const Span&);
 		Span(unsigned int N);
