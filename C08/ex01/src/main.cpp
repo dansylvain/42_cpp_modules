@@ -39,11 +39,11 @@ int main(void)
 	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
 	myPause();
-	printB("Create Span size max  == 10000 and add 10000 random numbers (using method addNumber)" );
-	Span spLarge(10000);
+	printB("Create Span size max  == 20000 and add 20000 random numbers (using method addNumber)" );
+	Span spLarge(20000);
 	std::srand(static_cast<unsigned int>(std::time(0)));
-	for (unsigned long int i = 0; i < 10000; ++i) {
-		spLarge.addNumber(std::rand() % 100000);
+	for (unsigned long int i = 0; i < 20000; ++i) {
+		spLarge.addNumber(std::rand() % 20000);
 	}
 	printTab(spLarge.getValuesTab());
 	saveVectorToFile(spLarge.getValuesTab(), "largeVector");
