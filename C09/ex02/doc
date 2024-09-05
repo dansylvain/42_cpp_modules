@@ -1,0 +1,3 @@
+Le probleme est bien plus grave que ce que je pensais. Il me faudra y passer du temps. Bien plus que ce que je pensais.
+
+je peux repartir du point ou j'avais termine l'algo pour le vector et refactoriser les fonctions qui en ont besoin pour utiliser des iterateurs au lieu d'indices avec les deque.
