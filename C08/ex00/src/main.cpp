@@ -5,7 +5,10 @@
 
 int main()
 {
-	printB("Test avec std::vector");
+	//! *******************************************************
+	//?  				TEST STD::VECTOR
+	//! *******************************************************
+	printB("Test with std::vector");
     std::vector<int> myVector;
     for (int i = 0; i < 10; ++i)
         myVector.push_back(i);
@@ -30,6 +33,9 @@ int main()
         std::cout << e.what() << std::endl;
     }
 
+	//! *******************************************************
+	//?  				TEST WITH STD::LIST
+	//! *******************************************************
 	printB("Test avec std::list");
     std::list<int> myList;
     for (int i = 10; i < 20; ++i)
