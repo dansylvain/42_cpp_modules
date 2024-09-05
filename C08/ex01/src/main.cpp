@@ -10,6 +10,9 @@
 
 int main(void)
 {
+	//! *******************************************************
+	//?  				SUBJECT'S TEST
+	//! *******************************************************
 	printB("Subject's test:");
 	{
 		Span sp = Span(5);
@@ -51,6 +54,9 @@ int main(void)
 	std::cout << "Shortest span in large Span: " << spLarge.shortestSpan() << std::endl;
 	std::cout << "Longest span in large Span: " << spLarge.longestSpan() << std::endl;
 
+	//! *******************************************************
+	//?  				TEST EXCEPTIONS
+	//! *******************************************************
 	myPause();
 	printB("\nTest exceptions:");
 	Span spSmall(2);
@@ -84,8 +90,12 @@ int main(void)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
+
+	//! *******************************************************
+	//?  				TEST METHOD ADDNUMBERS
+	//! *******************************************************
 	myPause();
-	printB("Test method adNumbers:");
+	printB("Test method addNumbers:");
 	try
 	{
 		Span sp(20);
