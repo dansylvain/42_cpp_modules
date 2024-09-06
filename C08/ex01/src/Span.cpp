@@ -77,6 +77,6 @@ int		Span::longestSpan() const
 		throw std::logic_error("Too few elements");
 	minIt = std::min_element(_valuesTab.begin(), _valuesTab.end());
 	maxIt = std::max_element(_valuesTab.begin(), _valuesTab.end());
-	return *maxIt - *minIt;
+	return (*maxIt - *minIt);
 }
 

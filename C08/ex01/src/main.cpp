@@ -143,7 +143,7 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Test 4: " << e.what() << std::endl;
+		std::cerr << "Test 3: " << e.what() << std::endl;
 	}
 	try
 	{
