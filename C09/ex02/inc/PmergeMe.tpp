@@ -6,25 +6,25 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:25:00 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/06 07:19:22 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 template<typename InputContainer, typename Container>
-void	PmergeMe::vectorSort(InputContainer& input, Container& _vector)
+void	PmergeMe::vectorSort(InputContainer& input, Container& container)
 {
 	clock_t timer = startTimer();
-	getInputVector(input, _vector);
+	getInputVector(input, container);
 	generateJacobstahlSequence();
-	createFirstSortedPairing(_vector);
-	sortPairsByMainChainHighestValue(_vector);
-	createFinalVector(_vector);
-	insertPendantValuesThroughBinarySearch(_vector);
+	createFirstSortedPairing(container);
+	sortPairsByMainChainHighestValue(container);
+	createFinalVector(container);
+	insertPendantValuesThroughBinarySearch(container);
 	if (_isOdd)
-		insertValueThroughBinarySearch(_vector, _straggler);
-	stopTimer(_vector, timer);
+		insertValueThroughBinarySearch(container, _straggler);
+	stopTimer(container, timer);
 }
 
 template <typename Container>
@@ -40,12 +40,12 @@ inline void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int
 }
 
 template <typename InputContainer, typename Container>
-void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
+void PmergeMe::getInputVector(InputContainer& input, Container& container)
 {
 	_initialVector = input;
 	_intCount = input.size();
-	_vector.clear();
-	reserve_space(_vector, _intCount); //? specific to vector
+	container.clear();
+	reserve_space(container, _intCount); //? specific to vector
 	_isOdd = false;
 
 	for (unsigned long i = 0; i < input.size(); i++)
@@ -56,7 +56,7 @@ void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
 		if (i + 1 < input.size())
 		{
 			pair.pendant = input[i + 1];
-			_vector.push_back(pair);
+			container.push_back(pair);
 			_pairCount++;
 			i++;
 		}
@@ -69,40 +69,40 @@ void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
 }
 
 template<typename Container>
-void	PmergeMe::createFirstSortedPairing(Container& _vector)
+void	PmergeMe::createFirstSortedPairing(Container& container)
 {
 	int tmp = 0;
 
-	for (unsigned long i = 0; i < _vector.size(); i++)
+	for (unsigned long i = 0; i < container.size(); i++)
 	{
-		if (_vector[i].main > _vector[i].pendant)
+		if (container[i].main > container[i].pendant)
 		{
-			tmp = _vector[i].main;
-			_vector[i].main = _vector[i].pendant;
-			_vector[i].pendant = tmp;
+			tmp = container[i].main;
+			container[i].main = container[i].pendant;
+			container[i].pendant = tmp;
 			_comparisonCount++;
 		}
 	}
 }
 
 template<typename Container>
-void	PmergeMe::sortPairsByMainChainHighestValue(Container& _vector)
+void	PmergeMe::sortPairsByMainChainHighestValue(Container& container)
 {
-	int len = _vector.size();
+	int len = container.size();
 	if (len <= 1) return;
 
 	int middle = len / 2;
-	Container leftVector(_vector.begin(), _vector.begin() + middle);
-	Container rightVector(_vector.begin() + middle, _vector.end());
+	Container leftVector(container.begin(), container.begin() + middle);
+	Container rightVector(container.begin() + middle, container.end());
 
 	sortPairsByMainChainHighestValue(leftVector);
 	sortPairsByMainChainHighestValue(rightVector);
-	merge(leftVector, rightVector, _vector);
+	merge(leftVector, rightVector, container);
 }
 
 template<typename Container>
 void	PmergeMe::merge(Container& leftVector, Container& rightVector,
-		Container& _vector)
+		Container& container)
 {
 	int leftSize = leftVector.size();
 	int rightSize = rightVector.size();
@@ -111,39 +111,40 @@ void	PmergeMe::merge(Container& leftVector, Container& rightVector,
 	while(l < leftSize && r < rightSize)
 	{
 		if(leftVector[l].main < rightVector[r].main)
-			_vector[i++] = leftVector[l++];
+			container[i++] = leftVector[l++];
 		else
-			_vector[i++] = rightVector[r++];
+			container[i++] = rightVector[r++];
 		_comparisonCount++;
 	}
 	while (l < leftSize)
-		_vector[i++] = leftVector[l++];
+		container[i++] = leftVector[l++];
 	while (r < rightSize)
-		_vector[i++] = rightVector[r++];
+		container[i++] = rightVector[r++];
 }
 
 template<typename Container>
-void	PmergeMe::insertPendantValuesThroughBinarySearch(Container& _vector)
+void	PmergeMe::insertPendantValuesThroughBinarySearch(Container& container)
 {
 	long unsigned int i = 0;
 	if (_pairCount < 1)
 		return;
+	_currentFinalVectorSize = 0;
 	for (; i < _jacobstahlSequence.size(); i++)
 	{
 		unsigned long int index = _jacobstahlSequence[i] - 1;
-		if (index >= _vector.size())
+		if (index >= container.size())
 			break;
-		int val = _vector[index].pendant;
-		insertValueThroughBinarySearch(_vector, val);
+		int val = container[index].pendant;
+		insertValueThroughBinarySearch(container, val);
 	}
 	_pairCount -= i;
 	for (;i > 0; i--)
 	{
 		unsigned long int index = _jacobstahlSequence[i - 1];
-		_vector.erase(_vector.begin() + index - 1);
+		container.erase(container.begin() + index - 1);
 	}
 	generateJacobstahlSequence();
-	insertPendantValuesThroughBinarySearch(_vector);
+	insertPendantValuesThroughBinarySearch(container);
 }
 
 template<typename Container>
@@ -167,12 +168,12 @@ void PmergeMe::insertValueThroughBinarySearch(Container&, int val)
 
 
 template<typename Container>
-void	PmergeMe::createFinalVector(Container& _vector)
+void	PmergeMe::createFinalVector(Container& container)
 {
 	reserve_space(_finalVector, _intCount);
 	for (int i = 0; i < _pairCount; i++)
 	{
-		_finalVector.push_back(_vector[i].main);
+		_finalVector.push_back(container[i].main);
 		_currentFinalVectorSize++;
 	}
 }
