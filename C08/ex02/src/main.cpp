@@ -95,19 +95,11 @@ int main()
 		printB("Test empty pile");
 		MutantStack<int> emptyStack;
 		std::cout << "Is stack empty? " << (emptyStack.empty() ? "Yes" : "No") << std::endl;
-		try
-		{
-			std::cout << "Attempting to access top element of empty stack:" << std::endl;
-			if (emptyStack.empty())
-				std::cerr << "Cannot access top element: Stack is empty." << std::endl;
-			else
-				std::cout << emptyStack.top() << std::endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << "Exception caught: " << e.what() << std::endl;
-		}
-
+		std::cout << "Attempting to access top element of empty stack:" << std::endl;
+		if (emptyStack.empty())
+			std::cerr << "Cannot access top element: Stack is empty." << std::endl;
+		else
+			std::cout << emptyStack.top() << std::endl;
 	}
 
 	//! *******************************************************
@@ -115,7 +107,7 @@ int main()
 	//! *******************************************************
 	myPause();
 	{
-		printB("Test differnt types");
+		printB("Test different types");
 		MutantStack<double> doubleStack;
 		doubleStack.push(3.1415);
 		doubleStack.push(2.7182);
@@ -171,7 +163,7 @@ int main()
 		std::cout << "Iterating through MutantStack with const iterator:" << std::endl;
 		while (it != ite)
 			std::cout << *it++ << std::endl;
-		// Uncommenting the following line should cause a compilation error
+		//? Uncomment to generate compilation error
 		// *it = 42; // Cannot modify through a const_iterator
 	}
 
