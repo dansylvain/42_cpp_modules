@@ -1,6 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/03 09:49:30 by dsylvain          #+#    #+#             */
+/*   Updated: 2024/09/03 10:24:39 by dsylvain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+#include <limits>
+#include <iomanip>
 #include <vector>
 #include <deque>
 #include <ctime>
+#include <iostream>
+#include <string>
+#include "main.hpp"
 
 class PmergeMe
 {
@@ -37,32 +55,53 @@ class PmergeMe
 		// common funcs
 		void	generateJacobstahlSequence();
 	
-		// vector
-		void	vectorSort(std::vector<int> _initialVector);
+		template<typename InputContainer, typename Container>
+		void	vectorSort(InputContainer& _initialVector, Container&);
 
-		void	getInputVector(std::vector<int>& input);
-		void	createFirstSortedPairing(std::vector<Pair>& _vector);
-		void	sortPairsByMainChainHighestValue(std::vector<Pair>& _vector);
-		void	merge(std::vector<Pair>& leftVector, std::vector<Pair>& rightVector,
-				std::vector<Pair>& _vector);
-		void	createFinalVector();
-		void	insertPendantValuesThroughBinarySearch(std::vector<Pair>& _vector);
-		void	insertValueThroughBinarySearch(int val);
-		void	displayResults(std::vector<Pair>& _vector);
+		template <typename Container>
+		void reserve_space(Container& container, typename Container::size_type size);
 
-		// deque
-		void	getInputDeque(std::vector<int>& input);
-		void	createFirstSortedPairing(std::deque<Pair>& _deque);
-		void	sortPairsByMainChainHighestValue(std::deque<Pair>& _deque);
-		void	insertPendantValuesThroughBinarySearch(std::deque<Pair>& _deque);
-		void	insertStraggler(std::deque<Pair>& _deque);
-		void	displayResults(std::deque<Pair>& _deque);
+		template<typename InputContainer, typename Container>
+		void	getInputVector(InputContainer& input, Container& _vector);
 
+		template<typename Container>
+		void	createFirstSortedPairing(Container& _vector);
+
+		template<typename Container>
+		void	sortPairsByMainChainHighestValue(Container&);
+
+		template<typename Container>
+		void	merge(Container& leftVector, Container& rightVector,
+				Container& _vector);
+
+		template<typename Container>
+		void	createFinalVector(Container&);
+
+		template<typename Container>
+		void	insertPendantValuesThroughBinarySearch(Container& _vector);
+		
+		template<typename Container>
+		void	insertValueThroughBinarySearch(Container&, int val);
+
+		void	displayResults();
 
 		void	displayPairVector(std::vector<Pair>& input);
 		void	displayIntVector(std::vector<int>& input);
 		void	displayJacobstahlVector(std::vector<int>& vector);
 
 		clock_t	startTimer();
-		double	stopTimer(clock_t start);
+		template<typename Container>
+		void	stopTimer(Container&, clock_t start);
 };
+
+template <>
+void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int>::size_type size);
+
+template<>
+void	PmergeMe::stopTimer(std::vector<Pair>&, clock_t start);
+
+template<>
+void	PmergeMe::stopTimer(std::deque<Pair>&, clock_t start);
+
+#include "PmergeMe.tpp"
+
