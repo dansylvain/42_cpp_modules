@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:06 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:25:30 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/06 07:04:54 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
  *========================================================================**/
 PmergeMe::PmergeMe() : 	_isOdd(false), _straggler(std::numeric_limits<double>::max()),
 						_intCount(0), _pairCount(0), _comparisonCount(0),
-						_currentFinalVectorSize(0)
+						_currentFinalVectorSize(0), _timeSpentVector(0),
+						_timeSpentDeque(0)
 {
 }
 
