@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/03 10:25:00 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:44:39 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ inline void PmergeMe::reserve_space(std::vector<int>& container, std::vector<int
 template <typename InputContainer, typename Container>
 void PmergeMe::getInputVector(InputContainer& input, Container& _vector)
 {
+	_pairCount = 0;
+	_comparisonCount = 0;
 	_initialVector = input;
+	_currentFinalVectorSize = 0;
 	_intCount = input.size();
 	_vector.clear();
 	reserve_space(_vector, _intCount); //? specific to vector
