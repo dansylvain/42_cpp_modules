@@ -6,7 +6,7 @@
 /*   By: dsylvain <dsylvain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 09:49:51 by dsylvain          #+#    #+#             */
-/*   Updated: 2024/09/08 12:44:39 by dsylvain         ###   ########.fr       */
+/*   Updated: 2024/09/08 12:57:49 by dsylvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,15 @@ void	PmergeMe::merge(Container& leftVector, Container& rightVector,
 		_comparisonCount++;
 	}
 	while (l < leftSize)
+	{
 		_vector[i++] = leftVector[l++];
+		_comparisonCount++;
+	}
 	while (r < rightSize)
+	{
 		_vector[i++] = rightVector[r++];
+		_comparisonCount++;
+	}
 }
 
 template<typename Container>
